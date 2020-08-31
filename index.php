@@ -4,6 +4,7 @@
         <title>AlterISO3 ビルドオプション ジェネレータ</title>
         <link rel="stylesheet" href="mobile.css" media="screen and (max-width:480px)">
         <link rel="stylesheet" href="pc.css" media="screen and (min-width:480px)">
+        <script type="text/javascript" src="main.js"></script>
     </head>
     <body>
         <header>
@@ -23,7 +24,7 @@
                     有効
                 </label>
                 <label for="plymouth_disable">
-                    <input type="radio" name="plymouth" value="enable" id="plymouth_disable">
+                    <input type="radio" name="plymouth" value="disable" id="plymouth_disable">
                     無効
                 </label>
                 <!-- Plymouth ここまで-->
@@ -47,6 +48,11 @@
                 <h4>パスワード</h4>
                 <input type="password" name="password" placeholder="alter">
                 <!-- ユーザー ここまで-->
+
+                <input type="button" value="生成" onClick="startgen()">
+
+                <h3>実行結果</h3>
+                <textarea id="output" disabled></textarea>
 
 
             </form>
