@@ -30,6 +30,13 @@ function getPassword(){
     }
 }
 
+function getDebug() {
+    var _Debug = document.getElementById("debug_enable");
+    if (_Debug.checked) {
+        ARGUMENTS = ARGUMENTS + " -d"
+    }
+}
+
 function startgen() {
     // 初期化
     ARGUMENTS = ""
@@ -38,6 +45,7 @@ function startgen() {
     getCompType();
     getUsername();
     getPassword();
+    getDebug();
     
     // 出力
     document.getElementById('output').innerHTML = "";
