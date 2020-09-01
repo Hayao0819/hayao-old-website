@@ -29,6 +29,18 @@
                 </label>
                 <!-- Plymouth ここまで-->
 
+                <!-- tarball ここから-->
+                <h3>Tarball</h3>
+                <label for="tarball_enable">
+                    <input type="radio" name="tarball" value="enable" id="tarball_enable">
+                    有効
+                </label>
+                <label for="tarball_disable">
+                    <input type="radio" name="tarball" value="disable" id="tarball_disable" checked>
+                    無効
+                </label>
+                <!-- tarball ここまで-->
+
                 <!-- 圧縮設定 ここから-->
                 <h3>Squashfsの圧縮方式</h3>
                 <select name="sfs-comp-type" id="sfs-comp-type">
