@@ -16,5 +16,17 @@ header {
 
 main {
     border: 1px black solid;
-    padding-left: 2%;
+    padding: 2%;
+}
+
+select, input[type="text"], input[type="password"]{
+    width: 100%;
+}
+
+td {
+    width: 37.5%;
+}
+
+.table_title {
+    width: 25%;
 }
