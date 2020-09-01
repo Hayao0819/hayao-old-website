@@ -7,6 +7,13 @@ function getPlymouth(){
     }
 }
 
+function getClean () {
+    var _IsClean = document.getElementById("clean_enable");
+    if (_IsClean.checked) {
+        ARGUMENTS = ARGUMENTS + " -e"
+    }
+}
+
 function getTarball () {
     var _IsTarball = document.getElementById("tarball_enable");
     if (_IsTarball.checked) {
@@ -49,7 +56,7 @@ function startgen() {
     ARGUMENTS = ""
 
     getPlymouth();
-    getTarball();
+    getClean();
     getCompType();
     getUsername();
     getPassword();

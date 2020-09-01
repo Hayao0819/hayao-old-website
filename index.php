@@ -29,6 +29,18 @@
                 </label>
                 <!-- Plymouth ここまで-->
 
+                <!-- クリーニング ここから-->
+                <h3>クリーニング</h3>
+                <label for="clean_enable">
+                    <input type="radio" name="clean" value="enable" id="clean_enable" checked>
+                    有効
+                </label>
+                <label for="clean_disable">
+                    <input type="radio" name="clean" value="disable" id="clean_disable">
+                    無効
+                </label>
+                <!-- クリーニング ここまで-->
+
                 <!-- tarball ここから-->
                 <h3>Tarball</h3>
                 <label for="tarball_enable">
