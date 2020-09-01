@@ -49,5 +49,9 @@ function startgen() {
     
     // 出力
     document.getElementById('output').innerHTML = "";
-    document.getElementById('output').innerHTML = ARGUMENTS;
+    if (ARGUMENTS == "") {
+        document.getElementById('output').innerHTML = "引数は必要ありません";
+    } else {
+        document.getElementById('output').innerHTML = ARGUMENTS;
+    }
 }
