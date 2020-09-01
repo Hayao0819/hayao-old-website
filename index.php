@@ -49,6 +49,20 @@
                 <input type="password" id="password" placeholder="alter" value="alter">
                 <!-- ユーザー ここまで-->
 
+                <!-- デバッグ用オプション ここから -->
+                <h3>デバッグ用設定</h3>
+                <h4>デバッグメッセージ</h4>
+                <label for="debug_enable">
+                    <input type="radio" name="debug" value="enable" id="debug_enable">
+                    有効
+                </label>
+                <label for="debug_disable">
+                    <input type="radio" name="debug" value="disable" id="debug_disable" checked>
+                    無効
+                </label>
+
+                <!-- デバッグ用オプション ここまで -->
+
                 <input type="button" value="生成" onClick="startgen()">
 
                 <h3>実行結果</h3>
