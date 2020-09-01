@@ -14,8 +14,8 @@ function getCompType(){
 function getUsername(){
     var _Username = document.getElementById("username").value;
     console.log(_Username);
-    if (! _Username && _Username != "alter") {
-        ARGUMENTS = ARGUMENTS + " " + "-u " + _Username;
+    if (_Username != "alter" && _Username != "" ) {
+        ARGUMENTS = ARGUMENTS + " " + "-u \"" + _Username + "\"";
     }
 }
 
