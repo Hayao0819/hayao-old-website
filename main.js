@@ -21,6 +21,13 @@ function getTarball () {
     }
 }
 
+function getArchitecture () {
+    var _Architecture = document.getElementById("architecture").value;
+    if (_Architecture != "" && _Architecture != "x86_64") {
+        ARGUMENTS = ARGUMENTS + " -a \"" + _Architecture + "\"";
+    }
+}
+
 function getCompType () {
     var _Comptype = document.getElementById('sfs-comp-type').value;
     if (_Comptype != "zstd" && _Comptype != "") {
@@ -57,6 +64,8 @@ function startgen() {
 
     getPlymouth();
     getClean();
+    getTarball();
+    getArchitecture();
     getCompType();
     getUsername();
     getPassword();

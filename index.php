@@ -53,6 +53,14 @@
                 </label>
                 <!-- tarball ここまで-->
 
+                <!-- アーキテクチャ ここから-->
+                <h3>アーキテクチャ</h3>
+                <select name="architecture" id="architecture">
+                    <option value="i686">i686</option>
+                    <option value="x86_64" selected>x86_64</option>
+                </select>
+                <!-- アーキテクチャ ここまで-->
+
                 <!-- 圧縮設定 ここから-->
                 <h3>Squashfsの圧縮方式</h3>
                 <select name="sfs-comp-type" id="sfs-comp-type">
