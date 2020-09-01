@@ -31,7 +31,7 @@
 
                 <!-- 圧縮設定 ここから-->
                 <h3>Squashfsの圧縮方式</h3>
-                <select name="sfs-comp-type">
+                <select name="sfs-comp-type" id="sfs-comp-type">
                     <option value="gzip">gzip</option>
                     <option value="lzma">lzma</option>
                     <option value="lzo">lzo</option>
@@ -44,9 +44,9 @@
                 <!-- ユーザー ここから-->
                 <h3>ライブ環境ユーザー</h3>
                 <h4>ユーザー名</h4>
-                <input type="text" name="username" placeholder="alter">
+                <input type="text" id="username" placeholder="alter" value="alter">
                 <h4>パスワード</h4>
-                <input type="password" name="password" placeholder="alter">
+                <input type="password" id="password" placeholder="alter">
                 <!-- ユーザー ここまで-->
 
                 <input type="button" value="生成" onClick="startgen()">
