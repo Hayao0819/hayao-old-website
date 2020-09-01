@@ -46,7 +46,7 @@
                 <h4>ユーザー名</h4>
                 <input type="text" id="username" placeholder="alter" value="alter">
                 <h4>パスワード</h4>
-                <input type="password" id="password" placeholder="alter">
+                <input type="password" id="password" placeholder="alter" value="alter">
                 <!-- ユーザー ここまで-->
 
                 <input type="button" value="生成" onClick="startgen()">
