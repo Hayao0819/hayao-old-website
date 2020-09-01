@@ -1,3 +1,21 @@
 label, input[type='checkbox'] {
     cursor: pointer;
 }
+
+html {
+    padding-top: 2%;
+    padding-bottom: 0%;
+    padding-right: 5%;
+    padding-left: 5%;
+}
+
+header {
+    border: 1px black solid;
+    margin-bottom: 1%;
+    text-align: center;
+}
+
+main {
+    border: 1px black solid;
+    padding-left: 2%;
+}
