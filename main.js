@@ -8,14 +8,17 @@ function getPlymouth(){
 }
 
 function getCompType(){
-    ARGUMENTS = ARGUMENTS + " " + document.getElementById('sfs-comp-type').value;
+    var _Comptype = document.getElementById('sfs-comp-type').value;
+    if (_Comptype != "zstd" && _Comptype != "") {
+        ARGUMENTS = ARGUMENTS + " -c \"" + _Comptype + "\"";
+    }
 }
 
 function getUsername(){
     var _Username = document.getElementById("username").value;
     // console.log(_Username);
     if (_Username != "alter" && _Username != "" ) {
-        ARGUMENTS = ARGUMENTS + " " + "-u \"" + _Username + "\"";
+        ARGUMENTS = ARGUMENTS + " -u \"" + _Username + "\"";
     }
 }
 
@@ -23,7 +26,7 @@ function getPassword(){
     var _Password = document.getElementById("password").value;
     //console.log(_Password);
     if (_Password != "alter" && _Password != "" ) {
-        ARGUMENTS = ARGUMENTS + " " + "-p \"" + _Password + "\"";
+        ARGUMENTS = ARGUMENTS + " -p \"" + _Password + "\"";
     }
 }
 
