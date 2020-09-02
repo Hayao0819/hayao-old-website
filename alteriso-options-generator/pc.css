@@ -23,10 +23,20 @@ select, input[type="text"], input[type="password"]{
     width: 100%;
 }
 
-td {
-    width: 37.5%;
+.option_title {
+    width: 25%;
+    width: 100%;
 }
 
-.table_title {
-    width: 25%;
+.box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.box_child {
+    width: 20%;
+    padding: 1%;
 }
