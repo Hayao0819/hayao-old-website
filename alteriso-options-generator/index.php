@@ -85,6 +85,25 @@
                     </div>
                     <!-- 圧縮設定 ここまで-->
 
+                    <!-- カーネル ここから-->
+                    <div class="box_child">
+                        <p class="option_title"><h3>カーネル</h3></p>
+                        <p class="option_description">使用するカーネルを設定します</p>
+                        <p class="option_form">
+                            <select name="kernel" id="kernel">
+                                <option value="core">linux</option>
+                                <option value="lts">linux-lts</option>
+                                <option value="zen">linux-zen</option>
+                                <script>
+
+                                </script>
+                                
+                            </select>
+                        </p>
+
+                    </div>
+                    <!-- カーネル ここまで-->
+
                     <!-- ユーザー ここから-->
                     <div class="box_child">
                         <p class="option_title"><h3>ライブ環境ユーザー名</h3></p>
