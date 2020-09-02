@@ -116,6 +116,7 @@
                 <h2>実行</h2>
                 <p>このジェネレータでは引数はデフォルト値ではない場合のみ指定するようになっています。</p>
                 <textarea id="output" disabled></textarea><br>
+                <label for="only_no_default"><input name="only_no_default" type="checkbox" id="only_no_default">デフォルトの値も引数で指定する。</label>
                 <input type="button" value="生成" onClick="startgen()">
             </form>
         </main>
