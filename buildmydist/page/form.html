@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>
+      【2019年版】Ubuntu系のLinuxディストリビューションを自作しよう
+    </title>
+    <meta name="description" content="
+      Ubuntu派生のLinux系OSの自作方法を解説したサイトです。
+      このサイトに関する情報を書いている場所です。
+    ">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="../style/main-resp.css" media="screen and (max-width: 799px)">
+    <link rel="stylesheet" href="../style/main.css" media="screen and (min-width: 800px)">
+    <link rel="stylesheet" href="../code/vs2015.css">
+    <script src="../code/highlight.pack.js"></script>
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" type="text/css" media="print" href="../style/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:100,300,400,500,700,900&amp;subset=japanese" rel="stylesheet">
+
+    <!-- class="prettyprint linenums" でコードに色付け -->
+    <!-- <pre><code class="prettyprint linenums"></code></pre> -->
+  </head>
+  <body>
+    <header>
+      <h1>
+        【2019年版】Ubuntu系のOSを自作しよう
+      </h1>
+        <p>
+          BodhiBuilderを用いてオリジナルのOSを作成します。
+        </p>
+        <p>
+          自分の好きなデスクトップ環境やソフトウェアを入れてオリジナルのOSを作成しましょう。
+        </p>
+        <p>
+          実際に開発中のOS『SereneLinux』の実例を挙げながらわかりやすく解説していきます。
+          
+        </p>
+        <nav>
+          <ul class="topnav">
+            <li><a href="../index.html">トップページ</a></li>
+            <li><a href="preparation.html">準備編</a></li>
+            <li><a href="customize.html">カスタマイズ編</a></li>
+            <li><a href="makeiso.html">ISO作成編</a></li>
+            <li><a href="distribution.html">配布編</a></li>
+            <li class="right"><a href="about.html"  class="active">About</a></li>
+            <li class="right"><a href="website.html">参考サイト</a></li>
+          </ul>
+        </nav>
+    </header>
+
+    <main>
+      <h2>
+        メールフォーム
+      </h2>
+      <p>
+        何かありましたらこちらのメールフォームで問い合わせを行ってください
+      </p>
+      <p>
+        返信は遅くなるかもしれませんが必ず確認します
+      </p>
+
+      <form method="POST" action="http://hayao819.php.xdomain.jp/mail.php">
+        <table>
+          <tbody>
+            <tr>
+              <td>
+                題名*
+              </td>
+              <td>
+                <input type="text" name="題名" size="50">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                名前*
+              </td>
+              <td><input type="text" name="name" size="50"></td>
+            </tr>
+            <tr>
+              <td>メールアドレス*</td>
+              <td><input type="tex" name="Email" size="50"></td>
+            </tr>
+            <tr>
+              <td>性別*</td>
+              <td>
+                <select name="性別" size="1">
+                  <option value="男">男</option>
+                  <option value="女">女</option>
+                  <option value="その他">その他</option>
+                  <option value="教えたくない">教えたくない</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td>お問い合わせ内容*</td>
+              <td><textarea name="お問い合わせ内容" cols="60" rows="10">ここにお問い合わせ内容を入力してください</textarea></td>
+            </tr>
+            <tr>
+              <td>利用中のOS*</td>
+              <td>
+                <select name="利用中のOS" size="1">
+                  <option value="Windows 7">Windows 7</option>
+                  <option value="Windows 8">Windows 8</option>
+                  <option value="Windows 8.1">Windows 8.1</option>
+                  <option value="Windows 10">Windows 10</option>
+                  <option value="Windows Insider Preview">Windows Insider Preview</option>
+                  <option value="以前のWindows">以前のWindows</option>
+                  <option value="Mac OS X">Mac OS X</option>
+                  <option value="Linux ( Ubuntu・Debian系 )">Linux ( Ubuntu・Debian系 )</option>
+                  <option value="Linux ( Arch系 )">Linux ( Arch系 )</option>
+                  <option value="Linux ( RedHat系 )">Linux ( RedHat系 )</option>
+                  <option value="Linux ( その他 )">Linux ( その他 )</option>
+                  <option value="Android 4.4以前">Android 4.4以前</option>
+                  <option value="Android 5.0 以降">Android 5.0 以降</option>
+                  <option value="iOS">iOS</option>
+                  <option value="BSD">BSD</option>
+                  <option value="other">その他のOS</option>
+                  <option value="わからない">わからない</option>
+                </select>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <input type="submit" value="確認">
+      </form>
+
+    </main>
+
+
+    <footer>
+      It is provided by SereneLinux.
+      <br>
+      Copyright
+      &copy; 2019 SereneTeam All Rights Reserved.
+      <p>
+        <script type="text/javascript" src="//ct2.shinobi.jp/sc/1744984">
+        </script>
+        <noscript><img src="//ct2.shinobi.jp/ll/1744984" alt="カウンター">
+        </noscript>
+      </p>
+    </footer>
+
+
+  </body>
+</html>
