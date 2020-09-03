@@ -4,7 +4,6 @@
         <title>AlterISO3 ビルドオプション ジェネレータ</title>
         <link rel="stylesheet" href="mobile.css" media="screen and (max-width:480px)">
         <link rel="stylesheet" href="pc.css" media="screen and (min-width:480px)">
-        <script type="text/javascript" src="main.js"></script>
     </head>
     <body>
         <header>
@@ -59,7 +58,7 @@
                         <p class="option_title"><h3>アーキテクチャ</h3></p>
                         <p class="option_description">ビルドするアニメーションを指定します</p>
                         <p class="option_form">
-                            <select name="architecture" id="architecture">
+                            <select name="architecture" id="architecture" onchange="kernelMain()">
                                 <option value="i686">i686</option>
                                 <option value="x86_64" selected>x86_64</option>
                             </select>
@@ -84,6 +83,19 @@
                         </p>
                     </div>
                     <!-- 圧縮設定 ここまで-->
+
+                    <!-- カーネル ここから-->
+                    <div class="box_child">
+                        <p class="option_title"><h3>カーネル</h3></p>
+                        <p class="option_description">使用するカーネルを設定します</p>
+                        <p class="option_form">
+                            <select name="kernel" id="kernel">
+                                <option disabled selected>アーキテクチャを選択してください</option>
+                            </select>
+                        </p>
+
+                    </div>
+                    <!-- カーネル ここまで-->
 
                     <!-- ユーザー ここから-->
                     <div class="box_child">
@@ -117,7 +129,7 @@
                 <p>このジェネレータでは引数はデフォルト値ではない場合のみ指定するようになっています。</p>
                 <textarea id="output" disabled></textarea><br>
                 <label for="only_no_default"><input name="only_no_default" type="checkbox" id="only_no_default">デフォルトの値も引数で指定する。</label>
-                <input type="button" value="生成" onClick="startgen()">
+                <input type="button" value="生成" onclick="startgen()">
             </form>
         </main>
         
@@ -125,6 +137,9 @@
 
         <footer>
         </footer>
+
+        <script type="text/javascript" src="main.js"></script>
+        <script type="text/javascript" src="kernellist.js"></script>
     </body>
 
 </html>

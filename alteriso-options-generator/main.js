@@ -43,6 +43,15 @@ function getCompType () {
     }
 }
 
+function getKernel () {
+    var _Kernel = document.getElementById("kernel").value;
+    if(_Kernel != "") {
+        if (_Kernel != "zen" || ONLY_NO_DEFAULT == false) {
+            ARGUMENTS = ARGUMENTS + " -k \"" + _Kernel + "\"";
+        }
+    }
+}
+
 function getUsername (){
     var _Username = document.getElementById("username").value;
     // console.log(_Username);
@@ -85,6 +94,7 @@ function startgen() {
     getTarball();
     getArchitecture();
     getCompType();
+    getKernel();
     getUsername();
     getPassword();
     getDebug();
