@@ -163,6 +163,7 @@
                         <h2>ログ</h2>
                         <p>このジェネレータのログです。</p>
                         <textarea id="generator-output" disabled></textarea>
+                        <input type="button" value="ログをリセット" onclick="log_clear()">
                     </div>
                 </div>
             </form>

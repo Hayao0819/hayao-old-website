@@ -3,6 +3,9 @@ var ARGUMENTS = ""
 // デフォルトではない設定のみ引数で指定する
 ONLY_NO_DEFAULT = true
 
+// ローカルのログを復元する
+document.getElementById("generator-output").value = localStorage.getItem('Logs');
+
 // Todo
 // ログや値などをローカルに保存する
 // https://www.granfairs.com/blog/staff/local-storage-01
@@ -12,9 +15,12 @@ function writeLog(_msg) {
 
     // 参考 https://www.sejuku.net/blog/30171
     var _time = new Date();
-    var _log_date = _time.getHours() + ":" + _time.getMinutes() + ":" + _time.getSeconds();
+    var _log_date = _time.getFullYear() + "/" + _time.getMonth() + "/" + _time.getDate() + " " + _time.getHours() + ":" + _time.getMinutes() + ":" + _time.getSeconds();
     console.log (_log_date);
-    _log_box.value = "\n" + "[ " + _log_date + " ]" + _msg +_log_box.value;
+    _log_box.value = "\n" + "[" + _log_date + "]" + _msg +_log_box.value;
+
+    // 参考 https://www.granfairs.com/blog/staff/local-storage-01
+    localStorage.setItem('Logs', _log_box.value);
 }
 
 function getPlymouth(){
@@ -169,4 +175,9 @@ function copy_to_clipboard() {
     } else {
         writeLog("コピーするものがありません");
     }
+}
+
+function log_clear() {
+    document.getElementById("generator-output").value = "";
+    localStorage.removeItem("Logs");
 }
