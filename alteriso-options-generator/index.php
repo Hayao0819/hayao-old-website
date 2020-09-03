@@ -2,8 +2,9 @@
 <html>
     <head>
         <title>AlterISO3 ビルドオプション ジェネレータ</title>
-        <link rel="stylesheet" href="mobile.css" media="screen and (max-width:480px)">
-        <link rel="stylesheet" href="pc.css" media="screen and (min-width:480px)">
+        <link rel="stylesheet" href="mobile.css" media="screen and (max-width:830px)">
+        <link rel="stylesheet" href="pc.css" media="screen and (min-width:830px)">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
     </head>
     <body>
         <header>
