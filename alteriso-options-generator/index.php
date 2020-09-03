@@ -17,10 +17,10 @@
             <form method="POST">
                 <h2>ビルド設定</h2>
 
-                <div class="box">
+                <div class="option_box">
 
                     <!-- Plymouth ここから-->
-                    <div class="box_child">
+                    <div class="option_box_child">
                         <p class="option_title"><h3>Plymouth</h3></p>
                         <p class="option_description">有効にすると起動時にアニメーションを表示します</p>
                         <p class="option_form">
@@ -31,7 +31,7 @@
                     <!-- Plymouth ここまで-->
 
                     <!-- クリーニング ここから-->
-                    <div class="box_child">
+                    <div class="option_box_child">
                         <p class="option_title"><h3>クリーニング</h3></p>
                         <p class="option_description">ビルド中に不要なファイルを削除します</p>
                         <p class="option_form">
@@ -42,7 +42,7 @@
                     <!-- クリーニング ここまで-->
 
                     <!-- tarball ここから-->
-                    <div class="box_child">
+                    <div class="option_box_child">
                         <p class="option_title"><h3>Tarball</h3></p>
                         <p class="option_description">Tarball形式でビルドします</p>
                         <p class="option_form">
@@ -55,7 +55,7 @@
 
 
                     <!-- アーキテクチャ ここから-->
-                    <div class="box_child">
+                    <div class="option_box_child">
                         <p class="option_title"><h3>アーキテクチャ</h3></p>
                         <p class="option_description">ビルドするアニメーションを指定します</p>
                         <p class="option_form">
@@ -69,7 +69,7 @@
 
 
                     <!-- 圧縮設定 ここから-->
-                    <div class="box_child">
+                    <div class="option_box_child">
                         <p class="option_title"><h3>Squashfsの圧縮方式</h3></p>
                         <p class="option_description">Rootfsの圧縮方式を指定します</p>
                         <p class="option_form">
@@ -86,7 +86,7 @@
                     <!-- 圧縮設定 ここまで-->
 
                     <!-- カーネル ここから-->
-                    <div class="box_child">
+                    <div class="option_box_child">
                         <p class="option_title"><h3>カーネル</h3></p>
                         <p class="option_description">使用するカーネルを設定します</p>
                         <p class="option_form">
@@ -99,12 +99,12 @@
                     <!-- カーネル ここまで-->
 
                     <!-- ユーザー ここから-->
-                    <div class="box_child">
+                    <div class="option_box_child">
                         <p class="option_title"><h3>ライブ環境ユーザー名</h3></p>
                         <p class="option_description">ライブ環境のユーザー名を指定します</p>
                         <p class="option_form"><input type="text" id="username" placeholder="alter" value="alter"></p>
                     </div>
-                    <div class="box_child">
+                    <div class="option_box_child">
                         <p class="option_title"><h3>ライブ環境パスワード</h3></p>
                         <p class="option_description">ライブ環境のユーザーのパスワードを設定します</p>
                         <p class="option_form"><input type="password" id="password" placeholder="alter" value="alter"></p>
@@ -112,7 +112,7 @@
                     <!-- ユーザー ここまで-->
 
                     <!-- デバッグ用オプション ここから -->
-                    <div class="box_child">
+                    <div class="option_box_child">
                         <p class="option_title"><h3>Shell版のmkalteriso</h3></p>
                         <p class="option_description">C++版の代わりにShell版のmkalterisoを使用します。</p>
                         <p class="option_form">
@@ -120,7 +120,7 @@
                             <label for="shmkalteriso_disable"><input type="radio" name="shmkalteriso" value="disable" id="shmkalteriso_disable" checked>無効</label>
                         </p>
                     </div>
-                    <div class="box_child">
+                    <div class="option_box_child">
                         <p class="option_title"><h3>Gitバージョン</h3></p>
                         <p class="option_description">Gitのリビジョン番号をバージョン情報に含めます。</p>
                         <p class="option_form">
@@ -128,7 +128,7 @@
                             <label for="gitversion_disable"><input type="radio" name="gitversion" value="disable" id="gitversion_disable" checked>無効</label>
                         </p>
                     </div>
-                    <div class="box_child">
+                    <div class="option_box_child">
                         <p class="option_title"><h3>デバッグメッセージ</h3></p>
                         <p class="option_description">デバッグメッセージを表示します</p>
                         <p class="option_form">
@@ -136,7 +136,7 @@
                             <label for="debug_disable"><input type="radio" name="debug" value="disable" id="debug_disable" checked>無効</label>
                         </p>
                     </div>
-                    <div class="box_child">
+                    <div class="option_box_child">
                         <p class="option_title"><h3>スクリプトデバッグ</h3></p>
                         <p class="option_description">Bashのデバッグメッセージを表示します</p>
                         <p class="option_form">
@@ -149,16 +149,22 @@
                 </div>
 
 
-
-                <h2>実行</h2>
-                <p>このジェネレータでは引数はデフォルト値ではない場合のみ指定するようになっています。</p>
-                <textarea id="output" disabled></textarea><br>
-                <label for="only_no_default"><input name="only_no_default" type="checkbox" id="only_no_default">デフォルトの値も引数で指定する。</label>
-                <input type="button" value="生成" onclick="startgen()">
-                <input type="button" value="コピー" onclick="copy_to_clipboard()">
-                <h2>ログ</h2>
-                <p>このジェネレータのログです。</p>
-                <textarea id="generator-output" disabled></textarea>
+                <div class="result_box">
+                    <div class="result_box_child">
+                        <h2>実行</h2>
+                        <p>このジェネレータでは引数はデフォルト値ではない場合のみ指定するようになっています。</p>
+                        <textarea id="output" disabled></textarea><br>
+                        <label for="only_no_default"><input name="only_no_default" type="checkbox" id="only_no_default">デフォルトの値も引数で指定する。</label>
+                        <input type="button" value="生成" onclick="startgen()">
+                        <input type="button" value="コピー" onclick="copy_to_clipboard()">
+                    </div>
+                
+                    <div class="result_box_child">
+                        <h2>ログ</h2>
+                        <p>このジェネレータのログです。</p>
+                        <textarea id="generator-output" disabled></textarea>
+                    </div>
+                </div>
             </form>
         </main>
         
