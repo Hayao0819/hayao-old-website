@@ -140,9 +140,10 @@ function startgen() {
     // 出力
     document.getElementById('output').innerHTML = "";
     if (ARGUMENTS == "") {
-        document.getElementById('output').value = "引数は必要ありません";
+        writeLog ("引数は必要ありません");
     } else {
         document.getElementById('output').value = ARGUMENTS;
+        writeLog( "「" + ARGUMENTS + "」を生成しました");
     }
 }
 
@@ -166,6 +167,6 @@ function copy_to_clipboard() {
 
         writeLog("「" + output_value + "」" + "をクリップボードにコピーしました！");
     } else {
-        writeLog("コピーするものがありません")
+        writeLog("コピーするものがありません");
     }
 }
