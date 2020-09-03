@@ -6,6 +6,9 @@ ONLY_NO_DEFAULT = true
 // ローカルのログを復元する
 document.getElementById("generator-output").value = localStorage.getItem('Logs');
 
+// クリック回数をリセット
+sessionStorage.setItem("click_title", "0");
+
 // Todo
 // ログや値などをローカルに保存する
 // https://www.granfairs.com/blog/staff/local-storage-01
@@ -180,4 +183,17 @@ function copy_to_clipboard() {
 function log_clear() {
     document.getElementById("generator-output").value = "";
     localStorage.removeItem("Logs");
+}
+
+function clicked_header() {
+    // 参考 https://pinkmonky.net/detail/?id=61
+    sessionStorage.setItem("click_title", parseInt(sessionStorage.getItem("click_title")) + 1);
+
+    // console.log(sessionStorage.getItem("click_title"));
+    if (sessionStorage.getItem("click_title") == 1 ) {
+        document.getElementsByTagName("footer")[0].innerHTML = "(ง •ᴗ•)ว ⁾⁾ﾌｧｰｳｪｲでｳｪｲｳｪｲ";
+    } else if (sessionStorage.getItem("click_title") >= 2) {
+        // 参考 https://techacademy.jp/magazine/22404
+        location.href = "https://www.madoka-magica.com/tv/";
+    }
 }

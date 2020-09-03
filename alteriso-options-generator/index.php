@@ -7,9 +7,10 @@
         <meta name="viewport" content="width=device-width,initial-scale=1">
     </head>
     <body>
-        <header>
+        <header ondblclick="clicked_header()">
             <h1>AlterISO3 ビルドオプション ジェネレータ</h1>
-            <p>AlterISO3のスクリプトのオプションを生成します。ハヤオのウェブ関連言語の勉強用です。</p>
+            <p>AlterISO3のスクリプトのオプションを生成します。</p>
+            <p>ハヤオがCSSとJSを勉強するための副産物でしかないのでいつ更新やめるか不明。</p>
         </header>
 
         
@@ -172,6 +173,13 @@
         
 
         <footer>
+            <p >
+                <div style="text-align: left; float: left;">
+                GPLv3でライセンスされてます。コピーレフトなので左寄せ
+                </div>
+                <div style="text-align: right;">
+                    Fascode Network Yamada Hayao コピーライト的なアレなので右寄せ
+                </div>
         </footer>
 
         <script type="text/javascript" src="main.js"></script>
