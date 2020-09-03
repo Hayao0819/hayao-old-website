@@ -155,6 +155,10 @@
                 <textarea id="output" disabled></textarea><br>
                 <label for="only_no_default"><input name="only_no_default" type="checkbox" id="only_no_default">デフォルトの値も引数で指定する。</label>
                 <input type="button" value="生成" onclick="startgen()">
+                <input type="button" value="コピー" onclick="copy_to_clipboard()">
+                <h2>ログ</h2>
+                <p>このジェネレータのログです。</p>
+                <textarea id="generator-output" disabled></textarea>
             </form>
         </main>
         

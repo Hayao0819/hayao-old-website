@@ -3,6 +3,16 @@ var ARGUMENTS = ""
 // デフォルトではない設定のみ引数で指定する
 ONLY_NO_DEFAULT = true
 
+function writeLog(_msg) {
+    var _log_box = document.getElementById("generator-output")
+
+    // 参考 https://www.sejuku.net/blog/30171
+    var _time = new Date();
+    var _log_date = _time.getHours() + ":" + _time.getMinutes() + ":" + _time.getSeconds();
+    console.log (_log_date);
+    _log_box.value = "\n" + "[ " + _log_date + " ]" + _msg +_log_box.value;
+}
+
 function getPlymouth(){
     var _IsPlymouth = document.getElementById("plymouth_enable");
     if (_IsPlymouth.checked) {
@@ -88,7 +98,6 @@ function getBashDebug () {
 
 function getGitversion () {
     var _IsGetversion = document.getElementById("gitversion_enable");
-    console.log(_IsGetversion);
     if (_IsGetversion.checked) {
         ARGUMENTS = ARGUMENTS + " --gitversion";
     }
@@ -96,7 +105,6 @@ function getGitversion () {
 
 function getShmkalteriso () {
     var _IsShmkalteriso = document.getElementById("shmkalteriso_enable");
-    console.log(_IsShmkalteriso);
     if (_IsShmkalteriso.checked) {
         ARGUMENTS = ARGUMENTS + " --shmkalteriso";
     }
@@ -128,8 +136,32 @@ function startgen() {
     // 出力
     document.getElementById('output').innerHTML = "";
     if (ARGUMENTS == "") {
-        document.getElementById('output').innerHTML = "引数は必要ありません";
+        document.getElementById('output').value = "引数は必要ありません";
     } else {
-        document.getElementById('output').innerHTML = ARGUMENTS;
+        document.getElementById('output').value = ARGUMENTS;
+    }
+}
+
+function copy_to_clipboard() {
+    var output_value = document.getElementById("output").value;
+
+    if (output_value != ""){
+        //参考 https://qiita.com/butakoma/items/642c0ec4b77f6bb5ebcf#clipboardeventclipboarddataを使う方法
+
+        var listener = function(e){
+        
+            e.clipboardData.setData("text/plain" , output_value);    
+            // 本来のイベントをキャンセル
+            e.preventDefault();
+            // 終わったら一応削除
+            document.removeEventListener("copy", listener);
+        }
+
+        document.addEventListener("copy" , listener);
+        document.execCommand("copy");
+
+        writeLog("「" + output_value + "」" + "をクリップボードにコピーしました！");
+    } else {
+        writeLog("コピーするものがありません")
     }
 }
