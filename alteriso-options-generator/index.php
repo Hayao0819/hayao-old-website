@@ -120,6 +120,14 @@
                             <label for="debug_disable"><input type="radio" name="debug" value="disable" id="debug_disable" checked>無効</label>
                         </p>
                     </div>
+                    <div class="box_child">
+                        <p class="option_title"><h3>スクリプトデバッグ</h3></p>
+                        <p class="option_description">Bashのデバッグメッセージを表示します</p>
+                        <p class="option_form">
+                            <label for="bash_debug_enable"><input type="radio" name="bash_debug" value="enable" id="bash_debug_enable">有効</label>
+                            <label for="bash_debug_disable"><input type="radio" name="bash_debug" value="disable" id="bash_debug_disable" checked>無効</label>
+                        </p>
+                    </div>
                     <!-- デバッグ用オプション ここまで -->
 
                 </div>

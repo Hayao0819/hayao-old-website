@@ -79,6 +79,13 @@ function getDebug () {
     }
 }
 
+function getBashDebug () {
+    var _IsBashDebug = document.getElementById("bash_debug_enable");
+    if (_IsBashDebug.checked) {
+        ARGUMENTS = ARGUMENTS + " -x";
+    }
+}
+
 function startgen() {
     // 初期化
     ARGUMENTS = ""
@@ -98,6 +105,7 @@ function startgen() {
     getUsername();
     getPassword();
     getDebug();
+    getBashDebug();
     
     // 出力
     document.getElementById('output').innerHTML = "";
