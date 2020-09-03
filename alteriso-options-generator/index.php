@@ -113,6 +113,14 @@
 
                     <!-- デバッグ用オプション ここから -->
                     <div class="box_child">
+                        <p class="option_title"><h3>Gitバージョン</h3></p>
+                        <p class="option_description">Gitのリビジョン番号をバージョン情報に含めます。</p>
+                        <p class="option_form">
+                            <label for="gitversion_enable"><input type="radio" name="gitversion" value="enable" id="gitversion_enable">有効</label>
+                            <label for="gitversion_disable"><input type="radio" name="gitversion" value="disable" id="gitversion_disable" checked>無効</label>
+                        </p>
+                    </div>
+                    <div class="box_child">
                         <p class="option_title"><h3>デバッグメッセージ</h3></p>
                         <p class="option_description">デバッグメッセージを表示します</p>
                         <p class="option_form">

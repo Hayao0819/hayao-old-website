@@ -86,6 +86,14 @@ function getBashDebug () {
     }
 }
 
+function getGitversion () {
+    var _IsGetversion = document.getElementById("gitversion_enable");
+    console.log(_IsGetversion);
+    if (_IsGetversion.checked) {
+        ARGUMENTS = ARGUMENTS + " --gitversion";
+    }
+}
+
 function startgen() {
     // 初期化
     ARGUMENTS = ""
@@ -106,6 +114,7 @@ function startgen() {
     getPassword();
     getDebug();
     getBashDebug();
+    getGitversion();
     
     // 出力
     document.getElementById('output').innerHTML = "";
