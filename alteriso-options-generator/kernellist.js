@@ -11,16 +11,28 @@
 // https://techacademy.jp/magazine/22315
 // 
 
+
+kernelMain();
+
+
 function createKernelList(_kernel) {
+    
     var _option = document.createElement('option');
-    if ( _kernel == "core"){
+
+    if ( _kernel == "core") {
         _option.text = "linux";
         _option.value = "core";
+        _option.id = "core"
     } else {
         _option.text = "linux-" + _kernel;
         _option.value = _kernel;
+        _option.id = _kernel;
     }
+
+    //console.log(_option);
+    //console.log(_kernel);
     document.getElementById("kernel").appendChild(_option);
+    
 }
 
 function createListAny() {
@@ -41,9 +53,14 @@ function createListx86_64() {
 }
 
 function kernelMain() {
-    var _Architecture = document.getElementById("architecture").value;
+
+    document.getElementById("kernel").innerHTML = "";
+
     createListAny();
-    if (_Architecture = "x86_64") {
+    var _Architecture = document.getElementById("architecture").value;
+    if (_Architecture == "x86_64") {
         createListx86_64();
     }
+
+    document.getElementById("zen").selected = true;;
 }
