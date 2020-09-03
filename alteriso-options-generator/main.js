@@ -3,6 +3,10 @@ var ARGUMENTS = ""
 // デフォルトではない設定のみ引数で指定する
 ONLY_NO_DEFAULT = true
 
+// Todo
+// ログや値などをローカルに保存する
+// https://www.granfairs.com/blog/staff/local-storage-01
+
 function writeLog(_msg) {
     var _log_box = document.getElementById("generator-output")
 
