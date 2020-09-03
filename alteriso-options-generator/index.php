@@ -113,6 +113,14 @@
 
                     <!-- デバッグ用オプション ここから -->
                     <div class="box_child">
+                        <p class="option_title"><h3>Shell版のmkalteriso</h3></p>
+                        <p class="option_description">C++版の代わりにShell版のmkalterisoを使用します。</p>
+                        <p class="option_form">
+                            <label for="shmkalteriso_enable"><input type="radio" name="shmkalteriso" value="enable" id="shmkalteriso_enable">有効</label>
+                            <label for="shmkalteriso_disable"><input type="radio" name="shmkalteriso" value="disable" id="shmkalteriso_disable" checked>無効</label>
+                        </p>
+                    </div>
+                    <div class="box_child">
                         <p class="option_title"><h3>Gitバージョン</h3></p>
                         <p class="option_description">Gitのリビジョン番号をバージョン情報に含めます。</p>
                         <p class="option_form">

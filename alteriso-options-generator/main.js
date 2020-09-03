@@ -94,6 +94,14 @@ function getGitversion () {
     }
 }
 
+function getShmkalteriso () {
+    var _IsShmkalteriso = document.getElementById("shmkalteriso_enable");
+    console.log(_IsShmkalteriso);
+    if (_IsShmkalteriso.checked) {
+        ARGUMENTS = ARGUMENTS + " --shmkalteriso";
+    }
+}
+
 function startgen() {
     // 初期化
     ARGUMENTS = ""
@@ -112,9 +120,10 @@ function startgen() {
     getKernel();
     getUsername();
     getPassword();
+    getShmkalteriso();
+    getGitversion();
     getDebug();
     getBashDebug();
-    getGitversion();
     
     // 出力
     document.getElementById('output').innerHTML = "";
