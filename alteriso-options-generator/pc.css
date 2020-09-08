@@ -37,7 +37,10 @@ select, input[type="text"], input[type="password"]{
 }
 
 .option_box_child {
-    width: 20%;
+    /* flex-basis: 15%; */
+    flex-grow: 1;
+    max-width: 20%;
+    min-width: 15%;
     padding: 1%;
 }
 
