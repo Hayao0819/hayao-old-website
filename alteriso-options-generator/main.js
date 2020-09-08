@@ -1,17 +1,29 @@
+
 var ARGUMENTS = ""
+var ONLY_NO_DEFAULT = true
+document.getElementById("log_nosave").checked = false;
+window.onload = Initialize()
 
-// デフォルトではない設定のみ引数で指定する
-ONLY_NO_DEFAULT = true
+function Initialize() {
 
-// ローカルのログを復元する
-document.getElementById("generator-output").value = localStorage.getItem('Logs');
 
-// クリック回数をリセット
-sessionStorage.setItem("click_title", "0");
+    // デフォルトではない設定のみ引数で指定する
+    // ローカルのログを復元する
+    document.getElementById("generator-output").value = localStorage.getItem('Logs');
+    
+    // クリック回数をリセット
+    sessionStorage.setItem("click_title", "0");
+    
+    // nosaveの値を保存する
+    //参考 https://kimizuka.hatenablog.com/entry/2015/07/25/000000
+    if (localStorage.getItem("nosave") == "true") {
+        document.getElementById("log_nosave").checked = true;
+    }
 
-// Todo
-// ログや値などをローカルに保存する
-// https://www.granfairs.com/blog/staff/local-storage-01
+    //console.log(document.getElementById("log_nosave").checked);
+    //writeLog("");
+}
+
 
 function writeLog(_msg) {
     var _log_box = document.getElementById("generator-output")
@@ -19,11 +31,13 @@ function writeLog(_msg) {
     // 参考 https://www.sejuku.net/blog/30171
     var _time = new Date();
     var _log_date = _time.getFullYear() + "/" + _time.getMonth() + "/" + _time.getDate() + " " + _time.getHours() + ":" + _time.getMinutes() + ":" + _time.getSeconds();
-    console.log (_log_date);
+    // console.log (_log_date);
     _log_box.value = "\n" + "[" + _log_date + "]" + _msg +_log_box.value;
 
     // 参考 https://www.granfairs.com/blog/staff/local-storage-01
-    localStorage.setItem('Logs', _log_box.value);
+    if (localStorage.getItem("nosave") == false) {
+        localStorage.setItem('Logs', _log_box.value);
+    }
 }
 
 function getPlymouth(){
@@ -181,9 +195,13 @@ function copy_to_clipboard() {
 }
 
 function log_clear() {
-    if ( confirm("ログを削除します。よろしいですか？") == true ) {
+    function _run_clear_log() {
         document.getElementById("generator-output").value = "";
         localStorage.removeItem("Logs");
+    }
+
+    if ( document.getElementById("log_clear_noconfirm").checked == true || confirm("ログを削除します。よろしいですか？") == true) {
+        _run_clear_log();
     }
 }
 
@@ -204,4 +222,23 @@ function clicked_footer() {
     if (document.getElementsByTagName("footer")[0].innerHTML == "(ง •ᴗ•)ว ⁾⁾ﾌｧｰｳｪｲでｳｪｲｳｪｲ") {
         location.href = "https://magireco.com/";
     }
+}
+
+//openTwitter(投稿文、シェアするURL、提供元アカウント)
+//参考 https://santmove.com/info.php?info_id=31
+function tweetArguments() {
+    var output_value = document.getElementById("output").value;
+
+    if ( output_value == "") {
+        writeLog ("引数が生成されていないのでツイートできません。");
+    } else {
+        var url = "http://localhost/alteriso-options-generator/index.php"
+        var account = "Fascode_SPT"
+        var _tweet_text = "AlterISOのビルドオプション「"+output_value+"」を作成しました。"
+        window.open("https://twitter.com/intent/tweet?text="+_tweet_text+"&url="+url+"&via="+account, '_blank');
+    }
+}
+
+function clicked_log_nosave() {
+    localStorage.setItem("nosave", document.getElementById("log_nosave").checked);
 }
