@@ -197,3 +197,9 @@ function clicked_header() {
         location.href = "https://www.madoka-magica.com/tv/";
     }
 }
+
+function clicked_footer() {
+    if (document.getElementsByTagName("footer")[0].innerHTML == "(ง •ᴗ•)ว ⁾⁾ﾌｧｰｳｪｲでｳｪｲｳｪｲ") {
+        location.href = "https://magireco.com/";
+    }
+}

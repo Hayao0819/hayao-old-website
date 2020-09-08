@@ -172,8 +172,7 @@
         
         
 
-        <footer>
-            <p >
+        <footer onclick="clicked_footer()">
                 <div style="text-align: left; float: left;">
                 GPLv3でライセンスされてます。コピーレフトなので左寄せ
                 </div>
