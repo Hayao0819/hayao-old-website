@@ -35,7 +35,7 @@ function writeLog(_msg) {
     _log_box.value = "\n" + "[" + _log_date + "]" + _msg +_log_box.value;
 
     // 参考 https://www.granfairs.com/blog/staff/local-storage-01
-    if (localStorage.getItem("nosave") == false) {
+    if (localStorage.getItem("nosave") == "false") {
         localStorage.setItem('Logs', _log_box.value);
     }
 }
