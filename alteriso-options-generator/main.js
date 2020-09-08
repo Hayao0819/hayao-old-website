@@ -181,8 +181,10 @@ function copy_to_clipboard() {
 }
 
 function log_clear() {
-    document.getElementById("generator-output").value = "";
-    localStorage.removeItem("Logs");
+    if ( confirm("ログを削除します。よろしいですか？") == true ) {
+        document.getElementById("generator-output").value = "";
+        localStorage.removeItem("Logs");
+    }
 }
 
 function clicked_header() {
