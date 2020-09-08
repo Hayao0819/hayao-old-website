@@ -5,6 +5,13 @@
         <link rel="stylesheet" href="mobile.css" media="screen and (max-width:830px)">
         <link rel="stylesheet" href="pc.css" media="screen and (min-width:830px)">
         <meta name="viewport" content="width=device-width,initial-scale=1">
+        <link rel="shortcut icon" href="./favicon.ico" type="image/vnd.microsoft.icon">
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="@Hayao0819">
+        <meta name="twitter:title" content="AlterISO3 ビルドオプション ジェネレータ">
+        <meta name="twitter:description" content="AlterISO3のビルドオプションを生成するサイト。ハヤオがJSとかPHPとか覚えるために作った。">
+        <meta name="twitter:image" content="https://fascode.net/projects/linux/alter/img/AlterV5-Logo-Colored-WhiteText-vector.svg>
+        <meta name="twitter:url" content="http://hayao.fascode.net/alteriso-options-generator/index.php">
     </head>
     <body>
         <header ondblclick="clicked_header()">
