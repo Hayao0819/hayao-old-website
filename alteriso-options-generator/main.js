@@ -20,8 +20,6 @@ function Initialize() {
         document.getElementById("log_nosave").checked = true;
     }
 
-    //console.log(document.getElementById("log_nosave").checked);
-    //writeLog("");
 }
 
 
