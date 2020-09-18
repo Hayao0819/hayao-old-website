@@ -254,7 +254,7 @@ function tweetArguments() {
     if ( output_value == "") {
         writeErr ("引数が生成されていないのでツイートできません。");
     } else {
-        var url = "http://localhost/alteriso-options-generator/index.php"
+        var url = location.href
         var account = "Fascode_SPT"
         var _tweet_text = "AlterISOのビルドオプション「"+output_value+"」を作成しました。"
         window.open("https://twitter.com/intent/tweet?text="+_tweet_text+"&url="+url+"&via="+account, '_blank');
