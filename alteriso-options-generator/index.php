@@ -119,6 +119,30 @@
                     </div>
                     <!-- ユーザー ここまで-->
 
+                    <!-- チャンネル ここから-->
+                    <div class="option_box_child">
+                        <p class="option_title"><h3>チャンネル</h3></p>
+                        <p class="option_description">
+                            ビルドするチャンネルを指定します。
+                            <br>
+                            <span style="color: red;">この項目は必須です。</span>
+                        </p>
+                        <p class="option_form">
+                            <input type="text" id="channel" placeholder="xfce" list="channel_list">
+                            <datalist id="channel_list">
+                            </datalist>
+                        </p>
+                        <script>
+                            var channel_list = ['basic', 'cinnamon', 'deepin', 'gnome', 'gnome-mac', 'i3', 'lxde', 'plasma', 'releng', 'xfce', 'xfce-pro']
+                            channel_list.forEach(function (_channel){
+                                var _option_channel = document.createElement('option');
+                                _option_channel.value = _channel;
+                                document.getElementById("channel_list").appendChild(_option_channel);
+                            });
+                        </script>
+                    </div>
+                    <!-- チャンネル ここまで-->
+
                     <!-- デバッグ用オプション ここから -->
                     <div class="option_box_child">
                         <p class="option_title"><h3>Shell版のmkalteriso</h3></p>
@@ -163,6 +187,7 @@
                         <p>このジェネレータでは引数はデフォルト値ではない場合のみ指定するようになっています。</p>
                         <textarea id="output" disabled></textarea><br>
                         <label for="only_no_default"><input name="only_no_default" type="checkbox" id="only_no_default">デフォルトの値も引数で指定する。</label>
+                        <label for="allow_no_channel"><input name="allow_no_channel" type="checkbox" id="allow_no_channel">チャンネルの省略を許可する。</label>
                         <input type="button" value="生成" onclick="startgen()">
                         <input type="button" value="コピー" onclick="copy_to_clipboard()">
                         <input type="button" value="ツイートする" onclick="tweetArguments()">

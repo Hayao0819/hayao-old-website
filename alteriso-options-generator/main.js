@@ -1,6 +1,7 @@
 
-var ARGUMENTS = ""
-var ONLY_NO_DEFAULT = true
+var ARGUMENTS = "" ;
+var ONLY_NO_DEFAULT = true ;
+var ALLOW_NO_CHANNEL = false ;
 document.getElementById("log_nosave").checked = false;
 window.onload = Initialize()
 
@@ -36,6 +37,11 @@ function writeLog(_msg) {
     if (localStorage.getItem("nosave") == "false") {
         localStorage.setItem('Logs', _log_box.value);
     }
+}
+
+function writeErr(_msg) {
+    writeLog(_msg);
+    document.getElementById('output').value = "エラーが発生しました。ログを参照して下さい。";
 }
 
 function getPlymouth(){
@@ -135,15 +141,28 @@ function getShmkalteriso () {
     }
 }
 
+function getChannel() {
+    var _Channel = document.getElementById("channel").value;
+    console.log(document.getElementById("channel").value);
+    ARGUMENTS = ARGUMENTS + ' ' + _Channel;
+}
+
 function startgen() {
     // 初期化
     ARGUMENTS = ""
 
     if (document.getElementById("only_no_default").checked) {
-        ONLY_NO_DEFAULT = false
+        ONLY_NO_DEFAULT = false;
     } else {
-        ONLY_NO_DEFAULT = true
+        ONLY_NO_DEFAULT = true;
     }
+
+    if (document.getElementById("allow_no_channel").checked) {
+        ALLOW_NO_CHANNEL = true;
+    } else {
+        ALLOW_NO_CHANNEL = false;
+    }
+
 
     getPlymouth();
     getClean();
@@ -157,11 +176,16 @@ function startgen() {
     getGitversion();
     getDebug();
     getBashDebug();
+
+    // チャンネル取得
+    getChannel();
     
     // 出力
     document.getElementById('output').innerHTML = "";
     if (ARGUMENTS == "") {
         writeLog ("引数は必要ありません");
+    } else if ( ! document.getElementById("channel").value && ALLOW_NO_CHANNEL == false ) {
+        writeErr ("チャンネルを指定して下さい。");
     } else {
         document.getElementById('output').value = ARGUMENTS;
         writeLog( "「" + ARGUMENTS + "」を生成しました");
@@ -188,7 +212,7 @@ function copy_to_clipboard() {
 
         writeLog("「" + output_value + "」" + "をクリップボードにコピーしました！");
     } else {
-        writeLog("コピーするものがありません");
+        writeErr ("コピーするものがありません");
     }
 }
 
@@ -228,7 +252,7 @@ function tweetArguments() {
     var output_value = document.getElementById("output").value;
 
     if ( output_value == "") {
-        writeLog ("引数が生成されていないのでツイートできません。");
+        writeErr ("引数が生成されていないのでツイートできません。");
     } else {
         var url = "http://localhost/alteriso-options-generator/index.php"
         var account = "Fascode_SPT"
