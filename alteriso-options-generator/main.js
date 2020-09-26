@@ -195,7 +195,11 @@ function startgen() {
 function copy_to_clipboard() {
     var output_value = document.getElementById("output").value;
 
-    if (output_value != ""){
+    if (output_value == ""){
+        writeErr ("コピーするものがありません");
+    } else if (output_value == "エラーが発生しました。ログを参照して下さい。") {
+        writeErr ("エラーメッセージはコピーできません")
+    } else {
         //参考 https://qiita.com/butakoma/items/642c0ec4b77f6bb5ebcf#clipboardeventclipboarddataを使う方法
 
         var listener = function(e){
@@ -211,8 +215,6 @@ function copy_to_clipboard() {
         document.execCommand("copy");
 
         writeLog("「" + output_value + "」" + "をクリップボードにコピーしました！");
-    } else {
-        writeErr ("コピーするものがありません");
     }
 }
 
@@ -257,7 +259,7 @@ function tweetArguments() {
         var url = location.href
         var account = "Fascode_SPT"
         var _tweet_text = "AlterISOのビルドオプション「"+output_value+"」を作成しました。"
-        window.open("https://twitter.com/intent/tweet?text="+_tweet_text+"&url="+url+"&via="+account, '_blank');
+        window.open("https://twitter.com/intent/tweet?text="+_tweet_text+"&via="+account+"&url="+url, '_blank');
     }
 }
 
