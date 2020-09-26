@@ -23,6 +23,7 @@
             <h1>AlterISO3 ビルドオプション ジェネレータ</h1>
             <p>AlterISO3のスクリプトのオプションを生成します。</p>
             <p>ハヤオがCSSとJSを勉強するための副産物でしかないのでいつ更新やめるか不明。</p>
+            <p><b>このサイトはハヤオが勉強目的で作っています。改善点等があったら<a href="https://twitter.com/Hayao0819" target="_blank">Twitter</a>までお願いします。</b></p>
         </header>
 
         
