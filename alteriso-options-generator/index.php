@@ -10,8 +10,13 @@
         <meta name="twitter:site" content="@Hayao0819">
         <meta name="twitter:title" content="AlterISO3 ビルドオプション ジェネレータ">
         <meta name="twitter:description" content="AlterISO3のビルドオプションを生成するサイト。ハヤオがJSとかPHPとか覚えるために作った。">
-        <meta name="twitter:image" content="https://fascode.net/projects/linux/alter/img/AlterV5-Logo-Colored-WhiteText-vector.svg>
+        <meta name="twitter:image" content="https://fascode.net/projects/linux/alter/img/AlterV5-Logo-Colored-WhiteText-vector.svg">
         <meta name="twitter:url" content="http://hayao.fascode.net/alteriso-options-generator/index.php">
+        <style>
+            .hide_debug{
+                display: none;
+            }
+        </style>
     </head>
     <body>
         <header ondblclick="clicked_header()">
@@ -142,7 +147,15 @@
                         </script>
                     </div>
                     <!-- チャンネル ここまで-->
+                </div>
+                
+                <h2>デバッグ用オプション</h2>
+                <label for="show_debug">
+                    <input type="checkbox" name="show_debug" id="show_debug" onclick="switch_debug()">
+                    デバッグ用オプションを表示する
+                </label>
 
+                <div id="debug_box" class="option_box hide_debug">
                     <!-- デバッグ用オプション ここから -->
                     <div class="option_box_child">
                         <p class="option_title"><h3>Shell版のmkalteriso</h3></p>

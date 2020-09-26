@@ -264,3 +264,14 @@ function tweetArguments() {
 function clicked_log_nosave() {
     localStorage.setItem("nosave", document.getElementById("log_nosave").checked);
 }
+
+function switch_debug() {
+    var _checkbox = document.getElementById("show_debug");
+    var _debug = document.getElementById("debug_box");
+    if ( _checkbox.checked ) {
+        _debug.classList.remove("hide_debug");
+    } else {
+        _debug.classList.add("hide_debug");
+    }
+}
+

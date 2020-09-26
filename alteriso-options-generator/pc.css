@@ -1,5 +1,6 @@
 label, input[type='checkbox'] {
     cursor: pointer;
+    user-select: none;
 }
 
 html {
