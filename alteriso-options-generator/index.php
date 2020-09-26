@@ -190,6 +190,22 @@
                             <label for="bash_debug_disable"><input type="radio" name="bash_debug" value="disable" id="bash_debug_disable" checked>無効</label>
                         </p>
                     </div>
+                    <div class="option_box_child">
+                        <p class="option_title"><h3>メッセージデバッグ</h3></p>
+                        <p class="option_description">メッセージ表示をデバッグします</p>
+                        <p class="option_form">
+                            <label for="msg_debug_enable"><input type="radio" name="msg_debug" value="enable" id="msg_debug_enable">有効</label>
+                            <label for="msg_debug_disable"><input type="radio" name="msg_debug" value="disable" id="msg_debug_disable" checked>無効</label>
+                        </p>
+                    </div>
+                    <div class="option_box_child">
+                        <p class="option_title"><h3>AURパッケージをインストールしない</h3></p>
+                        <p class="option_description">AURのパッケージのビルドやインストールをスキップします。</p>
+                        <p class="option_form">
+                            <label for="noaur_enable"><input type="radio" name="noaur" value="enable" id="noaur_enable">有効</label>
+                            <label for="noaur_disable"><input type="radio" name="noaur" value="disable" id="noaur_disable" checked>無効</label>
+                        </p>
+                    </div>
                     <!-- デバッグ用オプション ここまで -->
 
                 </div>

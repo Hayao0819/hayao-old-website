@@ -141,6 +141,21 @@ function getShmkalteriso () {
     }
 }
 
+function getMsgDebug () {
+    var _IsMsgDebug = document.getElementById("msg_debug_enable");
+    if (_IsMsgDebug.checked) {
+        ARGUMENTS = ARGUMENTS + " --msgdebug";
+    }
+}
+
+function getNoAur () {
+    var _IsNoAur = document.getElementById("noaur_enable");
+    if (_IsNoAur.checked) {
+        ARGUMENTS = ARGUMENTS + " --noaur";
+    }
+}
+
+
 function getChannel() {
     var _Channel = document.getElementById("channel").value;
     console.log(document.getElementById("channel").value);
@@ -176,6 +191,8 @@ function startgen() {
     getGitversion();
     getDebug();
     getBashDebug();
+    getMsgDebug();
+    getNoAur();
 
     // チャンネル取得
     getChannel();
