@@ -223,10 +223,10 @@
 
         <footer onclick="clicked_footer()">
                 <div style="text-align: left; float: left;">
-                GPLv3でライセンスされてます。コピーレフトなので左寄せ
+                    GPLv3でライセンスされてます <a href="https://github.com/Hayao0819/hayao.fascode.net/tree/master/alteriso-options-generator" target="_blank">ソースコード</a>
                 </div>
                 <div style="text-align: right;">
-                    Fascode Network Yamada Hayao コピーライト的なアレなので右寄せ
+                    Fascode Network Yamada Hayao
                 </div>
         </footer>
 
