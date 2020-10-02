@@ -2,12 +2,11 @@
 var ARGUMENTS = "" ;
 var ONLY_NO_DEFAULT = true ;
 var ALLOW_NO_CHANNEL = false ;
+var INITIAL_LOG = "Welcome to generator!";
 document.getElementById("log_nosave").checked = false;
-window.onload = Initialize()
+window.onload = Initialize();
 
 function Initialize() {
-
-
     // デフォルトではない設定のみ引数で指定する
     // ローカルのログを復元する
     document.getElementById("generator-output").value = localStorage.getItem('Logs');
@@ -19,13 +18,27 @@ function Initialize() {
     //参考 https://kimizuka.hatenablog.com/entry/2015/07/25/000000
     if (localStorage.getItem("nosave") == "true") {
         document.getElementById("log_nosave").checked = true;
+    } else if (localStorage.getItem("nosave") == null) {
+        localStorage.setItem("nosave", false);
+    }
+
+    // Logの初期値を設定
+    if (localStorage.getItem("Logs") == null){
+        //localStorage.setItem("Logs", INITIAL_LOG);
+        document.getElementById("generator-output").value = INITIAL_LOG;
     }
 
 }
 
 
 function writeLog(_msg) {
-    var _log_box = document.getElementById("generator-output")
+    var _log_box = document.getElementById("generator-output");
+    if (localStorage.getItem("Logs") == INITIAL_LOG) {
+        localStorage.removeItem("Logs");
+    }
+    if (_log_box.value == INITIAL_LOG) {
+        _log_box.value = "";
+    }
 
     // 参考 https://www.sejuku.net/blog/30171
     var _time = new Date();
@@ -38,6 +51,7 @@ function writeLog(_msg) {
         localStorage.setItem('Logs', _log_box.value);
     }
 }
+
 
 function writeErr(_msg) {
     writeLog(_msg);

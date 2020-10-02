@@ -226,7 +226,7 @@
                     <div class="result_box_child">
                         <h2>ログ</h2>
                         <p>このジェネレータのログです。</p>
-                        <textarea id="generator-output" disabled></textarea>
+                        <textarea id="generator-output"" disabled></textarea>
                         <input type="button" value="ログをリセット" onclick="log_clear()">
                         <label for="log_clear_noconfirm"><input name="log_clear_noconfirm" type="checkbox" id="log_clear_noconfirm">確認メッセージを表示しない</label>
                         <label for="log_nosave" onclick="clicked_log_nosave()"><input name="log_nosave" type="checkbox" id="log_nosave">ログを保存しない</label>
