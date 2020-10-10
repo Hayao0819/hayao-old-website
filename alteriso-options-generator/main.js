@@ -42,7 +42,7 @@ function writeLog(_msg) {
 
     // 参考 https://www.sejuku.net/blog/30171
     var _time = new Date();
-    var _log_date = _time.getFullYear() + "/" + _time.getMonth() + "/" + _time.getDate() + " " + _time.getHours() + ":" + _time.getMinutes() + ":" + _time.getSeconds();
+    var _log_date = _time.getFullYear() + "/" + Number(_time.getMonth() + 1) + "/" + _time.getDate() + " " + _time.getHours() + ":" + _time.getMinutes() + ":" + _time.getSeconds();
     // console.log (_log_date);
     _log_box.value = "\n" + "[" + _log_date + "]" + _msg +_log_box.value;
 
