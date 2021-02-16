@@ -1,0 +1,88 @@
+/* === ここからメニューバー === */
+
+header{
+    /* 横幅を画面いっぱいにする */
+    width: 100vw;
+
+    /* 上下の空白 */
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+
+    /* 背景色 */
+    background-color: var(--black-1);
+
+    /* 文字色 */
+    color: var(--white-1);
+}
+
+* { 
+    margin: 0px; 
+    padding: 0px; 
+}
+
+.bar-item-left, .bar-item-right, .bar-logo{
+    text-align: center;
+    list-style: none;
+
+    /* マウスの形状を変える*/
+    cursor: pointer;
+
+    /* 左右に空白を作る */
+    padding-left: 2%;
+    padding-right: 2%;
+
+
+    /* 選択を無効化 */
+    user-select: none;
+}
+
+.bar-item-left > a, .bar-item-right > a{
+    color: var(--main-white);
+    text-decoration: none;
+}
+
+.description{
+    /* 左に空白を作る */
+    padding-left: 2%;
+
+    /* 上に空白を作る */
+    margin-top: 1%;
+}
+
+
+.bar-logo{
+    /* ロゴのフォント設定*/
+    font-weight: 900;
+    font-size: larger;
+}
+
+
+/* クリックされたときの色 */
+.bar-item-left:active, .bar-item-right:active{
+    /* 文字色を設定 */
+    color: var(--red-1);
+
+    /* 選択を無効化 */
+    user-select: none;
+}
+
+#bar-container{
+    /* 
+    flexboxでいい感じに配置する
+    参考サイト
+    https://guillemot.jp/web/365
+    https://knowledge.cpi.ad.jp/tech/169/
+    */
+
+    display: flex;
+    justify-content: space-between;
+}
+
+/* === ここまでメニューバー === */
+
+/* === ここから本文 === */
+main{
+    margin: 2%;
+    width: 100vw;
+}
+
