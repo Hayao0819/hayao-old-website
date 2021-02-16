@@ -17,8 +17,10 @@
     <?php include("${commonhtml}/header.php"); ?>
 
     <main>
-        <h1>Ubuntu 18.04ベースのディストリビューションを作ろう</h1>
-        <p>Ubuntu 18.04を使って自分だけのディストリビューションを作ります</p>
+        <h2>Ubuntu 18.04 LTSについて</h2>
+        <p>中学生の頃の自分が書いたサイトがあるので参考にしてください。</p>
+        <p>ページの内容はかなり古いので近々書き直します。20.04LTSはこの方法は使えません。</p>
+        <p style="text-align: center;"><a href="/buildmydist/">→こちら！！！れ！れ！！←</a></p>
     </main>
 
     <?php include("${commonhtml}/jsloader.php"); ?>
