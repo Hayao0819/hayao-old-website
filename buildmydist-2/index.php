@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-
     <?php
         // ページ設定
         $_GET["title"] = "トップページ";
@@ -11,7 +10,6 @@
         $domain = $_SERVER['HTTP_HOST'];
         include("${commonhtml}/head.php");
     ?>
-
 </head>
 <body>
     <?php include("${commonhtml}/header.php"); ?>
