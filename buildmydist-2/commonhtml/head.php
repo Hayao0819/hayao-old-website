@@ -9,12 +9,14 @@
 <link rel="stylesheet" type="text/css" media="print" href="/buildmydist-2/style/print.css">
 <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:100,300,400,500,700,900&amp;subset=japanese" rel="stylesheet">
 
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
 
 <!-- ここからCSS定義 -->
 <link rel="stylesheet" href="/buildmydist-2/style/common.css">
 <link rel="stylesheet" href="/buildmydist-2/style/var.css">
-<link rel="stylesheet" href="/buildmydist-2/style/pc.css" media="screen and (max-width: 799px)">
-<link rel="stylesheet" href="/buildmydist-2/style/sp.css" media="screen and (min-width: 800px)">
+<link rel="stylesheet" href="/buildmydist-2/style/sp.css" media="screen and (max-width: 799px)">
+<link rel="stylesheet" href="/buildmydist-2/style/pc.css" media="screen and (min-width: 800px)">
 
 <title><?php echo "${_GET["title"]}" ?> | オリジナルLinuxディストリを自作しよう2</title>
 

@@ -1,5 +1,4 @@
 /* === ここからメニューバー === */
-
 header{
     /* 横幅を画面いっぱいにする */
     width: 100vw;
@@ -77,12 +76,33 @@ header{
     display: flex;
     justify-content: space-between;
 }
-
 /* === ここまでメニューバー === */
+
+
 
 /* === ここから本文 === */
 main{
-    margin: 2%;
+    padding: 1%;
+}
+/* === ここまで本文 === */
+
+
+
+/* === ここから全体 === */
+body{
+    min-height: 100vh;
     width: 100vw;
 }
+/* === ここまで全体 === */
 
+
+
+/* === ここからフッター === */
+footer{
+    color: var(--white-1);
+    background-color: var(--black-1);
+    width: 100vw;
+    padding-top: 0.3%;
+    padding-bottom: 0.3%;
+}
+/* === ここまでフッター === */

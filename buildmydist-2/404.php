@@ -17,8 +17,13 @@
     <?php include("${commonhtml}/header.php"); ?>
 
     <main>
-        <h1>タイトル</h1>
-        <p>本文本文本文本文本文本文本文本文本文本文本文</p>
+        <h1>404 NOT FOUND !!</h1>
+        <p>
+            <img src="https://blog.fascode.net/wp-content/uploads/2020/04/result.png" alt="404 not found">
+        </p>
+        <p>
+            へんじがない。まちがったアドレスのようだ。
+        </p>
     </main>
 
     <?php include("${commonhtml}/footer.php"); ?>

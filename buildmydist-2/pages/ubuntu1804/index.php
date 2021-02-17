@@ -23,6 +23,6 @@
         <p style="text-align: center;"><a href="/buildmydist/">→こちら！！！れ！れ！！←</a></p>
     </main>
 
-    <?php include("${commonhtml}/jsloader.php"); ?>
+    <?php include("${commonhtml}/footer.php"); ?>
 </body>
 </html>

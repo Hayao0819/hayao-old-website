@@ -1,0 +1,28 @@
+/* 横並びを解除して中央に表示 */
+#bar-container{
+    display: initial;
+    text-align: center;
+}
+
+/* ロゴをいっぱいに表示 */
+.bar-logo{
+    width: 100vw;
+}
+
+/* 普段は隠す */
+.bar-item{
+    width: auto;
+    display: none;
+}
+
+/* 説明を消す */
+/*
+.description{
+    display: none;
+}
+*/
+
+/* ロゴがクリックされたときに追加されるclass */
+.show-menu{
+    display: inline-block;
+}
