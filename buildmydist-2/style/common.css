@@ -14,10 +14,10 @@ header{
     color: var(--white-1);
 
     /* 高さ */
-    min-height: 5rem;
+    min-height: 4rem;
 }
 
-.bar-item-left, .bar-item-right, .bar-logo{
+.bar-item-left, .bar-logo{
     text-align: center;
     list-style: none;
 
@@ -33,29 +33,25 @@ header{
     user-select: none;
 }
 
-.bar-item-left > a, .bar-item-right > a{
+.bar-item-left > a, .bar-logo > a{
     color: var(--main-white);
     text-decoration: none;
 }
 
-.description{
-    /* 左に空白を作る */
-    padding-left: 2%;
-
-    /* 上に空白を作る */
-    margin-top: 1%;
-}
-
-
 .bar-logo{
-    /* ロゴのフォント設定*/
-    font-weight: 900;
     font-size: larger;
+    font-weight: 900;
+    float: left;
+    margin-right: 2%;
 }
 
+
+.description, .bar-logo{
+    padding: 0.5%;
+}
 
 /* クリックされたときの色 */
-.bar-item-left:active, .bar-item-right:active{
+.bar-item-left:active, .bar-logo:active{
     /* 文字色を設定 */
     color: var(--red-1);
 
@@ -73,6 +69,16 @@ header{
 
     display: flex;
     justify-content: space-between;
+
+    /* 回り込み解除 */
+    clear: both;
+
+    /* 余白設定 */
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin: 0;
 }
 /* === ここまでメニューバー === */
 
