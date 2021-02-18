@@ -1,6 +1,6 @@
 <header id="header">
         <h1 class="bar-logo">
-            <a href="/buildmydist-2/index.php">オリジナルLinuxディストリを自作しよう <?php echo "${_GET["title"]}" ?></a>
+            <a href="/buildmydist-2/index.php">オリジナルLinuxディストリを自作しよう <?php echo "${title}" ?></a>
         </h1>
         <p class="description">
             様々なディストリビューションの開発の仕方を紹介します。

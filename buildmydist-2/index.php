@@ -3,7 +3,7 @@
 <head>
     <?php
         // ページ設定
-        $_GET["title"] = "トップページ";
+        $title = "トップページ";
         $commonhtml = "${_SERVER['DOCUMENT_ROOT']}/buildmydist-2/commonhtml";
         $distro = "top";
 
