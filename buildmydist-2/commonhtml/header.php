@@ -9,13 +9,13 @@
 
         <p>
             <ul id="bar-container">
-                <li class="bar-item-left"><a href="/buildmydist-2/">トップ</a></li>
-                <li class="bar-item-left"><a href="/buildmydist-2/pages/ubuntu1804/">Ubuntu 18.04</a></li>
-                <li class="bar-item-left"><a href="/buildmydist-2/pages/ubuntu2004/">Ubuntu 20.04</a></li>
-                <li class="bar-item-left"><a href="/buildmydist-2/pages/fedora33/">Fedora 33</a></li>
-                <li class="bar-item-left"><a href="/buildmydist-2/pages/archiso/">Arch Linux</a></li>
-                <li class="bar-item-left"><a href="/buildmydist-2/pages/alteriso3/">Alter Linux</a></li>
-                <li class="bar-item-left"><a href="/buildmydist-2/pages/misc/">その他の雑学</a></li>
+                <li class="bar-item-left" data-pagename="top"><a href="/buildmydist-2/">トップ</a></li>
+                <li class="bar-item-left" data-pagename="ubuntu1804"><a href="/buildmydist-2/pages/ubuntu1804/">Ubuntu 18.04</a></li>
+                <li class="bar-item-left" data-pagename="ubuntu2004"><a href="/buildmydist-2/pages/ubuntu2004/">Ubuntu 20.04</a></li>
+                <li class="bar-item-left" data-pagename="fedora33"><a href="/buildmydist-2/pages/fedora33/">Fedora 33</a></li>
+                <li class="bar-item-left" data-pagename="archiso"><a href="/buildmydist-2/pages/archiso/">Arch Linux</a></li>
+                <li class="bar-item-left" data-pagename="alteriso3"><a href="/buildmydist-2/pages/alteriso3/">Alter Linux</a></li>
+                <li class="bar-item-left" data-pagename="misc"><a href="/buildmydist-2/pages/misc/">その他の雑学</a></li>
             </ul>
         </p>
 

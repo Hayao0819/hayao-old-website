@@ -80,6 +80,11 @@ header{
     padding-right: 5%;
     margin: 0;
 }
+
+/* 現在選択されているディストロ */
+.currentdistro{
+    background-color: var(--black-2);
+}
 /* === ここまでメニューバー === */
 
 

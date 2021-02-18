@@ -4,8 +4,9 @@
 
     <?php
         // ページ設定
-        $_GET["title"] = "Fedora 33 - トップ";
+        $title = "Fedora 33 - トップ";
         $commonhtml = "${_SERVER['DOCUMENT_ROOT']}/buildmydist-2/commonhtml";
+        $distro = "fedora33";
 
         // 共通ファイルを読み込み
         $domain = $_SERVER['HTTP_HOST'];

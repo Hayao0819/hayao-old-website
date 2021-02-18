@@ -4,8 +4,9 @@
 
     <?php
         // ページ設定
-        $_GET["title"] = "Arch Linux - トップ";
+        $title = "Arch Linux - トップ";
         $commonhtml = "${_SERVER['DOCUMENT_ROOT']}/buildmydist-2/commonhtml";
+        $distro = "archiso";
 
         // 共通ファイルを読み込み
         $domain = $_SERVER['HTTP_HOST'];

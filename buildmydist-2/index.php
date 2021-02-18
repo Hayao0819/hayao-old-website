@@ -5,6 +5,7 @@
         // ページ設定
         $_GET["title"] = "トップページ";
         $commonhtml = "${_SERVER['DOCUMENT_ROOT']}/buildmydist-2/commonhtml";
+        $distro = "top";
 
         // 共通ファイルを読み込み
         $domain = $_SERVER['HTTP_HOST'];

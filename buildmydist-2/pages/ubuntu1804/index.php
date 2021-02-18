@@ -4,8 +4,9 @@
 
     <?php
         // ページ設定
-        $_GET["title"] = "Ubuntu 18.04 - トップ";
+        $title = "Ubuntu 18.04 - トップ";
         $commonhtml = "${_SERVER['DOCUMENT_ROOT']}/buildmydist-2/commonhtml";
+        $distro = "ubuntu1804";
 
         // 共通ファイルを読み込み
         $domain = $_SERVER['HTTP_HOST'];

@@ -19,5 +19,11 @@
 <link rel="stylesheet" href="/buildmydist-2/style/sp.css" media="screen and (max-width: 799px)">
 <link rel="stylesheet" href="/buildmydist-2/style/pc.css" media="screen and (min-width: 800px)">
 
+<!-- ページ設定をJSに渡す -->
+<script>
+    var distro = "<?php echo "${distro}";?>";
+    var title = "<?php echo "${title}";?>";
+</script>
+
 <title><?php echo "${_GET["title"]}" ?> | オリジナルLinuxディストリを自作しよう2</title>
 

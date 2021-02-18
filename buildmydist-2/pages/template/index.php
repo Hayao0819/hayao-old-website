@@ -4,8 +4,9 @@
 
     <?php
         // ページ設定
-        $_GET["title"] = "OS名 - トップ";
+        $title = "OS名 - トップ";
         $commonhtml = "${_SERVER['DOCUMENT_ROOT']}/buildmydist-2/commonhtml";
+        $distro = "osname";
 
         // 共通ファイルを読み込み
         $domain = $_SERVER['HTTP_HOST'];

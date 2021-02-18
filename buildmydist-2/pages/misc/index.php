@@ -4,8 +4,9 @@
 
     <?php
         // ページ設定
-        $_GET["title"] = "その他の雑学";
+        $title = "その他の雑学";
         $commonhtml = "${_SERVER['DOCUMENT_ROOT']}/buildmydist-2/commonhtml";
+        $distro = "misc";
 
         // 共通ファイルを読み込み
         $domain = $_SERVER['HTTP_HOST'];
