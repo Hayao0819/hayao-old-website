@@ -38,18 +38,6 @@ header{
     text-decoration: none;
 }
 
-.bar-logo{
-    font-size: larger;
-    font-weight: 900;
-    float: left;
-    margin-right: 2%;
-}
-
-
-.description, .bar-logo{
-    padding: 0.5%;
-}
-
 /* クリックされたときの色 */
 .bar-item-left:active, .bar-logo:active{
     /* 文字色を設定 */
@@ -59,27 +47,6 @@ header{
     user-select: none;
 }
 
-#bar-container{
-    /* 
-    flexboxでいい感じに配置する
-    参考サイト
-    https://guillemot.jp/web/365
-    https://knowledge.cpi.ad.jp/tech/169/
-    */
-
-    display: flex;
-    justify-content: space-between;
-
-    /* 回り込み解除 */
-    clear: both;
-
-    /* 余白設定 */
-    padding-top: 1%;
-    padding-bottom: 1%;
-    padding-left: 5%;
-    padding-right: 5%;
-    margin: 0;
-}
 
 /* 現在選択されているディストロ */
 .currentdistro{

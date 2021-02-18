@@ -1,0 +1,33 @@
+.bar-logo{
+    font-size: medium;
+    font-weight: 900;
+    margin-right: 2%;
+}
+
+.description{
+    font-size: small;
+    text-align: center;
+}
+
+#bar-container{
+    justify-content: space-between;
+
+    /* 回り込み解除 */
+    clear: both;
+
+    text-align: center;
+
+    width: 100%;
+    padding-left: 0;
+
+    /* 初期状態で消す */
+    display: none;
+}
+
+.hide-menu{
+    display: none !important;
+}
+
+.show-menu{
+    display: inline-block !important;
+}
