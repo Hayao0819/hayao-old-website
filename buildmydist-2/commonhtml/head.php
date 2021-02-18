@@ -16,8 +16,7 @@
 <link rel="stylesheet" href="/buildmydist-2/style/common.css">
 <link rel="stylesheet" href="/buildmydist-2/style/var.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-css-reset/dist/reset.min.css" />
-<link rel="stylesheet" href="/buildmydist-2/style/tablet.css" media="screen and (max-width: 799px)">
-<link rel="stylesheet" href="/buildmydist-2/style/sp.css" media="screen and (max-width: 640px)">
+<link rel="stylesheet" href="/buildmydist-2/style/sp.css" media="screen and (max-width: 799px)">
 <link rel="stylesheet" href="/buildmydist-2/style/pc.css" media="screen and (min-width: 800px)">
 
 <!-- ページ設定をJSに渡す -->

@@ -6,7 +6,7 @@
             様々なディストリビューションの開発の仕方を紹介します。
         </p>
         
-        <p id="open-sp-menu">メニューを開く</p>
+        <p id="open-sp-menu" style="text-align: center;">メニューを開く</p>
 
         <p>
             <ul id="bar-container">
