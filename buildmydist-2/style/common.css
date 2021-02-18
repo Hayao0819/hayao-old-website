@@ -12,6 +12,9 @@ header{
 
     /* 文字色 */
     color: var(--white-1);
+
+    /* 高さ */
+    height: 5rem;
 }
 
 * { 
@@ -27,8 +30,8 @@ header{
     cursor: pointer;
 
     /* 左右に空白を作る */
-    padding-left: 2%;
-    padding-right: 2%;
+    padding-left: 0.1%;
+    padding-right: 0.1%;
 
 
     /* 選択を無効化 */
@@ -104,5 +107,6 @@ footer{
     width: 100vw;
     padding-top: 0.3%;
     padding-bottom: 0.3%;
+
 }
 /* === ここまでフッター === */

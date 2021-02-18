@@ -13,10 +13,12 @@
 </head>
 <body>
     <?php include("${commonhtml}/header.php"); ?>
-
     <main>
         <h1>タイトル</h1>
         <p>本文本文本文本文本文本文本文本文本文本文本文</p>
+        a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>v
+        <p>Hello</p>
+        
     </main>
 
     <?php include("${commonhtml}/footer.php"); ?>
