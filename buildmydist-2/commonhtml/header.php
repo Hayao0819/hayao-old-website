@@ -1,6 +1,5 @@
-
+<i class="fas fa-align-justify fa-3x" id="open-sp-menu"></i>
 <header id="header">
-        <i class="fas fa-align-justify fa-3x" id="open-sp-menu" style="position: fixed; top:0; left: 0;padding-top: 1%;padding-left: 1%;"></i>
         <h1 class="bar-logo">
             <a href="/buildmydist-2/index.php">オリジナルLinuxディストリを自作しよう <?php echo "${title}" ?></a>
         </h1>
