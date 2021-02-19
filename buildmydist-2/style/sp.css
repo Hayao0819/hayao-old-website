@@ -1,3 +1,4 @@
+/* === ここからメニューバー === */
 .bar-logo{
     font-size: medium;
     font-weight: 900;
@@ -31,4 +32,5 @@
 .show-menu{
     display: inline-block !important;
 }
+/* === ここまでメニューバー === */
 

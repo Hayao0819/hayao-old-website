@@ -14,7 +14,7 @@
 
 </head>
 <body>
-    <?php include("${commonhtml}/header.php"); ?>
+    <?php include("${commonhtml}/beforemain.php"); ?>
 
     <main>
         <h1>404 NOT FOUND !!</h1>
@@ -26,6 +26,6 @@
         </p>
     </main>
 
-    <?php include("${commonhtml}/footer.php"); ?>
+    <?php include("${commonhtml}/aftermain.php"); ?>
 </body>
 </html>

@@ -15,13 +15,13 @@
 
 </head>
 <body>
-    <?php include("${commonhtml}/header.php"); ?>
+    <?php include("${commonhtml}/beforemain.php"); ?>
 
     <main>
         <h2>Fedora 33 について</h2>
         <p>Fascode Networkで開発されているSerene Linuxは現在はFedoraベースで開発されています</p>
     </main>
 
-    <?php include("${commonhtml}/footer.php"); ?>
+    <?php include("${commonhtml}/aftermain.php"); ?>
 </body>
 </html>

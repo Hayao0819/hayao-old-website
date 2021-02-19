@@ -15,13 +15,13 @@
 
 </head>
 <body>
-    <?php include("${commonhtml}/header.php"); ?>
+    <?php include("${commonhtml}/beforemain.php"); ?>
 
     <main>
         <h2>Ubuntu 20.04 LTSについて</h2>
         <p>Ubuntu 20.04ではPython 2が公式パッケージから削除されたことによって、以前の方法が使えなくなりました。</p>
     </main>
 
-    <?php include("${commonhtml}/footer.php"); ?>
+    <?php include("${commonhtml}/aftermain.php"); ?>
 </body>
 </html>

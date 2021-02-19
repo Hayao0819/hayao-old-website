@@ -15,7 +15,7 @@
 
 </head>
 <body>
-    <?php include("${commonhtml}/header.php"); ?>
+    <?php include("${commonhtml}/beforemain.php"); ?>
 
     <main>
         <h2>ディストリ開発を始める準備</h2>
@@ -92,12 +92,17 @@
         <p>ビルドしたOSは基本的に仮想環境でテストを繰り返すことになります。</p>
         <p>複数の仮想環境でテストをして、環境依存の問題などを確認するために複数の仮想環境でテストを行います。</p>
         <p>全て無料で利用できるソフトウェアで、様々な用途に利用できるのでインストールしておきましょう。</p>
+        <p>詳しくは<a href="/buildmydist-2/pages/misc/virtual.php">こちら</a>を参照してください</p>
 
+        <h3>中学生程度の英語を読める程度の能力</h3>
+        <p>Linuxのエラーはほぼ全て英語で書かれています。そのため英語が読めないと何も出来ません</p>
+        <p>といっても、<code>No such file or directory</code>というようなかんたんな英語しか無いのでそこまで心配する必要はありません。どうしても英語が苦手という人はGoogle翻訳とDeeplを使うとかなり正確な翻訳を得ることが出来ます。</p>
+        
 
         
 
     </main>
 
-    <?php include("${commonhtml}/footer.php"); ?>
+    <?php include("${commonhtml}/aftermain.php"); ?>
 </body>
 </html>

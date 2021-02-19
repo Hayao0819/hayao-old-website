@@ -13,7 +13,7 @@
     ?>
 </head>
 <body>
-    <?php include("${commonhtml}/header.php"); ?>
+    <?php include("${commonhtml}/beforemain.php"); ?>
     <main>
         <h2>このサイトについて</h2>
         <p>様々なメジャーなLinux系OSを自分の好きなようにカスタマイズして、再配布するためのサイトです。</p>
@@ -50,6 +50,6 @@
         
     </main>
 
-    <?php include("${commonhtml}/footer.php"); ?>
+    <?php include("${commonhtml}/aftermain.php"); ?>
 </body>
 </html>

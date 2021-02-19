@@ -1,3 +1,4 @@
+/* === ここからメニューバー === */
 #bar-container{
     /* 
     flexboxでいい感じに配置する
@@ -36,3 +37,67 @@
 #open-sp-menu{
     display: none;
 }
+
+/* === ここまでメニューバー === */
+
+
+/* === ここから本文 === */
+main{
+    /* メインコンテンツの横の余白 */
+    padding-left: 1%;
+    padding-right: 1%;
+    margin-left: 4%;
+    margin-right: 1%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+/* === ここまで本文 === */
+
+
+/* === ここからサイドメニュー === */
+main{
+    width: 65%;
+    /*  border: solid 1px black; */
+}
+
+#sidemenu-right{
+    /* 横幅設定 */
+    width: 25%;
+
+    /* 線を描写 */
+    /* border: solid 1px black; */
+    box-sizing: border-box;
+
+    /* 余白設定 */
+    padding-left: 1%;
+    padding-right: 1%;
+    margin-top: 1%;
+    /* margin-right: 4%; */
+    margin-bottom: 1%;
+
+    /* 固定 */
+    position: absolute;
+    right: 0;
+
+    /* スクロール */
+    overflow: scroll;
+}
+
+/* サイドメニューのスクロールバーを隠す */
+#sidemenu-right{
+    /* IE, Edge 対応 */
+    -ms-overflow-style: none;
+    /* Firefox 対応 */
+    scrollbar-width: none;
+}
+
+#sidemenu-right::-webkit-scrollbar {
+    display:none;
+}
+
+#main-container{
+    display: flex;
+    margin: 0 auto;
+    position: relative;
+}
+/* === ここまでサイドメニュー === */

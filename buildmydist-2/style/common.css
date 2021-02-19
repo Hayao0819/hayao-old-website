@@ -58,8 +58,7 @@ header{
 
 /* === ここから本文 === */
 main{
-    padding: 1%;
-    margin-bottom: auto;
+    
 }
 /* === ここまで本文 === */
 
@@ -88,3 +87,28 @@ footer{
     margin-left: auto;
 }
 /* === ここまでフッター === */
+
+
+/* === ここから目次 === */
+#index li{
+    list-style: none;
+
+}
+
+#index ul{
+    padding-left: 10px;
+}
+#index  a{
+    text-decoration: none;
+}
+#index  a:visited{
+    color: blue;
+}
+/* === ここまで目次 === */
+
+/* === ここから関連ページ === */
+#relation_page a{
+    text-decoration: none;
+    color: blue;
+}
+/* === ここまで関連ページ === */

@@ -15,7 +15,7 @@
 
 </head>
 <body>
-    <?php include("${commonhtml}/header.php"); ?>
+    <?php include("${commonhtml}/beforemain.php"); ?>
 
     <main>
         <h2>Arch Linuxについて</h2>
@@ -24,6 +24,6 @@
         <p>ArchisoはあくまでCLIのArch Linux公式のライブCDをビルドすることに特化しているため、初心者にはとっつきにくいものになっています。</p>
     </main>
 
-    <?php include("${commonhtml}/footer.php"); ?>
+    <?php include("${commonhtml}/aftermain.php"); ?>
 </body>
 </html>

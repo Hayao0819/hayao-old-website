@@ -15,7 +15,7 @@
 
 </head>
 <body>
-    <?php include("${commonhtml}/header.php"); ?>
+    <?php include("${commonhtml}/beforemain.php"); ?>
 
     <main>
         <h2>このページは何？</h2>
@@ -23,6 +23,6 @@
         <p>ようは開発をする上で便利なリンク集です。</p>
     </main>
 
-    <?php include("${commonhtml}/footer.php"); ?>
+    <?php include("${commonhtml}/aftermain.php"); ?>
 </body>
 </html>

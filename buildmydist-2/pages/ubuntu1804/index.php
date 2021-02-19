@@ -15,7 +15,7 @@
 
 </head>
 <body>
-    <?php include("${commonhtml}/header.php"); ?>
+    <?php include("${commonhtml}/beforemain.php"); ?>
 
     <main>
         <h2>Ubuntu 18.04 LTSについて</h2>
@@ -24,6 +24,6 @@
         <p style="text-align: center;"><a href="/buildmydist/">→こちら！！！れ！れ！！←</a></p>
     </main>
 
-    <?php include("${commonhtml}/footer.php"); ?>
+    <?php include("${commonhtml}/aftermain.php"); ?>
 </body>
 </html>

@@ -27,3 +27,12 @@
 
 <title><?php echo "${title}" ?> | オリジナルLinuxディストリを自作しよう2</title>
 
+<!-- PHPでconsole.logを行う -->
+<?php 
+    function console_log( $data ){
+    echo '<script>';
+    echo 'console.log('. json_encode( $data ) .')';
+    echo '</script>';
+    }
+
+?>

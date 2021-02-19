@@ -15,7 +15,7 @@
 
 </head>
 <body>
-    <?php include("${commonhtml}/header.php"); ?>
+    <?php include("${commonhtml}/beforemain.php"); ?>
 
     <main>
         <h2>Alter Linuxについて</h2>
@@ -24,6 +24,6 @@
         <p>AlterISO3ではArchisoでできないことをコードを書かずにかんたんに実行できるようにする工夫がなされています。</p>
     </main>
 
-    <?php include("${commonhtml}/footer.php"); ?>
+    <?php include("${commonhtml}/aftermain.php"); ?>
 </body>
 </html>
