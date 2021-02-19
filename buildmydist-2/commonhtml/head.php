@@ -25,5 +25,5 @@
     var title = "<?php echo "${title}";?>";
 </script>
 
-<title><?php echo "${_GET["title"]}" ?> | オリジナルLinuxディストリを自作しよう2</title>
+<title><?php echo "${title}" ?> | オリジナルLinuxディストリを自作しよう2</title>
 
