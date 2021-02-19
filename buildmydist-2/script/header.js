@@ -14,17 +14,23 @@ window.addEventListener("load", SetCurrentPage);
 
 
 // メニュー開閉
-document.getElementById("open-sp-menu").addEventListener("click", function(){
+function SwitchMenu (){
+    var open = "";
+    var close = "";
+
     var menu = document.getElementById("bar-container");
     var button = document.getElementById("open-sp-menu");
+
     if(menu.classList.contains("show-menu")){
         menu.classList.replace("show-menu", "hide-menu");
-        button.textContent = "メニューを開く";
+        button.textContent = open;
     }else if(menu.classList.contains("hide-menu")){
         menu.classList.replace("hide-menu", "show-menu");
-        button.textContent = "メニューを閉じる";
+        button.textContent = close;
     }else{
         menu.classList.add("show-menu")
-        button.textContent = "メニューを閉じる";
+        button.textContent = open;
     }
-})
+}
+document.getElementById("open-sp-menu").addEventListener("click", SwitchMenu);
+document.getElementById("open-sp-menu").addEventListener("load", SwitchMenu);

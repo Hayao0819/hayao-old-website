@@ -4,7 +4,7 @@
     <span id="relation_page">
         <?php
             $relation = "${_SERVER['DOCUMENT_ROOT']}/buildmydist-2/pages/$distro/relation.php";
-            console_log($relation);
+            //console_log($relation);
             
             if(file_exists($relation)){
                 echo "<h2>関連ページ</h2>";

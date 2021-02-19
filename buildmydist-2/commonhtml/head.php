@@ -13,6 +13,7 @@
 
 
 <!-- ここからCSS定義 -->
+<link href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" rel="stylesheet">
 <link rel="stylesheet" href="/buildmydist-2/style/common.css">
 <link rel="stylesheet" href="/buildmydist-2/style/var.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-css-reset/dist/reset.min.css" />

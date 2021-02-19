@@ -1,5 +1,9 @@
 <div id="footerblank"></div>
 
+<span id="scroll-up">
+    <p>上に戻る</p>
+</span>
+
 <footer>
     <p style="float: left; margin-left: 1%;">
         Copyright &copy; 2019 - 2021 Fascode Network All Rights Reserved.

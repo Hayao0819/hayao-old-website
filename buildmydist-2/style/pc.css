@@ -51,6 +51,9 @@ main{
     margin-top: 1%;
     margin-bottom: 1%;
 }
+main p{
+    line-height: 2em;
+}
 /* === ここまで本文 === */
 
 
@@ -101,3 +104,18 @@ main{
     position: relative;
 }
 /* === ここまでサイドメニュー === */
+
+
+/* === ここから上にスクロール ボタン */
+#scroll-up{
+    position: fixed;
+    bottom: 0;
+    right: 20%;
+    background-color: var(--black-1);
+    color: var(--white-1);
+    line-height: 50px;
+    width: 10%;
+    text-align: center;
+    cursor: pointer;
+}
+/* === ここまで上にスクロール ボタン */
