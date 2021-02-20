@@ -20,5 +20,3 @@ window.addEventListener("load", function(){
         })
     }
 })
-
-windoow.addEventListener("load", function(){Array.from(document.getElementsByClassName("hoge")).forEach(element =>{console.log(element);});});

@@ -6,5 +6,9 @@
             echo "<script src=\"/buildmydist-2/script/${script_name}\"></script>";
         }
     ?>
+
+    <!-- シンタックスハイライティング -->
+    <script src="/buildmydist-2/prism/prism.js"></script>
+    <link rel="stylesheet" href="/buildmydist-2/prism/prism.css">
 </sapn>
 

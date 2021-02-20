@@ -44,7 +44,7 @@
 
     <span id="about-hayao">
         <h2>作者について</h2>
-        <p id="hayao-icon"><img src="/buildmydist-2/images/hayao.jpg" alt=""></p>
+        <p id="hayao-icon"><a href="https://twitter.com/Hayao0819"><img src="/buildmydist-2/images/hayao.jpg" alt=""></a></p>
         <p>
             <a href="https://twitter.com/yamad_linuxer">山D</a>と<a href="https://twitter.com/0_a_e">オレンジ</a>に誘われてSereneTeamを設立。
             その後、なんやかんやあってFascode Networkに改称し、現在はAlter Linuxと周辺のコマンドを主に担当している。

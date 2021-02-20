@@ -1,13 +1,13 @@
 /* === ここからメニューバー === */
 .bar-logo{
     font-size: medium;
-    font-weight: 900;
-    margin-right: 2%;
+    font-weight: 600;
 }
 
 .description{
     font-size: small;
     text-align: center;
+    display: none;
 }
 
 #bar-container{
@@ -37,6 +37,9 @@
     position: fixed;
     top: 0;
     z-index: 1000;
+    padding-left: 32px;
+    padding-right: 32px;
+    height: 3%;
 }
 
 #open-sp-menu{
@@ -67,7 +70,7 @@ main{
 }
 
 main p{
-    line-height: 2;
+    line-height: 1.9;
     margin-bottom: 1em;
 }
 

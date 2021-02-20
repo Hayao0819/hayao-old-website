@@ -63,6 +63,10 @@ function SetSpMenu() {
         $("main").css({
             paddingTop: $("header").outerHeight() + "px"
         })
+        //$("#sidemenu-right").css({
+        //    paddingTop: $("header").outerHeight() + "px"
+        //})
+
     }else{
         $("main").css({
             paddingTop: 0

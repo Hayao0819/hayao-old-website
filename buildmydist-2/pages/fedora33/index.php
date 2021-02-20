@@ -29,6 +29,10 @@
         <p>（開発リーダーは<a href="https://twitter.com/kokkiemouse">kokkiemouse</a> で、ハヤオもちょこちょこ開発に参加しています）</p>
         <p>LFBSを利用するとかんたんに派生ディストリを構築することができます。</p>
 
+        <div class="box-warning">
+            LFBSの開発はまだ初期段階です。仕様が確定したら追記を行います。
+        </div>
+
     </main>
 
     <?php include("${commonhtml}/aftermain.php"); ?>

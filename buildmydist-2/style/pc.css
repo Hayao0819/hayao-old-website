@@ -14,8 +14,8 @@
     clear: both;
 
     /* 余白設定 */
-    padding-top: 1%;
-    padding-bottom: 1%;
+    padding-top: 0.3%;
+    padding-bottom: 0.3%;
     padding-left: 5%;
     padding-right: 5%;
     margin: 0;
@@ -37,6 +37,15 @@
 #open-sp-menu{
     display: none;
 }
+
+/*
+#header{
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    height: 11%;
+}
+*/
 
 /* === ここまでメニューバー === */
 
