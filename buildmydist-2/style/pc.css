@@ -168,7 +168,8 @@ main{
     background-color: var(--black-1);
     color: var(--white-1);
     line-height: 50px;
-    width: 5%;
+    padding-left: 1%;
+    padding-right: 1%;
     text-align: center;
     cursor: pointer;
 }
