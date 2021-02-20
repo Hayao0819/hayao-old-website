@@ -21,6 +21,10 @@
         <h2>このページは何？</h2>
         <p>Linuxのカスタマイズをする上で必要な情報をまとめています。</p>
         <p>ようは開発をする上で便利なリンク集です。</p>
+
+        <ul>
+            <li><a href="./virtual/index.php">仮想マシンについて</a></li>
+        </ul>
     </main>
 
     <?php include("${commonhtml}/aftermain.php"); ?>

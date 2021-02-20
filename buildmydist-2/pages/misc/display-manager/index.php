@@ -4,9 +4,10 @@
 
     <?php
         // ページ設定
-        $title = "その他の雑学";
+        $title = "ディスプレイマネージャ";
         $commonhtml = "${_SERVER['DOCUMENT_ROOT']}/buildmydist-2/commonhtml";
         $distro = "misc";
+        $description = "";
 
         // 共通ファイルを読み込み
         $domain = $_SERVER['HTTP_HOST'];
@@ -18,9 +19,8 @@
     <?php include("${commonhtml}/beforemain.php"); ?>
 
     <main>
-        <h2>このページは何？</h2>
-        <p>Linuxのカスタマイズをする上で必要な情報をまとめています。</p>
-        <p>ようは開発をする上で便利なリンク集です。</p>
+        <h2>ほげほげ</h2>
+        <p>ふごふご！ほげぇ！？ふご！ふごふご！！コケェッ！！！</p>
     </main>
 
     <?php include("${commonhtml}/aftermain.php"); ?>

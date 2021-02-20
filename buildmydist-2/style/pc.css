@@ -52,8 +52,31 @@ main{
     margin-bottom: 1%;
 }
 main p{
-    line-height: 2em;
+    line-height: 2;
+    margin-bottom: 1em;
 }
+
+/* h2のスタイル */
+
+h2 {
+    position: relative;
+    padding: 1rem .5rem;
+    margin-bottom: 1em;
+  }
+  
+h2:after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    content: '';
+    border-radius: 3px;
+    /*background-image: linear-gradient(to left, #2af598 0%, #009efd 100%); */
+    background-color: var(--green-1);
+}
+
+
 /* === ここまで本文 === */
 
 
@@ -98,10 +121,34 @@ main{
     display:none;
 }
 
+#sidemenu-right h2{
+    text-align: center;
+}
+
 #main-container{
     display: flex;
     margin: 0 auto;
     position: relative;
+}
+
+#link-collection ul, #relation_page ul{
+    list-style:none;
+    padding-left: 10px;
+}
+
+#link-collection a{
+    color: blue;
+    text-decoration: none;
+}
+
+#about-hayao img{
+    margin: 0 auto;
+    text-align: center;
+    width: 50%;
+}
+
+#hayao-icon{
+    margin-bottom: 4%;
 }
 /* === ここまでサイドメニュー === */
 
@@ -110,11 +157,11 @@ main{
 #scroll-up{
     position: fixed;
     bottom: 0;
-    right: 20%;
+    right: 24%;
     background-color: var(--black-1);
     color: var(--white-1);
     line-height: 50px;
-    width: 10%;
+    width: 5%;
     text-align: center;
     cursor: pointer;
 }

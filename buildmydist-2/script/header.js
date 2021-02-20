@@ -56,16 +56,27 @@ function SwitchMenu (command){
 document.getElementById("open-sp-menu").addEventListener("click", SwitchMenu);
 document.getElementById("open-sp-menu").addEventListener("load", SwitchMenu);
 
-window.addEventListener("load", function () {
+// スマホで開いたときにメニュー用の幅を確保する
+function SetSpMenu() {
     // スマホCSSが適用されてる場合の処理
     if (document.body.clientWidth < 799){
         $("main").css({
             paddingTop: $("header").outerHeight() + "px"
         })
-        document.body.addEventListener("click", (e) => {
-            if(! (e.target.closest("#header") || e.target.closest("#open-sp-menu") )&& document.getElementById("bar-container").classList.contains("show-menu") ){
-                SwitchMenu("close");
-            }
+    }else{
+        $("main").css({
+            paddingTop: 0
         })
     }
+}
+window.addEventListener("load", SetSpMenu);
+window.addEventListener("resize", SetSpMenu);
+
+// ボタン以外の場所が押されたらボタンを閉じる
+window.addEventListener("load", function(){
+    document.body.addEventListener("click", (e) => {
+        if(! (e.target.closest("#header") || e.target.closest("#open-sp-menu") )&& document.getElementById("bar-container").classList.contains("show-menu") ){
+            SwitchMenu("close");
+        }
+    })
 })

@@ -36,6 +36,7 @@
 #header{
     position: fixed;
     top: 0;
+    z-index: 1000;
 }
 
 #open-sp-menu{
@@ -44,7 +45,7 @@
     left: 0;
     padding-top: 1%;
     padding-left: 1%;
-    z-index: 1000;
+    z-index: 1100;
     color: white;
 }
 /* === ここまでメニューバー === */
@@ -63,5 +64,28 @@ main{
     padding-left: 1%;
     padding-right: 1%;
     margin: 1%;
+}
+
+main p{
+    line-height: 2;
+    margin-bottom: 1em;
+}
+
+h2 {
+    position: relative;
+    padding: 1rem .5rem;
+    z-index: 0;
+  }
+  
+h2:after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    content: '';
+    border-radius: 3px;
+    /*background-image: linear-gradient(to left, #2af598 0%, #009efd 100%); */
+    background-color: var(--green-1);
 }
 /* === ここまで本文 === */

@@ -4,23 +4,52 @@
     <span id="relation_page">
         <?php
             $relation = "${_SERVER['DOCUMENT_ROOT']}/buildmydist-2/pages/$distro/relation.php";
-            //console_log($relation);
-            
             if(file_exists($relation)){
                 echo "<h2>関連ページ</h2>";
                 include($relation);
             }
         ?>
+        <!--
+        <h2>リンクまとめ</h2>
+        <ul id="link-list">
+            <script>
+                Array.from(document.getElementsByTagName("main")[0].getElementsByTagName("a")).forEach(source =>{
+                    var li = document.createElement("li");
+                    var element = source.cloneNode(true);
+                    li.appendChild(element);
+                    document.getElementById("link-list").appendChild(li);
+                    li = undefined;
+                });
+            </script>
+        </ul>
+        -->
     </span>
 
-    <h2>サイト内検索</h2>
-    <p>ここで検索できるようにする</p>
+    <span id="link-collection">
+        <h2>いろいろリンク集</h2>
+        <h3>Fascode Network</h3>
+        <ul>
+            <li><a href="https://fascode.net/">公式サイト</a></li>
+            <li><a href="https://blog.fascode.net/">公式ブログ</a></li>
+            <li><a href="https://twitter.com/Fascode_JP">Twitter</a></li>
+            <li><a href="https://github.com/FascodeNet/">GitHub</a></li>
+        </ul>
+        <h3>山田ハヤオ</h3>
+        <ul>
+            <li><a href="https://twitter.com/Hayao0819/">Twitter</a></li>
+            <li><a href="https://github.com/Hayao0819/">GitHub</a></li>
+            <li><a href="https://www.instagram.com/hayao0819/">Instagram</a></li>
+        </ul>
+    </span>
 
-    <h2>いろいろリンク集</h2>
-    <ul>
-        <li>ふぁすこーど</li>
-        <li>ぎっとはぶ</li>
-        <li>ランダムで表示</li>
-    </ul>
+    <span id="about-hayao">
+        <h2>作者について</h2>
+        <p id="hayao-icon"><img src="/buildmydist-2/images/hayao.jpg" alt=""></p>
+        <p>
+            <a href="https://twitter.com/yamad_linuxer">山D</a>と<a href="https://twitter.com/0_a_e">オレンジ</a>に誘われてSereneTeamを設立。
+            その後、なんやかんやあってFascode Networkに改称し、現在はAlter Linuxと周辺のコマンドを主に担当している。
+            まともに触れる言語が1つも無いのが最近の悩み。チョコレートとからあげが大好き。暇人...といいたいけど最近はかなり忙しい。
+        </p>
+    </span>
 
 </aside>
