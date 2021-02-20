@@ -24,6 +24,7 @@
 
         <ul>
             <li><a href="./virtual/index.php">仮想マシンについて</a></li>
+            <li><a href="./display-manager/index.php">ディスプレイマネージャについて</a></li>
         </ul>
     </main>
 

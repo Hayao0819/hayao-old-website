@@ -57,8 +57,9 @@ header{
 
 
 /* === ここから本文 === */
-main{
-    
+main a{
+    text-decoration: none;
+    color: blue;
 }
 /* === ここまで本文 === */
 
@@ -112,3 +113,11 @@ footer{
     color: blue;
 }
 /* === ここまで関連ページ === */
+
+/* ここから画像 */
+main img{
+    width: 50%;
+    display: inline-block;
+    margin-right: auto;
+}
+/* ここまで画像 */

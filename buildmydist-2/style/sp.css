@@ -89,3 +89,10 @@ h2:after {
     background-color: var(--green-1);
 }
 /* === ここまで本文 === */
+
+
+/* === ここからフッター === */
+#scroll-up{
+    display: none;
+}
+/* === ここまでフッター === */
