@@ -4,9 +4,9 @@
 
     <?php
         // ページ設定
-        $title = "その他の雑学";
+        $title = "Alter Linux - カスタマイズ";
         $commonhtml = "${_SERVER['DOCUMENT_ROOT']}/buildmydist-2/commonhtml";
-        $distro = "misc";
+        $distro = "alteriso3";
 
         // 共通ファイルを読み込み
         $domain = $_SERVER['HTTP_HOST'];
@@ -18,9 +18,8 @@
     <?php include("${commonhtml}/beforemain.php"); ?>
 
     <main>
-        <h2>このページは何？</h2>
-        <p>Linuxのカスタマイズをする上で必要な情報をまとめています。</p>
-        <p>ようは開発をする上で便利なリンク集です。</p>
+        <h2>AlterISO3のチャンネルを作成する</h2>
+        <p>実際に独自のカスタマイズを施し、チャンネルの開発を行っていきます。</p>
     </main>
 
     <?php include("${commonhtml}/aftermain.php"); ?>
