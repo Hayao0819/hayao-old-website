@@ -39,7 +39,11 @@
 
         <h2>とりあえずビルドしてみよう</h2>
         <p>Alter Linux Xfceをまずはビルドしてみましょう。</p>
-        <p></p>
+        <div class="code language-shell">
+            sudo ./build.sh -b xfce
+        </div>
+        <p>これでビルドが開始されるはずです。</p>
+        <p>開始されずにエラーが出た場合は<a href="../error/">エラー一覧とその対処方法</a>を参照してください。</p>
 
     </main>
 
