@@ -55,8 +55,29 @@
 
 
 /* === ここからサイドメニュー === */
+#about-hayao img{
+    margin: 0 auto;
+    text-align: center;
+    width: 20%;
+    float: left;
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+#hayao-icon{
+    margin-bottom: 4%;
+}
+
+#link-collection ul{
+    display: flex;
+}
+
+#link-collection li{
+    margin-right: 20px;
+}
+
 #sidemenu-right{
- display: none;
+    border-top: solid 6px var(--black-1);
 }
 /* === ここまでサイドメニュー === */
 

@@ -12,9 +12,6 @@ header{
 
     /* 文字色 */
     color: var(--white-1);
-
-    /* 高さ */
-    min-height: 4rem;
 }
 
 .bar-item-left, .bar-logo{
@@ -140,3 +137,49 @@ main img{
     top: -23px;
     padding: 10px;
 }
+/* ここまで警告 */
+
+/* === ここからサイドメニュー === */
+#sidemenu-right{
+    /* 線を描写 */
+    /* border: solid 1px black; */
+    box-sizing: border-box;
+
+    /* 余白設定 */
+    padding-left: 1%;
+    padding-right: 1%;
+    margin-top: 1%;
+    /* margin-right: 4%; */
+    margin-bottom: 1%;
+
+}
+
+/* サイドメニューのスクロールバーを隠す */
+#sidemenu-right{
+    /* IE, Edge 対応 */
+    -ms-overflow-style: none;
+    /* Firefox 対応 */
+    scrollbar-width: none;
+}
+
+#sidemenu-right::-webkit-scrollbar {
+    display:none;
+}
+
+#sidemenu-right h2{
+    text-align: center;
+}
+
+
+#link-collection ul, #relation_page ul{
+    list-style:none;
+    padding-left: 10px;
+}
+
+#link-collection a{
+    color: blue;
+    text-decoration: none;
+}
+
+
+/* === ここまでサイドメニュー === */
