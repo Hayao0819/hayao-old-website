@@ -6,6 +6,7 @@
         $title = "トップページ";
         $commonhtml = "${_SERVER['DOCUMENT_ROOT']}/buildmydist-2/commonhtml";
         $distro = "top";
+        $description = "様々なメジャーなLinux系OSを自分の好きなようにカスタマイズして、再配布するためのサイトです。UbuntuやFedora、Alter Linux、Arch Linuxのディストリビューションを作成します。";
 
         // 共通ファイルを読み込み
         $domain = $_SERVER['HTTP_HOST'];
@@ -17,7 +18,7 @@
     <main>
         <h2>このサイトについて</h2>
         <p>様々なメジャーなLinux系OSを自分の好きなようにカスタマイズして、再配布するためのサイトです。</p>
-        <p></p>
+        <br>
         <p>複数のパソコンに同じOSを入れて設定を繰り返すといった際に使うことができます。</p>
         <p>また、自分がカスタマイズしたものを誰かに使ってもらいたい！という人はネット上に公開することもできます。</p>
 

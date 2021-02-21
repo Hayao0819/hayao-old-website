@@ -7,6 +7,7 @@
         $title = "Alter Linux - トップ";
         $commonhtml = "${_SERVER['DOCUMENT_ROOT']}/buildmydist-2/commonhtml";
         $distro = "alteriso3";
+        $description = "Alter LinuxをカスタマイズしてFascodeNetworkが開発したarchiso派生のAlterISO3を使用してArch Linux派生のディストリビューションを開発します。";
 
         // 共通ファイルを読み込み
         $domain = $_SERVER['HTTP_HOST'];

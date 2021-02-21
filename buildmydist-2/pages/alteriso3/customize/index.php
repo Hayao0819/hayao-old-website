@@ -69,6 +69,7 @@
         <p>後々でとても重要になってくるのですが、現段階では特に変更することはありません。</p>
         <p>このファイルはシェルスクリプトになっており、主にAlterISO3の設定(変数の定義)を行います。</p>
         <p>この設定に記述可能な変数は全てdefault.confに記述されています。(OS名やデフォルトのユーザー名などもここで設定します。)</p>
+        <p>今回は「Karaage OS consisting of Openbox and Ulauncher」（OpenboxとUlauncherで構成された Karaage OS）としました。</p>
 
         <h4>description.txt</h4>
         <p>チャンネルの説明を記述するファイルです。</p>
@@ -169,14 +170,81 @@ iso_label="KARAAGE_$(date +%Y%m%d)"
 # This setting cannot be changed by an argument.
 install_dir="karaage"
 </code></pre>
+        <p>これで設定ファイルがビルド開始時に自動で読み込まれるようになります。</p>
 
+        <h3>share-extraを有効化する</h3>
+        <p>先程も説明したshare-extraチャンネルを使用するための設定を行います。</p>
+        <p><code>default,conf</code>の後ろのほうに<code>include_extra</code>という変数が有るはずです。</p>
+        <p>その設定とコメントをコピーして<code>config.any</code>に貼り付けます。</p>
+        <p>そして<code>false</code>になっている部分を<code>true</code>に変更してください。</p>
+        <p>これでshare-extraが含まれるようになります。</p>
+        <p>（basicチャンネルをベースにしているので既にtrueに設定されているかもしれません。）</p>
 
         <h2>パッケージリストを定義しよう</h2>
         <p>ここからいよいよ本格的にチャンネルの開発を始めます。</p>
-        <p>まずはインストールするパッケージを決めます。</p>
-        <p>実はシステムの構成やGUIに必要なパッケージは全て「shareチャンネル」という仕組みによって自動でインストールされます。</p>
-        <p></p>
 
+        <h3>インストールするパッケージを決めよう</h3>
+        <p>まずはインストールするパッケージを決めます。</p>
+        <p>先程も解説したとおり、ほとんどのパッケージはshare-extraによってインストールされるため、必要なことはそれほど多くありません。</p>
+        <p>現にxfceチャンネルで指定されているパッケージもディスプレイマネージャとデスクトップ環境、そしてGTKのアイコンとテーマです。</p>
+        <p>公式リポジトリのパッケージリストは全て<code>packages</code>ディレクトリ内に配置します。</p>
+        <p>（AURのパッケージリストは別の場所に記述します。）</p>
+        <p><code>config.x86_64</code>などと同様に拡張子でアーキテクチャを表しますが、パッケージリストはanyをサポートしていません。必ず対応しているアーキテクチャ分のパッケージリストを書く必要があります。</p>
+        <p>パッケージディレクトリの直下に配置された、ファイル名が「.アーキテクチャ」で終わるファイルがパッケージリストとして読み込まれます。</p>
+        <p>パッケージリストが書かれたファイル名はアーキテクチャさえ合っていればファイル名は何でも良いです。</p>
+        <p>注意する点は、パッケージは1行で1つだけ記述することです。</p>
+        
+        <h3>もしインストールしたくないパッケージが合ったら</h3>
+        <p>shareやshare-extraによって勝手にインストールされてしまうのを防ぎたい場合、excludeファイルを使用してください。</p>
+        <p>excludeファイルに記述されているパッケージは明示的なインストールがされなくなります。（依存パッケージとしてインストールされることは有ります。）</p>
+
+        <h3>Karaage OSのパッケージリスト</h3>
+        <p>今回はOpenBoxとUlauncher、PCManFMを中心にデスクトップを構成するので、そのパッケージをインストールしていきます。</p>
+        <h4>OpenBox</h4>
+        <p>インストールするパッケージや設定方法などは<a href="https://wiki.archlinux.jp/index.php/Openbox">ArchWiki</a>が最も参考になります。</p>
+        <p>今回はOpenBox本体とその設定ツールとして<code>openbox obconf lxinput lxrandr</code>をインストールします。</p>
+        <p>パッケージファイルはそれぞれの役割ごとにカテゴリ分けしたほうが後々で管理をしやすいです。</p>
+        <h4>GTKテーマ、アイコンテーマ</h4>
+        <p>詳しくは<a href="/buildmydist-2/pages/misc/gtk-icon-theme/">GTKのアイコンとテーマについて</a>を参照してください。</p>
+        <div class="box-warning">
+            <p>ただし、テーマやアイコンを直接配置するのは推奨されていません。</p>
+            <p>必ずPKGBUILDを作成してAURに投稿するなどの方法でインストールを行ってください。</p>
+            <p>パッケージの作り方については<a href="http://localhost/buildmydist-2/pages/misc/pkgbuild">pacmanのパッケージを作る</a>を参照してください。</p>
+        </div>
+        <p>今回は既にArch Linuxの公式リポジトリ上に登録されている<code>adapta-gtk-theme papirus-icon-theme</code>をインストールします。</p>
+
+        <h3>ネットワーク系のツールをインストールする</h3>
+        <p>GUI用のネットワークツールとして<code>network-manager-applet</code>をインストールします。</p>
+        <p>セキュリティツールとして<code>firewalld ufw</code>をインストールします。</p>
+        <p>また、ブラウザとしては<code>chromium</code>をインストールします。</p>
+
+        <h3>ディスプレイマネージャについて</h3>
+        <p>ディスプレイマネージャにはLightDMをを採用します。</p>
+        <p>また、Greeterとして<code>lightdm-slick-greeter</code>、その設定ツールとして<code>lightdm-settings</code>をインストールします。</p>
+
+        <h3>AURのパッケージについて</h3>
+        <p>AURのパッケージリストは<code>packages</code>の代わりに<code>packages_aur</code>ディレクトリにパッケージリストを入れてください。</p>
+        <p>今回はAURからUlauncherをインストールしますので、それだけは別の場所に記述します。</p>
+        <p><code>karaage.add/packages_aur.x86_64/ulauncher.conf</code>に<code>ulauncher</code>と書きます。</p>
+        <p>これでAlterISO3はAURからPKGBUILDを取得してビルドし、インストールします。</p>
+
+        <h3>細かい仕様について</h3>
+        <p>Plymouthのパッケージやカーネルパッケージ、言語用パッケージなどの特定の条件でのみインストールされるパッケージがあります。</p>
+        <p>それらのカスタマイズは通常のチャンネルでは必要ありませんが、より細かくカスタマイズをしたい場合は知っておくと良いでしょう。</p>
+        <p>それらのパッケージの設定方法は<a href="https://github.com/FascodeNet/alterlinux/blob/dev/docs/jp/CHANNEL.md">チャンネルのの仕様</a>の「言語ごとのパッケージ」「カーネルごとのパッケージ」などを参照してください。</p>
+
+        <h2>イメージファイルに含める、上書きするファイルを配置する</h2>
+        <p>airootfsディレクトリには上書きするファイルを含めることができます。</p>
+        <p>airootfsを/に見立ててディレクトリ構造を維持しながらファイルを上書きします。</p>
+        <p>例えば、全てのアーキテクチャで/etc/hostnameを上書きしたい場合は<code>karaage.add/airootfs.any/etc/hostname</code>にファイルを設置します。</p>
+        <p>airootfsもpackagesと同様に拡張子でアーキテクチャを識別します。airootfsではanyアーキテクチャを指定可能です。</p>
+
+        <h3>ユーザーディレクトリのファイルを操作する</h3>
+        <p>~/内のファイルを上書き、追加する場合は注意することが有ります。</p>
+        <p>詳しくは<a href="/buildmydist-2/pages/misc/skeldir">ユーザーディレクトリのファイルを操作するには</a>を参照してください。</p>
+
+        
+        
     </main>
 
     <?php include("${commonhtml}/aftermain.php"); ?>

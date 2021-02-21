@@ -19,8 +19,8 @@
 
     <main>
         <h2>このページは何？</h2>
-        <p>Linuxのカスタマイズをする上で必要な情報をまとめています。</p>
-        <p>ようは開発をする上で便利なリンク集です。</p>
+        <p>Linuxのカスタマイズをする上で必要な情報をまとめています。ようは開発をする上で便利なリンク集です。</p>
+        <p>また、ディストリ共通の項目についてもここにまとめています。</p>
         <?php
             $relation = "${_SERVER['DOCUMENT_ROOT']}/buildmydist-2/pages/$distro/relation.php";
             if(file_exists($relation)){
