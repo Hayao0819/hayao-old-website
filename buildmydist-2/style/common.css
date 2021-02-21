@@ -3,9 +3,7 @@ header{
     /* 横幅を画面いっぱいにする */
     width: 100%;
 
-    /* 上下の空白 */
-    padding-top: 0.5%;
-    padding-bottom: 0.5%;
+
 
     /* 背景色 */
     background-color: var(--black-1);
