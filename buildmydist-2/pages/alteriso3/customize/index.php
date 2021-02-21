@@ -104,7 +104,7 @@
         <p>チャンネル設定はチャンネルディレクトリ直下にある<code>config.any</code>で行います。</p>
         <p>もしアーキテクチャごとに異なる設定を適用したい場合には<code>config.i686</code>や<code>config.x86_64</code>に書きます。</p>
         <p>設定可能な値は全て<code>default.conf</code>に記述されていますので、それをコピーしてから編集します。</p>
-        <p>様々な値をここで設定するので1つづつ見ていきます。</p>
+        <p>様々な値をここで設定するので1つずつ見ていきます。</p>
         
 
         <h3>OSの名前を設定しよう</h3>
@@ -128,7 +128,7 @@ iso_label="ALTER_$(date +%Y%m%d)"
 # This setting cannot be changed by an argument.
 install_dir=alter
 </code></pre>
-        <p>該当しているのはこの部分です。1つづつ見ていきます。</p>
+        <p>該当しているのはこの部分です。1つずつ見ていきます。</p>
 
         <h4>os_name</h4>
         <p>一番基本となるOS名です。空白や大文字などを含めることが出来ます。</p>
@@ -151,7 +151,7 @@ install_dir=alter
         <div class="code language-shell">install_dir="karaage"</div>
 
         <h4>最終的なconfig.any</h4>
-        <p>コメントも含め他方が良いので最終的に以下のようになります。</p>
+        <p>コメントも含めた方が良いので最終的に以下のようになります。</p>
 <pre class="line-numbers"><code class="language-shell">
 # OS name used for startup screen, etc.
 # This setting cannot be changed by an argument.
