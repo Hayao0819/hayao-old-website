@@ -26,7 +26,7 @@
         <ul>
             <li>ウィンドウマネージャとしてOpenBoxを採用</li>
             <li>アプリケーションの起動はPlankとUlauncher</li>
-            <li>GTKのテーマはAdaptaでアイコンのテーマはPapirus`</li>
+            <li>GTKのテーマはAdaptaでアイコンのテーマはPapirus</li>
             <li>デスクトップの処理やファイルマネージャーにはPCManFMを採用</li>
             <li>64bit版と32bit版を作成する</li>
             <li>OSの名前は「Karaage OS」にする</li>
