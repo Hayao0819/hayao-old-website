@@ -52,4 +52,21 @@
         </p>
     </span>
 
+    <span id="show-top-warning" style="display: none;">
+            <h2>警告</h2>
+            <p><input type="button" value="ふざけた警告を再表示する" onclick="ShowTopWarning()"></p>
+            <script>
+                function ShowTopWarning(){
+                    localStorage.removeItem("TopWarningHide");
+                    document.getElementById("top-warning").style.display = "block";
+                    document.getElementById("show-top-warning").style.display = "none"
+                }
+                window.addEventListener("load", function(){
+                    if (localStorage.getItem("TopWarningHide") == "true"){
+                        document.getElementById("show-top-warning").style.display = "block"
+                    }
+                })
+            </script>
+    </span>
+
 </aside>

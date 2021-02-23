@@ -17,5 +17,6 @@ function FooterBlank(){
     })
 }
 
-window.addEventListener("load", FooterBlank);
+FooterBlank();
+//window.addEventListener("load", FooterBlank);
 window.addEventListener("resize", FooterBlank);

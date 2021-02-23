@@ -60,7 +60,7 @@ document.getElementById("open-sp-menu").addEventListener("load", SwitchMenu);
 function SetSpMenu() {
     // スマホCSSが適用されてる場合の処理
     if (document.body.clientWidth < 799){
-        $("main").css({
+        $("#beforemain").css({
             paddingTop: $("header").outerHeight() + "px"
         })
         //$("#sidemenu-right").css({
@@ -68,7 +68,7 @@ function SetSpMenu() {
         //})
 
     }else{
-        $("main").css({
+        $("#beforemain").css({
             paddingTop: 0
         })
     }

@@ -1,3 +1,5 @@
 
 <?php include("${commonhtml}/header.php"); ?>
-<?php include("${commonhtml}/warning.php"); ?>
+<div id="beforemain">
+    <?php include("${commonhtml}/warning.php"); ?>
+</div>
