@@ -59,6 +59,7 @@
         <h4>alteriso</h4>
         <p>alterisoファイルはチャンネルが対応しているAlterISOのバージョンを書くためのものです。</p>
         <p>このファイルを変更してしまうとbuild.shに認識されなくなってしまうので十分注意してください。このファイルはチャンネルを構成する上で唯一必須のものです。</p>
+        <p>2021年3月5日で最新のバージョンはAlterISO 3.1です。</p>
 
         <h4>architecture</h4>
         <p>利用可能なアーキテクチャを1行ずつ列挙していきます。</p>
@@ -83,22 +84,19 @@
         <p>（主要なファイルはこのサイトでも解説しますが、細かい仕様や特殊な状況でしか使用しないファイルについては解説を行いませんのでドキュメントを読んでください。）</p>
         <p><a href="https://github.com/FascodeNet/alterlinux/tree/dev/docs/jp">完全なドキュメント一覧はこちら</a></p>
 
-        <h2>shareチャンネルについて</h2>
-        <p>AlterISO3には開発をものすごく容易にする「shareチャンネル」という仕組みがあります</p>
-        <p>shareチャンネルは、ビルドされるチャンネルに関わらず自動で追加されるパッケージやファイルの集まりです。</p>
+        <h2>モジュールについて</h2>
+        <div class="box-warning">
+            <p>モジュールはAlterISO 3.1で開発されている新機能です。AlterISO 3.0では使用できません。</p>
+        </div>
+        <p>AlterISO3には開発をものすごく容易にするモジュールという仕組みがあります</p>
+        <p>モジュールは特定の用途のためのパッケージやファイルをあつめたグループです。</p>
         <p>この仕組みによってチャンネルで共通のファイルを1箇所で管理し、また新しいチャンネルのソースコードを最小限に抑えます</p>
-        <p>例えばLinuxカーネルやブートローダーなどはチャンネルに関わらず必ずインストールされます。</p>
-        <p>また、ホスト名を設定する<code>/etc/hostname</code>や<code>/etc/bash.bashrc</code>などのファイルも必ず必要です。</p>
-        <p>shareチャンネルにそれらをまとめることによって自動で追加されるようになっています。</p>
+        <p>例えばLightDmの最小限の設定をまとめた「lightdm」モジュールや、Linuxの正常な動作に必要な最低限のファイルをまとめた「share」モジュールがあります。</p>
         <p>今この記事を見ているあなたが、AlterISO3本体の開発に関わりたいのではなく単純にチャンネルを作りたいだけなのならそこまで深く理解する必要はありません。</p>
         <p>単純に「必要なパッケージやファイルは自動で追加されるんだな」と思ってください。</p>
+        <p>モジュールには様々な種類があり、チャンネルの開発の手助けになります。</p>
         <br>
-        <p>shareチャンネルには「share」と「share-extra」があります。</p>
-        <p>shareは強制的に全てのチャンネルで使用されますが、share-extraは設定ファイルで使用するかどうかを選択できます。</p>
-        <p>というのも、share-extraはGUIのためのファイルやパッケージが多く含まれており、CLIのチャンネルを構成したい場合には邪魔にしかならないためです。</p>
-        <br>
-        <p>今回はGUIのチャンネルを開発するのでshare-extraを有効化する必要があります。</p>
-        <p>有効化の設定はチャンネル設定ファイルで行います。まずはその設定ファイルについてを解説します。</p>
+        <p>使用するモジュールの設定はチャンネル設定ファイルで行います。まずはその設定ファイルについてを解説します。</p>
 
 
         <h2>チャンネル設定を定義しよう</h2>
@@ -172,13 +170,22 @@ install_dir="karaage"
 </code></pre>
         <p>これで設定ファイルがビルド開始時に自動で読み込まれるようになります。</p>
 
-        <h3>share-extraを有効化する</h3>
+        <h3>使用するモジュールを設定する</h3>
         <p>先程も説明したshare-extraチャンネルを使用するための設定を行います。</p>
-        <p><code>default,conf</code>の後ろのほうに<code>include_extra</code>という変数が有るはずです。</p>
-        <p>その設定とコメントをコピーして<code>config.any</code>に貼り付けます。</p>
-        <p>そして<code>false</code>になっている部分を<code>true</code>に変更してください。</p>
-        <p>これでshare-extraが含まれるようになります。</p>
-        <p>（basicチャンネルをベースにしているので既にtrueに設定されているかもしれません。）</p>
+        <p><code>basic</code>チャンネルをベースに開発している場合は既に最低限の設定が済んでいます。</p>
+        <p><code>config.any</code>の<code>modules</code>配列がモジュールの一覧です。</p>
+        <p>様々なモジュールがありますが、まずは最小限のモジュールだけ設定します。GUIベースのチャンネルの場合は<code>share-extra</code>モジュールを追加してください。</p>
+        <div class="box-warning">
+                <p>設定ファイルはBashスクリプトであり、この配列もシェルの配列です。区切り文字は<code>,</code>などではなく空白文字です。</p>
+        </div>
+        <pre class="line-numbers"><code class="language-shell">
+# Modules to include
+# An array of module directory names to include.
+# This setting cannot be changed by an argument.
+modules=(
+    "share-extra"
+)
+</code></pre>
 
         <h2>パッケージリストを定義しよう</h2>
         <p>ここからいよいよ本格的にチャンネルの開発を始めます。</p>
@@ -237,7 +244,7 @@ install_dir="karaage"
         <p>ここまででパッケージリストの定義といくつかの設定ファイルの変更を行いました。</p>
         <p>どうしても文章ばかりになってしまってわかりにくい箇所も合ったと思うので、ここで一回現段階のソースコードを確認します。</p>
         <p>以下のリンクでGitHub上に公開してあるので参考にしてみてください。</p>
-        <p><a href="https://github.com/Hayao0819/alterlinux-channels/tree/54a4bb37232fc2e316feabbc9a957dcea3d54aef/karaage.add">ソースコードはこちら</a></p>
+        <p><a href="https://github.com/Hayao0819/alterlinux-channels/tree/be4bbdad450f5538c36323b41aa8fd81388f152d/karaage.add">ソースコードはこちら</a></p>
         <p>ここで完成ではなくこれからさらにいろいろといじっていきます。</p>
 
         <h2>イメージファイルに含める、上書きするファイルを配置する</h2>
@@ -278,25 +285,12 @@ install_dir="karaage"
         <p>シェルスクリプトでGUIを起動すると、本来ディスプレイマネージャが自動で行っていることを自分でやる必要が有ります。（もちろんそれをシェルスクリプトでやるのは大変です。）</p>
         <p>そのため、正常にログインや起動処理が行われないことが有ります。それぞれのディスプレイマネージャの自動ログイン機能を利用しましょう。</p>
 
+        
         <h4>それぞれのディスプレイマネージャに自動ログインを設定する</h4>
-        <p>airootfsを利用して自動ログインを設定しましょう。ただし、ここにもまた落とし穴が有ります。</p>
-        <p>AlterISO3のビルドオプションをよく見るとライブ環境のユーザー名を自由に変更することが出来ます。</p>
-        <p>つまり、直接ユーザー名を設定ファイルに書くことは出来ません。</p>
-        <p>そこで先程軽く説明したスクリプトによる置き換えを利用します。</p>
-        <p>まず何も考えず普通にディスプレイマネージャの自動ログインを設定してください。</p>
-        <p>自動ログインの設定については<a href="">ディスプレイマネージャについて</a>を参照してください。</p>
-        <p>その後、自動ログインするユーザーを記述する部分に<code>%USERNAME%</code>と入れてください。</p>
-        <p>この<code>%USERNAME%</code>をシェルスクリプトでユーザー名に置き換えます。</p>
-        <br>
-        <p>もし<code>/etc/lightdm/lightdm.conf</code>にユーザー名を書いたのなら以下のようなコマンドを<code>customize_airootfs</code>に記述してください。</p>
-        <pre class="line-numbers"><code class="language-shell">
-# Replace auto login user
-sed -i "s|%USERNAME%|${username}|g" "/etc/lightdm/lightdm.conf"
-        </code></pre>
-        <p>設定ファイルのパスは各自で書き換えてください。</p>
-        <p>その後、ディスプレイマネージャを自動起動させるためのsystemdのコマンドも同じスクリプトに記述してください。</p>
-        <p>これで正常にディスプレイマネージャの自動ログインとGUIの自動起動の設定が出来ました。</p>
-        <p>この部分はとてもむずかしいので実際にAlter Linux Xfceなどのソースコードを参照してみてください。</p>
+        <h5>LightDMの場合</h5>
+        <p>LightDMを使用する場合は<code>lightdm</code>というモジュールを利用することでかんたんに設定を行えます。</p>
+        <p>LightDMモジュールに含まれているのはあくまでもライブ環境用の設定であるということに注意してください。（インストール後の環境の設定は各自でやる必要があります。）</p>
+        <p>先程の設定ファイルに<code>lightdm</code>モジュールを追加した後、<code>airootfs.any/etc/lightdm</code>にGreeterなどの通常と同じ設定ファイルを置いてください。</p>
 
         <h3>ユーザーディレクトリのファイルを操作する</h3>
         <p>~/内のファイルを上書き、追加する場合は注意することが有ります。</p>
@@ -314,7 +308,7 @@ sed -i "s|%USERNAME%|${username}|g" "/etc/lightdm/lightdm.conf"
         <p>しかしAlterISO3には背景をかんたんに変更できる仕組みがあります。</p>
         <p>チャンネルディレクトリ直下に<b>640x480でpng形式</b>の画像を<code>splash.png</code>という名前で設置するだけです。</p>
         <p>画像を作成する参考にAlter Linuxのものを載せておきます。</p>
-        <p><img src="/buildmydist-2/pages/alteriso3/customize/images/splash.png" alt="起動画面"></p>
+        <p><img src="/buildmydist-2/pages/alteriso3.1/customize/images/splash.png" alt="起動画面"></p>
 
 
 
