@@ -10,8 +10,7 @@
     </p>
       
     <p id="counter">
-        <!-- <script type="text/javascript" src="//ct2.shinobi.jp/sc/1744984"></script> -->
-        <img src="//ct2.shinobi.jp/ll/1744984" alt="カウンター">
+        <p style="text-align: right;">アクセスカウンター置きたいね</p>
     </p>
 </footer>
 
