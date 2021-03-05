@@ -300,6 +300,11 @@ modules=(
         <p>実際にディストリビューションにデフォルトで適用する設定ファイルを作成します。</p>
         <p>詳しくは<a href="/buildmydist-2/pages/misc/create-config-file">GUIソフトの設定ファイルを作成する方法</a>を参照してください。</p>
 
+        <h3>GUIの設定をカスタマイズする</h3>
+        <p>今回はOpenBoxをウィンドウマネージャとして採用していますが、OpenBoxのデフォルト設定はあまりにも味気ないため設定をカスタマイズします。</p>
+        <p>Linuxでは設定はすべてファイルに保存されるので、OpenBoxの適切な設定ファイルをairootfsで配置すれば問題ありません。</p>
+        <p>設定を行うためのさらなる方法はArchWikiや<a href="/buildmydist-2/pages/misc/create-config-file">GUIソフトの設定ファイルを作成する</a>を参照してください。</p>
+
         <h2>ブートローダーの背景を設定する</h2>
         <p>ここまでくればもう完成は目前です！</p>
         <p>もうここまできた人は何度か自分のチャンネルをビルドしていると思いますが、必ず気になることが有ります。</p>
@@ -308,7 +313,7 @@ modules=(
         <p>しかしAlterISO3には背景をかんたんに変更できる仕組みがあります。</p>
         <p>チャンネルディレクトリ直下に<b>640x480でpng形式</b>の画像を<code>splash.png</code>という名前で設置するだけです。</p>
         <p>画像を作成する参考にAlter Linuxのものを載せておきます。</p>
-        <p><img src="/buildmydist-2/pages/alteriso3.1/customize/images/splash.png" alt="起動画面"></p>
+        <p><img src="/buildmydist-2/pages/alteriso3/customize/images/splash.png" alt="起動画面"></p>
 
 
 
