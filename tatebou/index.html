@@ -35,7 +35,11 @@
             if (! url){
                 output.value="";
                 return 0;
+            }else if(url.indexOf("http") !== 0 ){
+                url="https://" + url;
+                document.getElementById("url").value=url;
             }
+
             let xhr = new XMLHttpRequest();
             xhr.open("POST",`https://1lil.li/p/`, true);
             send_text=`l=${url}`
