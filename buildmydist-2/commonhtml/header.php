@@ -18,6 +18,7 @@
                 <li class="bar-item-left" data-pagename="archiso"><a href="/buildmydist-2/pages/archiso/">Arch Linux</a></li>
                 <li class="bar-item-left" data-pagename="alteriso3"><a href="/buildmydist-2/pages/alteriso3/">Alter Linux</a></li>
                 <li class="bar-item-left" data-pagename="misc"><a href="/buildmydist-2/pages/misc/">その他の雑学</a></li>
+                <li class="bar-item-left" data-pagename="release"><a href="/buildmydist-2/pages/release/">リリースする</a></li>
             </ul>
         </p>
 
