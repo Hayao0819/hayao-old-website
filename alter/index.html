@@ -7,10 +7,10 @@
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <title>Alter Linux Beta</title>
 </head>
-<body class="bg-green-700 text-white">
-    <header class="fixed w-screen">
+<body class="bg-green-700 text-white leading-5 w-screen max-w-screen">
+    <header>
         <div class="containe bg-green-900 px-8 font-bold">
-            <div class="flex justify-between items-center md:py-8 py-5">
+            <div class="flex justify-between items-center md:py-4 py-2">
                 <!-- ここから メニューバー-->
                 <div id="menu_button" class="md:hidden">
                     <button>
@@ -33,6 +33,8 @@
                     <li><a href="#warning" class="block px-8 py-2 hover:bg-green-300 hover:text-black hover:underline">注意点</a></li>
                     <li><a href="#download" class="block px-8 py-2 hover:bg-green-300 hover:text-black hover:underline">ダウンロード</a></li>
                     <li><a href="#official" class="block px-8 py-2 hover:bg-green-300 hover:text-black hover:underline">公式サイト</a></li>
+                    <li><a href="#issue" class="block px-8 py-2 hover:bg-green-300 hover:text-black hover:underline">バグ報告について</a></li>
+                    <li><a href="#source" class="block px-8 py-2 hover:bg-green-300 hover:text-black hover:underline">主な技術と仕様</a></li>
                     <li><a href="#developer" class="block px-8 py-2 hover:bg-green-300 hover:text-black hover:underline">開発者について</a></li>
                 </ul>
             </div>
@@ -42,7 +44,7 @@
         
     </header>
 
-    <main class="h-screen p-3" id="main">
+    <main class="h-screen w-screen p-3" id="main">
         
         <script>
             //for (i=1; i<=10; i++){ document.getElementById("main").insertAdjacentHTML("afterbegin", "<p>Hello</p>"); }
@@ -96,11 +98,30 @@
             <h3><a href="https://fascode.net/social">その他のFascodeの関連サイト</a></h3>
         </div>
 
+        <h2><a name="issue">バグ報告について</a></h2>
+        <p>このサイトで配布されているAlter Linuxは開発途中のものです。バグがあった場合は是非報告をお願いします。</p>
+        <p>Fascoderの方はMattermost内で最初に<code>@hayao0819</code>をつけて報告してください。</p>
+        <p>それ以外の利用者の方は<a href="https://github.com/FascodeNet/alterlinux/issues">GitHubのIssue</a>から報告を行ってください。</p>
+        <p>バグ報告を行う際にはダウンロードしたイメージファイルのファイル名とPC環境を必ず伝えてください（ファイル名だけで様々な情報がわかります）</p>
+        <p>また、報告前にダウンロードしイメージファイルが破損していないかどうかを確認してください。</p>
+        <p>仮想環境ではなく実機の場合、GPUやサウンドボードなどの詳細を伝えてください。</p>
+        <p>報告後放置するのではなく、開発者がさらなる質問をする場合があるので定期的にチェックしてください。</p>
+
+        <h2><a name="source">主な技術と仕様</a></h2>
+        <p>Alter Linuxは主にArch Linux上で動作するシェルスクリプトで記述されています。</p>
+        <p>ソースコードはGPLのもとですべて<a href="https://github.com/FascodeNet/alterlinux">GitHub</a>上で公開されています。</p>
+        <p>イメージファイルに書かれているハッシュをもとにどの時点のソースコードでビルドされたのかわかるようになっています。</p>
+        <p><code>build.sh</code>を中心にビルドを行いますが、リリース用のビルドは<code>sudo make</code>を実行します。</p>
+        <p>それぞれのエディションの設定は<code>channels</code>以下に配置されています。</p>
+        <p>ソースコードの詳細やビルド方法についてはREADMEからそれぞれのドキュメントを参照してください。</p>
+        <p>（上流の仕様の変更により過去の古いソースコードはビルドできない可能性があります。）</p>
+        <p>開発に参加したい場合は気軽にプルリクエストを送信してください。（よほどのことがない限りマージします。）</p>
+        <p>過去に<a href="https://github.com/FascodeNet/alterlinux/graphs/contributors">19人もの人</a>がAlter Linuxの開発に貢献してくれました。ありがとうございます。</p>
+
+
         <h2><a name="developer">開発者について</a></h2>
         <p>田舎の高校生です。</p>
         <p>何かありましたら<a href="https://twitter.com/Hayao0819">Twitterアカウント</a>までお願いします。</p>
-
-
     
     </main>
 
@@ -109,6 +130,13 @@
     </footer>
 
     <script>
+        //ヘッダー固定
+        const FixedHeader = false;
+        if (FixedHeader){
+            Array.from(document.getElementsByTagName("header")).forEach((element) =>{
+                element.classList.add("fixed")
+            })
+        }
 
         // ハンバーガーメニューの実装
         const MenuButton = document.getElementById("menu_button");
@@ -149,8 +177,10 @@
             const Main   = document.getElementById("main");
             Main.style.paddingTop = "calc(" + Header.clientHeight + "px + 1rem)";
         };
-        window.addEventListener("resize", SetHeaderSpace);
-        window.addEventListener("load", SetHeaderSpace);
+        if (FixedHeader){
+            window.addEventListener("resize", SetHeaderSpace);
+            window.addEventListener("load", SetHeaderSpace);
+        }
 
         // Classを追加
         Array.from(document.getElementsByTagName("h2")).forEach((element) => {
