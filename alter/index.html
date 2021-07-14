@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <title>Alter Linux Beta</title>
+</head>
+<body class="bg-green-700 text-white">
+    <header class="fixed w-screen">
+        <div class="containe bg-green-900 px-8 font-bold">
+            <div class="flex justify-between items-center py-8">
+                <!-- ここから メニューバー-->
+                <div id="menu_button" class="xl:hidden">
+                    <button>
+                        <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
+                            <path d="M24 6h-24v-4h24v4zm0 4h-24v4h24v-4zm0 8h-24v4h24v-4z" id="menubutton">
+                        </svg>                       
+                    </button>
+                </div>
+                <h1 class="text-xl p-1">Alter Linux Alpha Release</h1>
+                <p class="p-1">開発中のイメージファイルをダウンロードするためのサイト</p>
+            </div>
+            
+            <div id="menu" class="hidden xl:block py-2">
+                <ul class="xl:flex">
+                    <li><a href="#about-alterlinux" class="block px-8 py-2 hover:bg-green-300 hover:text-black hover:underline">Alter Linuxとは</a></li>
+                    <li><a href="#warning" class="block px-8 py-2 hover:bg-green-300 hover:text-black hover:underline">注意点</a></li>
+                    <li><a href="#download" class="block px-8 py-2 hover:bg-green-300 hover:text-black hover:underline">ダウンロード</a></li>
+                    <li><a href="#official" class="block px-8 py-2 hover:bg-green-300 hover:text-black hover:underline">公式サイト</a></li>
+                    <li><a href="#developer" class="block px-8 py-2 hover:bg-green-300 hover:text-black hover:underline">開発者について</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- メニューバー ここまで -->
+
+        
+    </header>
+
+    <main class="h-screen p-3" id="main">
+        
+        <script>
+            //for (i=1; i<=10; i++){ document.getElementById("main").insertAdjacentHTML("afterbegin", "<p>Hello</p>"); }
+        </script>
+        
+
+        <h2><a name="about-alterlinux">Alter Linuxとは</a></h2>
+        <p>日本で開発されているArch Linuxをベースとしたディストリビューションです。</p>
+        <p>GUIでインストール作業を完結させることができます。</p>
+        <p>オーディオやコマンドラインの細かい部分にこだわりがあるのが特徴です。</p>
+
+        <h2><a name="warning">注意点</a></h2>
+        <p>このサイトからダウンロードできるのは、まだ開発中のベータ版です。</p>
+        <p>通常はFascode Network内部で検証するためにのみ使用されます。</p>
+        <p>これらはすべてGNU Public Licenseのもとで利用可能です。このソフトウェアの使用によって生じた損害は一切補償できません。</p>
+        <p>このサイトで配布されているものはGNU Public Licenseが許可する限り自由に再配布、再使用が可能です。</p>
+        <p>また、このサイトは関係者のためのサイトです。一般のユーザーの方は公式サイトからダウンロードすることをおすすめいたします。</p>
+        
+        <h2><a name="download">ダウンロード</a></h2>
+        <p>以下のフォームのダウンロードリンクは<a href="http://localhost/alter/alterlinux.json" class="hover:underline">こちらのJSON</a>に基づいて構成されています。</p>
+        <p>
+            <form id="downloadform">
+                <div class="flex justify-center items-center">
+                    <h3>リリース番号</h3>
+                    <select id="releaseidform" name="releaseidform">
+                        <option value="None" selected>選択してください</option>
+                    </select>
+                </div>
+
+                <div class="flex justify-center items-center">
+                    <h3>エディション</h3>
+                    <select id="editionform" name="editionform"></select>
+                </div>
+
+                <div class="flex justify-center items-center">
+                    <p id="message"></p>
+                </div>
+
+                <div class="flex justify-center items-center">
+                    <h3 class="w-4/5 text-center cursor-pointer" id="downloadbutton">ダウンロード</h3>
+                </div>
+            </form>
+        </p>
+
+        <h2><a name="official">公式サイト</a></h2>
+        <div class="flex justify-center items-center">
+            <h3><a href="https://fascode.net/">Fascode Network</a></h3>
+            <h3><a href="https://alter.fascode.net/">Alter Linux</a></h3>
+            <h3><a href="https://serene.fascode.net/">Serene Linux</a></h3>
+            <h3><a href="https://twitter.com/Fascode_JP">公式twitterアカウント</a></h3>
+            <h3><a href="https://fascode.net/social">その他のFascodeの関連サイト</a></h3>
+        </div>
+
+        <h2><a name="developer">開発者について</a></h2>
+        <p>田舎の高校生です。</p>
+        <p>何かありましたら<a href="https://twitter.com/Hayao0819">Twitterアカウント</a>までお願いします。</p>
+
+
+    
+    </main>
+
+    <footer>
+        <!-- <p>(c) Fascode Network 2021 Yamada Hayao </p> -->
+    </footer>
+
+    <script>
+
+        // ハンバーガーメニューの実装
+        const MenuButton = document.getElementById("menu_button");
+        const Menu       = document.getElementById("menu");
+        MenuButton.addEventListener("click", (e) => {
+            const ClassHidden = Array.from(Menu.classList).find(value => value.match(/hidden/g));
+            const Open = ()=> {
+                console.log("Open");
+                Menu.classList.remove(ClassHidden);
+                Menu.classList.add("block");
+            }
+            const Close = () =>{
+                console.log("Close");
+                Menu.classList.add("hidden");
+                Menu.classList.remove("block");
+            }
+            if (ClassHidden != undefined){
+                Open();
+            }else{
+                Close()
+            }
+        });
+
+        // メニュー外クリックで閉じる
+        document.getElementById("main").addEventListener("click", function(){
+            const ClassHidden = Array.from(Menu.classList).find(value => value.match(/hidden/g));
+            if (ClassHidden == undefined){
+                console.log("Close");
+                Menu.classList.add("hidden");
+                Menu.classList.remove("block");
+            }
+        })
+
+
+        // ヘッダーの高さ確保
+        const SetHeaderSpace = () =>{
+            const Header = document.getElementsByTagName("header")[0];
+            const Main   = document.getElementById("main");
+            Main.style.paddingTop = "calc(" + Header.clientHeight + "px + 1rem)";
+        };
+        window.addEventListener("resize", SetHeaderSpace);
+        window.addEventListener("load", SetHeaderSpace);
+
+        // Classを追加
+        Array.from(document.getElementsByTagName("h2")).forEach((element) => {
+            element.classList.add("bg-green-900", "p-2", "rounded-full", "pl-5", "font-bold")
+        })
+        Array.from(document.getElementsByTagName("h3")).forEach((element) => {
+            element.classList.add("bg-green-900", "p-2", "m-2" ,  "rounded")
+        })
+        Array.from(document.getElementById("main").getElementsByTagName("p")).forEach((element) => {
+            element.classList.add("p-2", "pl-5", "font-medium")
+        })
+        Array.from(document.getElementsByTagName("select")).forEach((element) => {
+            element.classList.add("selectform-select", "block", "w-3/4", "text-black")
+        })
+
+
+        // ダウンロードIDを取得してフォームを作成
+        const XmlReq = new XMLHttpRequest();
+        let JsonData = null;
+        XmlReq.onreadystatechange = function() {
+            if ((XmlReq.readyState === 4) && (XmlReq.status === 200)) {
+                JsonData = JSON.parse(XmlReq.responseText);
+                Object.keys(JsonData).forEach((ReleaseId) => {
+                    //console.log(JsonData[ReleaseId])
+
+                    // セレクトボックス
+                    let ReleaseIdOption = document.createElement("option");
+                    ReleaseIdOption.value = ReleaseId;
+                    ReleaseIdOption.innerText = ReleaseId;
+                    document.getElementById("releaseidform").insertAdjacentElement("afterbegin", ReleaseIdOption);
+
+                
+                });
+                SetDownloadLinkClass();
+            }
+        }
+        XmlReq.open("GET","/alter/alterlinux.json", true);
+        XmlReq.send(null);
+
+        // ダウンロードリンクのClassを設定
+        const SetDownloadLinkClass = () => {
+            Array.from(document.getElementById("releaseidform").getElementsByTagName("option")).forEach((element) => {
+                element.classList.add("p-2", "cursor-pointer", "mt-1")
+            })
+        }
+
+        // リリース番号が変更された時
+        document.getElementById("releaseidform").addEventListener("change", (e) => {
+            
+            let SelectedReleaseId = e.path[0].value;
+            document.getElementById("editionform").innerHTML = null;
+
+            if (SelectedReleaseId == "None" || SelectedReleaseId == undefined || SelectedReleaseId == null){
+                return 0;
+            }
+
+            Object.keys(JsonData[SelectedReleaseId]).forEach((EditionName) => {
+                if (EditionName != "disabled"){
+                    let EditionOption = document.createElement("option");
+                    EditionOption.value = EditionName;
+                    EditionOption.innerText = EditionName;  
+                    document.getElementById("editionform").insertAdjacentElement("afterbegin", EditionOption)
+                }
+            })
+        })
+
+        // ダウンロードのエラーメッセージを表示する
+        const ShowMsg = (message)=>{document.getElementById("message").innerText = message; }
+
+        // エディションが変更された時
+        const ShowEditionInfo = () => {
+            const ReleaseId = document.getElementById("releaseidform").value;
+            const EditionName = document.getElementById("editionform").value;
+            if (ReleaseId && EditionName){
+                ShowMsg(ReleaseId + "の" + EditionName + "が選択されました");
+            }else{
+                ShowMsg();
+            }
+        }
+        document.getElementById("editionform").addEventListener("change", ShowEditionInfo);
+        document.getElementById("releaseidform").addEventListener("change", ShowEditionInfo);
+
+        //ダウンロードボタン
+        document.getElementById("downloadbutton").addEventListener("click", (element) => {
+        
+            const ReleaseId = document.getElementById("releaseidform").value
+            const EditionName = document.getElementById("editionform").value
+            if (! EditionName){
+                ShowMsg("エディションを選択してください");
+                return 0;
+            }else{
+                const OsdnId = JsonData[ReleaseId][EditionName]
+                //console.log(OsdnId)
+                location.href = "https://osdn.net/projects/alterlinux/releases/" + OsdnId
+            }
+        })
+    </script>
+</body>
+</html>

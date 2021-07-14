@@ -1,0 +1,28 @@
+{
+    "20210705": {
+        "Cinnamon": 75483,
+        "Cinnamon-JP": 75484,
+        "i3wm": 75485,
+        "i3wm-JP": 75486,
+        "Lxde": 75487,
+        "Lxde-JP": 75488,
+        "Plasma": 75491,
+        "Plasma-JP": 75492,
+        "Xfce": 75489,
+        "Xfce-JP": 75490,
+        "disabled": false
+    },
+    "20210711": {
+        "Cinnamon": 75528,
+        "Cinnamon-JP": 75529,
+        "i3wm": 75530,
+        "i3wm-JP": 75531,
+        "Lxde": 75532,
+        "Lxde-JP": 75533,
+        "Plasma": 75534,
+        "Plasma-JP": 75535,
+        "Xfce": 75536,
+        "Xfce-JP": 75537,
+        "disabled": false
+    }
+}
