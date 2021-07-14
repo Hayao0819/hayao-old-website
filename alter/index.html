@@ -3,28 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, user-scalable=no">
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <title>Alter Linux Beta</title>
 </head>
 <body class="bg-green-700 text-white">
     <header class="fixed w-screen">
         <div class="containe bg-green-900 px-8 font-bold">
-            <div class="flex justify-between items-center py-8">
+            <div class="flex justify-between items-center md:py-8 py-5">
                 <!-- ここから メニューバー-->
-                <div id="menu_button" class="xl:hidden">
+                <div id="menu_button" class="md:hidden">
                     <button>
                         <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
                             <path d="M24 6h-24v-4h24v4zm0 4h-24v4h24v-4zm0 8h-24v4h24v-4z" id="menubutton">
                         </svg>                       
                     </button>
                 </div>
-                <h1 class="text-xl p-1">Alter Linux Alpha Release</h1>
-                <p class="p-1">開発中のイメージファイルをダウンロードするためのサイト</p>
+                <h1 class="md:text-xl text-sm p-1">Alter Linux Alpha Release</h1>
+            </div>
+
+            <div>
+                <p class="p-1 text-sm md:hidden">Aplha版配布サイト</p>
+                <p class="p-1 text-sm md:block hidden">Alter LinuxのAplha版を配布しているサイトです</p>
             </div>
             
-            <div id="menu" class="hidden xl:block py-2">
-                <ul class="xl:flex">
+            <div id="menu" class="hidden md:block py-2">
+                <ul class="md:flex">
                     <li><a href="#about-alterlinux" class="block px-8 py-2 hover:bg-green-300 hover:text-black hover:underline">Alter Linuxとは</a></li>
                     <li><a href="#warning" class="block px-8 py-2 hover:bg-green-300 hover:text-black hover:underline">注意点</a></li>
                     <li><a href="#download" class="block px-8 py-2 hover:bg-green-300 hover:text-black hover:underline">ダウンロード</a></li>
