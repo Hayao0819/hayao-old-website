@@ -222,6 +222,10 @@
                 Object.keys(JsonData).forEach((ReleaseId) => {
                     //console.log(JsonData[ReleaseId])
 
+                    if (JsonData[ReleaseId].disabled == true){
+                        return;
+                    }
+
                     // セレクトボックス
                     let ReleaseIdOption = document.createElement("option");
                     ReleaseIdOption.value = ReleaseId;
