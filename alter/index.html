@@ -74,7 +74,7 @@
                     </select>
                 </div>
 
-                <div class="flex justify-center items-center">
+                <div class="flex justify-center items-center hidden" id="editionform_div">
                     <h3>エディション</h3>
                     <select id="editionform" name="editionform"></select>
                 </div>
@@ -224,6 +224,8 @@
 
                     if (JsonData[ReleaseId].disabled == true){
                         return;
+                    }else{
+                        console.log(ReleaseId + "を追加しました");
                     }
 
                     // セレクトボックス
@@ -254,7 +256,12 @@
             document.getElementById("editionform").innerHTML = null;
 
             if (SelectedReleaseId == "None" || SelectedReleaseId == undefined || SelectedReleaseId == null){
+                document.getElementById("editionform_div").classList.add("hidden");
+                ShowMsg("リリース番号を選択してください");
                 return 0;
+            }else{
+                console.log("エディション一覧を" + SelectedReleaseId + "に更新しました");
+                document.getElementById("editionform_div").classList.remove("hidden");
             }
 
             Object.keys(JsonData[SelectedReleaseId]).forEach((EditionName) => {
@@ -268,7 +275,16 @@
         })
 
         // ダウンロードのエラーメッセージを表示する
-        const ShowMsg = (message)=>{document.getElementById("message").innerText = message; }
+        const ShowMsg = (message) => {
+            const messageElement = document.getElementById("message");
+            if (message){
+                messageElement.innerText = message;
+                console.log(message);
+            }else{
+                messageElement.innerText = null;
+            }
+            
+        }
 
         // エディションが変更された時
         const ShowEditionInfo = () => {
@@ -277,7 +293,7 @@
             if (ReleaseId && EditionName){
                 ShowMsg(ReleaseId + "の" + EditionName + "が選択されました");
             }else{
-                ShowMsg();
+                //ShowMsg();
             }
         }
         document.getElementById("editionform").addEventListener("change", ShowEditionInfo);
