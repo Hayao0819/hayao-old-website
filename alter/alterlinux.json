@@ -24,5 +24,18 @@
         "Xfce": 75536,
         "Xfce-JP": 75537,
         "disabled": false
+    },
+    "20210715": {
+        "Cinnamon": 75558,
+        "Cinnamon-JP": 75559,
+        "i3wm": 75560,
+        "i3wm-JP": 75561,
+        "Lxde": 75562,
+        "Lxde-JP": 75563,
+        "Plasma": 75564,
+        "Plasma-JP": 75565,
+        "Xfce": 75566,
+        "Xfce-JP": 75567,
+        "disabled": false
     }
 }
