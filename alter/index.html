@@ -219,7 +219,7 @@
         XmlReq.onreadystatechange = function() {
             if ((XmlReq.readyState === 4) && (XmlReq.status === 200)) {
                 JsonData = JSON.parse(XmlReq.responseText);
-                Object.keys(JsonData).forEach((ReleaseId) => {
+                Object.keys(JsonData).reverse().forEach((ReleaseId) => {
                     //console.log(JsonData[ReleaseId])
 
                     if (JsonData[ReleaseId].disabled == true){
