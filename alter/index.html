@@ -74,7 +74,7 @@
                     </select>
                 </div>
 
-                <div class="flex justify-center items-center hidden" id="editionform_div">
+                <div class="flex justify-center items-center" id="editionform_div">
                     <h3>エディション</h3>
                     <select id="editionform" name="editionform"></select>
                 </div>
@@ -272,7 +272,17 @@
                     document.getElementById("editionform").insertAdjacentElement("afterbegin", EditionOption)
                 }
             })
+        });
+
+        window.addEventListener("load", ()=>{
+            const SelectedReleaseId = document.getElementById("releaseidform").value;
+            if (SelectedReleaseId == "None" || SelectedReleaseId == undefined || SelectedReleaseId == null){
+                document.getElementById("editionform_div").classList.add("hidden");
+                return 0;
+            }
+
         })
+        
 
         // ダウンロードのエラーメッセージを表示する
         const ShowMsg = (message) => {
