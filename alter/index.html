@@ -315,7 +315,7 @@
             const ReleaseId = document.getElementById("releaseidform").value
             const EditionName = document.getElementById("editionform").value
             if (! EditionName){
-                ShowMsg("エディションを選択してください");
+                ShowMsg("設定が不完全です。リリース番号とエディションを適切に指定してください。\n指定してるにも関わらずエラーが出る場合は開発者に連絡してください。");
                 return 0;
             }else{
                 const OsdnId = JsonData[ReleaseId][EditionName]
