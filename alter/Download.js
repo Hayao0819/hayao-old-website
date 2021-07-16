@@ -18,26 +18,28 @@ XmlReq.onreadystatechange = function() {
             ReleaseIdOption.value = ReleaseId;
             ReleaseIdOption.innerText = ReleaseId;
             ReleaseIdForm.insertAdjacentElement("afterbegin", ReleaseIdOption);
-
-        
         });
-        SetDownloadLinkClass();
+
+        // リリースIDでNoneを選択させる
+        Array.from(ReleaseIdForm.options).slice(-1)[0].selected = true;
+
+        // エディションフォームを隠す
+        document.getElementById("editionform_div").classList.add("hidden");
+
+        // ダウンロードリンクのClassを設定
+        Array.from(ReleaseIdForm.getElementsByTagName("option")).forEach((element) => {
+            element.classList.add("p-2", "cursor-pointer", "mt-1")
+        })
+
     }
 }
 XmlReq.open("GET","/alter/alterlinux.json", true);
 XmlReq.send(null);
 
-// ダウンロードリンクのClassを設定
-const SetDownloadLinkClass = () => {
-    Array.from(ReleaseIdForm.getElementsByTagName("option")).forEach((element) => {
-        element.classList.add("p-2", "cursor-pointer", "mt-1")
-    })
-}
 
 // リリース番号が変更された時
-ReleaseIdForm.addEventListener("change", (e) => {
-    
-    let SelectedReleaseId = e.path[0].value;
+const Update_Edition = () => {
+    let SelectedReleaseId = ReleaseIdForm.value;
     EditionForm.innerHTML = null;
 
     if (SelectedReleaseId == "None" || SelectedReleaseId == undefined || SelectedReleaseId == null){
@@ -57,16 +59,11 @@ ReleaseIdForm.addEventListener("change", (e) => {
             EditionForm.insertAdjacentElement("afterbegin", EditionOption)
         }
     })
-});
+}
 
-// 読み込み時にエディション選択フォームを隠す
-window.addEventListener("load", ()=>{
-    const SelectedReleaseId = ReleaseIdForm.value;
-    if (SelectedReleaseId == "None" || SelectedReleaseId == undefined || SelectedReleaseId == null){
-        document.getElementById("editionform_div").classList.add("hidden");
-        return 0;
-    }
-})
+ReleaseIdForm.addEventListener("change", (e) => {
+    Update_Edition();
+});
 
 
 // ダウンロードのエラーメッセージを表示する
