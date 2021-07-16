@@ -15,3 +15,9 @@ const DownloadButton = document.getElementById("downloadbutton");
 
 // <main>
 const Main = document.getElementById("main");
+
+// head内のタイトル
+const MetaTitle = document.getElementById("meta_title");
+
+// ヘッダー内のタイトル
+const HeaderTitle = document.getElementById("header_title");

@@ -1,5 +1,4 @@
 //ヘッダー固定
-const FixedHeader = false;
 if (FixedHeader){
     Array.from(document.getElementsByTagName("header")).forEach((element) =>{
         element.classList.add("fixed")
