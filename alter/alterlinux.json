@@ -1,4 +1,63 @@
 {
+    "20Q1.1.0 Beta1": {
+        "Xfce": 72684,
+        "Xfce-JP": 72830,
+        "disabled":false
+    },
+    "20Q1.2.0 Beta2": {
+        "Lxde": 72829,
+        "Lxde-JP": 72831,
+        "Xfce": 72833,
+        "Xfce-JP": 72832,
+        "disabled":false
+    },
+    "20Q1.3.0 Beta3": {
+        "Lxde": 73063,
+        "Lxde-JP": 73064,
+        "Xfce": 73065,
+        "Xfce-JP": 73066,
+        "disabled":false
+    },
+    "20Q1.3.1 Beta3.1 20200616": {
+        "Lxde": 73246,
+        "Lxde-JP": 73248,
+        "Xfce": 73249,
+        "Xfce-JP": 73250,
+        "disabled":false
+    },
+    "20Q2.4.0 RC1 20200810": {
+        "Cinnamon": 73445,
+        "Cinnamon-JP": 73776,
+        "i3wm": 73447,
+        "i3wm-JP": 73448,
+        "Lxde": 73450,
+        "Lxde-JP": 73451,
+        "Xfce": 73452,
+        "Xfce-JP": 73453,
+        "disabled": false
+    },
+    "20Q3.4.1 RC2 20201009": {
+        "Cinnamon": 73779,
+        "Cinnamon-JP": 73780,
+        "i3wm": 73785,
+        "i3wm-JP": 73786,
+        "Lxde": 73781,
+        "Lxde-JP": 73782,
+        "Xfce": 73783,
+        "Xfce-JP": 73784,
+        "disabled": false
+    },
+    "20Q3.5.0 RC3 20201230": {
+        "Cinnamon": 74156,
+        "Cinnamon-JP": 74157,
+        "i3wm": 74162,
+        "i3wm-JP": 74163,
+        "Lxde": 74158,
+        "Lxde-JP": 74159,
+        "Xfce": 74160,
+        "Xfce-JP": 74161,
+        "disabled": false
+    },
     "20210705": {
         "Cinnamon": 75483,
         "Cinnamon-JP": 75484,
