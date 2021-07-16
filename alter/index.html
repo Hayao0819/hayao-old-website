@@ -7,7 +7,7 @@
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <title>Alter Linux Beta</title>
 </head>
-<body class="bg-green-700 text-white leading-5">
+<body class="bg-green-700 text-white leading-5 flex flex-col min-h-screen">
     <header>
         <div class="containe bg-green-900 px-8 font-bold">
             <div class="flex justify-between items-center md:py-4 py-2">
@@ -44,7 +44,7 @@
         
     </header>
 
-    <main class="h-screen p-3" id="main">
+    <main class="h-screen p-3 flex-grow" id="main">
         
         <script>
             //for (i=1; i<=10; i++){ document.getElementById("main").insertAdjacentHTML("afterbegin", "<p>Hello</p>"); }
@@ -129,200 +129,10 @@
         <!-- <p>(c) Fascode Network 2021 Yamada Hayao </p> -->
     </footer>
 
-    <script>
-        //ヘッダー固定
-        const FixedHeader = false;
-        if (FixedHeader){
-            Array.from(document.getElementsByTagName("header")).forEach((element) =>{
-                element.classList.add("fixed")
-            })
-        }
-
-        // ハンバーガーメニューの実装
-        const MenuButton = document.getElementById("menu_button");
-        const Menu       = document.getElementById("menu");
-        MenuButton.addEventListener("click", (e) => {
-            const ClassHidden = Array.from(Menu.classList).find(value => value.match(/hidden/g));
-            const Open = ()=> {
-                console.log("Open");
-                Menu.classList.remove(ClassHidden);
-                Menu.classList.add("block");
-            }
-            const Close = () =>{
-                console.log("Close");
-                Menu.classList.add("hidden");
-                Menu.classList.remove("block");
-            }
-            if (ClassHidden != undefined){
-                Open();
-            }else{
-                Close()
-            }
-        });
-
-        // メニュー外クリックで閉じる
-        document.getElementById("main").addEventListener("click", function(){
-            const ClassHidden = Array.from(Menu.classList).find(value => value.match(/hidden/g));
-            if (ClassHidden == undefined){
-                console.log("Close");
-                Menu.classList.add("hidden");
-                Menu.classList.remove("block");
-            }
-        })
-
-
-        // ヘッダーの高さ確保
-        const SetHeaderSpace = () =>{
-            const Header = document.getElementsByTagName("header")[0];
-            const Main   = document.getElementById("main");
-            Main.style.paddingTop = "calc(" + Header.clientHeight + "px + 1rem)";
-        };
-        if (FixedHeader){
-            window.addEventListener("resize", SetHeaderSpace);
-            window.addEventListener("load", SetHeaderSpace);
-        }
-
-        // Classを追加
-        //Array.from(document.getElementsByTagName("h2")).forEach((element) => {
-        //    element.classList.add("bg-green-900", "p-2", "rounded-full", "pl-5", "font-bold")
-        //})
-        //Array.from(document.getElementsByTagName("h3")).forEach((element) => {
-        //    element.classList.add("bg-green-900", "p-2", "m-2" ,  "rounded")
-        //})
-        //Array.from(document.getElementById("main").getElementsByTagName("p")).forEach((element) => {
-        //    element.classList.add("p-2", "pl-5", "font-medium")
-        //})
-        //Array.from(document.getElementsByTagName("select")).forEach((element) => {
-        //    element.classList.add("selectform-select", "block", "w-3/4", "text-black")
-        //})
-        
-        // AddclassToElements(elements, class1, class2 ...)
-        function AddClassToElements(Elements){
-            Array.from(Elements).forEach((element)=>{
-                let ArgumentList = Array.from(arguments);
-                ArgumentList.shift();
-                ArgumentList.forEach((className) => {
-                    element.classList.add(className);
-                })
-            });
-        }
-
-        AddClassToElements(document.getElementsByTagName("select"), "selectform-select", "block", "w-3/4", "text-black")
-        AddClassToElements(document.getElementsByTagName("h2"), "bg-green-900", "p-2", "rounded-full", "pl-5", "font-bold")
-        AddClassToElements(document.getElementsByTagName("h3"), "bg-green-900", "p-2", "m-2" , "rounded")
-        AddClassToElements(document.getElementById("main").getElementsByTagName("p"), "p-2", "pl-5", "font-medium")
-
-
-        // ダウンロードIDを取得してフォームを作成
-        const XmlReq = new XMLHttpRequest();
-        let JsonData = null;
-        XmlReq.onreadystatechange = function() {
-            if ((XmlReq.readyState === 4) && (XmlReq.status === 200)) {
-                JsonData = JSON.parse(XmlReq.responseText);
-                Object.keys(JsonData).reverse().forEach((ReleaseId) => {
-                    //console.log(JsonData[ReleaseId])
-
-                    if (JsonData[ReleaseId].disabled == true){
-                        return;
-                    }else{
-                        console.log(ReleaseId + "を追加しました");
-                    }
-
-                    // セレクトボックス
-                    let ReleaseIdOption = document.createElement("option");
-                    ReleaseIdOption.value = ReleaseId;
-                    ReleaseIdOption.innerText = ReleaseId;
-                    document.getElementById("releaseidform").insertAdjacentElement("afterbegin", ReleaseIdOption);
-
-                
-                });
-                SetDownloadLinkClass();
-            }
-        }
-        XmlReq.open("GET","/alter/alterlinux.json", true);
-        XmlReq.send(null);
-
-        // ダウンロードリンクのClassを設定
-        const SetDownloadLinkClass = () => {
-            Array.from(document.getElementById("releaseidform").getElementsByTagName("option")).forEach((element) => {
-                element.classList.add("p-2", "cursor-pointer", "mt-1")
-            })
-        }
-
-        // リリース番号が変更された時
-        document.getElementById("releaseidform").addEventListener("change", (e) => {
-            
-            let SelectedReleaseId = e.path[0].value;
-            document.getElementById("editionform").innerHTML = null;
-
-            if (SelectedReleaseId == "None" || SelectedReleaseId == undefined || SelectedReleaseId == null){
-                document.getElementById("editionform_div").classList.add("hidden");
-                ShowMsg("リリース番号を選択してください");
-                return 0;
-            }else{
-                console.log("エディション一覧を" + SelectedReleaseId + "に更新しました");
-                document.getElementById("editionform_div").classList.remove("hidden");
-            }
-
-            Object.keys(JsonData[SelectedReleaseId]).forEach((EditionName) => {
-                if (EditionName != "disabled"){
-                    let EditionOption = document.createElement("option");
-                    EditionOption.value = EditionName;
-                    EditionOption.innerText = EditionName;  
-                    document.getElementById("editionform").insertAdjacentElement("afterbegin", EditionOption)
-                }
-            })
-        });
-
-        window.addEventListener("load", ()=>{
-            const SelectedReleaseId = document.getElementById("releaseidform").value;
-            if (SelectedReleaseId == "None" || SelectedReleaseId == undefined || SelectedReleaseId == null){
-                document.getElementById("editionform_div").classList.add("hidden");
-                return 0;
-            }
-
-        })
-        
-
-        // ダウンロードのエラーメッセージを表示する
-        const ShowMsg = (message) => {
-            const messageElement = document.getElementById("message");
-            if (message){
-                messageElement.innerText = message;
-                console.log(message);
-            }else{
-                messageElement.innerText = null;
-            }
-            
-        }
-
-        // エディションが変更された時
-        const ShowEditionInfo = () => {
-            const ReleaseId = document.getElementById("releaseidform").value;
-            const EditionName = document.getElementById("editionform").value;
-            if (ReleaseId && EditionName){
-                ShowMsg(ReleaseId + "の" + EditionName + "が選択されました");
-            }else{
-                //ShowMsg();
-            }
-        }
-        document.getElementById("editionform").addEventListener("change", ShowEditionInfo);
-        document.getElementById("releaseidform").addEventListener("change", ShowEditionInfo);
-
-        //ダウンロードボタン
-        document.getElementById("downloadbutton").addEventListener("click", (element) => {
-        
-            const ReleaseId = document.getElementById("releaseidform").value
-            const EditionName = document.getElementById("editionform").value
-            if (! EditionName){
-                ShowMsg("設定が不完全です。リリース番号とエディションを適切に指定してください。\n指定してるにも関わらずエラーが出る場合は開発者に連絡してください。");
-                return 0;
-            }else{
-                const OsdnId = JsonData[ReleaseId][EditionName]
-                //console.log(OsdnId)
-                location.href = "https://osdn.net/projects/alterlinux/releases/" + OsdnId
-            }
-        })
-    </script>
+    <script type="text/javascript" src="./Define.js"></script>
+    <script type="text/javascript" src="./Menu.js"></script>
+    <script type="text/javascript" src="./Header.js"></script>
+    <script type="text/javascript" src="./Download.js"></script>
+    <script type="text/javascript" src="./HTMLClass.js"></script>
 </body>
 </html>
