@@ -29,13 +29,14 @@
             
             <div id="menu" class="hidden md:block py-2">
                 <ul class="md:flex">
-                    <li><a href="#about-alterlinux" class="block px-8 py-2 hover:bg-green-300 hover:text-black hover:underline">Alter Linuxとは</a></li>
-                    <li><a href="#warning" class="block px-8 py-2 hover:bg-green-300 hover:text-black hover:underline">注意点</a></li>
-                    <li><a href="#download" class="block px-8 py-2 hover:bg-green-300 hover:text-black hover:underline">ダウンロード</a></li>
-                    <li><a href="#official" class="block px-8 py-2 hover:bg-green-300 hover:text-black hover:underline">公式サイト</a></li>
-                    <li><a href="#issue" class="block px-8 py-2 hover:bg-green-300 hover:text-black hover:underline">バグ報告について</a></li>
-                    <li><a href="#source" class="block px-8 py-2 hover:bg-green-300 hover:text-black hover:underline">主な技術と仕様</a></li>
-                    <li><a href="#developer" class="block px-8 py-2 hover:bg-green-300 hover:text-black hover:underline">開発者について</a></li>
+                    <li><a href="#about-alterlinux">Alter Linuxとは</a></li>
+                    <li><a href="#warning">注意点</a></li>
+                    <li><a href="#usage">使い方</a></li>
+                    <li><a href="#download">ダウンロード</a></li>
+                    <li><a href="#official">公式サイト</a></li>
+                    <li><a href="#issue">バグ報告について</a></li>
+                    <li><a href="#source">主な技術と仕様</a></li>
+                    <li><a href="#developer">開発者について</a></li>
                 </ul>
             </div>
         </div>
@@ -52,21 +53,26 @@
         
 
         <h2><a name="about-alterlinux">Alter Linuxとは</a></h2>
-        <p>日本で開発されているArch Linuxをベースとしたディストリビューションです。</p>
-        <p>GUIでインストール作業を完結させることができます。</p>
-        <p>オーディオやコマンドラインの細かい部分にこだわりがあるのが特徴です。</p>
+        <p>日本で開発されているArch Linuxをベースとしたディストリビューションです。GUIでインストール作業を完結させることができます。</p>
+        <p>オーディオやコマンドラインの細かい部分にこだわりがあるのが特徴です。64bitと32bitの両方がサポートされています。</p>
 
         <h2><a name="warning">注意点</a></h2>
-        <p>このサイトからダウンロードできるのは、まだ開発中のベータ版です。</p>
-        <p>通常はFascode Network内部で検証するためにのみ使用されます。</p>
+        <p>このサイトからダウンロードできるのは、まだ開発中のベータ版です。通常はFascode Network内部で検証するためにのみ使用されます。</p>
         <p>これらはすべてGNU Public Licenseのもとで利用可能です。このソフトウェアの使用によって生じた損害は一切補償できません。</p>
         <p>このサイトで配布されているものはGNU Public Licenseが許可する限り自由に再配布、再使用が可能です。</p>
         <p>また、このサイトは関係者のためのサイトです。一般のユーザーの方は公式サイトからダウンロードすることをおすすめいたします。</p>
+
+        <h2><a name="usage"></a></h2>
+        <p>まず、リリース番号を選択してください。リリース番号は基本的に日付になっています。</p>
+        <p>リリース番号が選択されると、それに対応したエディション一覧が表示されますので、その中からダウンロードしたい物を選択してください。</p>
+        <p>するとダウンロードボタンが表示されるのでクリックしてください。OSDNの配布ページにジャンプするので、そこから必要なファイルをダウンロードしてください。</p>
         
         <h2><a name="download">ダウンロード</a></h2>
         <p>以下のフォームのダウンロードリンクは<a href="http://localhost/alter/alterlinux.json" class="hover:underline">こちらのJSON</a>に基づいて構成されています。</p>
         <p>
             <form id="downloadform">
+
+                <!-- リリース番号 -->
                 <div class="flex justify-center items-center">
                     <h3>リリース番号</h3>
                     <select id="releaseidform" name="releaseidform">
@@ -74,15 +80,18 @@
                     </select>
                 </div>
 
+                <!-- エディション -->
                 <div class="flex justify-center items-center" id="editionform_div">
                     <h3>エディション</h3>
                     <select id="editionform" name="editionform"></select>
                 </div>
 
+                <!-- メッセージ表示 -->
                 <div class="flex justify-center items-center">
                     <p id="message"></p>
                 </div>
 
+                <!-- ダウンロードボタン -->
                 <div class="flex justify-center items-center">
                     <h3 class="w-4/5 text-center cursor-pointer" id="downloadbutton">ダウンロード</h3>
                 </div>
@@ -100,22 +109,16 @@
 
         <h2><a name="issue">バグ報告について</a></h2>
         <p>このサイトで配布されているAlter Linuxは開発途中のものです。バグがあった場合は是非報告をお願いします。</p>
-        <p>Fascoderの方はMattermost内で最初に<code>@hayao0819</code>をつけて報告してください。</p>
-        <p>それ以外の利用者の方は<a href="https://github.com/FascodeNet/alterlinux/issues">GitHubのIssue</a>から報告を行ってください。</p>
+        <p>Fascoderの方はMattermost内で最初に<code>@hayao0819</code>をつけて報告してください。それ以外の利用者の方は<a href="https://github.com/FascodeNet/alterlinux/issues">GitHubのIssue</a>から報告を行ってください。</p>
         <p>バグ報告を行う際にはダウンロードしたイメージファイルのファイル名とPC環境を必ず伝えてください（ファイル名だけで様々な情報がわかります）</p>
-        <p>また、報告前にダウンロードしイメージファイルが破損していないかどうかを確認してください。</p>
-        <p>仮想環境ではなく実機の場合、GPUやサウンドボードなどの詳細を伝えてください。</p>
-        <p>報告後放置するのではなく、開発者がさらなる質問をする場合があるので定期的にチェックしてください。</p>
+        <p>また、報告前にダウンロードしイメージファイルが破損していないかどうかを確認してください。仮想環境ではなく実機の場合、GPUやサウンドボードなどの詳細を伝えてください。</p>
+        <p>報告後は放置するのではなく、開発者がさらなる質問をする場合があるので定期的にチェックしてください。</p>
 
         <h2><a name="source">主な技術と仕様</a></h2>
-        <p>Alter Linuxは主にArch Linux上で動作するシェルスクリプトで記述されています。</p>
-        <p>ソースコードはGPLのもとですべて<a href="https://github.com/FascodeNet/alterlinux">GitHub</a>上で公開されています。</p>
-        <p>イメージファイルに書かれているハッシュをもとにどの時点のソースコードでビルドされたのかわかるようになっています。</p>
-        <p><code>build.sh</code>を中心にビルドを行いますが、リリース用のビルドは<code>sudo make</code>を実行します。</p>
-        <p>それぞれのエディションの設定は<code>channels</code>以下に配置されています。</p>
-        <p>ソースコードの詳細やビルド方法についてはREADMEからそれぞれのドキュメントを参照してください。</p>
-        <p>（上流の仕様の変更により過去の古いソースコードはビルドできない可能性があります。）</p>
-        <p>開発に参加したい場合は気軽にプルリクエストを送信してください。（よほどのことがない限りマージします。）</p>
+        <p>Alter Linuxは主にArch Linux上で動作するシェルスクリプトで記述されています。ソースコードはGPLのもとですべて<a href="https://github.com/FascodeNet/alterlinux">GitHub</a>上で公開されています。</p>
+        <p>イメージファイルに書かれているハッシュをもとにどの時点のソースコードでビルドされたのかわかるようになっています。<code>build.sh</code>を中心にビルドを行いますが、リリース用のビルドは<code>sudo make</code>を実行します。</p>
+        <p>それぞれのエディションの設定は<code>channels</code>以下に配置されています。ソースコードの詳細やビルド方法についてはREADMEからそれぞれのドキュメントを参照してください。</p>
+        <p>上流の仕様の変更により過去の古いソースコードはビルドできない可能性があります。開発に参加したい場合は気軽にプルリクエストを送信してください。（よほどのことがない限りマージします。）</p>
         <p>過去に<a href="https://github.com/FascodeNet/alterlinux/graphs/contributors">19人もの人</a>がAlter Linuxの開発に貢献してくれました。ありがとうございます。</p>
 
 
@@ -132,9 +135,9 @@
     <script type="text/javascript" src="./Config.js"></script>
     <script type="text/javascript" src="./Define.js"></script>
     <script type="text/javascript" src="./Title.js"></script>
+    <script type="text/javascript" src="./HTMLClass.js"></script>
     <script type="text/javascript" src="./Menu.js"></script>
     <script type="text/javascript" src="./Header.js"></script>
     <script type="text/javascript" src="./Download.js"></script>
-    <script type="text/javascript" src="./HTMLClass.js"></script>
 </body>
 </html>
