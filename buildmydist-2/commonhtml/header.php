@@ -1,11 +1,15 @@
-<i class="fas fa-align-justify fa-2x" id="open-sp-menu" style="margin-top: auto;"></i>
 <header id="header">
-        <h1 class="bar-logo">
-            <a href="/buildmydist-2/index.php">オリジナルLinuxディストリを自作しよう <?php echo "${title}" ?></a>
-        </h1>
-        <p class="description">
-            様々なディストリビューションの開発の仕方を紹介します。
-        </p>
+        <div style="display:flex; justify-content: space-between;">
+            <div id="open-sp-menu" style="padding: 3px; width:10%">
+                <i class="fa-solid fa-bars fa-2x fa-fw" ></i>
+            </div>
+            <div style="width: 100%;">
+                <h1 class="bar-logo" style="display: block;">
+                    <a href="/buildmydist-2/index.php">オリジナルLinuxディストリを自作しよう <?php echo "${title}" ?></a>
+                </h1>
+                <p class="description">様々なディストリビューションの開発の仕方を紹介します。</p>
+            </div>
+        </div>
 
         <p>
             <ul id="bar-container">
