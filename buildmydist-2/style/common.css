@@ -56,6 +56,24 @@ main a{
     text-decoration: none;
     color: blue;
 }
+
+main h3{
+    background-color: darkcyan;
+    color: whitesmoke;
+}
+
+main h3::before{
+    content: '・';
+    display: inline-block;
+    width: 1em;
+    text-indent: 0;
+    font-size: larger;
+}
+
+main h4{
+    
+    color: var(--white-1);
+}
 /* === ここまで本文 === */
 
 
