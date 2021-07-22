@@ -6,11 +6,7 @@
 
 <footer>
     <p style="float: left; margin-left: 1%;">
-        Copyright &copy; 2019 - 2021 Fascode Network All Rights Reserved.
-    </p>
-      
-    <p id="counter">
-        <p style="text-align: right;">アクセスカウンター置きたいね</p>
+        Copyright &copy; 2019 - 2021 Fascode Network
     </p>
 </footer>
 
