@@ -22,7 +22,10 @@
     margin-bottom: 0;
     margin-left: 0;
     margin-right: 0;
+}
 
+li.bar-item-left{
+    width: 100%;
 }
 
 #bar-item-left{
