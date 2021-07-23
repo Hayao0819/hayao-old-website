@@ -104,7 +104,7 @@ h2:after {
     content: '';
     border-radius: 3px;
     /*background-image: linear-gradient(to left, #2af598 0%, #009efd 100%); */
-    background-color: var(--old-green-1);
+    background-color: var(--skyblue-1);
 }
 /* === ここまで本文 === */
 
