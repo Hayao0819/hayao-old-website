@@ -71,7 +71,7 @@
 }
 
 #sidemenu-right{
-    border-top: solid 6px var(--black-1);
+    border-top: solid 6px var(--old-black-1);
 }
 /* === ここまでサイドメニュー === */
 
@@ -104,7 +104,7 @@ h2:after {
     content: '';
     border-radius: 3px;
     /*background-image: linear-gradient(to left, #2af598 0%, #009efd 100%); */
-    background-color: var(--green-1);
+    background-color: var(--old-green-1);
 }
 /* === ここまで本文 === */
 

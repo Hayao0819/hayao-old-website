@@ -6,10 +6,10 @@ header{
 
 
     /* 背景色 */
-    background-color: var(--black-1);
+    background-color: var(--old-black-1);
 
     /* 文字色 */
-    color: var(--white-1);
+    color: var(--old-white-1);
 }
 
 .bar-item-left, .bar-logo{
@@ -36,7 +36,7 @@ header{
 /* クリックされたときの色 */
 .bar-item-left:active, .bar-logo:active{
     /* 文字色を設定 */
-    color: var(--red-1);
+    color: var(--old-red-1);
 
     /* 選択を無効化 */
     user-select: none;
@@ -45,7 +45,7 @@ header{
 
 /* 現在選択されているディストロ */
 .currentdistro{
-    background-color: var(--black-2);
+    background-color: var(--old-black-2);
 }
 /* === ここまでメニューバー === */
 
@@ -69,11 +69,11 @@ main h3::before{
     text-indent: 0;
     font-size: larger;
 }
-
+/*
 main h4{
-    
-    color: var(--white-1);
+    color: var(--old-white-1);
 }
+*/
 /* === ここまで本文 === */
 
 
@@ -88,8 +88,8 @@ body{
 
 /* === ここからフッター === */
 footer{
-    color: var(--white-1);
-    background-color: var(--black-1);
+    color: var(--old-white-1);
+    background-color: var(--old-black-1);
     width: 100%;
     padding-top: 0.3%;
     padding-bottom: 0.3%;

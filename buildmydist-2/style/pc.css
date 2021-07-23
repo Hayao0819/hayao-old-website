@@ -82,7 +82,7 @@ h2:after {
     content: '';
     border-radius: 3px;
     /*background-image: linear-gradient(to left, #2af598 0%, #009efd 100%); */
-    background-color: var(--green-1);
+    background-color: var(--old-green-1);
 }
 /* === ここまで本文 === */
 
@@ -165,8 +165,8 @@ main{
     position: fixed;
     bottom: 0;
     right: 24%;
-    background-color: var(--black-1);
-    color: var(--white-1);
+    background-color: var(--old-black-1);
+    color: var(--old-white-1);
     line-height: 50px;
     padding-left: 1%;
     padding-right: 1%;
