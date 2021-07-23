@@ -1,2 +1,0 @@
-User-agent : *
-Sitemap : http://serenelinux.html.xdomain.jp/sitemap.xml

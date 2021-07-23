@@ -4,7 +4,7 @@
 
     <?php
         // ページ設定
-        $title = "その他の雑学";
+        $title = "カスタマイズの仕方";
         $commonhtml = "${_SERVER['DOCUMENT_ROOT']}/buildmydist-2/commonhtml";
         $distro = "misc";
 
@@ -19,8 +19,9 @@
 
     <main>
         <h2>このページは何？</h2>
-        <p>Linuxのカスタマイズをする上で必要な情報をまとめています。ようは開発をする上で便利なリンク集です。</p>
-        <p>また、ディストリ共通の項目についてもここにまとめています。</p>
+        <p>Linuxのカスタマイズをする上で必要な情報です。</p>
+        <p>カスタマイズはほとんどがOSに関係なく、共通しているのでこのページにまとめています。</p>
+        <p>初めてLinuxを使う人も参考にしてみてください。</p>
         <?php
             $relation = "${_SERVER['DOCUMENT_ROOT']}/buildmydist-2/pages/$distro/relation.php";
             if(file_exists($relation)){
