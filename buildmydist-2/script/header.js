@@ -10,7 +10,8 @@ function SetCurrentPage(){
     });
 }
 
-window.addEventListener("load", SetCurrentPage);
+SetCurrentPage();
+//window.addEventListener("load", SetCurrentPage);
 
 
 // メニュー開閉

@@ -22,15 +22,16 @@
     margin-bottom: 0;
     margin-left: 0;
     margin-right: 0;
+
+    /*高さ*/
+    height: 50px;
+    line-height: 45px;
 }
 
 li.bar-item-left{
     width: 100%;
 }
 
-#bar-item-left{
-    flex-basis: auto;
-}
 
 .bar-logo{
     font-size: larger;

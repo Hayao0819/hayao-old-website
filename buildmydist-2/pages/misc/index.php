@@ -4,7 +4,7 @@
 
     <?php
         // ページ設定
-        $title = "カスタマイズの仕方";
+        $title = "カスタマイズ";
         $commonhtml = "${_SERVER['DOCUMENT_ROOT']}/buildmydist-2/commonhtml";
         $distro = "misc";
 
