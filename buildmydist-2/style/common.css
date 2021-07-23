@@ -161,7 +161,7 @@ main img{
 .box-warning::before {
     content: "警告";
     position: absolute;
-    background-color: #f4f4f4;
+    background-color: var(--black-1); 
     color: #da4033;
     font-weight: bold;
     left: 20px;
