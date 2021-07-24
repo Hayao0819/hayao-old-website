@@ -18,10 +18,20 @@
     <?php include("${commonhtml}/beforemain.php"); ?>
 
     <main>
-        <h2>Ubuntu 18.04 LTSについて</h2>
-        <p>中学生の頃の自分が書いたサイトがあるので参考にしてください。</p>
-        <p>ページの内容はかなり古いので近々書き直します。20.04LTSはこの方法は使えません。</p>
-        <p style="text-align: center;"><a href="/buildmydist/">→こちら！！！れ！れ！！←</a></p>
+        <h2>警告</h2>
+        <p>ここで説明している内容はUbuntu 18.04LTSでしか使用できません。</p>
+        <p>Ubunbtu 20.04以降の場合はPython2系が使用できないのでBodhi Builderが使用できないので注意してください。</p>
+
+        <h2>主な作り方</h2>
+        <p>Ubuntu 18.04をカスタマイズする場合は既に構築されたUbuntu環境をもとにイメージファイルを構築します。</p>
+        <p>そのためAlter Linuxのようにソースコードでの管理ができません。</p>
+        <p>本格的な開発ではなく、あくまでも簡易的なものとして使うのが良いでしょう。</p>
+
+        <h2>開発を始める</h2>
+        <p>まずは準備編で必要なファイルや環境の構築を行いましょう。</p>
+        <p><a href="./preparation/">準備編</a>に進む</p>
+
+
     </main>
 
     <?php include("${commonhtml}/aftermain.php"); ?>
