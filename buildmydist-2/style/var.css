@@ -1,4 +1,4 @@
-*{
+:root {
     --old-red-1: #e74c3c;
     --old-black-1: #2c3e50;
     --old-black-2: #576574;
@@ -13,6 +13,4 @@
     --skyblue-2: #54bebb;
     --white-1: #fbffee;
     --pink-1: #e84393;
-
-
 }
