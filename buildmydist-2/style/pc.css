@@ -59,6 +59,12 @@ li.bar-item-left{
 }
 */
 
+
+.bar-item-left:hover{
+    background-color: var(--skyblue-2);
+    color: black;
+}
+
 /* === ここまでメニューバー === */
 
 

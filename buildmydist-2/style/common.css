@@ -28,10 +28,14 @@ header{
     text-decoration: none;
 }
 
+.bar-item-left a{
+    display: block;
+}
+
 /* クリックされたときの色 */
 .bar-item-left:active, .bar-logo:active{
     /* 文字色を設定 */
-    color: var(--old-red-1);
+    background-color: var(--old-red-1) !important;
 
     /* 選択を無効化 */
     user-select: none;
