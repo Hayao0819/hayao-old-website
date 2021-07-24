@@ -50,6 +50,8 @@ header{
 main h3{
     background-color: var(--gray-2);
     color: whitesmoke;
+
+    margin-top: 15px;
     margin-bottom: 15px;
 }
 
@@ -62,9 +64,12 @@ main h3::before{
 }
 
 main h4{
-    display: inline;
+    display: inline-block;
     font-weight: 900;
-    /*border-bottom: 2px solid var(--pink-1); */
+    
+    --main-h4-margin: 18px;
+    margin-top: var(--main-h4-margin);
+    margin-bottom: var(--main-h4-margin);
 }
 
 main h4::before{
@@ -74,6 +79,16 @@ main h4::before{
 main h4::after{
     content: " <<";
 }
+
+main a:hover, #sidemenu-right a:hover{
+    text-decoration: wavy;
+}
+
+main a:visited, #sidemenu-right a:visited{
+    color: var(--pink-1);
+}
+
+
 
 /* === ここまで本文 === */
 
@@ -102,8 +117,8 @@ a{
 
 /* === ここからフッター === */
 footer{
-    color: var(--old-white-1);
-    background-color: var(--old-black-1);
+    color: var(--white-1);
+    background-color: var(--blue-1);
     width: 100%;
     padding-top: 0.3%;
     padding-bottom: 0.3%;
@@ -126,12 +141,10 @@ footer{
 #index ul{
     padding-left: 10px;
 }
-#index  a{
+#index a{
     text-decoration: none;
 }
-#index  a:visited{
-    color: blue;
-}
+
 /* === ここまで目次 === */
 
 /* === ここから関連ページ === */
