@@ -133,6 +133,9 @@ footer{
 #counter > img{
     margin-left: auto;
 }
+#scroll-up{
+    display: none;
+}
 /* === ここまでフッター === */
 
 
