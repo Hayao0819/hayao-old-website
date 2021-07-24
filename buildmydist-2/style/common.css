@@ -3,13 +3,8 @@ header{
     /* 横幅を画面いっぱいにする */
     width: 100%;
 
-
-
     /* 背景色 */
-    background-color: var(--black-1);
-
-    /* 文字色 */
-    color: var(--white-1);
+    background-color: var(--blue-1);
 }
 
 .bar-item-left, .bar-logo{
@@ -33,10 +28,14 @@ header{
     text-decoration: none;
 }
 
+.bar-item-left a{
+    display: block;
+}
+
 /* クリックされたときの色 */
 .bar-item-left:active, .bar-logo:active{
     /* 文字色を設定 */
-    color: var(--red-1);
+    background-color: var(--old-red-1) !important;
 
     /* 選択を無効化 */
     user-select: none;
@@ -45,25 +44,77 @@ header{
 
 /* 現在選択されているディストロ */
 .currentdistro{
-    background-color: var(--black-2);
+    background-color: var(--skyblue-1);
 }
 /* === ここまでメニューバー === */
 
 
 
 /* === ここから本文 === */
-main a{
-    text-decoration: none;
-    color: blue;
+main h3{
+    background-color: var(--gray-2);
+    color: whitesmoke;
+
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
+
+main h3::before{
+    content: '・';
+    display: inline-block;
+    width: 1em;
+    text-indent: 0;
+    font-size: larger;
+}
+
+main h4{
+    display: inline-block;
+    font-weight: 900;
+    
+    --main-h4-margin: 18px;
+    margin-top: var(--main-h4-margin);
+    margin-bottom: var(--main-h4-margin);
+}
+
+main h4::before{
+    content: ">> ";
+}
+
+main h4::after{
+    content: " <<";
+}
+
+main a:hover, #sidemenu-right a:hover{
+    text-decoration: wavy;
+}
+
+main a:visited, #sidemenu-right a:visited{
+    color: var(--pink-1);
+}
+
+
+
 /* === ここまで本文 === */
 
 
 
 /* === ここから全体 === */
+html{
+    /* 背景色 */
+    background-color: var(--black-1);
+
+    /* 文字色 */
+    color: var(--white-1);
+}
 body{
     min-height: 100vh;
 }
+
+a{
+    text-decoration: none;
+    color: var(--pink-1);
+}
+
 /* === ここまで全体 === */
 
 
@@ -71,7 +122,7 @@ body{
 /* === ここからフッター === */
 footer{
     color: var(--white-1);
-    background-color: var(--black-1);
+    background-color: var(--blue-1);
     width: 100%;
     padding-top: 0.3%;
     padding-bottom: 0.3%;
@@ -81,6 +132,9 @@ footer{
 }
 #counter > img{
     margin-left: auto;
+}
+#scroll-up{
+    display: none;
 }
 /* === ここまでフッター === */
 
@@ -94,19 +148,18 @@ footer{
 #index ul{
     padding-left: 10px;
 }
-#index  a{
+#index a{
     text-decoration: none;
 }
-#index  a:visited{
-    color: blue;
-}
+
 /* === ここまで目次 === */
 
 /* === ここから関連ページ === */
+/*
 #relation_page a{
     text-decoration: none;
     color: blue;
-}
+}*/
 /* === ここまで関連ページ === */
 
 /* ここから画像 */
@@ -128,7 +181,7 @@ main img{
 .box-warning::before {
     content: "警告";
     position: absolute;
-    background-color: #f4f4f4;
+    background-color: var(--black-1); 
     color: #da4033;
     font-weight: bold;
     left: 20px;
@@ -173,11 +226,11 @@ main img{
     list-style:none;
     padding-left: 10px;
 }
-
+/*
 #link-collection a{
     color: blue;
     text-decoration: none;
-}
+}*/
 
 
 /* === ここまでサイドメニュー === */

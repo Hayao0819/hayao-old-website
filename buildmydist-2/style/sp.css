@@ -39,9 +39,7 @@
 }
 
 #open-sp-menu{
-    position: fixed;
-    top:0;
-    left: 0;
+    display: block;
     padding-top: 1%;
     padding-left: 1%;
     z-index: 1100;
@@ -73,7 +71,7 @@
 }
 
 #sidemenu-right{
-    border-top: solid 6px var(--black-1);
+    /* border-top: solid 6px var(--old-black-1); */
 }
 /* === ここまでサイドメニュー === */
 
@@ -106,13 +104,10 @@ h2:after {
     content: '';
     border-radius: 3px;
     /*background-image: linear-gradient(to left, #2af598 0%, #009efd 100%); */
-    background-color: var(--green-1);
+    background-color: var(--skyblue-1);
 }
 /* === ここまで本文 === */
 
 
 /* === ここからフッター === */
-#scroll-up{
-    display: none;
-}
 /* === ここまでフッター === */

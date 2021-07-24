@@ -1,4 +1,4 @@
-<span class="script_load">
+<span class="script_load" id="script_load">
     <?php 
         $script_file = glob("${_SERVER['DOCUMENT_ROOT']}/buildmydist-2/script/*.js");
         foreach($script_file as $script_path){

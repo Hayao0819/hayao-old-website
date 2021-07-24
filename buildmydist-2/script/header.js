@@ -10,27 +10,28 @@ function SetCurrentPage(){
     });
 }
 
-window.addEventListener("load", SetCurrentPage);
+SetCurrentPage();
+//window.addEventListener("load", SetCurrentPage);
 
 
 // メニュー開閉
 function SwitchMenu (command){
-    var open = "";
-    var close = "";
+    //var open = "";
+    //var close = "";
 
     var menu = document.getElementById("bar-container");
-    var button = document.getElementById("open-sp-menu");
+    //var button = document.getElementById("open-sp-menu");
 
     function NemuClose() {
         //console.log("Close!")
         menu.classList.replace("show-menu", "hide-menu");
-        button.textContent = open;
+        //button.textContent = open;
     }
 
     function MenuOpen() {
         //console.log("Open!")
         menu.classList.replace("hide-menu", "show-menu");
-        button.textContent = close;
+        //button.textContent = close;
     }
 
     if (command){
