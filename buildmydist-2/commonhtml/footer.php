@@ -1,6 +1,6 @@
 <div id="footerblank"></div>
 
-<span id="scroll-up" style="display: none;">
+<span id="scroll-up">
     <p>上に戻る</p>
 </span>
 
