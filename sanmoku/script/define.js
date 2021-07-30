@@ -28,5 +28,11 @@ const HTML = document.getElementsByName("html")[0];
 // メインテーブル
 const MainTable = document.getElementById("maintable")
 
+// メッセージ
+const Msg = document.getElementById("msg");
+
 // チェック済みのボックスの数
 let CheckedBox = 0;
+
+// ゲームが終了してるかどうか
+let GameEnded = false;
