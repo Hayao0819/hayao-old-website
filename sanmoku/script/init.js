@@ -15,8 +15,10 @@ const InitilizeTable = () => {
             td.dataset.clicked = false; // ボックスの状態を「クリックされていない」にする
 
             // 座標を設定
-            td.dataset.x = x;
-            td.dataset.y = y;
+            td.dataset.x = x; // X軸方向が同じグループを作成
+            td.dataset.y = y; // Y軸方向が同じグループを作成
+            td.setAttribute("id", `${x},${y}`)
+            
 
 
             // ボックスを表示
