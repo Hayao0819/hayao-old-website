@@ -43,13 +43,13 @@ const Judgement = () => {
         }
 
         // X座標の確認
-        if (CountArrayValue(CheckedByCurrentPlayerX, TableXNumber)){
+        if (CountArrayValue(CheckedByCurrentPlayerX, TableYNumber)){
             // チェックした値がX座標で一致した→すなわち縦方向がそろった
             WinExit("縦方向");
         }
 
         // Y軸方向の確認
-        if (CountArrayValue(CheckedByCurrentPlayerY, TableYNumber)){
+        if (CountArrayValue(CheckedByCurrentPlayerY, TableXNumber)){
             // チェックした値がY座標で一致した→すなわち横方向がそろった
             WinExit("横方向");
         }

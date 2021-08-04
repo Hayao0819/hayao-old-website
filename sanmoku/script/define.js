@@ -1,8 +1,8 @@
 // 横のマス目の数
-const TableXNumber = 3;
+let TableXNumber = 3;
 
 // 縦のマス目の数
-const TableYNumber = 3;
+let TableYNumber = 3;
 
 // マス目の初期値
 const InitialStr = "　";
@@ -11,7 +11,7 @@ const InitialStr = "　";
 const PlayerMarks = ["◯", "✗" , "△"];
 
 // プレイヤーの人数（現在 2のみ指定可能）
-const PlayerNumer = 2;
+let PlayerNumer = 2;
 
 // 現在のプレイヤー
 let CurrentPlayer = 0;
@@ -36,6 +36,18 @@ const CurrentConfig = document.getElementById("currentconfig")
 
 // リセットボタン
 const ResetButton = document.getElementById("reset");
+
+// 適用ボタン
+const ApplyButton = document.getElementById("apply");
+
+// 設定フォーム: 縦のマス目
+const InputTableX = document.getElementById("inputtablex")
+
+// 設定フォーム: 横のマス目
+const InputTableY = document.getElementById("inputtabley")
+
+// 設定フォーム: プレーヤーの人数
+const InputPlayerNumber = document.getElementById("inputplayernumber")
 
 // チェック済みのボックスの数
 let CheckedBox = 0;

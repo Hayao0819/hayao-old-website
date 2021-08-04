@@ -75,3 +75,34 @@ window.addEventListener("load", UpdateCurrentConfig)
 ResetButton.addEventListener("click", ()=>{
     location.reload();
 })
+
+// 初回起動時に設定のボックス内に初期設定を入れておく
+window.addEventListener("load", ()=>{
+    InputTableX.value = TableXNumber;
+    InputTableY.value = TableYNumber;
+    InputPlayerNumber.value = PlayerNumer;
+})
+
+// 適用ボタンが押された時の処理
+ApplyButton.addEventListener("click", ()=>{
+
+    // それぞれの状態を初期化
+    PlayerNumer   = InputPlayerNumber.value;
+    GameEnded     = false;
+    CheckedBox    = 0;
+    CurrentPlayer = 0;
+    Msg.innerText = null;
+
+    // 入力された値が正常か確認
+    if(InputTableX.value >= 3 && InputTableY.value >= 3){
+        TableXNumber = InputTableX.value;
+        TableYNumber = InputTableY.value;
+    }else{
+        Msg.innerText = "3以上の整数を指定してください"
+        return;
+    }
+    
+    // ゲーム全体の初期化と表示されている設定を更新
+    InitilizeTable();
+    UpdateCurrentConfig();
+})
