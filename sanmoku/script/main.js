@@ -16,6 +16,9 @@ const ClickedBox = (e) => {
             MySelf.dataset.clicked = "true"; //ボックスの状態を「クリック済み」にする
             MySelf.dataset.player  = CurrentPlayer; // チェックしたプレーヤーのIDをボックスに書き込む
 
+            // ログ
+            console.log(CurrentPlayer + "が " + MySelf.dataset.x + "," + MySelf.dataset.y + " をクリックしました")
+
             // プレイヤーを変更する
             ChangePlayer();
 
@@ -44,7 +47,7 @@ const ChangePlayer = () => {
     }else{
         CurrentPlayer++; //次のプレーヤーにする
     }
-    console.log("現在のプレイヤーは" + CurrentPlayer + "です") //ログを表示する
+    console.log("プレイヤー" + CurrentPlayer + "の番です") //ログを表示する
 }
 
 // 現在の設定を表示する

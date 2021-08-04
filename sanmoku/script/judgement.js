@@ -28,7 +28,7 @@ const Judgement = () => {
         elements.forEach((e) => {
 
             if (e.dataset.player == p){ // もしいま確認しているボックスが今確認しているプレーヤーIDと一致したら
-                console.log(e)
+                //console.log(e)
                 // チェックされているボックスの座標を座標リストに追加する
                 CheckedByCurrentPlayerX.push(e.dataset.x);
                 CheckedByCurrentPlayerY.push(e.dataset.y);
