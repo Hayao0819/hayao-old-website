@@ -35,20 +35,23 @@ const Judgement = () => {
             }
         });
 
+        // 勝利時に実行する関数
+        const WinExit = (text) => {
+            Msg.innerText = p + "が" + text + "で勝ちました"
+            GameEnded = true;
+            return;
+        }
+
         // X座標の確認
         if (CountArrayValue(CheckedByCurrentPlayerX, TableXNumber)){
             // チェックした値がX座標で一致した→すなわち縦方向がそろった
-            Msg.innerText = p + "が縦方向で勝ちました";
-            GameEnded = true;
-            return;
+            WinExit("縦方向");
         }
 
         // Y軸方向の確認
         if (CountArrayValue(CheckedByCurrentPlayerY, TableYNumber)){
             // チェックした値がY座標で一致した→すなわち横方向がそろった
-            Msg.innerText = p + "が横方向で勝ちました"
-            GameEnded = true;
-            return;
+            WinExit("横方向");
         }
 
 
@@ -65,8 +68,7 @@ const Judgement = () => {
                 }
 
                 if(CheckedbyCurrentPlayerD.length == TableXNumber){
-                    Msg.innerText = PlayerMarks[p] + "が左上からの斜め方向で勝ちました"
-                    GameEnded = true;
+                    WinExit("左上からの斜め方向");
                 }
             }
 
@@ -83,8 +85,7 @@ const Judgement = () => {
                     }
                 }
                 if(CheckedbyCurrentPlayerD.length == TableXNumber){
-                    Msg.innerText = PlayerMarks[p] + "が右上からの斜め方向で勝ちました"
-                    GameEnded = true;
+                    WinExit("右上からの斜め方向");
                 }
             }
         } 
