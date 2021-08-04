@@ -34,8 +34,12 @@ const Msg = document.getElementById("msg");
 // 現在の設定を表示する場所
 const CurrentConfig = document.getElementById("currentconfig")
 
+// リセットボタン
+const ResetButton = document.getElementById("reset");
+
 // チェック済みのボックスの数
 let CheckedBox = 0;
 
 // ゲームが終了してるかどうか
+// これがtrueの場合はクリックしてもマークをつけない
 let GameEnded = false;

@@ -50,7 +50,7 @@ const ChangePlayer = () => {
     console.log("プレイヤー" + CurrentPlayer + "の番です") //ログを表示する
 }
 
-// 現在の設定を表示する
+// 現在の設定を表示する関数
 const UpdateCurrentConfig = () => {
     // ゲーム設定を表示
     let p1 = document.createElement("p") //ゲーム設定を表示する枠を作成
@@ -67,4 +67,11 @@ const UpdateCurrentConfig = () => {
 
 
 }
+
+// 初回起動時に現在の設定を表示
 window.addEventListener("load", UpdateCurrentConfig)
+
+// リセットボタンが押されたときの処理
+ResetButton.addEventListener("click", ()=>{
+    location.reload();
+})
