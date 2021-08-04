@@ -28,23 +28,27 @@ const Judgement = () => {
         elements.forEach((e) => {
 
             if (e.dataset.player == p){ // もしいま確認しているボックスが今確認しているプレーヤーIDと一致したら
-
+                console.log(e)
                 // チェックされているボックスの座標を座標リストに追加する
                 CheckedByCurrentPlayerX.push(e.dataset.x);
                 CheckedByCurrentPlayerY.push(e.dataset.y);
             }
         });
 
-        // X軸方向の確認
+        // X座標の確認
         if (CountArrayValue(CheckedByCurrentPlayerX, TableXNumber)){
-            Msg.innerText = p + "がX軸方向で勝ちました";
+            // チェックした値がX座標で一致した→すなわち縦方向がそろった
+            Msg.innerText = p + "が縦方向で勝ちました";
             GameEnded = true;
+            return;
         }
 
         // Y軸方向の確認
         if (CountArrayValue(CheckedByCurrentPlayerY, TableYNumber)){
-            Msg.innerText = p + "がY軸方向で勝ちました"
+            // チェックした値がY座標で一致した→すなわち横方向がそろった
+            Msg.innerText = p + "が横方向で勝ちました"
             GameEnded = true;
+            return;
         }
 
 
