@@ -28,8 +28,11 @@ const HTML = document.getElementsByName("html")[0];
 // メインテーブル
 const MainTable = document.getElementById("maintable")
 
-// メッセージ
+// メッセージを表示する場所
 const Msg = document.getElementById("msg");
+
+// 現在の設定を表示する場所
+const CurrentConfig = document.getElementById("currentconfig")
 
 // チェック済みのボックスの数
 let CheckedBox = 0;
