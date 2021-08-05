@@ -2,7 +2,7 @@
 // 使い方: CountArrayValue(配列, 回数)
 // 参考: https://teratail.com/questions/98451
 //      https://teratail.com/questions/352619
-const CountArrayValue = (array, number) => {
+const CountArrayValue = function(array, number) {
     let count = {};
     for (let i of array) {
         count[i] = (count[i] || 0) + 1;
@@ -12,7 +12,7 @@ const CountArrayValue = (array, number) => {
 }
 
 // 勝敗の判定 ジャッジメントですの！
-const Judgement = () => {
+const Judgement =function() {
     // プレーヤーごとに判定
     // プレーヤーIDでループし、変数pに今チェック対象のプレーヤーIDが代入される
     for (p=0; p < PlayerNumer; p++){
@@ -25,7 +25,7 @@ const Judgement = () => {
         CheckedbyCurrentPlayerD = []; // 斜め方向のチェックしたボックスのリスト
 
         // 上で取得したボックスの一覧1つ1つで確認処理を行う
-        elements.forEach((e) => {
+        elements.forEach(function(e) {
 
             if (e.dataset.player == p){ // もしいま確認しているボックスが今確認しているプレーヤーIDと一致したら
                 //console.log(e)
@@ -36,7 +36,7 @@ const Judgement = () => {
         });
 
         // 勝利時に実行する関数
-        const WinExit = (text) => {
+        const WinExit = function(text){
             Msg.innerText = p + "が" + text + "で勝ちました"
             GameEnded = true;
             return;
