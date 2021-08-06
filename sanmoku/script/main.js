@@ -61,7 +61,7 @@ const UpdateCurrentConfig = function() {
     p2.innerText = "人数: " + PlayerNumer + "人 現在: " + PlayerMarks[CurrentPlayer]
 
     // 作成した枠を文書に挿入
-    CurrentConfig.innerHTML = null; // 枠の中の文書を削除
+    CurrentConfig.innerHTML = "" ; // 枠の中の文書を削除
     CurrentConfig.appendChild(p1);  // ゲーム設定を挿入
     CurrentConfig.appendChild(p2);  // プレーヤー情報を挿入
 }
