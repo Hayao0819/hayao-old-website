@@ -4,12 +4,20 @@
 //      https://teratail.com/questions/352619
 const CountArrayValue = function(array, number) {
     let count = {};
-    for (let i of array) {
-        count[i] = (count[i] || 0) + 1;
-        if (count[i] == number) return true;
+
+    //for (let i of array) {
+    //   count[i] = (count[i] || 0) + 1;
+    //    if (count[i] == number) return true;
+    //}
+
+    for (i=0; i<array.length; i++){
+        count[array[i]] = ( count[array[i]] || 0 ) + 1;;
+        if (count[array[i]] == number) return true;
     }
     return false;
 }
+
+
 
 // 勝敗の判定 ジャッジメントですの！
 const Judgement =function() {
