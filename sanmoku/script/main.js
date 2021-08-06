@@ -54,18 +54,16 @@ const ChangePlayer = function(){
 const UpdateCurrentConfig = function() {
     // ゲーム設定を表示
     let p1 = document.createElement("p") //ゲーム設定を表示する枠を作成
-    p1.innerText = `横: ${TableXNumber} 縦: ${TableYNumber}` // テキストを設定
+    p1.innerText = "横: " + TableXNumber +  "縦: " + TableYNumber // テキストを設定
 
     // プレーヤー情報を表示
     let p2 = document.createElement("p") // プレーヤー情報を表示する枠を作成
-    p2.innerText = `人数: ${PlayerNumer}人 現在: ${PlayerMarks[CurrentPlayer]}`
+    p2.innerText = "人数: " + PlayerNumer + "人 現在: " + PlayerMarks[CurrentPlayer]
 
     // 作成した枠を文書に挿入
     CurrentConfig.innerHTML = null; // 枠の中の文書を削除
     CurrentConfig.appendChild(p1);  // ゲーム設定を挿入
     CurrentConfig.appendChild(p2);  // プレーヤー情報を挿入
-
-
 }
 
 // 初回起動時に現在の設定を表示

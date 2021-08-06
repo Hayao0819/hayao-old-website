@@ -61,9 +61,9 @@ const Judgement =function() {
             // 左上からの斜め方向の判定
             {
                 for (i=0; i<TableXNumber; i++){
-                    let e = document.getElementById(`${i},${i}`)
+                    let e = document.getElementById(i + "," + i)
                     if (e.dataset.clicked == "true" && e.dataset.player == p){
-                        CheckedbyCurrentPlayerD.push(`${i},${i}`);
+                        CheckedbyCurrentPlayerD.push(i + "," + i);
                     }
                 }
 
@@ -79,9 +79,9 @@ const Judgement =function() {
             {
                 for(x=TableXNumber-1; x > -1; x--){
                     let y = TableXNumber - x - 1;
-                    let e = document.getElementById(`${x},${y}`);
+                    let e = document.getElementById(x + "," + y);
                     if (e.dataset.clicked == "true" && e.dataset.player == p){
-                        CheckedbyCurrentPlayerD.push(`${x},${y}`);
+                        CheckedbyCurrentPlayerD.push(x + "," + y);
                     }
                 }
                 if(CheckedbyCurrentPlayerD.length == TableXNumber){

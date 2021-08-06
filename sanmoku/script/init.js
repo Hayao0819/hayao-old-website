@@ -18,9 +18,8 @@ const InitilizeTable = function() {
             // 座標を設定
             td.dataset.x = x; // X軸方向が同じグループを作成
             td.dataset.y = y; // Y軸方向が同じグループを作成
-            td.setAttribute("id", `${x},${y}`)
-            
-
+            const id = x+ "," + y
+            td.setAttribute("id", id) // ボックスIDを座標名で設定
 
             // ボックスを表示
             td.addEventListener("click", ClickedBox) //ボックスがクリックされた時「ClickedBox」関数を実行する
