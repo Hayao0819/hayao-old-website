@@ -1,6 +1,6 @@
 // 初期化をする関数
 const InitilizeTable = function() {
-    MainTable.innerHTML = null;
+    MainTable.innerHTML = "";
     for (y = 0 ; y < TableYNumber; y++){ // 行を作成するループ
         
         // 行を作成する

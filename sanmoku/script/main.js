@@ -89,7 +89,7 @@ ApplyButton.addEventListener("click", function(){
     GameEnded     = false;
     CheckedBox    = 0;
     CurrentPlayer = 0;
-    Msg.innerText = null;
+    Msg.innerText = "";
 
     // 入力された値が正常か確認
     if(InputTableX.value >= 3 && InputTableY.value >= 3){
