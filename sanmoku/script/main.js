@@ -6,7 +6,7 @@ window.addEventListener("load", function(){
 // ボックスがクリックされたときの処理
 // init.jsでボタンがクリックされた場合にClickedBox関数を実行するように指示している
 const ClickedBox = function (e) {
-    const MySelf = e.path[0] // クリックされたボックスを取得する
+    const MySelf = e.target // クリックされたボックスを取得する
 
     if (! GameEnded){ //もしゲームの状態が「終了」でなければ
 
