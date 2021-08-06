@@ -25,7 +25,7 @@ const Judgement =function() {
     // プレーヤーIDでループし、変数pに今チェック対象のプレーヤーIDが代入される
     for (p=0; p < PlayerNumer; p++){
         // チェックしたプレーヤーのIDが書き込まれたボックスの一覧を取得
-        const elements = Array.from(MainTable.querySelectorAll("[data-player]"));
+        const elements = MainTable.querySelectorAll("[data-player]");
 
         // 今チェック中のプレーヤーのチェックしたボックスの座標
         CheckedByCurrentPlayerX = []; // X軸方向のチェックしたボックスのリスト
@@ -33,15 +33,16 @@ const Judgement =function() {
         CheckedbyCurrentPlayerD = []; // 斜め方向のチェックしたボックスのリスト
 
         // 上で取得したボックスの一覧1つ1つで確認処理を行う
-        elements.forEach(function(e) {
-
+        //elements.forEach(function(e) {
+        for(i=0; i<elements.length; i++){
+            let e = elements[i];
             if (e.dataset.player == p){ // もしいま確認しているボックスが今確認しているプレーヤーIDと一致したら
                 //console.log(e)
                 // チェックされているボックスの座標を座標リストに追加する
                 CheckedByCurrentPlayerX.push(e.dataset.x);
                 CheckedByCurrentPlayerY.push(e.dataset.y);
             }
-        });
+        };
 
         // 勝利時に実行する関数
         const WinExit = function(text){
