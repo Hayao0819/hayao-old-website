@@ -9,15 +9,19 @@ var ClickedBox = function (e) {
     var MySelf = e.target // クリックされたボックスを取得する
 
     if (! GameEnded){ //もしゲームの状態が「終了」でなければ
-
-        if (MySelf.dataset.clicked != "true"){
+        if (MySelf.getAttribute("data-clicked") != "true"){
             // クリックされたボックスの設定
             MySelf.innerText = PlayerMarks[CurrentPlayer]; //クリックされたボックスのテキストをクリックしたプレーヤーの記号にする
-            MySelf.dataset.clicked = "true"; //ボックスの状態を「クリック済み」にする
-            MySelf.dataset.player  = CurrentPlayer; // チェックしたプレーヤーのIDをボックスに書き込む
+
+            //MySelf.dataset.clicked = "true"; //ボックスの状態を「クリック済み」にする
+            //MySelf.dataset.player  = CurrentPlayer; // チェックしたプレーヤーのIDをボックスに書き込む
+
+            MySelf.setAttribute("data-clicked", true) //ボックスの状態を「クリック済み」にする
+            MySelf.setAttribute("data-player", CurrentPlayer) // チェックしたプレーヤーのIDをボックスに書き込む
 
             // ログ
-            console.log(CurrentPlayer + "が " + MySelf.dataset.x + "," + MySelf.dataset.y + " をクリックしました")
+            //console.log(CurrentPlayer + "が " + MySelf.dataset.x + "," + MySelf.dataset.y + " をクリックしました")
+            console.log(CurrentPlayer + "が " + MySelf.getAttribute("data-x") + "," + MySelf.getAttribute("data-y") + " をクリックしました")
 
             // プレイヤーを変更する
             ChangePlayer();

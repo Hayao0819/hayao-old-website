@@ -36,11 +36,15 @@ var Judgement =function() {
         //elements.forEach(function(e) {
         for(i=0; i<elements.length; i++){
             var e = elements[i];
-            if (e.dataset.player == p){ // もしいま確認しているボックスが今確認しているプレーヤーIDと一致したら
+            //if (e.dataset.player == p){ // もしいま確認しているボックスが今確認しているプレーヤーIDと一致したら
+            if (e.getAttribute("data-player")){
                 //console.log(e)
                 // チェックされているボックスの座標を座標リストに追加する
-                CheckedByCurrentPlayerX.push(e.dataset.x);
-                CheckedByCurrentPlayerY.push(e.dataset.y);
+                //CheckedByCurrentPlayerX.push(e.dataset.x);
+                //CheckedByCurrentPlayerY.push(e.dataset.y);
+
+                CheckedByCurrentPlayerX.push(e.getAttribute("data-x"));
+                CheckedByCurrentPlayerY.push(e.getAttribute("data-y"));
             }
         };
 
@@ -71,7 +75,7 @@ var Judgement =function() {
             {
                 for (i=0; i<TableXNumber; i++){
                     var e = document.getElementById(i + "," + i)
-                    if (e.dataset.clicked == "true" && e.dataset.player == p){
+                    if (e.getAttribute("data-clicked") == "true" && e.getAttribute("data-player") == p){
                         CheckedbyCurrentPlayerD.push(i + "," + i);
                     }
                 }
@@ -89,7 +93,7 @@ var Judgement =function() {
                 for(x=TableXNumber-1; x > -1; x--){
                     var y = TableXNumber - x - 1;
                     var e = document.getElementById(x + "," + y);
-                    if (e.dataset.clicked == "true" && e.dataset.player == p){
+                    if (e.getAttribute("data-clicked") == "true" && e.getAttribute("data-player") == p){
                         CheckedbyCurrentPlayerD.push(x + "," + y);
                     }
                 }
