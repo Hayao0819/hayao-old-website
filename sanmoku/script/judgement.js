@@ -37,7 +37,7 @@ var Judgement =function() {
         for(i=0; i<elements.length; i++){
             var e = elements[i];
             //if (e.dataset.player == p){ // もしいま確認しているボックスが今確認しているプレーヤーIDと一致したら
-            if (e.getAttribute("data-player")){
+            if (e.getAttribute("data-player") == p){
                 //console.log(e)
                 // チェックされているボックスの座標を座標リストに追加する
                 //CheckedByCurrentPlayerX.push(e.dataset.x);
