@@ -5,8 +5,8 @@ window.addEventListener("load", function(){
 
 // ボックスがクリックされたときの処理
 // init.jsでボタンがクリックされた場合にClickedBox関数を実行するように指示している
-const ClickedBox = function (e) {
-    const MySelf = e.target // クリックされたボックスを取得する
+var ClickedBox = function (e) {
+    var MySelf = e.target // クリックされたボックスを取得する
 
     if (! GameEnded){ //もしゲームの状態が「終了」でなければ
 
@@ -41,7 +41,7 @@ const ClickedBox = function (e) {
 }
 
 // プレーヤーを変更する処理
-const ChangePlayer = function(){
+var ChangePlayer = function(){
     if (CurrentPlayer == PlayerNumer - 1){ // 今のプレーヤーが最後だったら
         CurrentPlayer = 0; //最初のプレーヤーに戻る
     }else{
@@ -51,13 +51,13 @@ const ChangePlayer = function(){
 }
 
 // 現在の設定を表示する関数
-const UpdateCurrentConfig = function() {
+var UpdateCurrentConfig = function() {
     // ゲーム設定を表示
-    let p1 = document.createElement("p") //ゲーム設定を表示する枠を作成
+    var p1 = document.createElement("p") //ゲーム設定を表示する枠を作成
     p1.innerText = "横: " + TableXNumber +  "縦: " + TableYNumber // テキストを設定
 
     // プレーヤー情報を表示
-    let p2 = document.createElement("p") // プレーヤー情報を表示する枠を作成
+    var p2 = document.createElement("p") // プレーヤー情報を表示する枠を作成
     p2.innerText = "人数: " + PlayerNumer + "人 現在: " + PlayerMarks[CurrentPlayer]
 
     // 作成した枠を文書に挿入

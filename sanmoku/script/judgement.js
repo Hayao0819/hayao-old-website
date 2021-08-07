@@ -2,10 +2,10 @@
 // 使い方: CountArrayValue(配列, 回数)
 // 参考: https://teratail.com/questions/98451
 //      https://teratail.com/questions/352619
-const CountArrayValue = function(array, number) {
-    let count = {};
+var CountArrayValue = function(array, number) {
+    var count = {};
 
-    //for (let i of array) {
+    //for (var i of array) {
     //   count[i] = (count[i] || 0) + 1;
     //    if (count[i] == number) return true;
     //}
@@ -20,12 +20,12 @@ const CountArrayValue = function(array, number) {
 
 
 // 勝敗の判定 ジャッジメントですの！
-const Judgement =function() {
+var Judgement =function() {
     // プレーヤーごとに判定
     // プレーヤーIDでループし、変数pに今チェック対象のプレーヤーIDが代入される
     for (p=0; p < PlayerNumer; p++){
         // チェックしたプレーヤーのIDが書き込まれたボックスの一覧を取得
-        const elements = MainTable.querySelectorAll("[data-player]");
+        var elements = MainTable.querySelectorAll("[data-player]");
 
         // 今チェック中のプレーヤーのチェックしたボックスの座標
         CheckedByCurrentPlayerX = []; // X軸方向のチェックしたボックスのリスト
@@ -35,7 +35,7 @@ const Judgement =function() {
         // 上で取得したボックスの一覧1つ1つで確認処理を行う
         //elements.forEach(function(e) {
         for(i=0; i<elements.length; i++){
-            let e = elements[i];
+            var e = elements[i];
             if (e.dataset.player == p){ // もしいま確認しているボックスが今確認しているプレーヤーIDと一致したら
                 //console.log(e)
                 // チェックされているボックスの座標を座標リストに追加する
@@ -45,7 +45,7 @@ const Judgement =function() {
         };
 
         // 勝利時に実行する関数
-        const WinExit = function(text){
+        var WinExit = function(text){
             Msg.innerText = p + "が" + text + "で勝ちました"
             GameEnded = true;
             return;
@@ -70,7 +70,7 @@ const Judgement =function() {
             // 左上からの斜め方向の判定
             {
                 for (i=0; i<TableXNumber; i++){
-                    let e = document.getElementById(i + "," + i)
+                    var e = document.getElementById(i + "," + i)
                     if (e.dataset.clicked == "true" && e.dataset.player == p){
                         CheckedbyCurrentPlayerD.push(i + "," + i);
                     }
@@ -87,8 +87,8 @@ const Judgement =function() {
             // 右上からの斜め方向の判定
             {
                 for(x=TableXNumber-1; x > -1; x--){
-                    let y = TableXNumber - x - 1;
-                    let e = document.getElementById(x + "," + y);
+                    var y = TableXNumber - x - 1;
+                    var e = document.getElementById(x + "," + y);
                     if (e.dataset.clicked == "true" && e.dataset.player == p){
                         CheckedbyCurrentPlayerD.push(x + "," + y);
                     }

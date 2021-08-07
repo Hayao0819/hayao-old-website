@@ -1,15 +1,15 @@
 // 初期化をする関数
-const InitilizeTable = function() {
+var InitilizeTable = function() {
     MainTable.innerHTML = "";
     for (y = 0 ; y < TableYNumber; y++){ // 行を作成するループ
         
         // 行を作成する
-        let tr = document.createElement("tr")
+        var tr = document.createElement("tr")
 
         // 先程作成した行の中で横並びのボックスを作る
         for(x = 0; x < TableXNumber; x++){
             // ボックスを作成
-            let td = document.createElement("td"); 
+            var td = document.createElement("td"); 
 
             // ボックスの設定
             td.innerText = InitialStr; // ボックスの文字を初期化する（空白に設定する）
@@ -18,7 +18,7 @@ const InitilizeTable = function() {
             // 座標を設定
             td.dataset.x = x; // X軸方向が同じグループを作成
             td.dataset.y = y; // Y軸方向が同じグループを作成
-            const id = x+ "," + y
+            var id = x+ "," + y
             td.setAttribute("id", id) // ボックスIDを座標名で設定
 
             // ボックスを表示
