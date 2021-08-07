@@ -59,12 +59,14 @@ var Judgement =function() {
         if (CountArrayValue(CheckedByCurrentPlayerX, TableYNumber)){
             // チェックした値がX座標で一致した→すなわち縦方向がそろった
             WinExit("縦方向");
+            return true;
         }
 
         // Y軸方向の確認
         if (CountArrayValue(CheckedByCurrentPlayerY, TableXNumber)){
             // チェックした値がY座標で一致した→すなわち横方向がそろった
             WinExit("横方向");
+            return true;
         }
 
 
@@ -82,6 +84,7 @@ var Judgement =function() {
 
                 if(CheckedbyCurrentPlayerD.length == TableXNumber){
                     WinExit("左上からの斜め方向");
+                    return true;
                 }
             }
 
@@ -99,16 +102,18 @@ var Judgement =function() {
                 }
                 if(CheckedbyCurrentPlayerD.length == TableXNumber){
                     WinExit("右上からの斜め方向");
+                    return true;
                 }
             }
         } 
-
-        
 
         // ログ表示
         //console.log(p + "のチェック済みのX座標")
         //console.log(CheckedByCurrentPlayerX)
         //console.log(p + "のチェック済みのY座標")
         //console.log(CheckedByCurrentPlayerY)
+
+        // 終了
+        return false;
     }
 }

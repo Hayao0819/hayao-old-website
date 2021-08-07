@@ -27,7 +27,9 @@ var ClickedBox = function (e) {
             ChangePlayer();
 
             // 勝利判定を行う
-            Judgement();
+            if (Judgement()){
+                return;
+            }
 
             // 現在の情報を更新する
             UpdateCurrentConfig();
