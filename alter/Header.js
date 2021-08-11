@@ -15,3 +15,14 @@ if (FixedHeader){
     window.addEventListener("resize", SetHeaderSpace);
     window.addEventListener("load", SetHeaderSpace);
 }
+
+// ダウンロードリンクをヘッダーまで広げる
+window.addEventListener("load", (element)=>{
+    Array.from(Menu.getElementsByTagName("li")).forEach(e=>{
+        e.addEventListener ("click", ()=>{
+            location.href = e.getElementsByTagName("a")[0].href;
+        })
+        e.classList.add("cursor-pointer");
+    });
+});
+

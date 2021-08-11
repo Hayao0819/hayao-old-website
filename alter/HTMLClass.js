@@ -15,3 +15,4 @@ AddClassToElements(document.getElementsByTagName("h2"), "bg-green-900", "p-2", "
 AddClassToElements(document.getElementsByTagName("h3"), "bg-green-900", "p-2", "m-2" , "rounded");
 AddClassToElements(Main.getElementsByTagName("p"), "p-2", "pl-5", "font-medium");
 AddClassToElements(Menu.getElementsByTagName("li"), "block", "px-8", "py-2", "hover:bg-green-300", "hover:text-black", "hover:underline");
+AddClassToElements(menu.getElementsByTagName("a"), "block")
