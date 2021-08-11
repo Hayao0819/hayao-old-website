@@ -1,4 +1,18 @@
 {
+    "テンプレート": {
+        "Cinnamon": 0,
+        "Cinnamon-JP": 0,
+        "i3wm": 0,
+        "i3wm-JP": 0,
+        "Lxde": 0,
+        "Lxde-JP": 0,
+        "Plasma": 0,
+        "Plasma-JP": 0,
+        "Xfce": 0,
+        "Xfce-JP": 0,
+        "Source Code": 0,
+        "disabled": true
+    },
     "20Q1.1.0 Beta1": {
         "Xfce": 72684,
         "Xfce-JP": 72830,
@@ -119,6 +133,22 @@
         "Xfce": 75595,
         "Xfce-JP": 75596,
         "Source Code": 75597,
+        "disabled": false
+    },
+    "20210811": {
+        "Cinnamon": 75716,
+        "Cinnamon-JP": 75717,
+        "i3wm": 75718,
+        "i3wm-JP": 75719,
+        "Lxde": 75720,
+        "Lxde-JP": 75721,
+        "Plasma": 75722,
+        "Plasma-JP": 75723,
+        "Xfce": 75724,
+        "Xfce-JP": 75725,
+        "Gnome": 75726,
+        "Gnome-JP": 75727,
+        "Source Code": 75728,
         "disabled": false
     }
 }
