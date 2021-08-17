@@ -1,3 +1,15 @@
+// GETパラメータからrとeの値をそれぞれ取得する
+const GetParams = () => {
+    let ParamsArray = {
+        release: undefined,
+        edition: undefined,
+    };
+    let searchParams = new URLSearchParams(document.location.search.substring(1));
+    ParamsArray["release"] = searchParams.get("r")
+    ParamsArray["edition"] = searchParams.get("e")
+    return ParamsArray;
+}
+
 // ダウンロードIDを取得してフォームを作成
 const XmlReq = new XMLHttpRequest();
 let JsonData = null;
@@ -20,11 +32,32 @@ XmlReq.onreadystatechange = function() {
             ReleaseIdForm.insertAdjacentElement("afterbegin", ReleaseIdOption);
         });
 
-        // リリースIDでNoneを選択させる
-        Array.from(ReleaseIdForm.options).slice(-1)[0].selected = true;
+        // URLのパラメータでリリース番号が指定されていた場合の処理
+        const ReleaseParam = GetParams()["release"];
+        let InitializeRelease = true // リリースフォームを初期化するかどうか
 
-        // エディションフォームを隠す
-        document.getElementById("editionform_div").classList.add("hidden");
+        if (ReleaseParam){
+            //console.log(GetParams()["release"])
+            Array.from(ReleaseIdForm.options).forEach((e)=>{
+                if (e.value == ReleaseParam){
+                    e.selected = true;
+                    InitializeRelease = false
+                }
+            })
+        }
+
+        // GETでリリース番号が指定されていなければリリースフォームの初期化を行う
+        // 指定されていれば、その番号でエディション一覧を更新する
+        if(InitializeRelease){
+            // 「選択してください」にする
+            Array.from(ReleaseIdForm.options).slice(-1)[0].selected = true;
+
+            // エディションフォームを隠す
+            document.getElementById("editionform_div").classList.add("hidden");
+        }else{
+            Update_Edition();
+        }
+        
 
         // ダウンロードリンクのClassを設定
         Array.from(ReleaseIdForm.getElementsByTagName("option")).forEach((element) => {
@@ -59,6 +92,15 @@ const Update_Edition = () => {
             EditionForm.insertAdjacentElement("afterbegin", EditionOption)
         }
     })
+
+    const EditionParam = GetParams()["edition"];
+    if (EditionParam){
+        Array.from(EditionForm.getElementsByTagName("option")).forEach((e)=>{
+            if(e.value == EditionParam){
+                e.selected = true;
+            }
+        })
+    }
 }
 
 ReleaseIdForm.addEventListener("change", (e) => {
