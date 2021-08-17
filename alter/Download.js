@@ -101,6 +101,7 @@ const Update_Edition = () => {
             }
         })
     }
+    ShowEditionInfo();
 }
 
 ReleaseIdForm.addEventListener("change", (e) => {
