@@ -39,7 +39,7 @@ XmlReq.onreadystatechange = function() {
         if (ReleaseParam){
             //console.log(GetParams()["release"])
             Array.from(ReleaseIdForm.options).forEach((e)=>{
-                if (e.value == ReleaseParam){
+                if (e.value.toLowerCase() === ReleaseParam.toLowerCase()){
                     e.selected = true;
                     InitializeRelease = false
                 }
@@ -96,7 +96,7 @@ const Update_Edition = () => {
     const EditionParam = GetParams()["edition"];
     if (EditionParam){
         Array.from(EditionForm.getElementsByTagName("option")).forEach((e)=>{
-            if(e.value == EditionParam){
+            if(e.value.toLowerCase() == EditionParam.toLowerCase()){
                 e.selected = true;
             }
         })
