@@ -142,10 +142,12 @@ const ShowEditionInfo = () => {
     const EditionName = EditionForm.value;
     if (ReleaseId == "None" || EditionName == "None"){
         ShowMsg()
+        DownloadButton.classList.add("hidden")
         return;
     }
     if (ReleaseId && EditionName){
         ShowMsg(ReleaseId + "の" + EditionName + "が選択されました");
+        DownloadButton.classList.remove("hidden")
     }else{
         //ShowMsg();
     }
@@ -158,12 +160,16 @@ DownloadButton.addEventListener("click", (element) => {
 
     const ReleaseId = ReleaseIdForm.value
     const EditionName = EditionForm.value
-    if (! EditionName){
+    if (! EditionName || EditionName == "None"){
         ShowMsg("設定が不完全です。リリース番号とエディションを適切に指定してください。\n指定してるにも関わらずエラーが出る場合は開発者に連絡してください。");
-        return 0;
+        return;
     }else{
         const OsdnId = JsonData[ReleaseId][EditionName]
-        //console.log(OsdnId)
-        location.href = "https://osdn.net/projects/alterlinux/releases/" + OsdnId
+        if (OsdnId){
+            location.href = "https://osdn.net/projects/alterlinux/releases/" + OsdnId
+        }else{
+            ShowMsg(`不明なエラーが発生しました。\nリリースIDの取得に失敗しました。`)
+        }
+        
     }
 })
