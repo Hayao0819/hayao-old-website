@@ -84,12 +84,27 @@ const Update_Edition = () => {
         document.getElementById("editionform_div").classList.remove("hidden");
     }
 
+    // 選択肢を作成
+    const createOption = (value, text, selected) =>{
+        let Option = document.createElement("option");
+        if (! selected) {
+            selected = false;
+        }
+        Option.value = value;
+        Option.innerText = text;
+        Option.selected = selected;
+        return Option;
+    }
+
+    // 選択してくださいを追加
+    EditionForm.insertAdjacentElement("afterbegin", createOption("None", "選択してください", true))
+
     Object.keys(JsonData[SelectedReleaseId]).forEach((EditionName) => {
         if (EditionName != "disabled"){
-            let EditionOption = document.createElement("option");
-            EditionOption.value = EditionName;
-            EditionOption.innerText = EditionName;  
-            EditionForm.insertAdjacentElement("afterbegin", EditionOption)
+            //EditionOption = document.createElement("option");
+            //EditionOption.value = EditionName;
+            //EditionOption.innerText = EditionName;  
+            EditionForm.insertAdjacentElement("afterbegin", createOption(EditionName, EditionName, false));
         }
     })
 
@@ -116,7 +131,7 @@ const ShowMsg = (message) => {
         messageElement.innerText = message;
         console.log(message);
     }else{
-        messageElement.innerText = null;
+        messageElement.innerText = "";
     }
     
 }
@@ -125,6 +140,10 @@ const ShowMsg = (message) => {
 const ShowEditionInfo = () => {
     const ReleaseId = ReleaseIdForm.value;
     const EditionName = EditionForm.value;
+    if (ReleaseId == "None" || EditionName == "None"){
+        ShowMsg()
+        return;
+    }
     if (ReleaseId && EditionName){
         ShowMsg(ReleaseId + "の" + EditionName + "が選択されました");
     }else{
