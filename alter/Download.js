@@ -1,3 +1,5 @@
+'use strict';
+
 // GETパラメータからrとeの値をそれぞれ取得する
 const GetParams = () => {
     let ParamsArray = {

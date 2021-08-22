@@ -1,3 +1,5 @@
+'use strict';
+
 window.addEventListener("load", () => {
     // head内のタイトルを設定
     MetaTitle.innerText = TitleStr;

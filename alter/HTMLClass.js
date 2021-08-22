@@ -1,3 +1,5 @@
+'use strict';
+
 // AddclassToElements(elements, class1, class2 ...)
 function AddClassToElements(Elements){
     window.addEventListener("load", ()=>{Array.from(Elements).forEach((element)=>{

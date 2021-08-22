@@ -1,3 +1,5 @@
+'use strict';
+
 // ハンバーガーメニューのボタン
 const MenuButton = document.getElementById("menu_button");
 

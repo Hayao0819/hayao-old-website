@@ -1,3 +1,5 @@
+'use strict';
+
 //ヘッダー固定
 if (FixedHeader){
     Array.from(document.getElementsByTagName("header")).forEach((element) =>{

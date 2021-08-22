@@ -1,5 +1,6 @@
-// ハンバーガーメニューの実装
+'use strict';
 
+// ハンバーガーメニューの実装
 MenuButton.addEventListener("click", (e) => {
     const ClassHidden = Array.from(Menu.classList).find(value => value.match(/hidden/g));
     const Open = ()=> {
