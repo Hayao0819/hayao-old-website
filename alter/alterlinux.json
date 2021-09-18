@@ -170,5 +170,21 @@
         "Xfce-JP": 75790,
         "Source Code": 75791,
         "disabled": false
+    },
+    "20210913": {
+        "Cinnamon": 76029,
+        "Cinnamon-JP": 76030,
+        "Gnome": 76031,
+        "Gnome-JP": 76032,
+        "i3wm": 76033,
+        "i3wm-JP": 76034,
+        "Lxde": 76035,
+        "Lxde-JP": 76036,
+        "Plasma": 76037,
+        "Plasma-JP": 76038,
+        "Xfce": 76039,
+        "Xfce-JP": 76040,
+        "Source Code": 76044,
+        "disabled": false
     }
 }
