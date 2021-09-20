@@ -89,6 +89,7 @@ const Update_Edition = () => {
     // 選択肢を作成
     const createOption = (value, text, selected) =>{
         let Option = document.createElement("option");
+
         if (! selected) {
             selected = false;
         }
@@ -102,10 +103,14 @@ const Update_Edition = () => {
     EditionForm.insertAdjacentElement("afterbegin", createOption("None", "選択してください", true))
 
     Object.keys(JsonData[SelectedReleaseId]).forEach((EditionName) => {
-        if (EditionName != "disabled"){
+        if (EditionName != "disabled" && EditionName != "disabled-edition"){
             //EditionOption = document.createElement("option");
             //EditionOption.value = EditionName;
-            //EditionOption.innerText = EditionName;  
+            //EditionOption.innerText = EditionName;
+            if (JsonData[SelectedReleaseId][EditionName] == null || (JsonData[SelectedReleaseId]["disabled-edition"] && JsonData[SelectedReleaseId]["disabled-edition"].includes(EditionName)) ){
+                console.log(`${EditionName}をスキップしました`);
+                return;
+            }
             EditionForm.insertAdjacentElement("afterbegin", createOption(EditionName, EditionName, false));
         }
     })

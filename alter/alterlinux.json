@@ -11,7 +11,8 @@
         "Xfce": 0,
         "Xfce-JP": 0,
         "Source Code": 0,
-        "disabled": true
+        "disabled": true,
+        "disabled-edition": []
     },
     "20Q1.1.0 Beta1": {
         "Xfce": 72684,
@@ -186,5 +187,24 @@
         "Xfce-JP": 76040,
         "Source Code": 76044,
         "disabled": false
+    },
+    "20210920": {
+        "Cinnamon": 76050,
+        "Cinnamon-JP": 76051,
+        "Gnome": 76052,
+        "Gnome-JP": 76053,
+        "i3wm": 76054,
+        "i3wm-JP": 76055,
+        "Lxde": 76056,
+        "Lxde-JP": 76057,
+        "Plasma": 76058,
+        "Plasma-JP": 76059,
+        "Xfce": 76060,
+        "Xfce-JP": 76061,
+        "Source Code": null,
+        "disabled": false,
+        "disabled-edition": [
+            "Source Code"
+        ]
     }
 }

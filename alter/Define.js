@@ -23,3 +23,11 @@ const MetaTitle = document.getElementById("meta_title");
 
 // ヘッダー内のタイトル
 const HeaderTitle = document.getElementById("header_title");
+
+// 色
+const CommonColor = "green";
+
+//const Color1 = "black", Color2 = "white" , Color3 = "green-300"
+const Color1 = `${CommonColor}-900`
+const Color2 = `${CommonColor}-700`
+const Color3 = `${CommonColor}-200`
