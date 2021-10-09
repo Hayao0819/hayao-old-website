@@ -1,4 +1,4 @@
-baseURL = "blog/"
+baseURL = "./blog/"
 languageCode = 'ja-JP'
 title = 'ハヤオのブログ'
 theme = "smigle"
