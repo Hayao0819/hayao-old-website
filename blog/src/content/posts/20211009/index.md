@@ -1,7 +1,7 @@
 ---
 title: "最初の投稿"
 date: 2021-10-09T21:10:53+09:00
-draft: true
+draft: false
 ---
 
 ハヤオのブログをHugoを使って作ってみた。
