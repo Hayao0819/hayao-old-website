@@ -21,7 +21,7 @@ jobs:
 
       - name: Build
         working-directory: ./blog
-        run: ./update-blog,sh
+        run: ./update-blog.sh
         #run: hugo --minify -D
 
       - name: Deploy
