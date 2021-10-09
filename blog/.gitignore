@@ -1,0 +1,6 @@
+*
+
+!src
+!.gitignore
+!config.*
+!*.sh
