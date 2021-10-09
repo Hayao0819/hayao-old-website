@@ -20,11 +20,11 @@ jobs:
           extended: true
 
       - name: Build
-        run: cd blog; hugo --minify
+        run: ./update-blog,sh
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
-          publish_dir: ./public
+
