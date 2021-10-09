@@ -11,3 +11,5 @@ layoutDir = "src/layouts"
 staticDir = "src/static"
 themesDir = "src/themes"
 publishDir = "./"
+resourcedir = "src/resources"
+
