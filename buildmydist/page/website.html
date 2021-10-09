@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>
+      【2019年版】Ubuntu系のLinuxディストリビューションを自作しよう　～参考サイト～
+    </title>
+    <meta name="description" content="
+      Ubuntu派生のLinux系OSの自作方法を解説したサイトです。
+      SereneLinuxの開発者が初心者でもできるUbuntu派生OSの作成方法を画像つきで解説します。
+      BodhiBuilderにあるバグの修正方法を解説しているのはここだけ！
+    ">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="../style/main-resp.css" media="screen and (max-width: 799px)">
+    <link rel="stylesheet" href="../style/main.css" media="screen and (min-width: 800px)">
+    <link rel="stylesheet" href="../code/vs2015.css">
+    <script src="../code/highlight.pack.js"></script>
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" type="text/css" media="print" href="../style/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:100,300,400,500,700,900&amp;subset=japanese" rel="stylesheet">
+
+    <!-- class="prettyprint linenums" でコードに色付け -->
+    <!-- <pre><code class="prettyprint linenums"></code></pre> -->
+  </head>
+  <body>
+    <header>
+      <h1>【2019年版】Ubuntu系のOSを自作しよう　～参考サイト～</h1>
+      <p>BodhiBuilderを用いてオリジナルのOSを作成します。</p>
+      <p>自分の好きなデスクトップ環境やソフトウェアを入れてオリジナルのOSを作成しましょう。</p>
+      <p>実際に開発中のOS『SereneLinux』の実例を挙げながらわかりやすく解説していきます。</p>
+      <p><a href="http://hayao.fascode.net/buildmydist-2/">こちらで</a>サイト新しく作り直してます。このサイトの情報は古いのでよければどうぞ。</p>
+      <nav>
+        <ul class="topnav">
+          <li><a href="../index.html">トップページ</a></li>
+          <li><a href="preparation.html">準備編</a></li>
+          <li><a href="customize.html">カスタマイズ編</a></li>
+          <li><a href="makeiso.html">ISO作成編</a></li>
+          <li><a href="distribution.html">配布編</a></li>
+          <li class="right"><a href="about.html">About</a></li>
+          <li class="right"><a class="active" href="website.html">参考サイト</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <h2>
+        概要
+      </h2>
+      <p>
+        SereneTeamが参考にしたサイトです
+      </p>
+      <p>
+        自力でソースを解読したものもあるので全てではないですが参考までにどうぞ
+      </p>
+      <p>
+        カスタマイズ編に載せていないカスタマイズもあるかもしれません
+      </p>
+      <h2>
+        参考サイト一覧
+      </h2>
+      <h3>
+        起動画面について
+      </h3>
+      <p>
+        <a href="http://www.nemotos.net/?p=84" target="_blank">Ubuntu 10.04 (Lucid) 以降でsplash画面をカスタマイズしたいとき… (plymouthの使い方）</a>
+      </p>
+      <p>
+        <a href="http://moebuntu.web.fc2.com/moeplymouth.html" target="_blank">moebuntu</a>
+      </p>
+      <p>
+        <a href="http://www.nemotos.net/?p=1418" target="_blank">Ubuntu 16.04 における plymouth</a>
+      </p>
+      <p>
+        <a href="https://iww.hateblo.jp/entry/20111212/plymouth" target="_blank">plymouthのインストール - 揮発性のメモ２</a>
+      </p>
+
+      <h3>
+        ログイン画面について
+      </h3>
+      <p>
+        <a href="https://ja.wikipedia.org/wiki/LightDM" target="_blank">LightDM - Wikipedia</a>
+      </p>
+      <p>
+        <a href="https://kledgeb.blogspot.com/2013/04/ubuntu-1204-5-unity-greeterunity-greeter.html" target="_blank">Ubuntu ログイン画面 その5 - Unity Greeterについて・Unity Greeterの設定について - kledgeb</a>
+      </p>
+      <p>
+        <a href="https://cialu.net/how-to-solve-failed-to-start-session-with-lightdm-and-xfce/" target="_blank">How to solve 'Failed to start session' with LightDM and Xfce - CIALU.NET</a>
+      </p>
+      <h3>
+        Xfceについて
+      </h3>
+      <p>
+        <a href="http://www.dayomon.net/xfce/docs-4.2/xfce4-panel.html" target="_blank">Xfce 4 パネル</a>
+      </p>
+      <p>
+        <a href="https://wiki.archlinux.jp/index.php/Xfce" target="_blank">Xfce - ArchWiki</a>
+      </p>
+      <h3>
+        Cairo-Dockについて
+      </h3>
+      <p>
+        <a href="http://glx-dock.org/" target="_blank">Glx-Dock / Cairo-Dock - Home</a>
+      </p>
+      <p>
+        <a href="http://ondyrsjc.blog.jp/archives/1003986089.html" target="_blank">Linux ランチャー Cairo-Dockの使い方 : 初めてのLinux</a>
+      </p>
+      <p>
+        <a href="https://lifeisbeatfull.com/1143.html" target="_blank">Ubuntuを手軽にMac風にするDock〜Cairo Dock〜をインストール – 処分か？再生か？パソコン・スマホの格安運用法！</a>
+      </p>
+      <h3>
+        設定ファイル保存
+      </h3>
+      <p>
+        <a href="https://www.atmarkit.co.jp/flinux/rensai/linuxtips/311newuserdef.html" target="_blank">＠IT：新規ユーザーのデフォルト設定を変更するには</a>
+      </p>
+      <p>
+        <a href="http://una.soragoto.net/lecture/linux/skel.html" target="_blank">スケルトンファイル | ウナのLinux講座 | ウナのIT資格一問一答</a>
+      </p>
+      <p>
+        <a href="https://artsnet.jp/archives/482/" target="_blank">/etc/skelでユーザーディレクトリの雛型設定 - Artsnet</a>
+      </p>
+      <h3>
+        Ubiquity-Slideshowについて
+      </h3>
+      <p>
+        <a href="https://launchpad.net/ubiquity-slideshow-ubuntu" target="_blank">Ubiquity Slideshow in Launchpad</a>
+      </p>
+      <p>
+        <a href="https://launchpad.net/ubuntu/+source/ubiquity-slideshow-ubuntu" target="_blank">ubiquity-slideshow-ubuntu package : Ubuntu</a>
+      </p>
+      <h3>
+        ISO作成について
+      </h3>
+      <p>
+        <a href="https://sourceforge.net/projects/bodhibuilder/" target="_blank">bodhibuilderダウンロード| SourceForge.net</a>
+      </p>
+      <p>
+        <a href="https://mobile.sites.google.com/site/memomuteki/tinylinux/bodhibuilderdevesamenuc32notacom32rimageliveisowokluedezhizuosuru" target="_blank">Bodhi Builder で　vesamenu.c32 not a COM32R image Live Iso を　Klue で制作する。 - memomuteki</a>
+      </p>
+      <p>
+        <a href="http://kumasan1949.zouri.jp/bodhibuilder.html" target="_blank">UbuntuおよびUbuntu派生のカスタマイズISO作成とバックアップISO作成 Bodhibuilderを使って</a>
+      </p>
+    </main>
+
+
+    <footer>
+      It is provided by SereneLinux.
+      <br>
+      Copyright
+      &copy; 2019 SereneTeam All Rights Reserved.
+      <p>
+        <script type="text/javascript" src="//ct2.shinobi.jp/sc/1744984">
+        </script>
+        <noscript><img src="//ct2.shinobi.jp/ll/1744984" alt="カウンター">
+        </noscript>
+      </p>
+    </footer>
+
+
+  </body>
+</html>

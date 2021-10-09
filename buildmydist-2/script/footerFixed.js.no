@@ -1,0 +1,64 @@
+
+
+new function(){
+    var footer = document.getElementsByTagName("footer")[0];
+    function footerFixed(){
+        footer.style.top = "0px";
+        var ft = footer.offsetTop;
+        var fh = footer.offsetHeight;
+        if (window.innerHeight){
+            var wh = window.innerHeight;
+        }else if(document.documentElement && document.documentElement.clientHeight != 0){
+            var wh = document.documentElement.clientHeight;
+        }
+        if(ft+fh<wh){
+            footer.style.position = "relative";
+            footer.style.top = (wh-fh-ft)+"px";
+        }
+    }
+
+
+    function checkFontSize(func){
+        var e = document.createElement("div");
+        var s = document.createTextNode("S");
+        e.appendChild(s);
+        e.style.visibility="hidden"
+        e.style.position="absolute"
+        e.style.top="0"
+        document.body.appendChild(e);
+        var defHeight = e.offsetHeight;
+
+
+        function checkBoxSize(){
+            if(defHeight != e.offsetHeight){
+                func();
+                defHeight= e.offsetHeight;
+            }
+        }
+        setInterval(checkBoxSize,1000)
+    }
+
+    function addEvent(elm,listener,fn){
+        try{
+            elm.addEventListener(listener,fn,false);
+        }catch(e){
+            elm.attachEvent("on"+listener,fn);
+        }
+    }
+
+	function Run(){
+		checkFontSize(footerFixed);
+		footerFixed();
+	}
+	/*
+    addEvent(window,"load",footerFixed);
+    addEvent(window,"load",function(){
+        checkFontSize(footerFixed);
+    });
+    addEvent(window,"resize",footerFixed);
+	*/
+
+	addEvent(window,"load", Run);
+	addEvent(window,"resize", footerFixed);
+
+}

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>
+      【2019年版】Ubuntu系のLinuxディストリビューションを自作しよう　～ISO作成編～
+    </title>
+    <meta name="description" content="
+      Ubuntu派生のLinux系OSの自作方法を解説したサイトです。
+      SereneLinuxの開発者が初心者でもできるUbuntu派生OSの作成方法を画像つきで解説します。
+      UbuntuのライブDVDやそのISOの作成方法について解説しています。
+    ">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="../style/main-resp.css" media="screen and (max-width: 799px)">
+    <link rel="stylesheet" href="../style/main.css" media="screen and (min-width: 800px)">
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../code/vs2015.css">
+    <script src="../code/highlight.pack.js"></script>
+    <link rel="stylesheet" type="text/css" media="print" href="../style/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:100,300,400,500,700,900&amp;subset=japanese" rel="stylesheet">
+
+    <!-- class="prettyprint linenums" でコードに色付け -->
+    <!-- '<pre><code class="prettyprint linenums"></code></pre>' -->
+  </head>
+  <body>
+    <header>
+      <h1>【2019年版】Ubuntu系のOSを自作しよう　～ISO作成編～</h1>
+      <p>BodhiBuilderを用いてオリジナルのOSを作成します。</p>
+      <p>自分の好きなデスクトップ環境やソフトウェアを入れてオリジナルのOSを作成しましょう。</p>
+      <p>実際に開発中のOS『SereneLinux』の実例を挙げながらわかりやすく解説していきます。</p>
+      <p><a href="http://hayao.fascode.net/buildmydist-2/">こちらで</a>サイト新しく作り直してます。このサイトの情報は古いのでよければどうぞ。</p>
+      <nav>
+        <ul class="topnav">
+          <li><a href="../index.html">トップページ</a></li>
+          <li><a href="preparation.html">準備編</a></li>
+          <li><a href="customize.html">カスタマイズ編</a></li>
+          <li><a class="active" href="makeiso.html">ISO作成編</a></li>
+          <li><a href="distribution.html">配布編</a></li>
+          <li class="right"><a href="about.html">About</a></li>
+          <li class="right"><a href="website.html">参考サイト</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+
+      <h2>
+        ISO作成について
+      </h2>
+      <p>
+        いよいよISOを作成していきます
+      </p>
+      <p>
+        ISO作成には『BodhiBuilder』というフリーソフトを使用していきます
+      </p>
+      <p>
+        ですが、このソフト実はバグがあり正常にISOを作成することができません
+      </p>
+      <p>
+        このサイトはそのバグ回避の解説を行っている唯一のサイトです
+      </p>
+
+
+      <h2>
+        Basixに付属しているBodhiBuilderを削除する
+      </h2>
+      <p>
+        Basixに付属しているBodhiBuilderは少しバージョンが違い、正常に動作しない可能性があるので削除します
+      </p>
+      <p>
+        以下のコマンドで簡単に削除できます
+      </p>
+      <p>
+        <pre><code>$ sudo apt-get -y purge bodhibuilder</code></pre>
+        <pre><code>$ sudo apt-get -y auoremove</code></pre>
+      </p>
+      
+      <h2>
+        SereneLinuxのリポジトリからBodhiBuilderをインストールする
+      </h2>
+      <p>
+        <a href="https://ja.osdn.net/projects/serene/storage/repo/serene/pool/main/b/bodhibuilder/">こちらのリンク</a>からSereneLinux用のBodhiBuilderをダウンロードしてください
+      </p>
+      <p>
+        その後、何らかの方法でインストールを行って下さい（dpkgやapt、gdebiなど）
+      </p>
+      <h2>
+        BodhiBuilderを実行してISOを作成する
+      </h2>
+      <p>
+        いよいよスクリプトを走らせます
+      </p>
+      <p>
+        ターミナルエミュレーターを起動して以下のコマンドで起動します
+      </p>
+      <p>
+        <pre><code>$ gksu bodhibuilder-gtk</code></pre>
+      </p>
+      <p>
+        「OK」をクリックします
+      </p>
+      <p>
+        <img src="../images/bodhibuilder1.PNG" alt="bodhibuilder起動直後">
+      </p>
+      <p>
+        「Settings」タブに移動して、それぞれの項目を入力します
+      </p>
+      <p>
+        「Username」には、インストール時と同じ名前を入力してください
+      </p>
+      <p>
+        「CD Label」では、32文字以内で入力してください
+      </p>
+      <p>
+        それ以上はエラーになります
+      </p>
+      <p>
+        「Squashfs options」には「-no-recovery -always-use-fragments -b 1M -no-duplicates」と入力してください
+      </p>
+      <p>
+        （筆者もこれの意味はわかっていませんがBasixではこのオプションがつけられていたらしいです）
+      </p>
+      <p>
+        あとは自由で構いません
+      </p>
+      <p>
+        設定が終わったら、「Actions」タブに戻って「Dist」ボタンをクリックし、ISO作成を開始します
+      </p>
+      <p>
+        すると、Outputタブへ自動で移動し、いろいろログが出力されます
+      </p>
+      <p>
+        ISO作成が終わるとまたダイアログが出るので、それまで待ちます
+      </p>
+      <p>
+        作成中はCPUをたくさん使用するので注意してください
+      </p>
+      <h2>
+        作成したISOの場所
+      </h2>
+      <p>
+        作成が終わったら、ISOを確認しましょう
+      </p>
+      <p>
+        初期設定のままなら下のパスに保存されています
+      </p>
+      <p>
+        <pre><code>/home/bodhibuilder/bodhibuilder</code></pre>
+      </p>
+      <p>
+        このパスの中に.isoや.md5、.sha256などがあるはずです
+      </p>
+      <p>
+        この3つのファイルを配布するので、クラウドサービスなどを使うなり共有フォルダを使うなりしてホスト環境（仮想マシンの外）に持ってきておいてください
+      </p>
+      <h2>
+        起動チェック
+      </h2>
+      <p>
+        ISOが起動するか確かめましょう
+      </p>
+      <p>
+        最初に準備した実験用DVD-RWにISOを書き込んで実機で実験するか、仮想マシンで動作させます
+      </p>
+      <p>
+        <a href="preparation.html">
+          準備編
+        </a>
+        の「仮想環境にBasixをインストールする」と同じ方法で仮想マシンにインストールします
+      </p>
+      <p>
+        自分の思ったとおりのインストールスライドや、アイコン、テーマになっていれば成功です
+      </p>
+      <p>
+        うまくできなかったら、
+        <a href="customize.html">
+          カスタマイズ編
+        </a>
+        で確認するか、私のTwitter（
+        <a href="../index.html">
+          トップページ
+        </a>
+        ）の私のTwitterのDMに来てください
+      </p>
+      <h2>
+        配布編へ続く
+      </h2>
+      <p>
+        自分用のISOを作った人はこれで終わりですね。お疲れ様でした
+      </p>
+      <p>
+        配布するためのOSを作った人は一番最後の「OSを配布する」という作業が残っています^^;
+      </p>
+      <p>
+        それでは、また次回。
+      </p>
+      <h3 class="goto">
+        <a href="distribution.html" class="goto">配布編へ行く</a>
+      </h3>
+    </main>
+
+
+    <footer>
+      It is provided by SereneLinux.
+      <br>
+      Copyright
+      &copy; 2019 SereneTeam All Rights Reserved.
+      <p>
+        <script type="text/javascript" src="//ct2.shinobi.jp/sc/1744984">
+        </script>
+        <noscript><img src="//ct2.shinobi.jp/ll/1744984" alt="カウンター">
+        </noscript>
+      </p>
+    </footer>
+
+
+  </body>
+</html>

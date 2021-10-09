@@ -1,0 +1,33 @@
+label, input[type='checkbox'] {
+    cursor: pointer;
+    user-select: none;
+}
+
+html {
+    font-size: smaller;
+}
+
+header {
+    border: 1px black solid;
+    margin-bottom: 1%;
+    text-align: center;
+}
+
+main {
+    border: 1px black solid;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.result_box_child {
+    width: 100%;
+}
+
+textarea {
+    text-align: center;
+    resize: none;
+    width: 100%;
+    height: 10em;
+}
+
+

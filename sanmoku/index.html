@@ -1,0 +1,79 @@
+<!-- このファイルで土台を作成する -->
+
+<!-- 最初に設定するいろいろなこと -->
+<!DOCTYPE html> 
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ウェブサイトのタイトルを設定 -->
+    <title>まるばつゲーム</title>
+
+    <!-- 見た目を書いたファイルを読み込む -->
+    <link rel="stylesheet" href="./style/common.css">
+</head>
+
+<!-- ここから実際のゲーム画面 -->
+<body>
+    
+    <!-- 画面の上に表示されているタイトル -->
+    <header id="header">
+        <h1>まるばつゲーム</h1>
+        <p>ウェブサイトで動く簡単なまるばつゲームを作ってみました</p>
+    </header>
+
+    <!-- 本文 -->
+    <main id="main">
+        <!-- リセットボタン -->
+        <form>
+            <input type="button" value="リセット" id="reset">
+        </form>
+
+        <!-- ゲーム本体 -->
+        <table id="maintable"></table>
+
+        <!-- メッセージが表示される場所 -->
+        <p id="msg"></p>
+
+        <!-- 現在の設定 -->
+        <p id="currentconfig"></p>
+
+
+        <!-- 設定 -->
+        <h2>設定</h2>
+        <form>
+            <table>
+                <tr>
+                    <td>縦方向のマス目の数</td>
+                    <td><input type="number" id="inputtablex"></td>
+                </tr>
+                <tr>
+                    <td>横方向のマス目の数</td>
+                    <td><input type="number" id="inputtabley"></td>
+                </tr>
+                <tr>
+                    <td>プレーヤーの人数</td>
+                    <td><input type="number" id="inputplayernumber"></td>
+                </tr>
+            </table>
+            <input type="button" value="適用" id="apply">
+        </form>
+        
+    </main>
+
+    <footer id="footer">
+
+    </footer>
+
+    <!-- ゲームの動きなどを書いたファイルを読み込む -->
+    <script src="script/define.js"></script>
+    <script src="script/init.js"></script>
+    <script src="script/main.js"></script>
+    <script src="script/judgement.js"></script>
+
+</body>
+</html>
+ 

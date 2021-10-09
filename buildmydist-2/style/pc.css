@@ -1,0 +1,189 @@
+/* === ここからメニューバー === */
+#bar-container{
+    /* 
+    flexboxでいい感じに配置する
+    参考サイト
+    https://guillemot.jp/web/365
+    https://knowledge.cpi.ad.jp/tech/169/
+    */
+
+    display: flex;
+    justify-content: space-between;
+
+    /* 回り込み解除 */
+    clear: both;
+
+    /* 余白設定 */
+    padding-top: 0.3%;
+    padding-bottom: 0.3%;
+    padding-left: 0;
+    /*padding-right: 5%;*/
+    margin-top: 1%;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+
+    /*高さ*/
+    height: 50px;
+    line-height: 45px;
+}
+
+li.bar-item-left{
+    width: 100%;
+}
+
+
+.bar-logo{
+    font-size: larger;
+    font-weight: 900;
+    float: left;
+    margin-right: 2%;
+}
+
+
+.description, .bar-logo{
+    padding: 0.5%;
+}
+
+/* スマホ用ボタンを隠す */
+#open-sp-menu{
+    display: none;
+}
+
+/*
+#header{
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    height: 11%;
+}
+*/
+
+
+.bar-item-left:hover{
+    background-color: var(--skyblue-2);
+    color: black;
+}
+
+/* === ここまでメニューバー === */
+
+
+/* === ここから本文 === */
+main{
+    /* メインコンテンツの横の余白 */
+    padding-left: 1%;
+    padding-right: 1%;
+    margin-left: 4%;
+    margin-right: 1%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+main p{
+    line-height: 2;
+    margin-bottom: 1em;
+}
+
+/* h2のスタイル */
+
+h2 {
+    position: relative;
+    padding: 1rem .5rem;
+    margin-bottom: 1em;
+  }
+  
+h2:after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    content: '';
+    border-radius: 3px;
+    /*background-image: linear-gradient(to left, #2af598 0%, #009efd 100%); */
+    background-color: var(--skyblue-1);
+}
+/* === ここまで本文 === */
+
+
+/* === ここからサイドメニュー === */
+main{
+    width: 65%;
+    /*  border: solid 1px black; */
+}
+
+#sidemenu-right{
+    /* 横幅設定 */
+    width: 25%;
+
+    /* 線を描写 */
+    /* border: solid 1px black; */
+    box-sizing: border-box;
+
+    /* 余白設定 */
+    padding-left: 1%;
+    padding-right: 1%;
+    margin-top: 1%;
+    /* margin-right: 4%; */
+    margin-bottom: 1%;
+
+    /* 固定 */
+    position: absolute;
+    right: 0;
+
+    /* スクロール */
+    overflow: scroll;
+}
+
+/* サイドメニューのスクロールバーを隠す */
+#sidemenu-right{
+    /* IE, Edge 対応 */
+    -ms-overflow-style: none;
+    /* Firefox 対応 */
+    scrollbar-width: none;
+}
+
+#sidemenu-right::-webkit-scrollbar {
+    display:none;
+}
+
+#sidemenu-right h2{
+    text-align: center;
+}
+
+#main-container{
+    display: flex;
+    margin: 0 auto;
+    position: relative;
+}
+
+#link-collection ul, #relation_page ul{
+    list-style:none;
+    padding-left: 10px;
+}
+
+#about-hayao img{
+    margin: 0 auto;
+    text-align: center;
+    width: 50%;
+}
+
+#hayao-icon{
+    margin-bottom: 4%;
+}
+/* === ここまでサイドメニュー === */
+
+
+/* === ここから上にスクロール ボタン */
+#scroll-up{
+    position: fixed;
+    bottom: 0;
+    right: 24%;
+    background-color: var(--blue-1);
+    color: var(--white-1);
+    line-height: 50px;
+    padding-left: 1%;
+    padding-right: 1%;
+    text-align: center;
+    cursor: pointer;
+}
+/* === ここまで上にスクロール ボタン */

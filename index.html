@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>はやおのぺーじ</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-css-reset/dist/reset.min.css">
+
+
+    <style>
+
+        /* カラーパレット: https://colordrop.io/ */
+        html{
+            background-color: #17223b;
+            color: #fff7f7;
+        }
+
+        body{
+            margin-left: 4vw;
+            margin-right: 4vw;
+            height: 100%;
+        }
+
+        /*
+        header,main{
+            max-width: 1100px;
+            margin: 0 auto;
+        }*/
+
+        header h1, .header-description{
+            display: inline-block;
+        }
+
+        .box{
+            cursor: pointer;
+            display: flex;
+            /* margin-top: 5vh; */
+            padding: 3vh;
+            justify-content: center;
+        }
+
+        main, header{
+            padding-top: 3vh;
+            /* padding-left: 3vw; */
+            /*padding-right: 3vw; */
+
+        }
+
+        .service-name{
+            color: #08ffc8;
+            text-align: right;
+        }
+
+        .service-description{
+            margin-left: 3vw;
+            /* text-align: right; */
+        }
+
+        .box-container{
+            /* width: 100vw; */
+        }
+
+        /*
+        @media screen and (max-width:999px) { 
+            main, header{
+                margin: 0;
+            }
+
+            body{
+                margin-top: 2vh;
+                margin-left: 0.1vw;
+                margin-right: 0.1vw;
+            }
+        }
+        */
+
+
+    </style>
+
+    <script>
+        const SetStyle = function(){
+            // リンクを作成
+            Array.from(document.getElementsByClassName("box")).forEach(element => {
+                element.addEventListener("click", function(){
+                    var link = element.dataset.link
+                    if (link){
+                        location.href = link;
+                    }
+                    
+                });
+            });
+
+            // 横幅を設定
+            // 参考: https://gray-code.com/javascript/get-max-value-and-minimum-value-in-array/
+            var MaxWidthList= [];
+            ["service-name", "service-description"].forEach(className => {
+                var WidthList = [];
+                Array.from(document.getElementsByClassName(className)).forEach(element =>{
+                    WidthList.push(element.clientWidth);
+                })
+
+                var MaxWidth = WidthList.reduce(function(a,b){
+                    return Math.max(a,b);
+                });
+                MaxWidthList.push(MaxWidth);
+
+                Array.from(document.getElementsByClassName(className)).forEach(element =>{
+                    element.style.width = MaxWidth + 5 + "px";
+                })
+            })
+            console.log(MaxWidthList)
+
+            // 中央の空白を設定
+            /*
+            var ServiceNameMaxWidth = MaxWidthList[0];
+            var ServiceDescMaxWidth = MaxWidthList[1];
+            var BoxWidth = Array.from(document.getElementsByClassName("box-container"))[0].clientWidth;
+            var CenterBlank = BoxWidth - ServiceDescMaxWidth - ServiceNameMaxWidth;
+            console.log(ServiceDescMaxWidth);
+
+            Array.from(document.getElementsByClassName("service-name")).forEach(element => {
+                if (CenterBlank > 0 ){
+                    //element.style.marginLeft = CenterBlank + "px";
+                };
+            });
+            */
+        };
+
+        window.addEventListener("load",SetStyle);
+        window.addEventListener("resize",SetStyle);
+        //window.addEventListener("resize", function(){location.reload();});
+    </script>
+</head>
+<body>
+    <header>
+        <h1>ハヤオのトップページ</h1>
+        <div class="header-description">
+            <p>ハヤオが開発したいろんなサイトへのリンクをまとめているトップページです。</p>
+        </div>
+    </header>
+    <main>
+        <div class="box-container">
+            <div class="box" data-link="/alter/index.html">
+                <p class="service-name">Alter Linux Alpha Release</p>
+                <p class="service-description">Alter Linuxの限定公開ビルドをダウンロードできるサイト。TailWind CSS最高。</p>
+            </div>
+            <div class="box" data-link="/buildmydist/index.html">
+                <p class="service-name">【2019年版】Ubuntu系のOSを自作しよう（旧版）</p>
+                <p class="service-description">昔のハヤオが作ったUbuntu18.04の派生OSを開発するためのサイト。黒歴史。</p>
+            </div>
+            <div class="box" data-link="/buildmydist-2/">
+                <p class="service-name">オリジナルLinuxディストリを自作しよう2</p>
+                <p class="service-description">いろいろなOS派生のディストリビューションを開発するためのサイト</p>
+            </div>
+            <div class="box" data-link="/alteriso-options-generator/index.php">
+                <p class="service-name">AlterISO3 ビルドオプション ジェネレータ</p>
+                <p class="service-description">AlterISO3のビルド設定を行うツール。初めてJSを使った。</p>
+            </div>
+            <div class="box" data-link="https://hayao0819.github.io/web-notepad/index.html">
+                <p class="service-name">Web NotePad</p>
+                <p class="service-description">初めて作ったウェブアプリ。LocalStorageにデータを保存する。タブ機能有り。</p>
+            </div>
+            <div class="box" data-link="/sanmoku">
+                <p class="service-name">三目並べ</p>
+                <p class="service-description">プレーヤーの人数やマス目を自由に設定できるおかしな三目並べ</p>
+
+            </div>
+            <div class="box" data-link="/sleep/index.php">
+                <p class="service-name">n秒後に反応するサイト</p>
+                <p class="service-description">ウェブのタイムアウトなどを検証するためにあえて遅延させるサイト。</p>
+            </div>
+            <div class="box" data-link="/tatebou/index.html">
+                <p class="service-name">迫真縦棒ドメイン短縮URL</p>
+                <p class="service-description">山Dの迫真縦棒ドメインの短縮URLを作成するウェブサイト。</p>
+            </div>
+
+        </div>
+
+        <div class="box-container">
+            <div class="box" data-link="https://twitter.com/Hayao0819">
+                <p class="service-name">Twitter</p>
+                <p class="service-description">ハヤオのすみか</p>
+            </div>
+            <div class="box" data-link="https://github.com/Hayao0819/">
+                <p class="service-name">GitHub</p>
+                <p class="service-description">ハヤオが書いたどうでもいいソースコードの置き場</p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

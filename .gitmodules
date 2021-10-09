@@ -1,0 +1,3 @@
+[submodule "blog/src/themes/smigle"]
+	path = blog/src/themes/smigle
+	url = https://gitlab.com/ian-s-mcb/smigle-hugo-theme.git

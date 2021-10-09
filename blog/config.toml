@@ -1,0 +1,13 @@
+baseURL = "./blog/"
+languageCode = 'ja-JP'
+title = 'ハヤオのブログ'
+theme = "smigle"
+
+archetypeDir = "src/archetypes"
+assetDir = "src/assets"
+contentDir = "src/content"
+dataDir = "src/data"
+layoutDir = "src/layouts"
+staticDir = "src/static"
+themesDir = "src/themes"
+publishDir = "./"

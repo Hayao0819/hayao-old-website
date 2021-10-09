@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>
+      【2019年版】Ubuntu系のLinuxディストリビューションを自作しよう　～準備編～
+    </title>
+    <meta name="description" content="
+      Ubuntu派生のLinux系OSの自作方法を解説したサイトです。
+      まずは準備編ということでベースとなるOSを決めたり、開発環境を構築したりしていきます
+    ">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="../style/main-resp.css" media="screen and (max-width: 799px)">
+    <link rel="stylesheet" href="../style/main.css" media="screen and (min-width: 800px)">
+    <link rel="stylesheet" href="../code/vs2015.css">
+    <script src="../code/highlight.pack.js"></script>
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" type="text/css" media="print" href="../style/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:100,300,400,500,700,900&amp;subset=japanese" rel="stylesheet">
+
+    <!-- class="prettyprint linenums" でコードに色付け -->
+    <!-- <pre><code class="prettyprint linenums"></code></pre> -->
+  </head>
+  <body>
+    <header>
+      <h1>【2019年版】Ubuntu系のOSを自作しよう　～準備編～</h1>
+      <p>BodhiBuilderを用いてオリジナルのOSを作成します。</p>
+      <p>自分の好きなデスクトップ環境やソフトウェアを入れてオリジナルのOSを作成しましょう。</p>
+      <p>実際に開発中のOS『SereneLinux』の実例を挙げながらわかりやすく解説していきます。</p>
+      <p><a href="http://hayao.fascode.net/buildmydist-2/">こちらで</a>サイト新しく作り直してます。このサイトの情報は古いのでよければどうぞ。</p>
+      <nav>
+        <ul class="topnav">
+          <li><a href="../index.html">トップページ</a></li>
+          <li><a class="active" href="preparation.html">準備編</a></li>
+          <li><a href="customize.html">カスタマイズ編</a></li>
+          <li><a href="makeiso.html">ISO作成編</a></li>
+          <li><a href="distribution.html">配布編</a></li>
+          <li class="right"><a href="about.html">About</a></li>
+          <li class="right"><a href="website.html">参考サイト</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+
+
+      <h2 class="msr_h203">
+        OSのコンセプトを決める
+      </h2>
+      <p>
+        まずはOSのコンセプトを考えます。
+      </p>
+      <p>
+        <ul>
+          <li>
+            軽量なOS
+          </li>
+          <li>
+            自由度の高いOS
+          </li>
+          <li>
+            初心者向けなOS
+          </li>
+          <li>
+            Windowsからの移行を狙ったOS
+          </li>
+        </ul>
+        などの『ターゲットにするユーザ』と同時に考えるとすぐに思い浮かぶと思います。
+      </p>
+      <p>
+        「自分専用のOS」というのもありですね♪。
+      </p>
+      <p>
+        SereneLinuxでは、『軽量で美しくわかりやすいUI』をコンセプトに開発を進めています。
+      </p>
+
+
+      <h2 class="msr_h203">開発環境を準備する。
+
+      </h2>
+        <p>
+          実際に開発を行っていく際に必要な物を準備します。
+        </p>
+        <p>
+          必要なものは
+          <ul>
+            <li>
+              開発用の高性能なパソコン
+            </li>
+            <li>
+              データを保存する大容量のHDD
+            </li>
+            <li>
+              ベースになるOSのISOイメージ
+            </li>
+            <li>
+              仮想化ソフトウェア
+            </li>
+            <li>
+              実験用のDVD-RW
+            </li>
+            <li>
+              定期的に更新していく時間（配布用のものを作成する場合のみ）
+            </li>
+            <li>
+              LinuxをGUIである程度カスタマイズできる能力（これから学ぶこともできます）
+            </li>
+            <li>
+              問題があったときに自分で検索したり、コミュニティに質問したりできる能力
+            </li>
+          </ul>
+          たったのこれだけです。
+        </p>
+      <p>一つずつ見ていきましょう。
+
+      </p>
+
+      <h3>
+        開発用の高性能なパソコンとデータを保存する大容量のHDD
+      </h3>
+        <p>
+          まずは、
+          <strong>
+            開発用の高性能なパソコン
+          </strong>
+          と
+          <strong>
+            データを保存する大容量のHDD
+          </strong>
+          ですが、『高性能』と言うのには理由があります。
+        </p>
+        <p>
+          それは、主な開発を仮想環境上で行うからです。
+        </p>
+        <p>
+          仮想環境とはパソコンの中に仮想的に作られた環境のことを指します。
+        </p>
+        <p>
+          あくまで『仮想』なのでバックアップや性能の上げ下げを簡単に行うことができ、
+          <strong>
+            容量が許す限り
+          </strong>
+          無限に作成できます。
+        </p>
+        <p>
+          また、過去のバージョンなどを保存するためにもたくさんの容量が必要です。
+        </p>
+        <p>
+          っと、HDDがたくさん必要な方法はわかったと思いますが、高性能なパソコンが必要な理由がまだでしたね。
+        </p>
+        <p>
+          仮想環境ではパソコンの中にパソコンを作るわけです。（細かい仕組みは違いますが）なのでその仮想的なパソコンの分までをカバーする性能が必要です。
+        </p>
+        <p>
+          なので高性能なパソコンが必要になります。
+        </p>
+        <h4>
+          SereneLinuxの開発に使われているPCの性能
+        </h4>
+          <p>
+            余談ですが、参考としてSereneLinuxの開発に使われている筆者のメインPCを紹介します。
+          </p>
+          <p>
+            このPCは7~8年前の古いPCですが現役でバリバリ動作しています。
+          </p>
+          <p>
+            CPU：Xeon E3-1275 3.4GHz
+            <br>
+            RAM：DDR3-12800 4GB x 2
+            <br>
+            GPU：NVIDIA GeForce GTX 645
+            <br>
+            SSD：SPCC SSD 239GB
+            <br> 
+            OS：Windows 10 19H1 Insider Preview Pro 64bit
+            <br>
+          </p>
+
+
+      <h3>
+        ベースになるOSのISOイメージ
+      </h3>
+      <p>
+        次にソフトウェア面を準備していきます。
+      </p>
+      <p>
+        難しいように見えますが簡単です。
+      </p>
+      <p>
+        まず、ベースとなるOSのISOイメージです
+      </p>
+      <p>
+        ベースになるISOイメージを準備するにはベースになるOSを決める必要があります。
+      </p>
+      <h4>
+        ベースのOSを決めよう。
+      </h4>
+      <p>
+        ベースになるOSはUbuntu系が簡単でおすすめです（というかUbuntu系以外はこのサイトの方法ではできません）。
+      </p>
+      <p>
+        UbuntuのISOを直接改変してもいいですが、余分なソフトが多く含まれており自分のOSも重くなってしまいます。
+      </p>
+      <p>
+        逆に、MinimalISOという超最低限のUbuntuから作成してもいいですが、設定系のソフトウェアが一切入っていないので自分で調べて入れる必要があります。（入れなくてもいいですが、ユーザにとっては非常に面倒です。）
+      </p>
+      <h4>
+        じゃあどれを使えばいいの？
+      </h4>
+      <p>
+        そこで、日本人の方が作成した「OS作成用のOS」があります。
+      </p>
+      <p>
+        そのOSは
+        <strong>
+          Basix
+        </strong>
+        と言い、日本のLinux界隈で有名な
+        <a href="http://simosnet.com/livecdroom/">
+          ライブCDの部屋
+        </a>
+        の管理人さんが作成、公開しています。
+      </p>
+      <p>
+        ISOのダウンロード先は
+        <a href="http://simosnet.com/livecd/basix/">
+          こちら
+        </a>
+        です。
+      </p>
+      <p>
+        今回はbasix-4.0_x86_64.isoを利用して作成していきます。（SereneLinuxもこれで作成されています。）
+      </p>
+      <p>このDLしたISOは削除せずにとっておいてください。
+
+      </p>
+
+      <h3>
+        仮想化ソフトウェア
+      </h3>
+      <p>
+        また難しそうな名前が出てきました。
+      </p>
+      <p>
+        これも簡単なので大丈夫です。
+      </p>
+      <p>
+        今回は仮想化ソフトウェアとしてオープンソース（ソフトウェアの中身が公開されていること）で開発されているOracle製の
+        <strong>
+          VirtualBox
+        </strong>
+        を利用していきます。
+      </p>
+      <p>
+        仮想化ソフトウェアには他にもVMware Workstation PlayerやHyper-V、QEMUなどがあります。
+      </p>
+      <p>
+        （自分のお気に入りの仮想化ソフトウェアがあるならそちらを使っていただいて結構です。）
+      </p>
+      <h4>
+        ダウンロード
+      </h4>
+      <p>
+        <a href="https://www.virtualbox.org/wiki/Downloads">
+          こちら
+        </a>
+        からダウンロードします。
+      </p>
+      <p>
+        <img src="../images/virtualbox_download_1.PNG" alt="VirtualBoxのダウンロードする場所">
+      </p>
+      <p>
+        Windowsを使っている人はWindows hostsから、macOSの方はOS X hostsからダウンロードしてください。
+      </p>
+      <p>
+        Linuxを使っている方はそれぞれのディストリビューションのパッケージ管理システムからインストールしてください。
+      </p>
+      <p>
+        Ubuntu系なら
+        <pre><code>$ sudo apt-get -y install virtualbox</code></pre>
+      </p>
+      <p>
+        でインストールできます。
+      </p>
+      <p>
+        ダウンロード後はWindowsの場合はそのままウィザードに沿ってインストールしてください。
+      </p>
+      <p>
+        macOSのほうはわかりません。（環境がないので） すみませんm(_ _)m
+      </p>
+      <h4>
+        エクステンションパックの導入
+      </h4>
+      <p>
+        カタカナが並んでいますが、すぐに終わります。
+      </p>
+      <p>
+        <a href="https://www.virtualbox.org/wiki/Downloads">
+          先程のサイト
+        </a>
+        の下にある
+      </p>
+      <p>
+        <img src="../images/virtualbox_download_2.PNG" alt="エクステンションパックのダウンロードする場所">
+      </p>
+      <p>
+        からダウンロードしてください。
+      </p>
+      <p>
+        こちらはWindowsとかMacとか関係ないです。
+      </p>
+      <p>
+        ダウンロード後はそこままダウンロードしたファイルをVirtualBoxで読み込んで完了です。
+      </p>
+      <h4>
+        確認
+      </h4>
+      <p>
+        メニューからVirtualBoxを選んで、以下の画面が起動すればインストール完了です。
+      </p>
+      <p>
+        <img src="../images/virtualbox_done.PNG" alt="VirtualBox">
+      </p>
+      <p>これで仮想化ソフトウェアの準備も完了です。
+
+      </p>
+
+      <h3>
+        実験用のDVD-RW
+      </h3>
+      <p>
+        作成したISOイメージを実際に書き込んで起動するかどうかのチェックに使用します。
+      </p>
+      <p>
+        仮想環境だけではチェックできないドライバ（マウスなどの周辺機器を使うためのソフトウェア）の問題などの確認に使用します。
+      </p>
+      <p>
+        DVD-Rだと繰り返し使用できないのでDVD-RWを選んでください。
+      </p>
+      <p>
+        100円ショップで買えます。
+      </p>
+
+      <h3>
+        定期的に更新していく時間
+      </h3>
+      <p>
+        自分専用なら必要ないですね。
+      </p>
+      <p>
+        Ubuntuは年に2回アップデート版がリリースされます。
+      </p>
+      <p>
+        そのたびに自分のOSも更新させる必要があります。
+      </p>
+      <p>
+        しかし、実際のところは2年に1回リリースされる長期サポート版（LTS版）でのみ更新するディストリビューションがほとんどです。
+      </p>
+      <p>
+        実際にベースにするBasixも2年に1回の更新になります。
+      </p>
+      <p>
+        なので、2年に1回だけ開発の時間が確保できればOKです。
+      </p>
+
+      <h3>
+        LinuxをGUIである程度カスタマイズできる能力
+      </h3>
+      <p>
+        Linuxをカスタマイズするので必須ですね。
+      </p>
+      <p>
+        自分で設定を変更したり、アイコンやテーマを変更します。
+      </p>
+      <p>
+        これに関してはそれぞれによって違いがあるので各自で調べてください。
+      </p>
+      <p>
+        どうしてもわからなければ
+        <a href="https://twitter.com/Hayao0819?lang=ja">
+          作者のTwitter
+        </a>
+        のDMまで来てください。
+      </p>
+
+      <h3>
+        問題があったときに自分で検索したり、コミュニティに質問したりできる能力
+      </h3>
+      <p>
+        これはLinux共通です。
+      </p>
+      <p>
+        上と関連していますが、Linuxはフリーであるがゆえにサポートもありません。
+      </p>
+      <p>
+        TwitterやYahoo知恵袋などで誰かに質問するか、自力でググることが大切です 。
+      </p>
+      <p>
+        どうしてもわからなかったら日本のコミュニティに質問することもできますが、ISO作成などは情報が少ないため知っている人も殆どいません。
+      </p>
+      <p>
+        場合によっては英語のサイトを参考にすることもあります（Google翻訳は便利ですがプログラムのコードが変なふうに空白が空いたりしてしまうこともあるので注意してください。）
+      </p>
+
+      <h2>
+        仮想環境にBasixをインストールする
+      </h2>
+      <p>
+        先程インストールしたVirtualBoxにBasixをインストールしていきます。
+      </p>
+      <h3>
+        仮想マシンを作成す
+        る</h3>
+      <ol>
+        <li>
+          VirtualBOxを起動して「新規」をクリック。
+        </li>
+        <li>
+          下の画面で名前を自分の好きに打ち、タイプをLinux、バージョンをUbuntu（64bit）にする。
+        </li>
+        <p>
+          <img src="../images/virtualbox_newmachine1.PNG" alt="新規作成画面">
+        </p>
+        <li>
+          次へをクリックして、メモリサイズを自分のパソコンの半分を割り当てる。（自分のパソコンのメモリサイズはタスクマネージャで確認。）
+        </li>
+        <p>
+          <img src="../images/virtualbox_newmachine2.PNG" alt="メモリ割り当て">
+        </p>
+        <li>
+          そのまま作成をクリック。
+        </li>
+        <p>
+          <img src="../images/virtualbox_newmachine3.PNG" alt="ディスク作成">
+        </p>
+        <li>
+          そのまま次へをクリック。
+        </li>
+        <p>
+          <img src="../images/virtualbox_newmachine4.PNG" alt="ディスク形式">
+        </p>
+        <li>
+          そのまま次へをクリック。
+        </li>
+        <p>
+          <img src="../images/virtualbox_newmachine5.PNG" alt="ディスクタイプ（可変or固定）">
+        </p>
+        <li>
+          右のボックスに「32GB」と入力して、作成をクリック。
+        </li>
+        <p>
+          <img src="../images/virtualbox_newmachine6.PNG" alt="ディスクサイズ">
+        </p>
+        <li>
+          「設定」をクリック。
+        </li>
+        <li>
+          システム→プロセッサーと移動してプロセッサー数を警告が出るギリギリまで上げる
+          。</li>
+        <li>
+          PAE/NXの有効化にチェックを入れる。
+        </li>
+        <p>
+          <img src="../images/virtualbox_setting1.PNG" alt="CPU設定">
+        </p>
+        <li>
+          ディスプレイに移動後、ビデオメモリーを128mbに設定し、3Dアクセラレーションを有効化にチェックを入れる。
+        </li>
+        <p>
+          <img src="../images/virtualbox_setting2.PNG" alt="グラフィック設定">
+        </p>
+        <li>
+          設定を閉じて、[光学ドライブ]をクリック。
+        </li>
+        <p>
+          <img src="../images/virtualbox_setting3.PNG" alt="DVD設定">
+        </p>
+        <li>
+          ディスクイメージを選択→ダウンロードしたBasixのISOを選択→開く。
+        </li>
+      </ol>
+
+
+      <h3>Basixをインストールする
+        
+      </h3>
+      <ol>
+        <li>
+          「起動」ボタンを押して起動する。
+        </li>
+        <li>
+          メニューが出たら一番上を選択する。
+        </li>
+        <p>
+          <img src="../images/basix_grub.PNG" alt="BasixのGrub画面">
+        </p>
+        <li>
+          「Basix 4.0をインストールする」をダブルクリックしてインストーラを起動する。
+        </li>
+        <p>
+          <img src="../images/basix_installicon.PNG" alt="インストーラのアイコン">
+        </p>
+        <li>
+          「続ける」をクリック。
+        </li>
+        <li>
+          キーボードが打てることを確認して「続ける」をクリック。
+        </li>
+        <li>
+          「グラフィックスとWi-Fiハードウェアと追加のメディアフォーマットのサードパーティ製ソフトウェアをインストールする」にチェックを入れて「次へ」をクリック。
+        </li>
+        <p>
+          <img src="../images/basix_install1.PNG" alt="アップデートと他のソフトウェア">
+        </p>
+        <li>
+          何も変更せずに「インストール」をクリック。
+        </li>
+        <p>
+          <img src="../images/basix_install2.PNG" alt="インストールの種類">
+        </p>
+        <li>
+          しばらく時間がかかるので待つ。
+        </li>
+        <li>
+          そのまま「続ける」をクリック。（北海道に住んでいようが沖縄に住んでいようが東京を選んでください。）
+        </li>
+        <li>
+          たまにここでフリーズっぽくなるのですが、放置して大丈夫。
+        </li>
+        <li>
+          あなたの名前の部分にディストリビューションの簡易名を（SereneLinuxではserene。）入力。
+        </li>
+        <li>
+          コンピュータの名前に簡易名+「-PC」と入力。（SereneLinuxではSerene-PC。）
+        </li>
+        <li>
+          パスワードに自分のパスワードを入力。
+        </li>
+        <li>
+          同じパスワードを下にも入力。
+        </li>
+        <li>
+          <strong>
+            「自動的にログインする」にチェックを入れる。
+          </strong>
+        </li>
+        <p>
+          <img src="../images/basix_install3.PNG" alt="ユーザ情報">
+        </p>
+        <li>
+          しばらく放置。
+        </li>
+        <li>
+          「今すぐ再起動する」をクリックして再起動
+        </li>
+        <p>
+          <img src="../images/basix_install_done.PNG" alt="インストール完了">
+        </p>
+
+
+      </ol>
+      <h2>
+        次回へ続く
+      </h2>
+      <p>本当は1ページで終わらせたかったのですが、あまりにも長くなりそうなので次回へ続けたいと思います。
+
+      </p>
+      <p>
+        <a href="https://twitter.com/Hayao0819?lang=ja">
+          作者のTwitter
+        </a>
+        をフォローしてくれるととても喜びます。（宣伝は忘れない。）
+      </p>
+      <h3  class="goto">
+        <a href="customize.html">カスタマイズ編へ行く</a>
+      </h3>
+
+    </main>
+
+
+    <footer>
+      It is provided by SereneLinux.
+      <br>
+      Copyright
+      &copy; 2019 SereneTeam All Rights Reserved.
+      <p>
+        <script type="text/javascript" src="//ct2.shinobi.jp/sc/1744984">
+        </script>
+        <noscript><img src="//ct2.shinobi.jp/ll/1744984" alt="カウンター">
+        </noscript>
+      </p>
+    </footer>
+
+
+  </body>
+</html>

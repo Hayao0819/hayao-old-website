@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, user-scalable=no">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <title id="meta_title"></title>
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@Hayao0819">
+    <meta property="og:url" content="http://hayao.fascode.net/alter/index.html">
+    <meta property="og:title" content="Alter Linux Alpha Release Aplha版配布サイト">
+    <meta property="og:description" content="Alter LinuxのAlphaリリースのイメージファイルや過去のリリースのイメージファイルをダウンロードできるサイトです。">
+</head>
+<body class="text-white leading-5 flex flex-col min-h-screen">
+    <header>
+        <div id="header_container" class="containe px-8 font-bold">
+            <div class="flex justify-between items-center md:py-4 py-2">
+                <!-- ここから メニューバー-->
+                <div id="menu_button" class="md:hidden">
+                    <button>
+                        <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
+                            <path d="M24 6h-24v-4h24v4zm0 4h-24v4h24v-4zm0 8h-24v4h24v-4z" id="menubutton">
+                        </svg>                       
+                    </button>
+                </div>
+                <h1 class="md:text-xl text-sm p-1" id="header_title"></h1>
+            </div>
+
+            <div>
+                <p class="p-1 text-sm md:hidden">Aplha版配布サイト</p>
+                <p class="p-1 text-sm md:block hidden">Alter LinuxのAplha版を配布しているサイトです</p>
+            </div>
+            
+            <div id="menu" class="hidden md:block py-2">
+                <ul class="md:flex flex-wrap">
+                    <li><a href="#about-alterlinux">Alter Linuxとは</a></li>
+                    <li><a href="#warning">注意点</a></li>
+                    <li><a href="#usage">使い方</a></li>
+                    <li><a href="#download">ダウンロード</a></li>
+                    <li><a href="#official">公式サイト</a></li>
+                    <li><a href="#issue">バグ報告について</a></li>
+                    <li><a href="#source">主な技術と仕様</a></li>
+                    <li><a href="#developer">開発者について</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- メニューバー ここまで -->
+
+        
+    </header>
+
+    <main>
+        <div class="h-screen p-3 flex-grow" id="main">
+            <script>
+                //for (i=1; i<=10; i++){ document.getElementById("main").insertAdjacentHTML("afterbegin", "<p>Hello</p>"); }
+            </script>
+            
+
+            <h2><a name="about-alterlinux">Alter Linuxとは</a></h2>
+            <p>日本で開発されているArch Linuxをベースとしたディストリビューションです。GUIでインストール作業を完結させることができます。</p>
+            <p>オーディオやコマンドラインの細かい部分にこだわりがあるのが特徴です。64bitと32bitの両方がサポートされています。</p>
+
+            <h2><a name="warning">注意点</a></h2>
+            <p>このサイトからダウンロードできるのは、まだ開発中のベータ版です。通常はFascode Network内部で検証するためにのみ使用されます。</p>
+            <p>これらはすべてGNU General Public Licenseのもとで利用可能です。このソフトウェアの使用によって生じた損害は一切補償できません。</p>
+            <p>このサイトで配布されているものはGNU General Public Licenseが許可する限り自由に再配布、再使用が可能です。</p>
+            <p>また、このサイトは関係者のためのサイトです。一般のユーザーの方は公式サイトからダウンロードすることをおすすめいたします。</p>
+
+            <h2><a name="usage">使い方</a></h2>
+            <p>まず、リリース番号を選択してください。リリース番号は基本的に日付になっています。</p>
+            <p>リリース番号が選択されると、それに対応したエディション一覧が表示されますので、その中からダウンロードしたい物を選択してください。</p>
+            <p>するとダウンロードボタンが表示されるのでクリックしてください。OSDNの配布ページにジャンプするので、そこから必要なファイルをダウンロードしてください。</p>
+            
+            <h2><a name="download">ダウンロード</a></h2>
+            <p>以下のフォームのダウンロードリンクは<a href="http://localhost/alter/alterlinux.json" class="hover:underline">こちらのJSON</a>に基づいて構成されています。</p>
+            <p>
+                <form id="downloadform">
+
+                    <!-- リリース番号 -->
+                    <div class="flex justify-center items-center">
+                        <h3>リリース番号</h3>
+                        <select id="releaseidform" name="releaseidform">
+                            <option value="None" selected>選択してください</option>
+                        </select>
+                    </div>
+
+                    <!-- エディション -->
+                    <div class="flex justify-center items-center" id="editionform_div">
+                        <h3>エディション</h3>
+                        <select id="editionform" name="editionform"></select>
+                    </div>
+
+                    <!-- メッセージ表示 -->
+                    <div class="flex justify-center items-center">
+                        <p id="message"></p>
+                    </div>
+
+                    <!-- ダウンロードボタン -->
+                    <div class="flex justify-center items-center">
+                        <h3 class="w-4/5 text-center cursor-pointer hidden" id="downloadbutton">ダウンロード</h3>
+                    </div>
+                </form>
+            </p>
+
+            <h2><a name="official">公式サイト</a></h2>
+            <div class="flex justify-center items-center">
+                <h3><a href="https://fascode.net/">Fascode Network</a></h3>
+                <h3><a href="https://alter.fascode.net/">Alter Linux</a></h3>
+                <h3><a href="https://serene.fascode.net/">Serene Linux</a></h3>
+                <h3><a href="https://twitter.com/Fascode_JP">公式twitterアカウント</a></h3>
+                <h3><a href="https://fascode.net/social">その他のFascodeの関連サイト</a></h3>
+            </div>
+
+            <h2><a name="issue">バグ報告について</a></h2>
+            <p>このサイトで配布されているAlter Linuxは開発途中のものです。バグがあった場合は是非報告をお願いします。</p>
+            <p>Fascoderの方はMattermost内で最初に<code>@hayao0819</code>をつけて報告してください。それ以外の利用者の方は<a href="https://github.com/FascodeNet/alterlinux/issues">GitHubのIssue</a>から報告を行ってください。</p>
+            <p>バグ報告を行う際にはダウンロードしたイメージファイルのファイル名とPC環境を必ず伝えてください（ファイル名だけで様々な情報がわかります）</p>
+            <p>また、報告前にダウンロードしイメージファイルが破損していないかどうかを確認してください。仮想環境ではなく実機の場合、GPUやサウンドボードなどの詳細を伝えてください。</p>
+            <p>報告後は放置するのではなく、開発者がさらなる質問をする場合があるので定期的にチェックしてください。</p>
+
+            <h2><a name="source">主な技術と仕様</a></h2>
+            <p>Alter Linuxは主にArch Linux上で動作するシェルスクリプトで記述されています。ソースコードはGNU General Public Licenseのもとですべて<a href="https://github.com/FascodeNet/alterlinux">GitHub</a>上で公開されています。</p>
+            <p>イメージファイルに書かれているハッシュをもとにどの時点のソースコードでビルドされたのかわかるようになっています。<code>build.sh</code>を中心にビルドを行いますが、リリース用のビルドは<code>sudo make</code>を実行します。</p>
+            <p>それぞれのエディションの設定は<code>channels</code>以下に配置されています。ソースコードの詳細やビルド方法についてはREADMEからそれぞれのドキュメントを参照してください。</p>
+            <p>上流の仕様の変更により過去の古いソースコードはビルドできない可能性があります。開発に参加したい場合は気軽にプルリクエストを送信してください。（よほどのことがない限りマージします。）</p>
+            <p>過去に<a href="https://github.com/FascodeNet/alterlinux/graphs/contributors">19人もの人</a>がAlter Linuxの開発に貢献してくれました。ありがとうございます。</p>
+
+
+            <h2><a name="developer">開発者について</a></h2>
+            <p>田舎の高校生です。</p>
+            <p>何かありましたら<a href="https://twitter.com/Hayao0819">Twitterアカウント</a>までお願いします。</p>
+        
+            <footer>
+                <p>&copy Fascode Network 2021 Yamada Hayao </p>
+            </footer>    
+        </div>
+    </main>
+    
+
+
+    <script type="text/javascript" src="./Config.js"></script>
+    <script type="text/javascript" src="./Define.js"></script>
+    <script type="text/javascript" src="./Title.js"></script>
+    <script type="text/javascript" src="./HTMLClass.js"></script>
+    <script type="text/javascript" src="./Menu.js"></script>
+    <script type="text/javascript" src="./Header.js"></script>
+    <script type="text/javascript" src="./Download.js"></script>
+</body>
+</html>
