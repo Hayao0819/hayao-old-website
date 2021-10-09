@@ -3,7 +3,7 @@
 set -eu
 
 script_path="$( cd -P "$( dirname "$(readlink -f "${0}")" )" && pwd )"
-theme_dir="${script_path}/themes/"
+theme_dir="${script_path}/src/themes/"
 
 cd "${theme_dir}"
 for _theme in "${theme_dir}/"*; do

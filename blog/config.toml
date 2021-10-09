@@ -3,25 +3,11 @@ languageCode = 'ja-JP'
 title = 'ハヤオのブログ'
 theme = "smigle"
 
-[module]
-[[module.mounts]]
-  source = '/blog/content'
-  target = '/blog/content'
-[[module.mounts]]
-  source = '/blog/static'
-  target = '/blog/static'
-[[module.mounts]]
-  source = '/blog/layouts'
-  target = '/blog/layouts'
-[[module.mounts]]
-  source = '/blog/data'
-  target = '/blog/data'
-[[module.mounts]]
-  source = '/blog/assets'
-  target = '/blog/assets'
-[[module.mounts]]
-  source = '/blog/i18n'
-  target = '/blog/i18n'
-[[module.mounts]]
-  source = '/blog/archetypes'
-  target = '/blog/archetypes'
+archetypeDir = "src/archetypes"
+assetDir = "src/assets"
+contentDir = "src/content"
+dataDir = "src/data"
+layoutDir = "src/layouts"
+staticDir = "src/static"
+themesDir = "src/themes"
+publishDir = "./"
