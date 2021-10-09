@@ -21,8 +21,8 @@ jobs:
 
       - name: Build
         working-directory: ./blog
-        #run: ./update-blog,sh
-        run: hugo --minify -D
+        run: ./update-blog,sh
+        #run: hugo --minify -D
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
