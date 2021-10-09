@@ -20,7 +20,9 @@ jobs:
           extended: true
 
       - name: Build
-        run: ./update-blog,sh
+       working-directory: ./blog
+        #run: ./update-blog,sh
+        run: hugo --minify
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
