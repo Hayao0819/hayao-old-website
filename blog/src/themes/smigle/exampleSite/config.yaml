@@ -1,0 +1,47 @@
+# exampleSite/config.yaml
+baseURL: https://smigle-hugo-theme.netlify.app/ # Replace with your domain
+languageCode: en-us
+theme: smigle
+themesDir: ../.. # Only needed for running the example site
+title: Blog Title
+menu:
+  main:
+    - identifier: home
+      name: Home
+      url: /
+      weight: 1
+    - identifier: about
+      name: About
+      url: /about/
+      weight: 2
+    - identifier: posts
+      name: Posts
+      url: /posts/
+      weight: 3
+    - identifier: categories
+      name: Categories
+      url: /categories/
+      weight: 4
+    - identifier: tags
+      name: Tags
+      url: /tags/
+      weight: 5
+params:
+  abbrDateFmt: "Jan 2"
+  author: "Blog Author"
+  brandIconFile: "images/brandIcon.svg"
+  dateFmt: "2006-01-02"
+#  customStylesheets: # Use to override theme styles, like logo size
+#    - "css/custom.css"
+  social:
+    - name: GitHub
+      url: https://github.com/ian-s-mcb
+    - name: GitLab
+      url: https://gitlab.com/ian-s-mcb
+    - name: Quizlet
+      url: https://quizlet.com/ian-s-mcb
+    - name: Reddit
+      url: https://www.reddit.com/user/ian-s-mcb
+    - name: StackOverflow
+      url: https://stackoverflow.com/users/3417846/ian-s-mcb
+  subtitle: "Description about Blog Author"
