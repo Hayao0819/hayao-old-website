@@ -24,6 +24,9 @@ var Judgement =function() {
     // プレーヤーごとに判定
     // プレーヤーIDでループし、変数pに今チェック対象のプレーヤーIDが代入される
     for (p=0; p < PlayerNumer; p++){
+        // 判定を行う対象プレーヤーを表示
+        console.log(p + "の勝敗判定を実行します")
+
         // チェックしたプレーヤーのIDが書き込まれたボックスの一覧を取得
         var elements = MainTable.querySelectorAll("[data-player]");
 
@@ -40,9 +43,6 @@ var Judgement =function() {
             if (e.getAttribute("data-player") == p){
                 //console.log(e)
                 // チェックされているボックスの座標を座標リストに追加する
-                //CheckedByCurrentPlayerX.push(e.dataset.x);
-                //CheckedByCurrentPlayerY.push(e.dataset.y);
-
                 CheckedByCurrentPlayerX.push(e.getAttribute("data-x"));
                 CheckedByCurrentPlayerY.push(e.getAttribute("data-y"));
             }
@@ -113,7 +113,9 @@ var Judgement =function() {
         //console.log(p + "のチェック済みのY座標")
         //console.log(CheckedByCurrentPlayerY)
 
-        // 終了
-        return false;
+
     }
+
+    // 終了
+    return false;
 }
