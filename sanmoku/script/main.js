@@ -23,13 +23,13 @@ var ClickedBox = function (e) {
             //console.log(CurrentPlayer + "が " + MySelf.dataset.x + "," + MySelf.dataset.y + " をクリックしました")
             console.log(CurrentPlayer + "が " + MySelf.getAttribute("data-x") + "," + MySelf.getAttribute("data-y") + " をクリックしました")
 
-            // プレイヤーを変更する
-            ChangePlayer();
-
             // 勝利判定を行う
             if (Judgement()){
                 return;
             }
+
+            // プレイヤーを変更する
+            ChangePlayer();
 
             // 現在の情報を更新する
             UpdateCurrentConfig();

@@ -17,14 +17,20 @@ html{
 
 /* ボックス1つ1つの見た目 */
 #maintable td{
-    background-color: blue; /* 背景の色を青に設定 */
+    background-color: #b5f7f3; /* 背景の色を青に設定 */
+    color: orange; /* 文字の色をオレンジにする*/
+    font-weight: bolder; /* 文字を太くする*/
+
     margin: 50px; /* ボックス同士の空白を画面のドット50個分に設定 */
 
     width: 100px; /* ボックスの幅を画面のドット100個に設定 */
     height: 100px; /* ボックスの高さを画面のドット100個に設定 */
     
-    font-size: 20px; /* ボックス内の文字の大きさをドット20個に設定 */
+    font-size: 35px; /* ボックス内の文字の大きさをドット20個に設定 */
     line-height: 20px; /* ボックスの1行の高さをドット20個に設定 */
 
     text-align: center; /* 文字を左右中央に配置 */
 }
+
+
+
