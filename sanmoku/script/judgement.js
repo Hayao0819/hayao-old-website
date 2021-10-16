@@ -50,7 +50,8 @@ var Judgement =function() {
 
         // 勝利時に実行する関数
         var WinExit = function(text){
-            Msg.innerText = p + "が" + text + "で勝ちました"
+            //Msg.innerText = p + "が" + text + "で勝ちました"
+            Msg.innerText = PlayerMarks[p] + "が" + text + "で勝ちました"
             GameEnded = true;
             return;
         }

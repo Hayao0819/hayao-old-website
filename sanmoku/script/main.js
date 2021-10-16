@@ -89,20 +89,54 @@ window.addEventListener("load", function(){
 
 // 適用ボタンが押された時の処理
 ApplyButton.addEventListener("click", function(){
+    // ゲームの状態をチェック
+    if (CheckedBox != 0){
+        Msg.innerText = "既にゲームが開始されています"
+        return;
+    }
 
     // それぞれの状態を初期化
-    PlayerNumer   = InputPlayerNumber.value;
     GameEnded     = false;
     CheckedBox    = 0;
     CurrentPlayer = 0;
     Msg.innerText = "";
 
-    // 入力された値が正常か確認
-    if(InputTableX.value >= 3 && InputTableY.value >= 3){
-        TableXNumber = InputTableX.value;
-        TableYNumber = InputTableY.value;
-    }else{
+    // 入力された内容を変数に反映
+    PlayerNumer   = parseFloat(InputPlayerNumber.value);
+    TableXNumber  = parseFloat(InputTableX.value);
+    TableYNumber  = parseFloat(InputTableY.value);
+
+    // 数が整数でない場合にエラー
+    var ChkInt = Number.isInteger
+    if (! ChkInt(PlayerNumer) || ! ChkInt(TableXNumber) || ! ChkInt(TableXNumber)){
+        Msg.innerText = "全ての設定で整数を指定してください"
+        return;
+    }
+
+    // マス目の数が3以上ではない場合はエラー
+    //if(InputTableX.value >= 3 && InputTableY.value >= 3){
+    //    TableXNumber = InputTableX.value;
+    //    TableYNumber = InputTableY.value;
+    //}else{
+    //    Msg.innerText = "3以上の整数を指定してください"
+    //    return;
+    //}
+
+    if (TableXNumber < 3 || TableYNumber < 3){
         Msg.innerText = "3以上の整数を指定してください"
+        return;
+    }
+
+    // プレーヤーの人数が定義されている数以上ならエラー
+    if (PlayerMarks.length < PlayerNumer){
+        Msg.innerText = "現在" + PlayerMarks.length + "以上の数は対応していません"
+        return;
+    }
+
+
+    // プレーヤーの数が2未満ならエラー
+    if (PlayerNumer < 2){
+        Msg.innerText = "2以上の整数を指定してください"
         return;
     }
     
