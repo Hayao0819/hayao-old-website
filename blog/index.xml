@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ハヤオのブログ</title>
+    <link>http://hayao.fascode.net/blog/</link>
+    <description>Recent content on ハヤオのブログ</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-JP</language>
+    <lastBuildDate>Sat, 09 Oct 2021 21:10:53 +0900</lastBuildDate><atom:link href="http://hayao.fascode.net/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>最初の投稿</title>
+      <link>http://hayao.fascode.net/blog/posts/20211009/</link>
+      <pubDate>Sat, 09 Oct 2021 21:10:53 +0900</pubDate>
+      
+      <guid>http://hayao.fascode.net/blog/posts/20211009/</guid>
+      <description>ハヤオのブログをHugoを使って作ってみた。
+マークダウンだけでこうやってかけるのシンプルでいいですね。
+Fascodeのブログに載せられないものでもこれからちょこちょこ書いていこうかしら（）</description>
+    </item>
+    
+  </channel>
+</rss>
