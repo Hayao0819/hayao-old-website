@@ -1,3 +1,6 @@
 [submodule "blog/src/themes/smigle"]
 	path = blog/src/themes/smigle
 	url = https://gitlab.com/ian-s-mcb/smigle-hugo-theme.git
+[submodule "blog/src/themes/mainroad"]
+	path = blog/src/themes/mainroad
+	url = https://github.com/vimux/mainroad
