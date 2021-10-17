@@ -15,7 +15,7 @@ hasCJKLanguage = true
 
 paginate = "5" # Number of posts per page
 
-summaryLength = 120
+summaryLength = 70
 
 
 [Author] # Used in authorbox
@@ -57,3 +57,9 @@ summaryLength = 120
   recent_num = 5 # Set the number of articles in the "Recent articles" widget
   categories_counter = false # Enable counter for each category in "Categories" widget
   tags_counter = false # Enable counter for each tag in "Tags" widget
+
+[menu]
+[[menu.main]]
+  name = '切腹倶楽部'
+  url = 'https://seppuku.club/'
+  weight = -90
