@@ -7,6 +7,7 @@ categories:
 tags:
   - "Blog"
 draft: false
+authorbox: true
 ---
 
 今後のために今の所ブラウザのタブで開いてるHugo関連のサイトを適当に列挙しておく。
