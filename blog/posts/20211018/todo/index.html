@@ -1,0 +1,155 @@
+<!doctype html><html class=no-js lang=en>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<title>やらなきゃならないこと - ハヤオの物置き</title>
+<script>(function(a,b){a[b]=a[b].replace("no-js","js")})(document.documentElement,"className")</script>
+<meta name=description content>
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="やらなきゃならないこと">
+<meta name=twitter:description content="ブログをTodoリスト扱いするあまりにも間違った使い方をしてみる。これマジで誰に需要があるだろうか（反語） Alter Linux関連 最近更新が停滞して">
+<link rel=preconnect href=https://fonts.gstatic.com crossorigin>
+<link rel=dns-prefetch href=//fonts.googleapis.com>
+<link rel=dns-prefetch href=//fonts.gstatic.com>
+<link rel=stylesheet href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+<link rel=stylesheet href=/blog/css/style.css>
+<link rel="shortcut icon" href=/blog/favicon.ico>
+</head>
+<body class=body>
+<div class="container container--outer">
+<header class=header>
+<div class="container header__container">
+<div class=logo>
+<a class=logo__link href=/blog/ title=ハヤオの物置き rel=home>
+<div class="logo__item logo__text">
+<div class=logo__title>ハヤオの物置き</div>
+<div class=logo__tagline>好きなときに好きなことをして楽に生きたい</div>
+</div>
+</a>
+</div>
+<nav class=menu>
+<button class=menu__btn aria-haspopup=true aria-expanded=false tabindex=0>
+<span class=menu__btn-title tabindex=-1>Menu</span>
+</button>
+<ul class=menu__list>
+<li class=menu__item>
+<a class=menu__link href=/blog/about/>
+<span class=menu__text>ハヤオについて</span>
+</a>
+</li>
+<li class=menu__item>
+<a class=menu__link href=https://seppuku.club/>
+<span class=menu__text>切腹倶楽部</span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</header>
+<div class="wrapper flex">
+<div class=primary>
+<main class=main role=main>
+<article class=post>
+<header class=post__header>
+<h1 class=post__title>やらなきゃならないこと</h1>
+<div class="post__meta meta"><div class="meta__item-author meta__item">
+<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2.0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class=meta__text>山田ハヤオ</span>
+</div>
+<div class="meta__item-datetime meta__item">
+<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class=meta__text datetime=2021-10-18T23:23:16+09:00>October 18, 2021</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class=meta__text><a class=meta__link href=/blog/categories/blog/ rel=category>Blog</a>
+</span>
+</div></div>
+</header>
+<div class="content post__content clearfix">
+<p>ブログをTodoリスト扱いするあまりにも間違った使い方をしてみる。これマジで誰に需要があるだろうか（反語）</p>
+<h2 id=alter-linux関連>Alter Linux関連</h2>
+<p>最近更新が停滞してますね。モチベの低下が原因です。もう満足しちゃったってのとArchの興味が薄れてきてる。</p>
+<p>最近デスクトップ環境をXfceからPlasmaに移行してみたけど、なかなか快適で満足している</p>
+<p>小4でLinuxを使い始めてからずっとXfce派だったので、他のDEをメインで本格的に使うというのは実は初めてだったりする。</p>
+<p>今までなんとなく軽く触っただけじゃわからないようなことがたくさんあるので、他のDEももっとしっかりと触ってみようかなと思い始めてる。</p>
+<p>話がそれまくったところで、Alter Linux関連のTodoを。</p>
+<ul>
+<li>
+<p><code>libcpuid</code>のインストールに失敗する</p>
+<p>まじでこれなんでなんでしょうかね？<code>/usr/lib64</code>でコンフリクトってPacmanのバグなんじゃないの？</p>
+</li>
+<li>
+<p>AlterISO 4.0の開発</p>
+<p>なかなかにこいつも面倒ですね。モチベが下がってるから、今後のメンテナンスを簡単にするために設計の根本から書き直してるけどなかなかに大変。独自コードが増えすぎた。</p>
+</li>
+<li>
+<p>リポジトリ管理の自動化</p>
+<p>Ahrimanというオープンソースに期待してるけどバグまみれでまだまだ厳しそう。</p>
+<p>自分でシェルスクリプトで開発する気力なんて全く無いので、安定するまでIssue出して気長に待つ。</p>
+</li>
+<li>
+<p>11月のISOリリース</p>
+<p>面倒だし大きなバグも更新もないので10月の更新は独断と偏見でスキップしちゃった。</p>
+<p>さっき仮想マシンに09/20を入れようとしたらあまりにも更新が多くてびびった。</p>
+<p>そりゃあArch Linuxだもん定期的に更新しないとね。</p>
+</li>
+</ul>
+<h2 id=ブログ関連>ブログ関連</h2>
+<p>ブログ関連っていうのはFascodeとこれの両方ね。なかなかに大変なんだよね更新って</p>
+<p>いやいろいろ書くのは好きだし楽しいんだけどタイピングが全部人差し指なのでなんたって肩が疲れる。</p>
+<p>そろそろ腱鞘炎にでもなるんじゃないかって勝手に個人的に思ってる。</p>
+<ul>
+<li>
+<p>TwitterカードとかSEOとかアクセス解析をつける</p>
+<p>Hugoでこういうの実装できるんですかね？できなきゃ困る。</p>
+<p>できれば広告もつけたいけど記事が増えてからかな？</p>
+</li>
+<li>
+<p>Ubuntu 21.04のレビューを書く</p>
+<p>Fascodeのブログの下書きみたいなのをこっちでしようと思ってる。</p>
+<p>完成したらFasocdeのほうにコピペしてこっちは非公開にしちゃえばいいしね</p>
+</li>
+</ul>
+<h2 id=買い物関連>買い物関連</h2>
+<p>最近GTX1050TiでPCを一台作ったのでゲーム用にしようと思ってる。</p>
+<p>ゲームパッドを昔に台パンして壊してるので新しいやつを買わなければ。</p>
+<p>あとは何年もお世話いなったWLI-UC-GMNもお亡くなりになってしまった。</p>
+<p>Linux対応でLive環境でも使えるアダプタなのでそれなりに重宝してただけあって残念。</p>
+<p>原神をやろうとしたけどゲームパッドがないと操作がキツい。</p>
+<p>シティーズスカイラインはよくわからん。何するゲームだあれ（人を殺すゲーム）</p>
+<h2 id=学校関連の話>学校関連の話</h2>
+<p>曲がりなりにも副委員長なので、教室の鍵を閉めようと中を確認したら女子が着替えてた。</p>
+<p>下着とかは見えてなかったけど影で覗き魔って言われるようになってるらしい。</p>
+<p>大声で二次限定のロリコンだって言いたいけどそんなことしたらいよいよ人生オワコン</p>
+<p>JKとかあのへんの生き物は自分の身体にすごく価値があって男がみんな狙ってるって勘違いしてる気がするんだよな</p>
+<p>微塵たりとも興味ないので（クラスの猿どもはあるかもしれないが）安心してほしい。</p>
+<p>んでもってその猿どもは「むしろ女に興味ないほうが異常」とかいう時代錯誤もいい持論を展開してたのでセンスとか情報収集のできない悲しい人間何だなと思ってる。</p>
+<p>このブログまじで愚痴をこんな感じで書き連ねてたらほんっとうに黒歴史とかそれなりにやばい部類のものになってしまうんじゃないだろうか。やめよう。</p>
+<p>んじゃぁ隣で寝てる母親がうるさいって言うしそろそろ寝るか。明日学校とかまじで行きたくない。</p>
+<p>昼間にTwitterして遊んでる人たちがうらやましくて仕方がない。</p>
+<p>ぶっちゃけ不登校でも将来どうにでもなれるのでそれでいいかなって思ってるんだよね。</p>
+<p>それか通信制の高校にでも変えようかしら。少なくとも全日制は俺には向いてないだろうな。</p>
+<p>修学旅行を逃げる方法を全力で考えてる。</p>
+<p>それでは、また今度。（のばまんのこの挨拶使いやすいよな）</p>
+</div>
+<footer class=post__footer>
+<div class="post__tags tags clearfix"><svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5.0 11V3C0 1.5.8.8.8.8S1.5.0 3 0h8c1.5.0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 100-6 3 3 0 000 6z"/></svg>
+<ul class=tags__list>
+<li class=tags__item>
+<a class="tags__link btn" href=/blog/tags/blog/ rel=tag>Blog</a>
+</li>
+</ul>
+</div>
+</footer>
+</article>
+</main>
+</div>
+</div>
+<footer class=footer>
+<div class="container footer__container flex">
+<div class=footer__copyright>
+&copy; 2021 Yamada Hayao.
+<span class=footer__copyright-credits>Generated with <a href=https://gohugo.io/ rel="nofollow noopener" target=_blank>Hugo</a> and <a href=https://github.com/Vimux/Mainroad/ rel="nofollow noopener" target=_blank>Mainroad</a> theme.</span>
+</div>
+</div>
+</footer>
+</div>
+<script async defer src=/blog/js/menu.js></script>
+</body>
+</html>
