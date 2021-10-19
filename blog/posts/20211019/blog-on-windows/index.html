@@ -1,0 +1,157 @@
+<!doctype html><html class=no-js lang=en>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<title>Windows上でブログを書く環境を構築した話 - ハヤオの物置き</title>
+<script>(function(a,b){a[b]=a[b].replace("no-js","js")})(document.documentElement,"className")</script>
+<meta name=description content>
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="Windows上でブログを書く環境を構築した話">
+<meta name=twitter:description content="もしかしたらこの記事あとからFascodeのブログに載ってこっちじゃ非公開にされるかもしれん。 Windows上でこのブログを執筆できるように">
+<link rel=preconnect href=https://fonts.gstatic.com crossorigin>
+<link rel=dns-prefetch href=//fonts.googleapis.com>
+<link rel=dns-prefetch href=//fonts.gstatic.com>
+<link rel=stylesheet href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+<link rel=stylesheet href=/blog/css/style.css>
+<link rel="shortcut icon" href=/blog/favicon.ico>
+</head>
+<body class=body>
+<div class="container container--outer">
+<header class=header>
+<div class="container header__container">
+<div class=logo>
+<a class=logo__link href=/blog/ title=ハヤオの物置き rel=home>
+<div class="logo__item logo__text">
+<div class=logo__title>ハヤオの物置き</div>
+<div class=logo__tagline>好きなときに好きなことをして楽に生きたい</div>
+</div>
+</a>
+</div>
+<nav class=menu>
+<button class=menu__btn aria-haspopup=true aria-expanded=false tabindex=0>
+<span class=menu__btn-title tabindex=-1>Menu</span>
+</button>
+<ul class=menu__list>
+<li class=menu__item>
+<a class=menu__link href=/blog/about/>
+<span class=menu__text>ハヤオについて</span>
+</a>
+</li>
+<li class=menu__item>
+<a class=menu__link href=https://seppuku.club/>
+<span class=menu__text>切腹倶楽部</span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</header>
+<div class="wrapper flex">
+<div class=primary>
+<main class=main role=main>
+<article class=post>
+<header class=post__header>
+<h1 class=post__title>Windows上でブログを書く環境を構築した話</h1>
+<div class="post__meta meta"><div class="meta__item-author meta__item">
+<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2.0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class=meta__text>山田ハヤオ</span>
+</div>
+<div class="meta__item-datetime meta__item">
+<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class=meta__text datetime=2021-10-19T13:53:23+09:00>October 19, 2021</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class=meta__text><a class=meta__link href=/blog/categories/blog/ rel=category>Blog</a>
+</span>
+</div></div>
+</header>
+<div class="content post__content clearfix">
+<p>もしかしたらこの記事あとからFascodeのブログに載ってこっちじゃ非公開にされるかもしれん。</p>
+<p>Windows上でこのブログを執筆できるようにした。</p>
+<p>なかなかにいいかんじに構築てきたのでそのメモを残してみる。</p>
+<h2 id=このブログの構成>このブログの構成</h2>
+<p>そもそもこの<code>hayao.fascode.net/blog</code>はどういう技術で構成されてるのか。</p>
+<p>もともと<code>hayao.fascode.net</code>はなおこさんにサーバとドメインを借りて公開してる小さいサイトの集まり。</p>
+<p>過去の自分が書いたHTMLとかを保存するために借りてる場所。</p>
+<p>でもなんか個人だけのブログってほしいよねってことで作ったのがこのブログ。</p>
+<p>完全に私用だし、更新をいつやめるかも不明なのでWPみたいな大掛かりなやつは嫌だった。（もともと好きじゃないし）</p>
+<p>ということで趣味が似てそうな（？）山Dに相談したところ教えてもらったのがHugo</p>
+<p>テーマとかのソースコードを読んだりいろいろ構築が大変で未だにできてないけどなんとか最低限の形は完成。</p>
+<p>新規でHugoを構築する方法を解説してるサイトは何個もあったんだけど、既存のリポジトリのサブディレクトリにHugoを展開する方法はどこにも載ってなかった。</p>
+<p>まぁ設定ファイルで強引にいろいろを書き換えることでうまくいけたのでヨシ（）</p>
+<p>まず最終的なアドレスを<code>hayao.fascode.net/blog</code>にしたいので、<code>/blog/src</code>にHugoの設定をすべて移動させた。</p>
+<p>その上でGitHub Actionsを使って<code>public</code>ブランチにHugoでビルドしたHTMLを<code>/blog</code>上にぶちまけてもらってる。</p>
+<p>コンパイル後のツリーがこの上なく汚いのが現状の課題だけどまぁどうでもいいかな。</p>
+<h2 id=windows上の環境>Windows上の環境</h2>
+<p>というわけでGitを使っているので、Linux上では何の苦もなく構築できた。というか作業は全部Linux。</p>
+<p>最近Windows PCを寝室に自作したので、そっちでも書きたいってことでWindowsで環境を整えた。</p>
+<p>それがなかなかに曲者で、まずシェルスクリプトやGitが一切使えない。Windows常用者には当然なのかもしれないがLinux信者の俺にはとうてい耐えられる環境ではない。</p>
+<p>ということでまずはGitKraken、gpg4win、VScode、Typoraをインストール。</p>
+<p>MSYS4みたいなやつは環境が汚くなるしWindowsとの連携も悪いので今回は採用しなかった。</p>
+<p>WSL2もディスクのスペースの関係上採用を見送り。OSまるまる打ち込んだらそれなりにサイズ食うからね。</p>
+<p>GitKrakenは単体でGitが使えるという便利な代物。</p>
+<p>どうせLinuxでもGitのGUiクライアントとしてGitKrakenを愛用してるので迷わずインストール。</p>
+<p>署名の設定に手間取ったけどgpg4winと組み合わせることでうまくいった。</p>
+<p>lsとかBashが使えないのもかなり問題なので、Busyboxをインストールしてつかえるようにした。</p>
+<p></p>
+<p>一番シンプルなLinuxライクな環境になったと思う。</p>
+<h2 id=新しい記事を作る>新しい記事を作る</h2>
+<p>Linux環境では新しい記事を作成する小さいシェルスクリプトを書いてそれを使っていた。</p>
+<p>Windows歴が短いのでVBSやJScript、PowerShellでこれを書き直すのは面倒なので、短いVBSを書いてシェルスクリプトをBusyBox経由で無理やり実行した。</p>
+<pre tabindex=0><code class=language-vbs data-lang=vbs>Dim Input
+Input = InputBox(&quot;Set English short title for argument&quot;)
+Dim objShell
+Set objShell = CreateObject(&quot;WScript.Shell&quot;)
+Dim FlSysObj
+Set FlSysObj = createObject(&quot;Scripting.FileSystemObject&quot;)
+objShell.Run &quot;cmd /c &quot; &amp; &quot;bash .\new-post.sh &quot; &amp; Input ,0,false
+
+</code></pre><p>VBSは学校の社会情報の暇な時間に軽く触った程度なのでどういうバグがあるかわからない。</p>
+<p>現状はこれで動いてるのでよしとする。</p>
+<p>ちなみにBusyboxで実行してるシェルスクリプトはこれ。</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e>#!/usr/bin/env bash
+</span><span style=color:#75715e></span>
+set -eu
+
+script_path<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;</span><span style=color:#66d9ef>$(</span> cd -P <span style=color:#e6db74>&#34;</span><span style=color:#66d9ef>$(</span> dirname <span style=color:#e6db74>&#34;</span><span style=color:#66d9ef>$(</span>readlink -f <span style=color:#e6db74>&#34;</span><span style=color:#e6db74>${</span>0<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span><span style=color:#66d9ef>)</span><span style=color:#e6db74>&#34;</span> <span style=color:#66d9ef>)</span><span style=color:#e6db74>&#34;</span> <span style=color:#f92672>&amp;&amp;</span> pwd <span style=color:#66d9ef>)</span><span style=color:#e6db74>&#34;</span>
+
+<span style=color:#f92672>[[</span> -z <span style=color:#e6db74>&#34;</span><span style=color:#e6db74>${</span>1-<span style=color:#e6db74>&#34;&#34;</span><span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span> <span style=color:#f92672>]]</span> <span style=color:#f92672>&amp;&amp;</span> echo <span style=color:#e6db74>&#34;Set English short title for argument&#34;</span> &gt;&amp;<span style=color:#ae81ff>2</span> <span style=color:#f92672>&amp;&amp;</span> exit <span style=color:#ae81ff>1</span>
+
+cd <span style=color:#e6db74>&#34;</span><span style=color:#e6db74>${</span>script_path<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span> <span style=color:#f92672>||</span> <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>
+filename<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;posts/</span><span style=color:#66d9ef>$(</span>date +%Y%m%d<span style=color:#66d9ef>)</span><span style=color:#e6db74>/</span><span style=color:#e6db74>${</span>1<span style=color:#e6db74>}</span><span style=color:#e6db74>/index.md&#34;</span>
+<span style=color:#f92672>[[</span> ! -f <span style=color:#e6db74>&#34;</span><span style=color:#e6db74>${</span>script_path<span style=color:#e6db74>}</span><span style=color:#e6db74>/</span><span style=color:#e6db74>${</span>filename<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span> <span style=color:#f92672>]]</span> <span style=color:#f92672>&amp;&amp;</span> hugo new <span style=color:#e6db74>&#34;</span><span style=color:#e6db74>${</span>filename<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>
+type code 1&gt;/dev/null 2&gt;&amp;<span style=color:#ae81ff>1</span> <span style=color:#f92672>&amp;&amp;</span> code <span style=color:#e6db74>&#34;</span><span style=color:#e6db74>${</span>script_path<span style=color:#e6db74>}</span><span style=color:#e6db74>/src/content/</span><span style=color:#e6db74>${</span>filename<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>
+
+</code></pre></div><p>なんでこれがBusyBoxで動いたんだろうって疑問に思ってるんだけど動いたのでおｋ</p>
+<p>hugoだけはhugo.exeというWin版をダウンロードしてきてBusyboxと同じパスにぶちこんでおいた。</p>
+<p>実を言うとBusyBoxのBashはBashじゃなくてShなのに、なんでこのBash方言ゴリゴリのコードが動いてるのかまじでわからない。案外行けるもんなんだなって思ってる。</p>
+<p><img src=.%5Cdialog.PNG alt=dialog></p>
+<p>というわけで、Linuxで作ったものを強引にWindowsで動かした経緯を書いてみた。</p>
+<p>言いたいことは「OSにあった言語と方法を使え」ってことですかね。</p>
+<p>結局エミュレーションとか互換環境ってのはカオスしか生み出さないので。</p>
+<p>それでは、また今度。</p>
+</div>
+<footer class=post__footer>
+<div class="post__tags tags clearfix"><svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5.0 11V3C0 1.5.8.8.8.8S1.5.0 3 0h8c1.5.0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 100-6 3 3 0 000 6z"/></svg>
+<ul class=tags__list>
+<li class=tags__item>
+<a class="tags__link btn" href=/blog/tags/blog/ rel=tag>Blog</a>
+</li>
+<li class=tags__item>
+<a class="tags__link btn" href=/blog/tags/windows/ rel=tag>Windows</a>
+</li>
+</ul>
+</div>
+</footer>
+</article>
+</main>
+</div>
+</div>
+<footer class=footer>
+<div class="container footer__container flex">
+<div class=footer__copyright>
+&copy; 2021 Yamada Hayao.
+<span class=footer__copyright-credits>Generated with <a href=https://gohugo.io/ rel="nofollow noopener" target=_blank>Hugo</a> and <a href=https://github.com/Vimux/Mainroad/ rel="nofollow noopener" target=_blank>Mainroad</a> theme.</span>
+</div>
+</div>
+</footer>
+</div>
+<script async defer src=/blog/js/menu.js></script>
+</body>
+</html>
