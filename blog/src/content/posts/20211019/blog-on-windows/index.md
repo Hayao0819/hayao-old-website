@@ -5,8 +5,9 @@ date: 2021-10-19T13:53:23+09:00
 categories:
   - "Blog"
 tags:
-  - "Blog","Windows"
-draft: true
+  - "Blog"
+  - "Windows"
+draft: false
 ---
 
 もしかしたらこの記事あとからFascodeのブログに載ってこっちじゃ非公開にされるかもしれん。
@@ -114,7 +115,7 @@ hugoだけはhugo.exeというWin版をダウンロードしてきてBusyboxと�
 
 実を言うとBusyBoxのBashはBashじゃなくてShなのに、なんでこのBash方言ゴリゴリのコードが動いてるのかまじでわからない。案外行けるもんなんだなって思ってる。
 
-![dialog](C:\Users\hayao\Git\hayao.fascode.net\blog\src\content\posts\20211019\blog-on-windows\dialog.PNG)
+![dialog](.\dialog.PNG)
 
 
 
