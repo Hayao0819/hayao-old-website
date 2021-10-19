@@ -6,7 +6,7 @@ categories:
   - "Blog"
 tags:
   - "Blog"
-draft: true
+draft: false
 ---
 
 ブログをTodoリスト扱いするあまりにも間違った使い方をしてみる。これマジで誰に需要があるだろうか（反語）

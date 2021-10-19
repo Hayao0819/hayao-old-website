@@ -6,7 +6,7 @@ categories:
   - "Blog"
 tags:
   - "Blog"
-draft: true
+draft: false
 ---
 
 なんとなくブログを適当なテーマで作ったものの設定がわからず結局別のテーマにした
