@@ -6,7 +6,7 @@ categories:
   - "Blog"
 tags:
   - "Blog"
-draft: true
+draft: false
 ---
 
 学校であったことをだらだらと書いてみる。なかなかに今日も面倒だった。
