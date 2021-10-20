@@ -64,3 +64,11 @@ summaryLength = 70
   name = '切腹倶楽部'
   url = 'https://seppuku.club/'
   weight = -90
+
+[[menu.main]]
+  name = 'ハヤオについて'
+  url = '/about/'
+
+[[menu.main]]
+  name = 'Twitter'
+  url = '/twitter/'
