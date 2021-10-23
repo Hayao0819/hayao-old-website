@@ -42,6 +42,10 @@ jobs:
   main-repo:
     runs-on: ubuntu-latest
     steps:
+      - name: Check repo
+        run: |
+          echo $GITHUB_REPOSITORY
+          [[ "$(basename "${GITHUB_REPOSITORY}")" = "hayao0819.github.io" ]] && exit 0
       - name: Checkout
         uses: actions/checkout@v2
         with:
@@ -68,8 +72,6 @@ jobs:
         env: 
           GH_PAGES_REPO_DEPLOY_KEY: ${{ secrets.GH_PAGES_REPO_DEPLOY_KEY }}
         run: |
-          echo $GITHUB_REPOSITORY
-          [[ "$(basename "${GITHUB_REPOSITORY}")" = "hayao0819.github.io" ]] && exit 0
           echo "$GH_PAGES_REPO_DEPLOY_KEY" > ~/deploy_key.pem
           chmod 600 ~/deploy_key.pem
           git config --local user.email "hayao@fascode.net"
