@@ -34,6 +34,22 @@ jobs:
         run: bash ./update-blog.sh --baseURL https://hayao0819.github.io/hayao.fascode.net/blog/
         #run: hugo --minify -D
 
+      - name: Deploy for GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: ./
+
+  main-repo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          submodules: true
+          fetch-depth: 0 
+      
       - name: Setup git repogitories
         env:
           GH_PAGES_REPO_DEPLOY_KEY: ${{ secrets.GH_PAGES_REPO_DEPLOY_KEY }}
@@ -43,6 +59,16 @@ jobs:
           git config --global user.email "hayao@fascode.net"
           git config --global user.name "hayao"
           git config remote.origin.url "git@github.com:Hayao0819/hayao0819.github.io.git"
+
+      - name: Setup
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.88.1'
+          extended: true
+
+      - name: Build for GitHub Pages
+        run: bash ./update-blog.sh --baseURL https://hayao0819.github.io/blog/
+        #run: hugo --minify -D
 
       - name: Deploy pages
         env:
@@ -54,13 +80,4 @@ jobs:
             git pull origin master
             git push origin master
           fi
-
-      - name: Deploy for GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: gh-pages
-          publish_dir: ./
-
-
 
