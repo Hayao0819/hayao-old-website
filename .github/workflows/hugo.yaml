@@ -1,4 +1,4 @@
-name: Hugo
+name: Hugo Build and Deploy
 
 on: push
 
@@ -23,18 +23,18 @@ jobs:
         run: bash ./update-blog.sh
         #run: hugo --minify -D
 
-      - name: Deploy
+      - name: Deploy for fascode.net
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: public
           publish_dir: ./
 
-      - name: Build
+      - name: Build for GitHub Pages
         run: bash ./update-blog.sh --baseURL https://hayao0819.github.io/hayao.fascode.net/blog/
         #run: hugo --minify -D
 
-      - name: Deploy for GitHub
+      - name: Deploy for GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
