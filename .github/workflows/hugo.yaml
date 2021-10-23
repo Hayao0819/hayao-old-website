@@ -58,18 +58,24 @@ jobs:
         run: bash ./update-blog.sh --baseURL https://hayao0819.github.io/blog/
 
       - name: Commit files
+        env: 
+          GITHUB_IO_REPO_DEPLOY_KEY: ${{ secrets.GITHUB_IO_REPO_DEPLOY_KEY }}
         run: |
+          echo "$GITHUB_IO_REPO_DEPLOY_KEY" > ~/deploy_key.pem
+          chmod 600 ~/deploy_key.pem
           git config --local user.email "hayao@fascode.net"
           git config --local user.name "hayao[bot]"
           git config pull.rebase false
+          git config remote.origin.url "git@github.com:hayao0819/hayao0819.github.io.git"
           git add -A
           if ! git diff --cached --quiet; then
             git commit -m "deploy: ${GITHUB_SHA}" -a
           fi
-
     
       - name: Push changes
         uses: ad-m/github-push-action@master
+        env:
+          GIT_SSH_COMMAND: ssh -i ~/deploy_key.pem -o StrictHostKeyChecking=no -F /dev/null
         with:
           github_token: ${{ secrets.API_TOKEN_GITHUB }}
           branch: ${{ github.ref }}
