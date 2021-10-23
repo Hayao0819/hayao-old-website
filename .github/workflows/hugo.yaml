@@ -41,6 +41,15 @@ jobs:
           publish_branch: gh-pages
           publish_dir: ./
 
+  main-repo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          submodules: true
+          fetch-depth: 0 
+      
       - name: Setup git repogitories
         env:
           GH_PAGES_REPO_DEPLOY_KEY: ${{ secrets.GH_PAGES_REPO_DEPLOY_KEY }}
