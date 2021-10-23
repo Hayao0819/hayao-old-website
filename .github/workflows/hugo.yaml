@@ -57,15 +57,15 @@ jobs:
       - name: Build for GitHub Pages
         run: bash ./update-blog.sh --baseURL https://hayao0819.github.io/blog/
 
-    - name: Commit files
-      run: |
-        git config --local user.email "hayao@fascode.net"
-        git config --local user.name "hayao[bot]"
-        git config pull.rebase false
-        git commit -m "deploy: ${GITHUB_SHA}" -a
-  
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: ${{ github.ref }}
+      - name: Commit files
+        run: |
+          git config --local user.email "hayao@fascode.net"
+          git config --local user.name "hayao[bot]"
+          git config pull.rebase false
+          git commit -m "deploy: ${GITHUB_SHA}" -a
+    
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
