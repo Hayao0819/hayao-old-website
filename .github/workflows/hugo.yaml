@@ -81,6 +81,6 @@ jobs:
           else
             echo "Nothing has been commited"
           fi
-          git pull origin master
+          git pull --allow-unrelated-histories origin master
           git push origin master
     
