@@ -78,9 +78,9 @@ jobs:
           git add -A
           if ! git diff --cached --quiet; then
             git commit -m "deploy: ${GITHUB_SHA}" -a
-            git pull origin master
-            git push origin master
           else
-            echo "Nothing has been pushed"
+            echo "Nothing has been commited"
           fi
+          git pull origin master
+          git push origin master
     
