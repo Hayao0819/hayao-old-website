@@ -49,16 +49,13 @@ jobs:
           chmod 600 ~/deploy_key.pem
           git config --global user.email "hayao@fascode.net"
           git config --global user.name "hayao"
-          ls
-          cd public
           git config remote.origin.url "git@github.com:Hayao0819/hayao0819.github.io.git"
-          git checkout master
+          git checkout gh-pages
 
       - name: Deploy pages
         env:
           GIT_SSH_COMMAND: ssh -i ~/deploy_key.pem -o StrictHostKeyChecking=no -F /dev/null
         run: |
-          cd public
           git add -A
           if ! git diff --cached --quiet; then
             git commit -m "Deploy $GITHUB_SHA by GitHub Actions"
