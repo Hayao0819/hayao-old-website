@@ -57,6 +57,13 @@ jobs:
       - name: Build for GitHub Pages
         run: bash ./update-blog.sh --baseURL https://hayao0819.github.io/blog/
 
+      - name: Install SSH key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.GITHUB_IO_REPO_DEPLOY_KEY }}
+          name: id_rsa # optional
+          known_hosts: unnecessary
+
       - name: Commit files
         env: 
           GITHUB_IO_REPO_DEPLOY_KEY: ${{ secrets.GITHUB_IO_REPO_DEPLOY_KEY }}
@@ -67,16 +74,11 @@ jobs:
           git config --local user.name "hayao[bot]"
           git config pull.rebase false
           git config remote.origin.url "git@github.com:hayao0819/hayao0819.github.io.git"
+          echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
           git add -A
           if ! git diff --cached --quiet; then
             git commit -m "deploy: ${GITHUB_SHA}" -a
+            git pull origin master
+            git push origin master
           fi
     
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        env:
-          GIT_SSH_COMMAND: ssh -i ~/deploy_key.pem -o StrictHostKeyChecking=no -F /dev/null
-        with:
-          github_token: ${{ secrets.API_TOKEN_GITHUB }}
-          branch: ${{ github.ref }}
-          repository: hayao0819/hayao0819.github.io
