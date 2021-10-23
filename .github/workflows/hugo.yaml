@@ -80,5 +80,7 @@ jobs:
             git commit -m "deploy: ${GITHUB_SHA}" -a
             git pull origin master
             git push origin master
+          else
+            echo "Nothing has been pushed"
           fi
     
