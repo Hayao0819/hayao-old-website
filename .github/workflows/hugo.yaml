@@ -69,6 +69,6 @@ jobs:
           destination-github-username: 'Hayao0819'
           destination-repository-name: 'hayao0819.github.io'
           user-email: hayao@fascode.net
-          user-name: hayao
+          user-name: Hayao0819
           target-branch: master
 
