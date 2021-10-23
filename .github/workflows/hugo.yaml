@@ -63,7 +63,10 @@ jobs:
           git config --local user.name "hayao[bot]"
           git config pull.rebase false
           git add -A
-          git commit -m "deploy: ${GITHUB_SHA}" -a
+          if ! git diff --cached --quiet; then
+            git commit -m "deploy: ${GITHUB_SHA}" -a
+          fi
+
     
       - name: Push changes
         uses: ad-m/github-push-action@master
