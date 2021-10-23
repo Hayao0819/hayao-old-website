@@ -79,6 +79,7 @@ jobs:
           git config pull.rebase false
           git config remote.origin.url "git@github.com:hayao0819/hayao0819.github.io.git"
           echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+          rm -rf ./blog/src/themes
           git add -A
           if ! git diff --cached --quiet; then
             git commit -m "deploy: ${GITHUB_SHA}" -a
