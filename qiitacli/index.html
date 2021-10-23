@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>認証成功</title>
+</head>
+<body>
+    <header>
+        <h1>Qiita OAuth 認証成功画面</h1>
+    </header>
+    <main>
+        <p>認証に成功しました。</p>
+        <p>以下の文字列をターミナルに貼り付けてください。</p>
+        <div>
+            <p>Access Token <button onclick="TokenCopy()">コピー</button></p>
+            <p><input type="text" name="token" id="token_box" readonly></p>
+        </div>
+        <div>
+            <p>State <button onclick="StateCopy()">コピー</button></p>
+            <p><input type="text" name="state" id="state_box" readonly></p>
+        </div>
+    </main>
+    <script>
+        // GETパラメータからrとeの値をそれぞれ取得する
+        const GetParams = () => {
+            let ParamsArray = {
+                state: undefined,
+                token: undefined,
+            };
+            let searchParams = new URLSearchParams(document.location.search.substring(1));
+            ParamsArray["token"] = searchParams.get("code")
+            ParamsArray["state"] = searchParams.get("state")
+            return ParamsArray;
+        }
+
+        window.addEventListener("load", ()=>{
+            document.getElementById("token_box").value = GetParams()["token"]
+            document.getElementById('state_box').value = GetParams()["state"]
+        })
+
+        // コピーボタン
+        const CopyToClipBoard = (e) => {
+            e.select();
+            document.execCommand("copy");
+        }
+
+        const TokenCopy = () => { CopyToClipBoard(document.getElementById("token_box")); }
+        const StateCopy = () => { CopyToClipBoard(document.getElementById("state_box")); }
+    </script>
+</body>
+</html>

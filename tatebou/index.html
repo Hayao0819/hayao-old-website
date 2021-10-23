@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>迫真縦棒ドメインのウェブUI</title>
+</head>
+<body style="width: 100vw;">
+    <div>
+        <h1>迫真縦棒ドメインのウェブUI</h1>
+        <p>迫真縦棒ドメインの短縮URLの作成をするためのインターフェースです。</p>
+        <form autocomplete="off">
+            <h2>URLを入力</h2>
+            <p><input type="text" name="url" id="url" style="width: 50%;"><input type="button" value="作成" onclick="run()"></p>
+
+            <h2>結果</h2>
+            <p><input type="text" name="output" id="output" readonly style="width: 50%;"></p>
+        </form>
+    </div>
+
+    <div style="display: none;" id="div_test">
+        <h2>テスト</h2>
+        <p>上のリンクを貼りました。ここでテストできます。</p>
+        <p><input type="button" value="テストする" onclick="test()"></p>
+    </div>
+
+    <script>
+        var result = null;
+        function run(){
+            // データを取得
+            let url=document.getElementById("url").value;
+            let output=document.getElementById("output");
+
+            if (! url){
+                output.value="";
+                return 0;
+            }else if(url.indexOf("http") !== 0 ){
+                url="https://" + url;
+                document.getElementById("url").value=url;
+            }
+
+            let xhr = new XMLHttpRequest();
+            xhr.open("POST",`https://1lil.li/p/`, true);
+            send_text=`l=${url}`
+            xhr.onreadystatechange = function() {
+                console.log(xhr.status)
+                if(xhr.readyState === 4 && xhr.status === 201) {
+                    result=xhr.responseText;
+                    output.value=result;
+
+                    // テストを表示
+                    let div_test = document.getElementById("div_test");
+                    div_test.style.display = "inline";
+                    return;
+                }
+
+                if(xhr.readyState === 4 && xhr.status === 400){
+                    alert("正しいURLを入力してください");
+                    return;
+                }
+            }
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.send(send_text);
+        }
+
+        function test(){
+            window.open(result, "_blank");
+        }
+    </script>
+</body>
+</html>

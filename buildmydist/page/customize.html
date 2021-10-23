@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>
+      【2019年版】Ubuntu系のLinuxディストリビューションを自作しよう　～カスタマイズ編～
+    </title>
+    <meta name="description" content="
+      Ubuntu派生のLinux系OSの自作方法を解説したサイトです。
+      SereneLinuxの開発者が初心者でもできるUbuntu派生OSの作成方法を画像つきで解説します。
+      Ubuntuをカスタマイズして自分の好きなデザイン、操作にするカスタマイズを行うページです。
+    ">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="../style/main-resp.css" media="screen and (max-width: 799px)">
+    <link rel="stylesheet" href="../style/main.css" media="screen and (min-width: 800px)">
+    <link rel="stylesheet" href="../code/vs2015.css">
+    <script src="../code/highlight.pack.js"></script>
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" type="text/css" media="print" href="../style/main.css">
+    <!-- class="prettyprint linenums" でコードに色付け -->
+    <!-- <pre><code class="prettyprint linenums"></code></pre> -->
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:100,300,400,500,700,900&amp;subset=japanese" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <h1>【2019年版】Ubuntu系のOSを自作しよう　～カスタマイズ編～</h1>
+      <p>BodhiBuilderを用いてオリジナルのOSを作成します。</p>
+      <p>自分の好きなデスクトップ環境やソフトウェアを入れてオリジナルのOSを作成しましょう。</p>
+      <p>実際に開発中のOS『SereneLinux』の実例を挙げながらわかりやすく解説していきます。</p>
+      <p><a href="http://hayao.fascode.net/buildmydist-2/">こちらで</a>サイト新しく作り直してます。このサイトの情報は古いのでよければどうぞ。</p>
+      <nav>
+        <ul class="topnav">
+          <li><a href="../index.html">トップページ</a></li>
+          <li><a href="preparation.html">準備編</a></li>
+          <li><a class="active" href="customize.html">カスタマイズ編</a></li>
+          <li><a href="makeiso.html">ISO作成編</a></li>
+          <li><a href="distribution.html">配布編</a></li>
+          <li class="right"><a href="about.html">About</a></li>
+          <li class="right"><a href="website.html">参考サイト</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <h2>
+        カスタマイズしよう
+      </h2>
+      <p>
+        実際にBasixをカスタマイズしていきましょう。
+      </p>
+      <p>
+        基本的なカスタマイズは以下のとおりです
+      </p>
+      <p>
+        非常に長くなるので頑張って読んでください...
+      </p>
+      <p>
+        カスタマイズくらいできるわ！って人は9から読んでください
+      </p>
+      <p>
+        8以降はOS作成だけのカスタマイズなので知らない人もいるかもしれません
+      </p>
+      <h2>
+        目次
+      </h2>
+      <p>
+        <ol class="contents">
+          <li>
+            デスクトップ環境の選択
+          </li>
+          <li>
+            ディスプレイマネージャの選択
+          </li>
+          <li>
+            テーマのインストール、設定
+          </li>
+          <li>
+            アイコンのインストール、設定
+          </li>
+          <li>
+            マウスカーソルのインストール、設定
+          </li>
+          <li>
+            パッケージの削除
+          </li>
+          <li>
+            パッケージのインストール
+          </li>
+          <li>
+            デスクトップのカスタマイズ
+          </li>
+          <li>
+            設定ファイルの保存
+          </li>
+          <li>
+            インストールスライドの変更
+          </li>
+          <li>
+            インストーラーアイコンの変更
+          </li>
+          <li>
+            OS名の変更
+          </li>
+          <li>
+            Basix設定ファイルの削除
+          </li>
+        </ol>
+      </p>
+
+      <h2>
+        1.デスクトップ環境の選択
+      </h2>
+      <p>
+        まずはデスクトップ環境を決めます
+      </p>
+      <p>
+        デスクトップ環境を決める上で重要になるのが「ターゲットにするユーザー」です
+      </p>
+      <p>
+        準備編で決めたことがここで重要になってきます
+      </p>
+      <p>
+        以下にそれぞれのデスクトップ環境の特徴を書いていくので好きなものを選んでください
+      </p>
+      <p>
+        重くはなりますが、複数のデスクトップ環境を搭載することもできます
+      </p>
+      <div class="table">
+        <table>
+          <thead>
+            <tr>
+              <th>デスクトップ環境</th>
+              <th>標準ディストリビューション</th>
+              <th>特徴</th>
+              <th>重さ</th>
+            </tr>
+          </thead>
+          <tbody>
+
+
+            <tr>
+              <th>
+                Gnome3
+              </th>
+              <td label="標準ディストリビューション">
+                  Ubuntu
+              </td>
+              <td label="特徴">
+                <p>
+                  操作が独特
+                  <br>
+                  洗練されている
+                </p>
+              </td>
+              <td label="重さ">
+                  やや重い
+              </td>
+            </tr>
+
+
+            <tr>
+              <th>
+                Xfce4
+              </th>
+              <td label="標準ディストリビューション">
+                  Xubuntu
+              </td>
+              <td label="特徴">
+                <p>
+                  標準のパネル設定はMac風になっている
+                  <br>
+                  細かいカスタマイズが可能
+                  <br>
+                  標準のテーマ、アイコンがダサい
+                </p>
+              </td>
+              <td label="重さ">
+                  軽い
+              </td>
+            </tr>
+
+
+            <tr>
+              <th>
+                KDE
+              </th>
+              <td label="標準ディストリビューション">
+                Kubuntu
+              </td>
+              <td label="特徴">
+                <p>
+                  非常に高機能で、美しいUI
+                  <br>
+                  比較的カスタマイズしにくい
+                </p>
+              </td>
+              <td label="重さ">
+                Gnomeよりは軽い(かも)
+              </td>
+            </tr>
+
+
+            <tr>
+              <th>
+                Lxde
+              </th>
+              <td label="標準ディストリビューション">
+                Lubuntu
+                <br>
+                Basix
+              </td>
+              <td label="特徴">
+                <p>
+                  Windows風のUI
+                  <br>
+                  ものすごく軽量
+                  <br>
+                  標準のテーマ、アイコンが汚い
+                </p>
+              </td>
+              <td label="重さ">
+                最も軽い
+              </td>
+            </tr>
+
+
+            <tr>
+              <th>
+                LxQt
+              </th>
+              <td label="標準ディストリビューション">
+                ---
+              </td>
+              <td label="特徴">
+                <p>
+                  Lxdeと非常に似ている
+                  <br>
+                  細かいカスタマイズが可能
+                  <br>
+                  標準のテーマ、アイコンがダサい
+                </p>
+              </td>
+              <td label="重さ">
+                最も軽い
+              </td>
+            </tr>
+
+
+            <tr>
+              <th>
+                Unity
+              </th>
+              <td label="標準ディストリビューション">
+                  Ubuntu（17.10まで）
+              </td>
+              <td label="特徴">
+                <p>
+                  Ubuntu版のGnomeと似たUI
+                  <br>
+                  殆どカスタマイズできない
+                  <br>
+                  今後サポートされるか不明
+                </p>
+              </td>
+              <td label="重さ">
+                最も重い
+              </td>
+            </tr>
+
+
+            <tr>
+              <th>
+                Cinnamon
+              </th>
+              <td label="標準ディストリビューション">
+                ---
+              </td>
+              <td label="特徴">
+                <p>
+                  Windows風のUI
+                  <br>
+                  あまりカスタマイズできない
+                  <br>
+                  高機能で美しい
+                </p>
+              </td>
+              <td label="重さ">
+                やや重い
+              </td>
+            </tr>
+
+            <tr>
+              <th>
+                Mate
+              </th>
+              <td label="標準ディストリビューション">
+                Ubuntu Mate
+              </td>
+              <td label="特徴">
+                <p>
+                  Windows風のUI
+                  <br>
+                  Gnome2（Ubuntu 10.10までのUI）からフォーク
+                  <br>
+                  シンプル
+                </p>
+              </td>
+              <td label="重さ">
+                やや軽い
+              </td>
+            </tr>
+
+            
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        おすすめはXfce4です
+      </p>
+      <p>
+        軽量でカスタマイズ性が高いので自由に改造することができます
+      </p>
+      <p>
+        SereneLinuxもXfce4をベースにしています
+      </p>
+      <p>
+        今回はXfce4を選んだとして関節を勧めていこうと思います
+      </p>
+
+
+
+      <h2>
+        2.ディスプレイマネージャの選択
+      </h2>
+      <p>
+        ディスプレイマネージャとは、いわゆるログイン画面です
+      </p>
+      <p>
+        以下の様なものがあります
+      </p>
+      <div class="table">
+        <table>
+          <thead>
+            <tr>
+              <th>ディスプレイマネージャ</th>
+              <th>標準ディストリビューション</th>
+              <th>特徴</th>
+              <th>重さ</th>
+            </tr>
+          </thead>
+          <tbody>
+
+
+            <tr>
+              <th>
+                GDM3
+              </th>
+              <td label="標準ディストリビューション">
+                  Ubuntu
+              </td>
+              <td label="特徴">
+                <p>
+                  Gnomeのディスプレイマネージャ
+                  <br>
+                  洗練されており、美しいUI
+                  <br>
+                  カスタマイズしにくい
+                </p>
+              </td>
+              <td label="重さ">
+                やや重い
+              </td>
+            </tr>
+
+
+            <tr>
+              <th>
+                LightDM
+              </th>
+              <td label="標準ディストリビューション">
+                  Xubuntu、Lubuntu、Ubuntu（17.10まで）
+              </td>
+              <td label="特徴">
+                <p>
+                  非常に軽い
+                  <br>
+                  カスタマイズが可能
+                  <br>
+                  標準のテーマ、アイコンがダサい
+                </p>
+              </td>
+              <td label="重さ">
+                軽い
+              </td>
+            </tr>
+
+            <tr>
+              <th>
+                KDM(開発停止)
+              </th>
+              <td label="標準ディストリビューション">
+                  Kubuntu(KDE4以下)
+              </td>
+              <td label="特徴">
+                <p>
+                  リッチなUI
+                  <br>
+                  KDEのディスプレイマネージャ
+                </p>
+              </td>
+              <td label="重さ">
+                ---
+              </td>
+            </tr>
+
+            <tr>
+              <th>
+                SDDM
+              </th>
+              <td label="標準ディストリビューション">
+                LxQt, KDE Plasma 5
+              </td>
+              <td label="特徴">
+                <p>
+                  Qtのみで書かれている
+                </p>
+              </td>
+              <td label="重さ">
+                ---
+              </td>
+            </tr>
+
+            
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        今回は最も一般的なLightDMを使用していきます
+      </p>
+      <p>
+        （筆者はLightDMとGDMしか使用したこと無いのでSDDMはわからないです）
+      </p>
+      <h3>
+        Greeterについて
+      </h3>
+      <p>
+        LightDMには「Greeter」と呼ばれるテーマを適用させる機能があります（他のDMにもあるのかな？）
+      </p>
+      <p>
+        SereneLinuxではUbuntu17.10まで使われていた「unity-greeter」を適用させています
+      </p>
+      <p>
+        この「Unity-Greeter」はインストール後に手動で設定をする必要があります
+      </p>
+      <p>
+        参考にしたのは以下のサイトです
+      </p>
+      <p>
+        <a href="https://cialu.net/how-to-solve-failed-to-start-session-with-lightdm-and-xfce/" target="_blank">How to solve ‘Failed to start session’ with LightDM and Xfce</a>
+      </p>
+      <p>
+        上のサイトと同じになってしまいますが、一応こちらでも解説しようと思います
+      </p>
+      <p>
+        <ol>
+          <li>
+            unity-greeterをインストールする
+          </li>
+          <p>
+            これがないと始まりませんね
+          </p>
+          <pre><code>$ sudo apt-get -y install unity-greeter</code></pre>
+          <li>
+            設定ファイルを削除する
+          </li>
+          <p>
+            以下のコマンドを実行して設定ファイルを削除します
+          </p>
+          <p>
+            <pre><code>$ sudo rm /usr/share/lightdm/lightdm.conf.d/50-unity-greeter.conf</code></pre>
+          </p>
+          <li>
+            新しい設定ファイルを作成する
+          </li>
+          <p>
+            以下のコマンドを実行するだけです
+          </p>
+          <p>
+            <pre><code>$ sudo touch /usr/share/lightdm/lightdm.conf.d/50-xfce-greeter.conf</code></pre>
+          </p>
+          <li>
+            設定ファイルを記述する
+          </li>
+          <p>
+            nanoを起動します
+          </p>
+          <pre><code>$ sudo nano /usr/share/lightdm/lightdm.conf.d/50-xfce-greeter.conf</code></pre>
+          <p>
+            以下のコードを書き込んで「Ctrl + O」を押して保存し、「Ctrl + X」で終了します
+          </p>
+          <pre><code>[SeatDefaults]
+greeter-session=unity-greeter
+user-session=xfce</code></pre>
+          <li>
+            再起動します
+          </li>
+          <pre><code>$ sudo reboot</code></pre>
+
+        </ol>
+      </p>
+
+      <h2>
+        テーマのインストール、設定
+      </h2>
+      <h3>
+        自分の好きなテーマを探す
+      </h3>
+      <p>
+        自分の好きなテーマをネット上で探して自分のOSのデフォルトにしましょう
+      </p>
+      <p>
+        テーマのライセンスさえOKで、現在のGTK3に準拠しているテーマなら何でも適用できます
+      </p>
+      <p>
+        SereneLinuxでは「Numix」というテーマを採用しています
+      </p>
+      <p>
+        テーマによってディストリビューションの印象を大きく変えることになるので慎重にに選んでください
+      </p>
+      <p>
+        テーマは以下のサイトから探すと簡単に見つけることができます
+      </p>
+      <ul>
+        <li><a href="https://www.xfce-look.org/" target="_blank">Xfce-Look</a></li>
+        <li><a href="https://www.gnome-look.org/" target="_blank">Gnome-Look</a></li>
+      </ul>
+      <p>
+        GTK3のテーマをダウンロードしてください
+      </p>
+      <p>
+        自分の考えたユーザのターゲットに合ったテーマを選ぶといいでしょう
+      </p>
+      <p>ライセンスをよく読み、再配布が可能かどうかを確かめてください</p>
+      <h3>
+        アイコンのインストール、設定
+      </h3>
+      <p>
+        テーマを配置させます
+      </p>
+      <p>
+        ダウンロードしたテーマファイルを展開してください
+      </p>
+      <p>
+        Windowsで展開するといろいろと問題が起きる可能性があるので必ずLinux環境で展開を行ってください
+      </p>
+      <p>
+        展開したら、.themeの拡張子がついたファイルが入っているフォルダを以下のパスにRoot権限でコピーしてください
+      </p>
+      <p>
+        <pre><code>/usr/share/themes</code></pre>
+      </p>
+      <p>
+        コピーしたら設定から自分のテーマを設定します
+      </p>
+      <h2>アイコンの設定</h2>
+      <p>テーマと同じサイトでアイコンを探し、ディレクトリにコピーするだけです</p>
+      <p><pre><code>/usr/share/icons</code></pre></p>
+      <p>
+        (解説超手抜きです すみません もしかしたら細かく書くかもです)
+      </p>
+      <h2>
+        マウスカーソルのインストール、設定
+      </h2>
+      <p>
+        アイコンと同じ方法でインストール、設定できます
+      </p>
+      <p>
+        カーソルテーマはアイコンと同じディレクトリにコピーします
+      </p>
+      <h2>
+        パッケージの削除
+      </h2>
+      <p>
+        不要なパッケージを削除します
+      </p>
+      <p>
+        不要なパッケージが多いとisoサイズがどんどん大きくなってしまいますのでなるべく小さくします
+      </p>
+      <p>
+        インストールされているパッケージは以下のコマンドで確認できます
+      </p>
+      <p><pre><code>$ sudo dpkg -l | less</code></pre></p>
+      <p>
+        終了時は「q」キーを押します
+      </p>
+      <p>
+        Gnome系のパッケージは削除できるかもしれません
+      </p>
+      <p>
+        削除してよいかどうか分からなかったらパッケージ名で検索してみたり、Basixと比較してみると良いかもしれません
+      </p>
+      <p>
+        削除する際は「-y」で一気に削除するのではなく、削除されるパッケージを確認して確実に削除してください
+      </p>
+      <p>
+        また、削除の際は「remove」ではなく「purge」を使用してください
+      </p>
+      <p>
+        違いはというと、「remove」では設定ファイルは削除されませんが、「purge」では設定ファイルまで削除されます
+      </p>
+      <p>
+        必要以上の設定ファイルはごみになるだけなので削除します
+      </p>
+      <p>
+        パッケージを削除する際は以下のテンプレートを使用すると簡単です
+      </p>
+      <p>
+        <pre><code>$ sudo apt-get purge hogehoge</code></pre>
+      </p>
+      <p>
+        （hogehogeは各自で置き換えてください）
+      </p>
+
+      <h2>
+        パッケージのインストール
+      </h2>
+      <p>
+        自分の好きなパッケージをインストールします
+      </p>
+      <p>
+        標準のリポジトリになければ自分でリポジトリを追加します
+      </p>
+      <p>
+        おすすめのパッケージは「UbuntuCleaner」です
+      </p>
+      <p>
+        リポジトリを追加してインストールします
+      </p>
+      <p>
+        不要なパッケージを削除してくれるのでディストリビューション作成には必須です
+      </p>
+      <h2>
+        デスクトップのカスタマイズ
+      </h2>
+      <p>
+        デスクトップのカスタマイズを行います
+      </p>
+      <p>
+        Xfceの場合は自分の好きな位置にパネルを配置します
+      </p>
+      <p>
+        Xubuntuに標準で入っているアプリケーションメニューは以下のコマンドでインストールできます
+      </p>
+      <p>
+        <pre><code>$ sudo apt -y install xfce4-whiskermenu-plugin</code></pre>
+      </p>
+      <p>
+        Xfce以外のデスクチップ環境でもある程度はカスタマイズできると思いますが、Gnomeなどはプラグインを追加する程度だと思います
+      </p>
+      <p>
+        SereneLinuxでは、パネルを上に配置し、長さを変更、アイテムの配置を変更して「cairo-dock」をインストール、設定しています
+      </p>
+      <p>
+        UIはディストリビューションの顔になるのでしっかりと考える必要があります
+      </p>
+      <h2>
+        設定ファイルの保存
+      </h2>
+      <p>
+        いよいよ最終工程です
+      </p>
+      <p>
+        今まで設定した項目をisoに適用させるために保存します
+      </p>
+      <p>
+        BodhiBuilderでは/home以下はisoに入れないので.configといった設定ファイルも保存されません
+      </p>
+      <p>
+        そのために別のディレクトリに.configなどをコピーする必要があります
+      </p>
+      <p>
+        それでは順番に見ていきましょう
+      </p>
+      <h3>
+        1.設定を変更したソフトを書き出す
+      </h3>
+      <p>
+        設定を変更したソフトを書き出します
+      </p>
+      <p>
+        SereneLinuxでは、「Cairo-Dock」や「Xfce4」などが変更されています
+      </p>
+      <h3>
+        2.変更されたソフトの設定ファイルを見つけ出す
+      </h3>
+      <p>
+        ほとんどの設定ファイルはユーザディレクトリ下の.configディレクトリ内に保存されています
+      </p>
+      <p>
+        そのディレクトリを別のディレクトリにコピーしておきます
+      </p>
+      <p>
+        一部の設定ファイルはホームディレクトリ直下や、別の場所に保存されていることもあるのでインターネット上で情報を探すなりfindコマンドを実行するなりして設定ファイルを探し出してください
+      </p>
+      <h3>
+        3.見つけ出した設定ファイルを、スケルトンディレクトリにコピーする
+      </h3>
+      <p>
+        設定ファイルのディレクトリ構造をスケルトンディレクトリに再現します
+      </p>
+      <p>
+        Debian系のスケルトンディレクトリは以下のパスです
+      </p>
+      <p>
+        <pre><code>/etc/skel</code></pre>
+      </p>
+      <p>
+        上記のパスを~/（ホームディレクトリ）に見立てて.configなどのディレクトリを作成し、設定ファイルや設定フォルダをコピーします
+      </p>
+      <p>
+        新しいユーザやisoが作成される際はスケルトンディレクトリ内のデータが~/にコピーされます
+      </p>
+      <p>
+        例えば~/.config/hoge.confのファイルをスケルトンディレクトリにコピーしたかったら/etc/skel/.config/hoge.confにコピーします
+      </p>
+      <p>
+        変更されたソフトの設定ファイルをすべてコピーしないと正常に作動しないのでしっかりとコピーする必要があります
+      </p>
+      <p>
+        かといって、全部丸々コピーするのもよくありません
+      </p>
+      <p>
+        個人情報までisoに含んでしまうかもしれないのでスケルトンディレクトリにコピーするファイルやフォルダはしっかりと内容を見ておくことが大切です
+      </p>
+      <p>
+        この部分は非常に複雑なのでわからなければ筆者のDMもしくはメールに来てください
+      </p>
+      <p>
+        この作業は設定を変更するたびにし直す必要があります
+      </p>
+      <h2>
+        インストールスライドの変更
+      </h2>
+      <p>
+        インストール中に表示されるインストールスライドを変更します
+      </p>
+      <p>
+        インストールスライドはubiquity-slideshow-*という形式のパッケージで設定されています
+      </p>
+      <p>
+        なので、まずはそのパッケージを削除します
+      </p>
+      <h3>
+        1.ディストリビューション標準のスライドを削除する
+      </h3>
+      <p>
+        以下のコマンドを実行してインストールされているパッケージを見つけ出します
+      </p>
+      <p>
+        <pre><code>$ sudo dpkg -l | grep "ubiquiy-slideshow"</code></pre>
+      </p>
+      <p>
+        出てきたパッケージを以下のコマンドで削除します
+      </p>
+      <p>
+        <pre><code>$ sudo apt-get purge -y hogehoge</code></pre>
+      </p>
+      <p>
+        「hogehoge」を出てきたパッケージ名に置き換えてください
+      </p>
+      <h3>
+        2.ベースになるパッケージをインストールする
+      </h3>
+      <p>
+        以下のコマンドを実行してインストールします
+      </p>
+      <p>
+        <pre><code>$ sudo apt -y install ubiquity-slideshow-xubuntu</code></pre>
+      </p>
+      <p>
+        インストールされたスライドはHTMLやCSS、JavaScriptで書かれています
+      </p>
+      <p>
+        それらを編集して自分のディストリビューション用のスライドを作成していきます
+      </p>
+      <h3>
+        スライドを編集する
+      </h3>
+      <p>
+        スライドを編集します
+      </p>
+      <p>
+        スライドのデータは以下のパスに保存されています
+      </p>
+      <p>
+        <pre><code>/usr/share/ubiquiy-slideshow/slides/</code></pre>
+      </p>
+      <p>
+        スクリーンショットなどのファイル名は自由に変更できますが、htmlのファイル名は編集しないことをおすすめします
+      </p>
+      <p>
+        アイコン、スクリーンショットを準備してそれぞれのフォルダに保存したあとはhtmlを編集していきます
+      </p>
+      <p>
+        上のパスの直下にあるhtmlは英語で書きます
+      </p>
+      <p>
+        <pre><code>/usr/share/ubiquity-slideshow/l10n/ja/</code></pre>
+      </p>
+      <p>
+        こちらのパスに日本語のスライドを配置します
+      </p>
+      <p>
+        HTML内の記述のアイコンやスクリーンショットのファイル名と実際のファイル名を一緒にします
+      </p>
+      <p>
+        ある程度の文章が完成したら、HTMLの構文チェックを行います
+      </p>
+      <p>
+        ブラウザでは表示できても、構文ミスが有るとスライドでは正常に表示されないことがあります
+      </p>
+      <p>
+        私も当初はこれでかなり困りました
+      </p>
+      <p>
+        HTMLが完成したらCSSを書いていきます
+      </p>
+      <p>
+        CSSは実際にプレビューしながらの編集ができないのでかなり難しいですが頑張ってください
+      </p>
+      <h3>
+        作成したファイルの権限を変更する
+      </h3>
+      <p>
+        以下のコマンドでファイルの権限を変更します
+      </p>
+      <p>
+        <pre><code>$ sudo chown -R root:root /usr/share/ubiquity-slideshow/</code></pre>
+        <pre><code>$ sudo chmod -R 755 /usr/share/ubiquity-slideshow/</code></pre>
+      </p>
+      <p>
+        コマンドの意味を簡単に解説すると、1行目で/usr/share/ubiquity-slideshow/以下のすべてのファイルの所有者と所有グループをrootにしています
+      </p>
+      <p>
+        2行目では/usr/share/ubiquity-slideshow/以下のファイルすべてのパーミッションを変更しています
+      </p>
+      <p>
+        所有者は「読み取り、書き込み、実行」のすべてを行うことができて、所有グループとその他の人は「読み取り、実行」ができるようにしています
+      </p>
+      <p>
+        パーミッションの設定を間違えると正常に表示されなかったり自由に改変されてしまったりします
+      </p>
+      <p>
+        インストールスライドは何度のisoを作成して実際に確認するのが一番です
+      </p>
+      <h2>
+        インストーラアイコンを変更する
+      </h2>
+      <p>
+        ISOでライブ起動をした時に、デスクトップに「~~をインストールする」というアイコンが表示されます
+      </p>
+      <p>
+        このアイコンがデフォルトのままだとBodhiLinuxのままになってしまいます
+      </p>
+      <p>
+        このアイコンを変更していきましょう
+      </p>
+      <p>
+        変更方法は簡単です
+      </p>
+      <p>
+        アイコンにしたいファイルを用意し、以下のパスにコピーします
+      </p>
+      <p>
+        <pre>
+          <code>/usr/share/icons/bbinstall.png
+/usr/share/icons/bbinstall_previous.png</code>
+        </pre>
+      </p>
+      <p>
+        同じファイルを2つにコピーします
+      </p>
+      <p>
+        これだけでアイコンが変更されます
+      </p>
+      <p>
+        なぜかシンボリックリンクでは正常にできませんでした
+      </p>
+      <p>
+        ハードリンクならうまくいくかもしれません
+      </p>
+      <h2>
+        OS名の変更
+      </h2>
+      <p>
+        OSの名前を変更します
+      </p>
+      <p>
+        この変更はGrubやBodhiBuilderなど、全てに適用されます
+      </p>
+      <p>
+        OS名などは以下のファイルに情報が記載されています
+      </p>
+      <p>
+        <pre><code>/usr/lib/os-release</code></pre>
+      </p>
+      <p>
+        このファイルの1箇所を修正すれば大丈夫です
+      </p>
+      <p>
+        変更可能な変数は「PRETTY_NAME」、「HOME_URL」「SUPPORT_URL」です
+      </p>
+      <p>
+        実際に変更するのは「PRETTY_NAME」だけで大丈夫です
+      </p>
+      <p>
+        自分でディストリビューションのフォーラムなどを作るのであればそのURLを入力してください
+      </p>
+      <p>
+        上の変数以外は変更しないでください
+      </p>
+      <p>
+        リポジトリ追加やインストールができなくなります
+      </p>
+      <p>
+        参考に、SereneLinuxのソースを載せておきます
+      </p>
+      <p>
+        <pre><code>NAME="Ubuntu"
+VERSION="18.04.2 LTS (Bionic Beaver)"
+ID=ubuntu
+ID_LIKE=debian
+PRETTY_NAME="SereneLinux_19Q1.7.1_R1"
+VERSION_ID="18.04"
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+VERSION_CODENAME=bionic
+ UBUNTU_CODENAME=bionic</code></pre>
+      </p>
+      <h2>
+        Basixの独自ファイルを削除する
+      </h2>
+      <p>
+        ここの操作は詳しい人のみ行ってください
+      </p>
+      <p>
+        Basixは独自に/etc/basixに設定ファイルを持っています
+      </p>
+      <p>
+        それを削除しないと上のOS名などが上書きされてしまいます
+      </p>
+      <p>
+        しかしPlymouthテーマ（起動スプラッシュ）などのデータも入っているためうかつに触ることはできません
+      </p>
+      <p>
+        （これ以降はあとで書きます...）
+      </p>
+      <h2>
+        isoをビルドする
+      </h2>
+      <p>
+        いよいよisoビルドです
+      </p>
+      <p>
+        今までお疲れ様でした
+      </p>
+      <p>
+        iso作成は次のページで解説しています
+      </p>
+      <h3 class="goto">
+        <a href="makeiso.html">ISO作成編へ行く</a>
+      </h3>
+    </main>
+
+
+
+    <footer>
+      It is provided by SereneLinux.
+      <br>
+      Copyright
+      &copy; 2019 SereneTeam All Rights Reserved.
+      <p>
+        <script type="text/javascript" src="//ct2.shinobi.jp/sc/1744984">
+        </script>
+        <noscript><img src="//ct2.shinobi.jp/ll/1744984" alt="カウンター">
+        </noscript>
+      </p>
+    </footer>
+
+
+  </body>
+</html>

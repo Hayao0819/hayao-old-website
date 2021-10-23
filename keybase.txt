@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/hayao0819
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://hayao.fascode.net
+  * I am hayao0819 (https://keybase.io/hayao0819) on keybase.
+  * I have a public key ASC42tnWrD1OwocpgNilOtwZsq-AMkj-DBgraXi7RegqiAo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01205185505bcc6d4e44243b8ad9fef43d0f02f409283565478cf71f1eff99d59aba0a",
+      "host": "keybase.io",
+      "kid": "0120b8dad9d6ac3d4ec2872980d8a53adc19b2af803248fe0c182b6978bb45e82a880a",
+      "uid": "eb88a8be319a9a4083f689b2bedfc219",
+      "username": "hayao0819"
+    },
+    "merkle_root": {
+      "ctime": 1616733972,
+      "hash": "c18558ccf2c09e1dcc13f7fc7f76a338246edf95418b9aa385b799e8bbaa6f59bf3efaf88f8370778a1543ed4a04e1c8746c32b49eb9b1c3722c860256d2dbb7",
+      "hash_meta": "956312b1fce650036c04040569d5fcd997fabd8802e560ee340a27e3e219aa62",
+      "seqno": 19472959
+    },
+    "service": {
+      "entropy": "y5LHxJdojYh7GjkZ3KipIpws",
+      "hostname": "hayao.fascode.net",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "5.6.1"
+  },
+  "ctime": 1616734028,
+  "expire_in": 504576000,
+  "prev": "bf856894e14d55f952240ac0f178d9672dfb14efedd23fef9ea5be7797b54304",
+  "seqno": 12,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEguNrZ1qw9TsKHKYDYpTrcGbKvgDJI/gwYK2l4u0XoKogKp3BheWxvYWTESpcCDMQgv4VolOFNVflSJArA8XjZZy37FO/t0j/vnqW+d5e1QwTEIP13UIF3gQ8jcX2zrDWN3nWAJQ94x4ldX69as0PHYfh8AgHCo3NpZ8RAHDTCv47PnQ53B7gN2NJHjHGmJrfBw6H8UWveEfk1cGgUI/nC1SvATBuZL5SDEH2Gi/oWswuLPc63kgsNGhRxD6hzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIMQISbBO0KIkzxJIb+HeVoVcQgMziLt363KrxlfaXMafo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/hayao0819
+
+==================================================================

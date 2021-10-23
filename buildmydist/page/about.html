@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>
+      【2019年版】Ubuntu系のLinuxディストリビューションを自作しよう
+    </title>
+    <meta name="description" content="
+      Ubuntu派生のLinux系OSの自作方法を解説したサイトです。
+      このサイトに関する情報を書いている場所です。
+    ">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="../style/main-resp.css" media="screen and (max-width: 799px)">
+    <link rel="stylesheet" href="../style/main.css" media="screen and (min-width: 800px)">
+    <link rel="stylesheet" href="../code/vs2015.css">
+    <script src="../code/highlight.pack.js"></script>
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" type="text/css" media="print" href="../style/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:100,300,400,500,700,900&amp;subset=japanese" rel="stylesheet">
+
+    <!-- class="prettyprint linenums" でコードに色付け -->
+    <!-- <pre><code class="prettyprint linenums"></code></pre> -->
+  </head>
+  <body>
+    <header>
+      <h1>【2019年版】Ubuntu系のOSを自作しよう</h1>
+      <p>BodhiBuilderを用いてオリジナルのOSを作成します。</p>
+      <p>自分の好きなデスクトップ環境やソフトウェアを入れてオリジナルのOSを作成しましょう。</p>
+      <p>実際に開発中のOS『SereneLinux』の実例を挙げながらわかりやすく解説していきます。</p>
+      <p><a href="http://hayao.fascode.net/buildmydist-2/">こちらで</a>サイト新しく作り直してます。このサイトの情報は古いのでよければどうぞ。</p>
+      <nav>
+        <ul class="topnav">
+          <li><a href="../index.html">トップページ</a></li>
+          <li><a href="preparation.html">準備編</a></li>
+          <li><a href="customize.html">カスタマイズ編</a></li>
+          <li><a href="makeiso.html">ISO作成編</a></li>
+          <li><a href="distribution.html">配布編</a></li>
+          <li class="right"><a class="active" href="about.html">About</a></li>
+          <li class="right"><a href="website.html">参考サイト</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+
+      <h2>
+        このサイトの概要的なやつ
+      </h2>
+      <p>
+        SereneLinuxの開発者が、SereneLinux開発中に困ったことを中心に初心者にわかりやすいように書いていくサイトです。
+      </p>
+      <p>
+        CMSとかはあまり好きじゃないのでHTMLとCSSの手打ちで作ってます。
+      </p>
+      <p>
+        JavaScriptは使っていないと胸を張って言いたいですが、コードの色付けに使用しています。
+      </p>
+      <h2>
+        お問い合わせ
+      </h2>
+      <p>
+        わからないことやご意見等があございましたら、メールフォームまでお願いします
+      </p>
+      <p>
+        <a href="page/form.html">メールフォームへ行く</a>
+      </p>
+      <h2>
+        SereneLinuxってなんぞや
+      </h2>
+      <p>
+        現在開発されているBasix派生のディストリビューションです。
+      </p>
+      <p>
+        このサイトの方法で開発されており、Xfce4を採用している軽量OSです。
+      </p>
+      <p>
+        現在はStandard版だけですが、今後はPro版やLite版もリリースしたいと考えています。
+      </p>
+      <p>
+        <a href="http://serenelinux.com">公式サイト</a>からBeta版のダウンロード、開発チームへの参加ができるのでぜひ試してみてください。
+      </p>
+      <!--
+        <h2>
+          TALLinuxについて
+        </h2>
+        <p>
+          SereneLinuxをベースにTALLinuxTeamが開発を行っているLinuxです。
+        </p>
+        <p>
+          軽量志向のSereneLinuxとは違い、KDEを搭載してリッチになっています。
+        </p>
+        <p>
+          Lxde版も作成したようでアンケートを行うようです。
+        </p>
+        <p>
+          Beta4から配布されており、現在
+          <a href="https://t.co/wV9HeJQa4O">
+            公式サイト
+          </a>
+          からダウンロードできるようです。
+        </p>
+        <p>
+          TALLinuxへの技術提供もSereneTeamが行っていますのでぜひ使ってみてください。
+        </p>
+        <h2>
+          NXLinuxについて
+        </h2>
+        <p>
+          Basixをベースに開発が行われているLinuxです。
+        </p>
+        <p>
+          筆者もNXLinuxの開発へ参加しています。
+        </p>
+        <p>
+          詳しくは後で追記します...
+        </p>
+      -->
+      <h2>
+        筆者について
+      </h2>
+      <p>
+        トップページと内容が一緒じゃねぇかボケェ って思った人いると思いますがもう少し詳しく自己紹介しようと思います。
+      </p>
+      <p>
+        SereneTeamの3人目のメンバーの@Hayao0819です。
+      </p>
+      <p>
+        SereneTeamでは、ファイルサーバ、BodhiBuilder、UI、Lite版を担当しています。
+      </p>
+      <p>
+        出身はド田舎代表のグンマー帝国です。
+      </p>
+
+      <h2>
+        このサイトを作った理由
+      </h2>
+      <p>
+        SereneLinuxの開発の際、BodhiBuilderの情報がものすごく少なかったのでこれからディストリビューションを作ろうと考えている人のために作りました
+      </p>
+      <p>
+        これからも随時更新していこうと思います。
+      </p>
+      <h2>
+        このサイトのサイトマップについて
+      </h2>
+      <p>
+        このサイトでは、サイトマップの作成を”サイトマップを作成-自動生成ツール「sitemap.xml Editor」”を用いて作成しています。
+      </p>
+      <p>
+        素晴らしいツールで非常に簡単です。作者さんありがとうございます。
+      </p>
+      <p>
+        こちら→
+        <a href="http://www.sitemapxml.jp/" target="_blank"><img src="http://www.sitemapxml.jp/img/sitemapxml.png" width="117" height="14"  alt="sitemap.xml自動生成ツール" /></a>
+      </p>
+
+      <h2>
+        更新履歴
+      </h2>
+      <p>
+        （iframeで埋め込んでいます。正常に表示されない場合は<a href="history.html">直接アクセス</a>してください）
+      </p>
+      <iframe src="history.html" class="history" width="100%" height="700">更新履歴</iframe>
+    </main>
+
+
+    <footer>
+      It is provided by SereneLinux.
+      <br>
+      Copyright
+      &copy; 2019 SereneTeam All Rights Reserved.
+      <p>
+        <script type="text/javascript" src="//ct2.shinobi.jp/sc/1744984">
+        </script>
+        <noscript><img src="//ct2.shinobi.jp/ll/1744984" alt="カウンター">
+        </noscript>
+      </p>
+    </footer>
+
+
+  </body>
+</html>

@@ -1,0 +1,75 @@
+/*見出し系*/
+h2 {
+  background: #F8F8F8;
+  border-top: 2px solid #1B73BA;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 2px 0px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 2px 0px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 2px 0px;
+  box-sizing: border-box;
+  color: #1B73BA;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0 0 20px;
+  padding: 10px 15px 10px;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+h1 {
+  color: #1B73BA;
+  /*
+  text-shadow: 2px 2px 0 #fff,
+               -2px 2px 0 #fff,
+               2px -2px 0 #fff,
+               -2px -2px 0 #fff;
+  */
+  margin-left: -4%;
+  margin-right: -4%;
+  margin-top: -3%;
+}
+h3 {
+  border-bottom: 2px solid #1B73BA;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0 0 20px;
+  padding-bottom: 5px;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+h4 {
+  border-left: 2px solid #1B73BA;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+/* 背景 */
+html {
+  background-color: #191919;
+}
+
+body {
+  background-color: #111111;
+  color: white;
+}
+
+
+/* 箇条書き*/
+ul li {
+  line-height: 2
+}
+
+pre {
+  max-width: 100%;
+}
+
+/*リンク*/
+a {
+  text-decoration:none;
+  color: #6EDEFF;
+}
+a:hover {
+  text-decoration:underline;
+}
+
+a:visited {
+  text-decoration:none;
+  color: #6EDEFF;
+}

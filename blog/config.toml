@@ -1,0 +1,74 @@
+baseURL = "http://hayao.fascode.net/blog/"
+languageCode = 'ja'
+title = 'ハヤオの物置き'
+theme = "mainroad"
+archetypeDir = "src/archetypes"
+assetDir = "src/assets"
+contentDir = "src/content"
+dataDir = "src/data"
+layoutDir = "src/layouts"
+staticDir = "src/static"
+themesDir = "src/themes"
+publishDir = "./"
+resourcedir = "src/resources"
+hasCJKLanguage = true
+
+paginate = "5" # Number of posts per page
+
+summaryLength = 70
+
+
+[Author] # Used in authorbox
+  name = "山田ハヤオ"
+  bio = "シェルスクリプトとマギレコを嗜むしがない高校生"
+  avatar = "hayao.jpg"
+
+[Params]
+  subtitle = "好きなときに好きなことをして楽に生きたい" # Deprecated in favor of .Site.Params.logo.subtitle
+  description = "Fascodeの公式ブログに書けないことをたらたらと書き連ねるところ" # Site description. Used in meta description
+  copyright = "Yamada Hayao" # Footer copyright holder, otherwise will use site title
+  readmore = true
+  post_meta = ["author", "date", "categories", "translations"] # Order of post meta information
+  mainSections = ["posts", "blog", "news"] # Specify section pages to show on home page and the "Recent articles" widget
+  twitter_cards = true # Enable Twitter Cards if true
+
+
+[Params.style.vars]
+  highlightColor = "#2189c8" # Override highlight color
+
+[Params.widgets.social]
+  # Enable parts of social widget
+  facebook = "Hayao0819"
+  twitter = "Hayao0819"
+  instagram = "Hayao0819"
+  github = "Hayao0819"
+  gitlab = "Hayao0819"
+  email = "hayao@fascode.net"
+
+[Params.sidebar]
+  home = "right" # Configure layout for home page
+  list = "left"  # Configure layout for list pages
+  single = false # Configure layout for single pages
+  # Enable widgets in given order
+  widgets = ["recent", "categories" , "taglist", "social", "test"]
+  # alternatively "ddg-search" can be used, to search via DuckDuckGo
+  # widgets = ["ddg-search", "recent", "categories", "taglist", "social", "languages"]
+
+[Params.widgets]
+  recent_num = 5 # Set the number of articles in the "Recent articles" widget
+  categories_counter = false # Enable counter for each category in "Categories" widget
+  tags_counter = false # Enable counter for each tag in "Tags" widget
+
+[menu]
+[[menu.main]]
+  name = '切腹倶楽部'
+  url = 'https://seppuku.club/'
+  weight = -90
+
+[[menu.main]]
+  name = 'ハヤオについて'
+  url = '/about/'
+
+[[menu.main]]
+  name = 'Twitter'
+  url = '/twitter/'
