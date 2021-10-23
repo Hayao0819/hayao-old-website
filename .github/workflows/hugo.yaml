@@ -49,17 +49,6 @@ jobs:
         with:
           submodules: true
           fetch-depth: 0 
-      
-      - name: Setup git repogitories
-        env:
-          GH_PAGES_REPO_DEPLOY_KEY: ${{ secrets.GH_PAGES_REPO_DEPLOY_KEY }}
-        run: |
-          echo "$GH_PAGES_REPO_DEPLOY_KEY" > ~/deploy_key.pem
-          chmod 600 ~/deploy_key.pem
-          git config --global user.email "hayao@fascode.net"
-          git config --global user.name "hayao"
-          git config pull.rebase false
-          git config remote.origin.url "git@github.com:Hayao0819/hayao0819.github.io.git"
 
       - name: Setup
         uses: peaceiris/actions-hugo@v2
@@ -71,14 +60,15 @@ jobs:
         run: bash ./update-blog.sh --baseURL https://hayao0819.github.io/blog/
         #run: hugo --minify -D
 
-      - name: Deploy pages
+      - name: Pushes to another repository
+        uses: cpina/github-action-push-to-another-repository@main
         env:
-          GIT_SSH_COMMAND: ssh -i ~/deploy_key.pem -o StrictHostKeyChecking=no -F /dev/null
-        run: |
-          git add -A
-          if ! git diff --cached --quiet; then
-            git commit -m "Deploy $GITHUB_SHA by GitHub Actions"
-            git pull origin master
-            git push origin master
-          fi
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        with:
+          source-directory: './'
+          destination-github-username: 'Hayao0819'
+          destination-repository-name: 'hayao0819.github.io'
+          user-email: hayao@fascode.net
+          user-name: hayao
+          target-branch: master
 
