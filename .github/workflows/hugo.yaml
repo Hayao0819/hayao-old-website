@@ -62,6 +62,7 @@ jobs:
           git config --local user.email "hayao@fascode.net"
           git config --local user.name "hayao[bot]"
           git config pull.rebase false
+          git add -A
           git commit -m "deploy: ${GITHUB_SHA}" -a
     
       - name: Push changes
