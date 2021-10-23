@@ -1,6 +1,10 @@
 name: Hugo Build and Deploy
 
-on: push
+on: 
+  push:
+    branches:
+      - main
+      - master
 
 jobs:
   gh-pages:
@@ -42,10 +46,6 @@ jobs:
   main-repo:
     runs-on: ubuntu-latest
     steps:
-      - name: Check repo
-        run: |
-          echo $GITHUB_REPOSITORY
-          [[ "$(basename "${GITHUB_REPOSITORY}")" = "hayao0819.github.io" ]] && exit 0
       - name: Checkout
         uses: actions/checkout@v2
         with:
@@ -86,5 +86,6 @@ jobs:
             echo "Nothing has been commited"
           fi
           git pull --allow-unrelated-histories origin master
-          git push origin master
+          git checkout -b gh-pages
+          git push origin gh-pages
     
