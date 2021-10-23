@@ -64,7 +64,7 @@ jobs:
           name: id_rsa # optional
           known_hosts: unnecessary
 
-      - name: Commit files
+      - name: Commit files to hayao0819.github.io
         env: 
           GH_PAGES_REPO_DEPLOY_KEY: ${{ secrets.GH_PAGES_REPO_DEPLOY_KEY }}
         run: |
