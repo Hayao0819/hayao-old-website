@@ -60,15 +60,15 @@ jobs:
       - name: Install SSH key
         uses: shimataro/ssh-key-action@v2
         with:
-          key: ${{ secrets.GITHUB_IO_REPO_DEPLOY_KEY }}
+          key: ${{ secrets.GH_PAGES_REPO_DEPLOY_KEY }}
           name: id_rsa # optional
           known_hosts: unnecessary
 
       - name: Commit files
         env: 
-          GITHUB_IO_REPO_DEPLOY_KEY: ${{ secrets.GITHUB_IO_REPO_DEPLOY_KEY }}
+          GH_PAGES_REPO_DEPLOY_KEY: ${{ secrets.GH_PAGES_REPO_DEPLOY_KEY }}
         run: |
-          echo "$GITHUB_IO_REPO_DEPLOY_KEY" > ~/deploy_key.pem
+          echo "$GH_PAGES_REPO_DEPLOY_KEY" > ~/deploy_key.pem
           chmod 600 ~/deploy_key.pem
           git config --local user.email "hayao@fascode.net"
           git config --local user.name "hayao[bot]"
