@@ -5,7 +5,7 @@
 ## 公開
 2箇所で公開されています。GitHub PagesのほうはPHP系のサイトは動きません。 
 ホスティングしてくれるところを探しています。
-- [hayao.fascode.net](hayao.fascode.net)
+- [hayao.fascode.net](https://hayao.fascode.net)
 - [GitHub Pages](https://hayao0819.github.io/hayao.fascode.net/)
 
 

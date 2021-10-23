@@ -19,7 +19,7 @@ jobs:
           hugo-version: '0.88.1'
           extended: true
 
-      - name: Build
+      - name: Build for fascode.net
         run: bash ./update-blog.sh
         #run: hugo --minify -D
 
@@ -28,5 +28,16 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: public
+          publish_dir: ./
+
+      - name: Build
+        run: bash ./update-blog.sh --baseURL https://hayao0819.github.io/hayao.fascode.net/blog/
+        #run: hugo --minify -D
+
+      - name: Deploy for GitHub
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
           publish_dir: ./
 
