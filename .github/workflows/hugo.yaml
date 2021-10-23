@@ -85,7 +85,7 @@ jobs:
           else
             echo "Nothing has been commited"
           fi
-          git pull --allow-unrelated-histories origin master
+          git pull --allow-unrelated-histories origin gh-pages
           git checkout -b gh-pages
           git push origin gh-pages --force
     
