@@ -57,15 +57,15 @@ jobs:
       - name: Build for GitHub Pages
         run: bash ./update-blog.sh --baseURL https://hayao0819.github.io/blog/
 
-      - name: Pushes to another repository
-        uses: cpina/github-action-push-to-another-repository@main
-        env:
-          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
-        with:
-          source-directory: './'
-          destination-github-username: 'Hayao0819'
-          destination-repository-name: 'hayao0819.github.io'
-          user-email: hayao@fascode.net
-          user-name: Hayao0819
-          target-branch: master
-
+    - name: Commit files
+      run: |
+        git config --local user.email "hayao@fascode.net"
+        git config --local user.name "hayao[bot]"
+        git config pull.rebase false
+        git commit -m "deploy: ${GITHUB_SHA}" -a
+  
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: ${{ github.ref }}
