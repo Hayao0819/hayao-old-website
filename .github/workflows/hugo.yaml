@@ -87,5 +87,5 @@ jobs:
           fi
           git pull --allow-unrelated-histories origin master
           git checkout -b gh-pages
-          git push origin gh-pages
+          git push origin gh-pages --force
     
