@@ -6,7 +6,8 @@
 2箇所で公開されています。GitHub PagesのほうはPHP系のサイトは動きません。 
 ホスティングしてくれるところを探しています。
 - [hayao.fascode.net](https://hayao.fascode.net)
-- [GitHub Pages](https://hayao0819.github.io/hayao.fascode.net/)
+- [GitHub Pages（トップページ）](https://hayao0819.github.io/)
+- [GitHub Pages（リポジトリ）](https://hayao0819.github.io/hayao.fascode.net/)
 
 
 ## プルリクエスト
