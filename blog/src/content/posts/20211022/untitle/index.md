@@ -3,9 +3,9 @@ title: "タイトルの無いブログ"
 description: ""
 date: 2021-10-22T19:45:20+09:00
 categories:
-  - "Blog"
+  - "ブログ"
+  - "プライベート"
 tags:
-  - "Blog"
 draft: false
 ---
 
