@@ -1,11 +1,11 @@
-{{- if .Site.Menus.main }}
+{{- if or (.Site.Menus.main) (.Site.Menus.right) }}
 <nav class="menu">
 	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
 		<span class="menu__btn-title" tabindex="-1">{{ T "menu_label" }}</span>
 	</button>
 	<style>
 		@media screen and (min-width: 767px) {
-			.menu__item:nth-child({{ add (len .Site.Menus.main) 1}}){
+			.menu__item:nth-child({{- if .Site.Menus.main}}{{ add (len .Site.Menus.main) 1 }}{{else}}1{{end}}){
 				margin-left: auto;
 			}
 		}
