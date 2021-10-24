@@ -80,13 +80,14 @@ jobs:
           git config remote.origin.url "git@github.com:hayao0819/hayao0819.github.io.git"
           echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
           rm -rf ./blog/src/themes
+          git rm --cached -r *
           git add -A
           if ! git diff --cached --quiet; then
             git commit -m "deploy: ${GITHUB_SHA}" -a
           else
             echo "Nothing has been commited"
           fi
-          git pull --allow-unrelated-histories origin gh-pages
+          : git pull --allow-unrelated-histories origin gh-pages
           git checkout -b gh-pages
           git push origin gh-pages --force
     
