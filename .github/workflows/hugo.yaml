@@ -71,11 +71,6 @@ jobs:
           git config remote.origin.url "git@github.com:hayao0819/hayao0819.github.io.git"
           echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
           git add -A
-          : if ! git diff --cached --quiet; then
-            : git commit -m "deploy: ${GITHUB_SHA}" -a
-          : else
-            : echo "Nothing has been commited"
-          : fi
           git pull --allow-unrelated-histories origin mirror
           git checkout -b mirror
           git push --force origin mirror
