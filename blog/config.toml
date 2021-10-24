@@ -60,7 +60,7 @@ summaryLength = 160
   tags_counter = false # Enable counter for each tag in "Tags" widget
 
 [menu]
-[[menu.main]]
+[[menu.right]]
   name = '切腹倶楽部'
   url = 'https://seppuku.club/'
   weight = -90
