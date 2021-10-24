@@ -12,18 +12,7 @@
 	</style>
 	<ul class="menu__list">
 		{{- $currentNode := . }}
-		{{- range .Site.Menus.main }}
-		{{- if .Name }}
-		<li class="menu__item{{ if or ($currentNode.IsMenuCurrent "main" .) ($currentNode.HasMenuCurrent "main" .) }} menu__item--active{{ end }}">
-			<a class="menu__link" href="{{ .URL }}">
-				{{ .Pre }}
-				<span class="menu__text">{{ .Name }}</span>
-				{{ .Post }}
-			</a>
-		</li>
-		{{- end }}
-		{{- end }}
-		{{- range .Site.Menus.right }}
+		{{- range (union .Site.Menus.main .Site.Menus.right) }}
 		{{- if .Name }}
 		<li class="menu__item{{ if or ($currentNode.IsMenuCurrent "main" .) ($currentNode.HasMenuCurrent "main" .) }} menu__item--active{{ end }}">
 			<a class="menu__link" href="{{ .URL }}">
