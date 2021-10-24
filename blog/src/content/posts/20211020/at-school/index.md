@@ -3,10 +3,10 @@ title: "学校であったことをたらたら書く日記"
 description: ""
 date: 2021-10-20T12:17:07+09:00
 categories:
-  - "Blog"
-  - "学校にて"
+  - "ブログ"
+  - "プライベート"
 tags:
-  - "Blog"
+  - "学校"
 draft: false
 ---
 

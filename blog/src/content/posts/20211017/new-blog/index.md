@@ -3,9 +3,10 @@ title: "ブログを一新してみた"
 description: ""
 date: 2021-10-17T22:51:22+09:00
 categories:
-  - "Blog"
+  - "ブログ"
+  - "技術系"
 tags:
-  - "Blog"
+  - "Hugo"
 draft: false
 ---
 

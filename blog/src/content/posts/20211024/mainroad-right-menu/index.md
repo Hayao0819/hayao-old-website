@@ -3,9 +3,11 @@ title: "HugoのMainroadで右寄せメニューを使う"
 description: ""
 date: 2021-10-24T23:26:23+09:00
 categories:
-  - "Blog"
+  - "ブログ"
+  - "技術系"
 tags:
-  - "Blog"
+  - "Hugo"
+
 draft: false
 ---
 

@@ -3,10 +3,10 @@ title: "今日のどうでもいい日記"
 description: ""
 date: 2021-10-21T21:58:05+09:00
 categories:
-  - "Blog"
-  - "学校にて"
+  - "ブログ"
+  - "プライベート"
 tags:
-  - "Blog"
+  - "学校"
 draft: true
 ---
 

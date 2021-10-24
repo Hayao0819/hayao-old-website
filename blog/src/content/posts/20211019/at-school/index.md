@@ -3,9 +3,10 @@ title: "学校であったことの日記"
 description: ""
 date: 2021-10-19T14:16:43+09:00
 categories:
-  - "Blog"
+  - "ブログ"
+  - "プライベート"
 tags:
-  - "Blog"
+  - "学校"
 draft: false
 ---
 

@@ -3,9 +3,10 @@ title: "参考にしてる記事の一覧"
 description: ""
 date: 2021-10-17T23:09:07+09:00
 categories:
-  - "Blog"
+  - "ブログ"
+  - "技術系"
 tags:
-  - "Blog"
+  - "Hugo"
 draft: false
 authorbox: true
 ---

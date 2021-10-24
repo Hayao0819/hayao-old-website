@@ -4,9 +4,9 @@ title: "友人と遊んだら世界の違いを知った話"
 description: ""
 date: 2021-10-24T19:51:41+09:00
 categories:
-  - "Blog"
+  - "ブログ"
+  - "プライベート"
 tags:
-  - "Blog"
 draft: false
 ---
 
