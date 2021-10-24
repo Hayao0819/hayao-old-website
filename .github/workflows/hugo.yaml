@@ -72,6 +72,6 @@ jobs:
           echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
           git add -A
           git checkout -b mirror
-          git pull --allow-unrelated-histories
+          git pull --allow-unrelated-histories origin mirror
           git push --force origin mirror
     
