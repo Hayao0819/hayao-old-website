@@ -1,0 +1,30 @@
+{{- if or (.Site.Menus.main) (.Site.Menus.right) }}
+<nav class="menu">
+	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
+		<span class="menu__btn-title" tabindex="-1">{{ T "menu_label" }}</span>
+	</button>
+	<style>
+		@media screen and (min-width: 767px) {
+			.menu__item:nth-child({{- if .Site.Menus.main}}{{ add (len .Site.Menus.main) 1 }}{{else}}1{{end}}){
+				margin-left: auto;
+			}
+		}
+	</style>
+	<ul class="menu__list">
+		{{- $currentNode := . }}
+		{{- range (union .Site.Menus.main .Site.Menus.right) }}
+		{{- if .Name }}
+		<li class="menu__item{{ if or ($currentNode.IsMenuCurrent "main" .) ($currentNode.HasMenuCurrent "main" .) }} menu__item--active{{ end }}">
+			<a class="menu__link" href="{{ .URL }}">
+				{{ .Pre }}
+				<span class="menu__text">{{ .Name }}</span>
+				{{ .Post }}
+			</a>
+		</li>
+		{{- end }}
+		{{- end }}
+	</ul>
+</nav>
+{{ else -}}
+<div class="divider"></div>
+{{- end }}

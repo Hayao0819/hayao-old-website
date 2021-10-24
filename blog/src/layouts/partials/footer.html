@@ -1,0 +1,9 @@
+<footer class="footer">
+	<div class="container footer__container flex">
+		{{ partial "footer_links.html" . }}
+		<div class="footer__copyright">
+			&copy; {{ now.Format "2006" }} {{ .Site.Params.copyright | default .Site.Title }}.
+			ソースコードは<a href="https://github.com/Hayao0819/hayao.fascode.net">こちら</a>で公開されています。
+		</div>
+	</div>
+</footer>
