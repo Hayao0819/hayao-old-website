@@ -80,7 +80,9 @@ jobs:
           git config remote.origin.url "git@github.com:hayao0819/hayao0819.github.io.git"
           echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
           rm -rf ./blog/src/themes
-          git rm --cached -r *
+          git clone --depth=1 --single-branch --branch gh-pages git@github.com:hayao0819/hayao.fascode.net.git /home/runner/actions_github_${GITHUB_ACTION}
+          git rm -r --ignore-unmatch *
+          cp -r /home/runner/actions_github_${GITHUB_ACTION}/* ./
           git add -A
           if ! git diff --cached --quiet; then
             git commit -m "deploy: ${GITHUB_SHA}" -a
