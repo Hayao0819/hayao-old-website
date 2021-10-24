@@ -15,7 +15,7 @@ hasCJKLanguage = true
 
 paginate = "5" # Number of posts per page
 
-summaryLength = 70
+summaryLength = 160
 
 
 [Author] # Used in authorbox
