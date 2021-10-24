@@ -71,7 +71,7 @@ jobs:
           git config remote.origin.url "git@github.com:hayao0819/hayao0819.github.io.git"
           echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
           git add -A
-          git pull --allow-unrelated-histories origin mirror
+          git pull --allow-unrelated-histories
           git checkout -b mirror
           git push --force origin mirror
     
