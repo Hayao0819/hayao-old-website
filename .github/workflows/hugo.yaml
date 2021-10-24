@@ -48,7 +48,7 @@ jobs:
   # このjobはhayao0819/hayao0819.github.ioにリポジトリをミラーします
   mirror-repo:
     runs-on: ubuntu-latest
-    if: github.repository == "Hayao0819/hayao.fascode.net"
+    if: github.repository == "hayao0819/hayao.fascode.net"
     steps:
       - name: Checkout
         uses: actions/checkout@v2
