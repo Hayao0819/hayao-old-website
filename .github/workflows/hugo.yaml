@@ -43,7 +43,7 @@ jobs:
           publish_branch: gh-pages
           publish_dir: ./
 
-  main-repo:
+  mirror-repo:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -51,15 +51,6 @@ jobs:
         with:
           submodules: true
           fetch-depth: 0 
-
-      - name: Setup
-        uses: peaceiris/actions-hugo@v2
-        with:
-          hugo-version: '0.88.1'
-          extended: true
-
-      - name: Build for GitHub Pages
-        run: bash ./update-blog.sh --baseURL https://hayao0819.github.io/blog/
 
       - name: Install SSH key
         uses: shimataro/ssh-key-action@v2
@@ -79,17 +70,13 @@ jobs:
           git config pull.rebase false
           git config remote.origin.url "git@github.com:hayao0819/hayao0819.github.io.git"
           echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
-          rm -rf ./blog/src/themes
-          git clone --depth=1 --single-branch --branch gh-pages git@github.com:hayao0819/hayao.fascode.net.git /home/runner/actions_github_${GITHUB_ACTION}
-          git rm -r --ignore-unmatch *
-          cp -r /home/runner/actions_github_${GITHUB_ACTION}/* ./
           git add -A
-          if ! git diff --cached --quiet; then
-            git commit -m "deploy: ${GITHUB_SHA}" -a
-          else
-            echo "Nothing has been commited"
-          fi
-          : git pull --allow-unrelated-histories origin gh-pages
-          git checkout -b gh-pages
-          git push origin gh-pages --force
+          : if ! git diff --cached --quiet; then
+            : git commit -m "deploy: ${GITHUB_SHA}" -a
+          : else
+            : echo "Nothing has been commited"
+          : fi
+          git pull --allow-unrelated-histories origin mirror
+          git checkout -b mirror
+          git push --force origin mirror
     
