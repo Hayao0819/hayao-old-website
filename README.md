@@ -1,4 +1,4 @@
-## hayao.fascode.net
+## このリポジトリについて
 主にハヤオが作成したサイトを管理、公開するリポジトリです。
 
 ドメインとサーバをFascode Networkにお借りして公開しています。
@@ -12,9 +12,13 @@
 - [GitHub Pages（トップページ）](https://hayao0819.github.io/)
 - [GitHub Pages（リポジトリ）](https://hayao0819.github.io/hayao.fascode.net/)
 
+## ソースコードとミラーについて
+ソースコードは[https://github.com/Hayao0819/hayao.fascode.net](こちら)の`master`ブランチが最新のものです。
 
-## hayao0819.github.ioについて
-[hayao0819/hayao0819.github.io](https://github.com/Hayao0819/hayao0819.github.io)はこのリポジトリのミラーです。
+`public`ブランチは`hayao.fascode.net`、`gh-pages`は`hayao0819.github.io/hayao.fascode.net`用のビルド済みのファイルです。
 
-コミットは全てGitHub Actionsによって行われます。上のリポジトリにプルリクエストを作成しないでください。
+[Hayao0819/hayao0819.github.io](https://github.com/Hayao0819/hayao0819.github.io)はこのリポジトリのミラーです。
 
+[ミラー](https://github.com/Hayao0819/hayao0819.github.io)へのコミットは全てGitHub Actionsによって行われますので、リポジトリにプルリクエストを作成しないでください。
+
+ミラーの`gh-pages`リポジトリは`hayao0819.github.io`用のビルド済みのファイルです。

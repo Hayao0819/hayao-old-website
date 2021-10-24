@@ -8,7 +8,7 @@
 <meta name=description content>
 <meta name=twitter:card content="summary">
 <meta name=twitter:title content="参考にしてる記事の一覧">
-<meta name=twitter:description content="今後のために今の所ブラウザのタブで開いてるHugo関連のサイトを適当に列挙しておく。 ブログにいつかかなりいい感じにリンクを表示する方法を作り">
+<meta name=twitter:description content="今後のために今の所ブラウザのタブで開いてるHugo関連のサイトを適当に列挙しておく。 ブログにいつかかなりいい感じにリンクを表示する方法を作りたい。Hugoはシンプルで面白い。 この記事書いてて気づいたけどHugoのSummaryはURLを文字数でカウントしないという厄介な仕様があるらしい。Go勉強したい。 https://github.com/vimux/mainroad/#sidebar https://track3jyo.com/2020/08/start-my-blog/ http://diary.wshito.com/comp/cms/hugo-summarylength/ https://www.codit.work/notes/fe3n3woxc3kkpr67kvq7/ https://qiita.com/n0bisuke/items/4701481c3bca4df81b0b そして">
 <link rel=preconnect href=https://fonts.gstatic.com crossorigin>
 <link rel=dns-prefetch href=//fonts.googleapis.com>
 <link rel=dns-prefetch href=//fonts.gstatic.com>
@@ -32,12 +32,8 @@
 <button class=menu__btn aria-haspopup=true aria-expanded=false tabindex=0>
 <span class=menu__btn-title tabindex=-1>Menu</span>
 </button>
+<style>@media screen and (min-width:767px){.menu__item:nth-child(3){margin-left:auto}}</style>
 <ul class=menu__list>
-<li class=menu__item>
-<a class=menu__link href=https://seppuku.club/>
-<span class=menu__text>切腹倶楽部</span>
-</a>
-</li>
 <li class=menu__item>
 <a class=menu__link href=/blog/twitter/>
 <span class=menu__text>Twitter</span>
@@ -46,6 +42,11 @@
 <li class=menu__item>
 <a class=menu__link href=/blog/about/>
 <span class=menu__text>ハヤオについて</span>
+</a>
+</li>
+<li class=menu__item>
+<a class=menu__link href=https://seppuku.club/>
+<span class=menu__text>切腹倶楽部</span>
 </a>
 </li>
 </ul>
@@ -107,7 +108,7 @@
 <div class="container footer__container flex">
 <div class=footer__copyright>
 &copy; 2021 Yamada Hayao.
-<span class=footer__copyright-credits>Generated with <a href=https://gohugo.io/ rel="nofollow noopener" target=_blank>Hugo</a> and <a href=https://github.com/Vimux/Mainroad/ rel="nofollow noopener" target=_blank>Mainroad</a> theme.</span>
+ソースコードは<a href=https://github.com/Hayao0819/hayao.fascode.net>こちら</a>で公開されています。
 </div>
 </div>
 </footer>
