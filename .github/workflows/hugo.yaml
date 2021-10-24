@@ -1,3 +1,4 @@
+# このGitHub Actionsはhayao0819/hayao.fascode.net上でのみ実行されます
 name: Hugo Build and Deploy
 
 on: 
@@ -7,6 +8,7 @@ on:
       - master
 
 jobs:
+  # このjobはこのリポジトリのpublicとgh-pagesリポジトリにデプロイします
   gh-pages:
     runs-on: ubuntu-latest
     steps:
@@ -43,6 +45,7 @@ jobs:
           publish_branch: gh-pages
           publish_dir: ./
 
+  # このjobはhayao0819/hayao0819.github.ioにリポジトリをミラーします
   mirror-repo:
     runs-on: ubuntu-latest
     steps:

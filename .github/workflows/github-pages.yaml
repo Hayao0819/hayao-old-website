@@ -1,3 +1,4 @@
+# このGitHub Actionsはhayao0819/hayao0819.github.io上でのみ実行されます
 name: GitHub Page Deploy
 
 on: 
@@ -6,6 +7,7 @@ on:
       - mirror
 
 jobs: 
+  # このjobはhayao0819/hayao.fascode.netからミラーされたときにHugoをビルドしてgh-pagesにデプロイします
   main-repo:
     runs-on: ubuntu-latest
     steps:
