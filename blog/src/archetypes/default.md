@@ -3,9 +3,14 @@ title: "{{ replace .Name "-" " " | title }}"
 description: ""
 date: {{ .Date }}
 categories:
-  - "Blog"
+  - "ブログ"
+  - "プライベート"
+  - "技術系"
 tags:
-  - "Blog"
+  - "Hugo"
+  - "Todo"
+  - "Windows"
+  - "学校"
 draft: true
 ---
 
