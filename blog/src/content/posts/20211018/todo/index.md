@@ -3,9 +3,10 @@ title: "やらなきゃならないこと"
 description: ""
 date: 2021-10-18T23:23:16+09:00
 categories:
-  - "Blog"
+  - "ブログ"
+  - "プライベート"
 tags:
-  - "Blog"
+  - "Todo"
 draft: false
 ---
 

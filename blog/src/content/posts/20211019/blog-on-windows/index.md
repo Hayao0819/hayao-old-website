@@ -3,10 +3,11 @@ title: "Windows上でブログを書く環境を構築した話"
 description: ""
 date: 2021-10-19T13:53:23+09:00
 categories:
-  - "Blog"
+  - "ブログ"
+  - "技術系"
 tags:
-  - "Blog"
   - "Windows"
+
 draft: false
 ---
 
