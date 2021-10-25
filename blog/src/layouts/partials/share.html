@@ -1,0 +1,100 @@
+<!-- https://aakira.app/blog/2018/08/share/ -->
+{{ if ne .Params.share false}}
+<style>
+  .sns_parent {
+    text-align: center;
+  }
+  
+  .sns_section {
+    display: inline-block;
+    text-align: left;
+  }
+  .sns_button {
+    float: left;
+    box-shadow: inset 0 0 0 2px #42464c;
+    border-radius: 100%;
+    -moz-transition: all 280ms ease;
+    -o-transition: all 280ms ease;
+    -webkit-transition: all 280ms ease;
+    transition: all 280ms ease;
+  }
+  .sns_button a {
+    display: table-cell;
+    width: 44px;
+    height: 44px;
+    color: #42464c;
+    text-align: center;
+    vertical-align: middle;
+    -moz-transition: all 280ms ease;
+    -o-transition: all 280ms ease;
+    -webkit-transition: all 280ms ease;
+    transition: all 280ms ease;
+  }
+  .sns_button i {
+    font-size: 20px;
+    vertical-align: middle;
+  }
+  .sns_button:hover {
+    box-shadow: inset 0 0 0 22px #eaeaea;
+  }
+  
+  .sns_button + .sns_button {
+    margin: 0 0 0 12px;
+  }
+  
+  .twitter:hover a {
+    color: #1B95E0;
+  }
+  
+  .facebook:hover a {
+    color: #3B5999;
+  }
+  
+  .google:hover a {
+    color: #dd4b39;
+  }
+  
+  .instagram:hover a {
+    color: #2b5c84;
+  }
+  
+  .pocket:hover a {
+    color: #EE4056;
+  }
+  
+  .hatena:hover a {
+    color: #4BA3D9;
+  }
+  
+  .fa-hatena:before {
+      content: "B!";
+      font-family: Verdana;
+      font-weight: bold
+  }
+
+  .post__title{
+    display: inline;
+  }
+  
+</style>
+<section class="section sns_parent">
+  <div class="sns_section" style="display: inline;">
+      <div class="sns_button twitter">
+        <a href="http://twitter.com/intent/tweet?url={{ .Permalink }}&text={{ .Title }}" target="_blank" title="Tweet"><i class="fab fa-twitter"></i></a>
+      </div>
+      <div class="sns_button hatena">
+        <a href="http://b.hatena.ne.jp/add?mode=confirm&url={{ .Permalink }}&title={{ .Title }}" target="_blank" title="hatena"><i class="fa fa-hatena"></i></i></a>
+      </div>
+      <div class="sns_button facebook">
+        <a href="http://www.facebook.com/sharer.php?u={{ .Permalink }}&t={{ .Title }}" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+      </div>
+      <div class="sns_button google">
+        <a href="https://plus.google.com/share?url={{ .Permalink }}" target="_blank" title="google+"><i class="fab fa-google-plus"></i></a>
+      </div>
+      <div class="sns_button pocket">
+        <a href="http://getpocket.com/edit?url={{ .Permalink }}&title={{ .Title }}" target="_blank" title="pocket"><i class="fab fa-get-pocket"></i></a>
+      </div>
+  </div>
+</section>
+<link href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" rel="stylesheet">
+{{ end }}
