@@ -12,5 +12,7 @@ tags:
   - "Windows"
   - "学校"
 draft: true
+pager: true
+share: true
 ---
 
