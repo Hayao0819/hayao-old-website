@@ -31,6 +31,7 @@ summaryLength = 160
   post_meta = ["author", "date", "categories", "translations"] # Order of post meta information
   mainSections = ["posts", "blog", "news"] # Specify section pages to show on home page and the "Recent articles" widget
   twitter_cards = true # Enable Twitter Cards if true
+  pager = true # 記事下の「次の投稿」とか「前の投稿」を表示する
 
 
 [Params.style.vars]
@@ -63,12 +64,25 @@ summaryLength = 160
 [[menu.right]]
   name = '切腹倶楽部'
   url = 'https://seppuku.club/'
-  weight = -90
+
+[[menu.right]]
+  name = 'はやおのぺーじ'
+  url = "../"
+
+[[menu.main]]
+  name = '技術系'
+  url = "/categories/技術系/"
+
+[[menu.main]]
+  name = "プライベート"
+  url = "/categories/プライベート"
 
 [[menu.main]]
   name = 'ハヤオについて'
   url = '/about/'
+  weight = 100
 
 [[menu.main]]
   name = 'Twitter'
   url = '/twitter/'
+  weight = 200
