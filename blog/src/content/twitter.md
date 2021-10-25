@@ -4,6 +4,8 @@ date: 2021-10-20
 authorbox: false
 sidebar: false
 menu: false
+pager: false
+share: false
 ---
 
 悲しきかな、Twitter廃人は最終的に環境を快適にするために複数アカウントを持ち始める。
