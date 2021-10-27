@@ -12,10 +12,11 @@
 		}
 	</style>
 	<ul class="menu__list">
-		{{- $currentNode := . }}
+		
 		{{- range (union .Site.Menus.main .Site.Menus.right) }}
+		{{ $active := or (or (eq $currentPage.Title .Name) (or ($currentPage.HasMenuCurrent "main" .) ($currentPage.IsMenuCurrent "main" .))) (or ($currentPage.HasMenuCurrent "right" .) ($currentPage.IsMenuCurrent "right" .)) }}
 		{{- if .Name }}
-		<li class="menu__item{{ if or ($currentNode.IsMenuCurrent "right" .) ($currentNode.HasMenuCurrent "main" .) }} menu__item--active{{ end }}">
+		<li class="menu__item{{ if $active }} menu__item--active{{ end }}">
 			<a class="menu__link" href="{{ .URL }}">
 				{{ .Pre }}
 				<span class="menu__text">{{ .Name }}</span>

@@ -83,6 +83,6 @@ summaryLength = 160
   weight = 100
 
 [[menu.main]]
-  name = 'Twitter'
+  name = 'Twitterアカウント'
   url = '/twitter/'
   weight = 200
