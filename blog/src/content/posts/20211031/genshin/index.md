@@ -1,5 +1,5 @@
 ---
-title: "Genshin"
+title: "試しに原神をやったらドハマリした話"
 description: ""
 date: 2021-10-31T01:19:33+09:00
 categories:
