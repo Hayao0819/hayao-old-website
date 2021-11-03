@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<body>
+    <h2>Σを無理やり処理させてみよう</h2>
+    <img src="./siki.png" alt="">
+<code>
+<pre>
+    // 初期化
+    var answer=0
+    var count
+    
+    //       初項   第5項まで  1を加える
+    for (count=1;  count<=5; count++){
+        console.log(answer + "+=" + "4 * " + count)
+        answer+= 4 * count;
+               // 4kの部分
+    }
+</pre>
+</code>
+    <p id="main"></p>
+
+    <h2>シグマを展開して計算させてみる（確認）</h2>
+    <p id="confirm"></p>
+    <script>
+        //  5
+        //  Σ 4k  を計算します
+        // k=1
+
+        // 4・1 + 4・2 + 4・3 + 4・4 + 4・5
+
+        // 初期化
+        var answer=0
+        var count
+        
+        //       初項   第5項まで  1を加える
+        for (count=1;  count<=5; count++){
+            console.log(answer + "+=" + "4 * " + count)
+            answer+= 4 * count;
+                   // 4kの部分
+        }
+
+        // 画面に表示
+        document.getElementById("main").innerText=answer
+
+        // 確認用の式
+        document.getElementById("confirm").innerText=`4・1 + 4・2 + 4・3 + 4・4 + 4・5 = ${4*1+4*2+4*3+4*4+4*5}`
+
+
+    </script>
+</body>
+</html>
