@@ -33,7 +33,9 @@
         </form>
 
         <!-- ゲーム本体 -->
-        <table id="maintable"></table>
+        <span id="p-table">
+        <table id="maintable" align="center"></table>
+        </span>
 
         <!-- メッセージが表示される場所 -->
         <p id="msg"></p>
@@ -45,20 +47,18 @@
         <!-- 設定 -->
         <h2>設定</h2>
         <form>
-            <table>
-                <tr>
-                    <td>縦方向のマス目の数</td>
-                    <td><input type="number" id="inputtablex"></td>
-                </tr>
-                <tr>
-                    <td>横方向のマス目の数</td>
-                    <td><input type="number" id="inputtabley"></td>
-                </tr>
-                <tr>
-                    <td>プレーヤーの人数</td>
-                    <td><input type="number" id="inputplayernumber"></td>
-                </tr>
-            </table>
+            <p>
+                縦方向のマス目の数<br>
+                <input type="number" id="inputtablex">
+            </p>
+            <p>
+                横方向のマス目の数<br>
+                <input type="number" id="inputtabley">
+            </p>
+            <p>
+                プレーヤーの人数<br>
+                <input type="number" id="inputplayernumber">
+            </p>
             <input type="button" value="適用" id="apply">
         </form>
         
