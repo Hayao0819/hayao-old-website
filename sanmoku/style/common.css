@@ -1,12 +1,9 @@
 /* 全体の見た目 */
 body{
     margin: 0; /* 外側の空白を0にする */
-    min-width: 320px; /* 最初の横幅を設定 （これを設定しないとスマホで表示が崩れてしまう）*/
-    width: 500px; /* 横幅を50%にする */
+   /* min-width: 320px;*/ /* 最初の横幅を設定 （これを設定しないとスマホで表示が崩れてしまう）*/
 
     /* 左右を中央揃え */
-    margin-left: auto; 
-    margin-right: auto;
     text-align: center;
 }
 
@@ -21,12 +18,33 @@ html{
     color: orange; /* 文字の色をオレンジにする*/
     font-weight: bolder; /* 文字を太くする*/
 
-    width: 100px; /* ボックスの幅を画面のドット100個に設定 */
-    height: 100px; /* ボックスの高さを画面のドット100個に設定 */
+    width: 125px; /* ボックスの幅を画面のドット100個に設定 */
+    height: 125px; /* ボックスの高さを画面のドット100個に設定 */
     
-    font-size: 35px; /* ボックス内の文字の大きさをドット20個に設定 */
+    font-size: 90px; /* ボックス内の文字の大きさをドット20個に設定 */
     line-height: 20px; /* ボックスの1行の高さをドット20個に設定 */
 
     text-align: center; /* 文字を左右中央に配置 */
 }
 
+/* 説明のみため*/
+.description{
+    font-size: 120%;
+    display: none;
+}
+
+/* タイトルの見た目*/
+#header h1{
+    width: 100vw;
+    font-size: 400%; /* 文字を大きくする*/
+}
+
+
+.content-p{
+    display: flex; /*横並びにする*/
+    gap: 20px; /*横並びの余白を指定*/
+    width: 800px; /* 横幅を指定*/
+    justify-content: center;
+    margin-right: auto;
+    margin-left: auto;
+}
