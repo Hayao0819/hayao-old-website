@@ -1,7 +1,7 @@
 /* 全体の見た目 */
 body{
     margin: 0; /* 外側の空白を0にする */
-   /* min-width: 320px;*/ /* 最初の横幅を設定 （これを設定しないとスマホで表示が崩れてしまう）*/
+    min-width: 600px; /* 横幅を指定*/
 
     /* 左右を中央揃え */
     text-align: center;
@@ -34,17 +34,17 @@ html{
 }
 
 /* タイトルの見た目*/
-#header h1{
-    width: 100vw;
+.title{
     font-size: 400%; /* 文字を大きくする*/
+    margin-block: 0; /*上下の余白を削除*/
 }
-
 
 .content-p{
     display: flex; /*横並びにする*/
     gap: 20px; /*横並びの余白を指定*/
-    width: 800px; /* 横幅を指定*/
-    justify-content: center;
+
+    /*中央寄せ*/
+    justify-content: center; 
     margin-right: auto;
     margin-left: auto;
 }
