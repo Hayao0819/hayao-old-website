@@ -8,9 +8,9 @@ var TableYNumber = 3;
 var InitialStr = "　";
 
 // プレイヤーの記号
-var PlayerMarks = ["◯", "✗" , "△"];
+var PlayerMarks = ["◯", "✗" , "△", "□"];
 
-// プレイヤーの人数（現在 2のみ指定可能）
+// プレイヤーの人数
 var PlayerNumer = 2;
 
 // 現在のプレイヤー
