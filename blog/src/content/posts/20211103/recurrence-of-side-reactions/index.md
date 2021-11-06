@@ -1,5 +1,5 @@
 ---
-title: "ワクチンの副反応のさいは"
+title: "ワクチンの副反応が再発した"
 description: ""
 date: 2021-11-03T14:02:33+09:00
 categories:

@@ -1,5 +1,5 @@
 ---
-title: "Twitter Kowai"
+title: "Twitterは怖いよというお話"
 description: ""
 date: 2021-11-06T15:41:32+09:00
 categories:
