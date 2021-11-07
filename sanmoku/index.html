@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<head>
     <!-- ウェブサイトのタイトルを設定 -->
     <title>まるばつゲーム</title>
 
@@ -18,55 +18,62 @@
 
 <!-- ここから実際のゲーム画面 -->
 <body>
-    
     <!-- 画面の上に表示されているタイトル -->
     <header id="header">
-        <h1>まるばつゲーム</h1>
-        <p>ウェブサイトで動く簡単なまるばつゲームを作ってみました</p>
+        <h1 class="title">まるばつゲーム</h1>
+        <p class="description">ウェブサイトで動く簡単なまるばつゲームを作ってみました</p>
     </header>
 
-    <!-- 本文 -->
-    <main id="main">
-        <!-- リセットボタン -->
-        <form>
-            <input type="button" value="リセット" id="reset">
-        </form>
-
-        <!-- ゲーム本体 -->
-        <table id="maintable"></table>
-
-        <!-- メッセージが表示される場所 -->
-        <p id="msg"></p>
-
-        <!-- 現在の設定 -->
-        <p id="currentconfig"></p>
+    <!-- 横並びにするもの -->
+    <div class="content-p">
 
 
-        <!-- 設定 -->
-        <h2>設定</h2>
-        <form>
-            <table>
-                <tr>
-                    <td>縦方向のマス目の数</td>
-                    <td><input type="number" id="inputtablex"></td>
-                </tr>
-                <tr>
-                    <td>横方向のマス目の数</td>
-                    <td><input type="number" id="inputtabley"></td>
-                </tr>
-                <tr>
-                    <td>プレーヤーの人数</td>
-                    <td><input type="number" id="inputplayernumber"></td>
-                </tr>
-            </table>
-            <input type="button" value="適用" id="apply">
-        </form>
-        
-    </main>
+        <!-- 本文 -->
+        <main id="main">
+            <!-- リセットボタン -->
+            <form>
+                <input type="button" value="リセット" id="reset">
+            </form>
 
-    <footer id="footer">
+            <!-- ゲーム本体 -->
+            <span id="p-table">
+            <table id="maintable" align="center"></table>
+            </span>
 
-    </footer>
+            <!-- メッセージが表示される場所 -->
+            <p id="msg"></p>
+
+            <!-- 現在の設定 -->
+            <p id="currentconfig"></p>
+        </main>
+
+        <footer id="footer">
+            <!-- 設定 -->
+            <h2>設定</h2>
+            <form>
+                <p>
+                    縦方向のマス目の数<br>
+                    <input type="number" id="inputtablex">
+                </p>
+                <p>
+                    横方向のマス目の数<br>
+                    <input type="number" id="inputtabley">
+                </p>
+                <p>
+                    プレーヤーの人数<br>
+                    <input type="number" id="inputplayernumber">
+                </p>
+                <input type="button" value="適用" id="apply">
+            </form>
+            
+        </footer>
+    </div>
+
+    <!-- 追加情報 -->
+    <div>
+        <h2>ゲームの中身について</h2>
+        <p>中身（ソースコード）は<a href="https://github.com/Hayao0819/hayao.fascode.net/tree/master/sanmoku">こちら</a>で公開されています。</p>
+    </div>
 
     <!-- ゲームの動きなどを書いたファイルを読み込む -->
     <script src="./script/define.js"></script>

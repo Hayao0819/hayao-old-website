@@ -129,7 +129,7 @@ ApplyButton.addEventListener("click", function(){
 
     // プレーヤーの人数が定義されている数以上ならエラー
     if (PlayerMarks.length < PlayerNumer){
-        Msg.innerText = "現在" + PlayerMarks.length + "以上の数は対応していません"
+        Msg.innerText = "現在" + String( PlayerMarks.length + 1 ) + "以上の数は対応していません"
         return;
     }
 
