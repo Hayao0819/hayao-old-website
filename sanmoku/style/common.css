@@ -34,17 +34,4 @@ html{
 }
 
 /* タイトルの見た目*/
-.title{
-    font-size: 400%; /* 文字を大きくする*/
-    margin-block: 0; /*上下の余白を削除*/
-}
 
-.content-p{
-    display: flex; /*横並びにする*/
-    gap: 20px; /*横並びの余白を指定*/
-
-    /*中央寄せ*/
-    justify-content: center; 
-    margin-right: auto;
-    margin-left: auto;
-}
