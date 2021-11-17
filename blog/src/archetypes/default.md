@@ -14,6 +14,7 @@ tags:
   - "学校"
   - "Linux"
   - "原神"
+  - "Fascode"
 draft: true
 pager: true
 share: true
