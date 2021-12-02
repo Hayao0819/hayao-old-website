@@ -2,6 +2,8 @@
     "テンプレート": {
         "Cinnamon": 0,
         "Cinnamon-JP": 0,
+        "Gnome": 0,
+        "Gnome-JP": 0,
         "i3wm": 0,
         "i3wm-JP": 0,
         "Lxde": 0,
@@ -201,6 +203,23 @@
         "Plasma-JP": 76059,
         "Xfce": 76060,
         "Xfce-JP": 76061,
+        "Source Code": null,
+        "disabled": false,
+        "disabled-edition": [
+            "Source Code"
+        ]
+    },
+    "20211123": {
+        "Cinnamon": 76317,
+        "Cinnamon-JP": 76318,
+        "Gnome": 76319,
+        "Gnome-JP": 76320,
+        "i3wm": 76321,
+        "i3wm-JP": 76322,
+        "Plasma": 76323,
+        "Plasma-JP": 76324,
+        "Xfce": 76325,
+        "Xfce-JP": 76326,
         "Source Code": null,
         "disabled": false,
         "disabled-edition": [
