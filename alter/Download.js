@@ -22,6 +22,7 @@ XmlReq.onreadystatechange = function() {
             //console.log(JsonData[ReleaseId])
 
             if (JsonData[ReleaseId].disabled == true){
+                console.log(`${ReleaseId}をスキップしました`);
                 return;
             }else{
                 console.log(ReleaseId + "を追加しました");
