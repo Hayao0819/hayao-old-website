@@ -1,10 +1,12 @@
 import os
 import ui
+import time
+import strconv as strc
 //import eventbus
 
 const (
 	win_width  = 300
-	win_height = 150
+	win_height = 180
 )
 
 struct App {
@@ -24,6 +26,7 @@ fn main(){
 		width: win_width
 		height: win_height
 		mode: .resizable
+		//resizable: false
 		on_resize: fn (width int, height int, win &ui.Window){
 			// ウィンドウリサイズ時の処理
 		}
@@ -33,6 +36,7 @@ fn main(){
 			ui.column(
 				id: "main"
 				width: int(ui.stretch)
+				//height: int(ui.stretch)
 				alignment: .center
 				//spacing: 2
 				margin_: 5
@@ -41,7 +45,7 @@ fn main(){
 						//height: 20
 						id: "group_url"
 						widths: ui.stretch
-						heights: ui.stretch
+						//heights: ui.stretch
 						children: [
 							ui.label(
 								id: "url_label"
@@ -79,28 +83,29 @@ fn main(){
 						widths: ui.stretch
 						heights: ui.stretch
 						children: [
-							ui.column(
-								//spacing: 2
-								margin_: 5
-								//alignment: .center
+							ui.row(
+								alignment: .center
+								widths: ui.stretch
+								margin : ui.Margin{
+									bottom: 10
+								}
 								children: [
 									ui.button(
-										height: 10
 										id: "exit_btn"
 										text: "Exit"
 										radius: .0
-										onclick: fn(_ voidptr, b &ui.Button){
+										onclick: fn(w voidptr, b &ui.Button){
 											exit(0)
 										}
 									)
 									ui.button(
-										height: 10
 										id: 'create_btn'
-										text: 'Create new article'
-										//width: ui.stretch
-										radius: .0
+										text: 'Create'
 										onclick: fn(_ voidptr, b &ui.Button){
-											create_article()
+											mut title := b.ui.window.textbox("title_tb").text_
+											mut url   := b.ui.window.textbox("url_tb").text_
+											//println(text)
+											create_article(url, title)
 										}
 									)
 								]
@@ -114,8 +119,24 @@ fn main(){
 	ui.run(app.window)
 }
 
-fn create_article(){
-	eprintln("まだ実装されてないンゴ")
+fn create_article(url string, title string){
+	//eprintln("まだ実装されてないンゴ")
+	mut now := time.now()
+	mut date := "${strc.v_sprintf("%02d", now.year)}${strc.v_sprintf("%02d", now.month)}${strc.v_sprintf("%02d", now.day)}"
+	mut filename := "posts/$date/$url/index.md"
+	mut command := ["hugo", "new", "\"$filename\""]
+
+	if url == ""{
+		ui.message_box("Empty URL!")
+		return
+	}
+
+	mut result := os.execute(command.join(" "))
+	
+	if result.exit_code !=0 {
+		ui.message_box(result.output)
+	}
+
 	exit(0)
 }
 
