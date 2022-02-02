@@ -2,6 +2,7 @@ import os
 import ui
 import time
 import strconv as strc
+import regex
 //import eventbus
 
 const (
@@ -135,6 +136,28 @@ fn create_article(url string, title string){
 	
 	if result.exit_code !=0 {
 		ui.message_box(result.output)
+	}
+
+	mut re := regex.regex_opt('^title: ".*"$') or {return}
+	mut path := os.resource_abs_path("./src/content/${filename}")
+	println(path)
+	mut article_md := os.read_lines(path) or {
+		ui.message_box("Failed to open \"$path\"")
+		return
+		//exit(1)
+	}
+
+	for cnt,line in article_md{
+		if re.matches_string(line){
+			eprintln("書き換え対象を${cnt}行目に発見")
+			article_md[cnt] = re.replace(line, 'title: "$title"')
+			eprintln("${line} ==> title: \"$title\"")
+			break
+		}
+	}
+
+	os.write_file(path, article_md.join("\n")) or {
+		ui.message_box("Failed to write to $path")
 	}
 
 	exit(0)
