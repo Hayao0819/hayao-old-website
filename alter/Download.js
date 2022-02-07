@@ -31,7 +31,11 @@ XmlReq.onreadystatechange = function() {
             // セレクトボックス
             let ReleaseIdOption = document.createElement("option");
             ReleaseIdOption.value = ReleaseId;
-            ReleaseIdOption.innerText = ReleaseId;
+            if (JsonData[ReleaseId].description){
+                ReleaseIdOption.innerText = `${ReleaseId} - ${JsonData[ReleaseId].description}`;
+            }else{
+                ReleaseIdOption.innerText = ReleaseId;
+            }
             ReleaseIdForm.insertAdjacentElement("afterbegin", ReleaseIdOption);
         });
 
@@ -103,17 +107,17 @@ const Update_Edition = () => {
     // 選択してくださいを追加
     EditionForm.insertAdjacentElement("afterbegin", createOption("None", "選択してください", true))
 
-    Object.keys(JsonData[SelectedReleaseId]).forEach((EditionName) => {
-        if (EditionName != "disabled" && EditionName != "disabled-edition"){
+    Object.keys(JsonData[SelectedReleaseId].Editions).forEach((EditionName) => {
+        //if (EditionName != "disabled" && EditionName != "disabled-edition"){
             //EditionOption = document.createElement("option");
             //EditionOption.value = EditionName;
             //EditionOption.innerText = EditionName;
-            if (JsonData[SelectedReleaseId][EditionName] == null || (JsonData[SelectedReleaseId]["disabled-edition"] && JsonData[SelectedReleaseId]["disabled-edition"].includes(EditionName)) ){
+            if (JsonData[SelectedReleaseId].Editions[EditionName] == null || (JsonData[SelectedReleaseId]["disabled-edition"] && JsonData[SelectedReleaseId]["disabled-edition"].includes(EditionName)) ){
                 console.log(`${EditionName}をスキップしました`);
                 return;
             }
             EditionForm.insertAdjacentElement("afterbegin", createOption(EditionName, EditionName, false));
-        }
+        //}
     })
 
     const EditionParam = GetParams()["edition"];
