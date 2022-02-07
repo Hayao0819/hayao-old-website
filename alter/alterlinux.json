@@ -244,5 +244,24 @@
         "disabled-edition": [
             "Source Code"
         ]
+    },
+    "20220207": {
+        "Cinnamon": 76670,
+        "Cinnamon-JP": 76671,
+        "Gnome": 76672,
+        "Gnome-JP": 76673,
+        "i3wm": 76674,
+        "i3wm-JP": 76675,
+        "Lxde": 76676,
+        "Lxde-JP": 76677,
+        "Plasma": 76678,
+        "Plasma-JP": 76679,
+        "Xfce": 76680,
+        "Xfce-JP": 76681,
+        "Source Code": null,
+        "disabled": false,
+        "disabled-edition": [
+            "Source Code"
+        ]
     }
 }
