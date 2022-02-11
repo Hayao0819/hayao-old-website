@@ -9,6 +9,7 @@ const GetParams = () => {
     let searchParams = new URLSearchParams(document.location.search.substring(1));
     ParamsArray["release"] = searchParams.get("r")
     ParamsArray["edition"] = searchParams.get("e")
+    //ParamsArray["redirect"] = searchParams.get('redirect')
     return ParamsArray;
 }
 
@@ -129,6 +130,16 @@ const Update_Edition = () => {
         })
     }
     ShowEditionInfo();
+
+    /*
+    const Redirect = GetParams()["redirect"];
+    console.log(Redirect)
+    if (Redirect.toLowerCase() == "true"){
+        console.log(ReleaseIdForm.value)
+        console.log(JsonData)
+        AccessToOSDN(JsonData[ReleaseIdForm.value][EditionForm.value])
+    }
+    */
 }
 
 ReleaseIdForm.addEventListener("change", (e) => {
@@ -167,6 +178,13 @@ const ShowEditionInfo = () => {
 EditionForm.addEventListener("change", ShowEditionInfo);
 ReleaseIdForm.addEventListener("change", ShowEditionInfo);
 
+// OSDN遷移
+const AccessToOSDN = id=>{
+    if (! id){ return; }
+    location.href = "https://osdn.net/projects/alterlinux/releases/" + id;
+}
+
+
 //ダウンロードボタン
 DownloadButton.addEventListener("click", (element) => {
 
@@ -178,7 +196,7 @@ DownloadButton.addEventListener("click", (element) => {
     }else{
         const OsdnId = JsonData[ReleaseId][EditionName]
         if (OsdnId){
-            location.href = "https://osdn.net/projects/alterlinux/releases/" + OsdnId
+            AccessToOSDN(OsdnId);
         }else{
             ShowMsg(`不明なエラーが発生しました。\nリリースIDの取得に失敗しました。`)
         }
