@@ -304,5 +304,27 @@
             "Source Code"
         ],
         "description": "ビルド時のリポジトリの不具合が残っている可能性があります"
+    },
+    "20220208": {
+        "Editions": {
+            "Cinnamon": 76688,
+            "Cinnamon-JP": 76689,
+            "Gnome": 76690,
+            "Gnome-JP": 76691,
+            "i3wm": 76692,
+            "i3wm-JP": 76693,
+            "Lxde": 76694,
+            "Lxde-JP": 76695,
+            "Plasma": 76696,
+            "Plasma-JP": 76697,
+            "Xfce": 76698,
+            "xfce-JP": 76699,
+            "Source Code": null
+        },
+        "disabled" :false,
+        "disabled-edition":[
+            "Source Code"
+        ],
+        "description": ""
     }
 }
