@@ -194,8 +194,8 @@ DownloadButton.addEventListener("click", (element) => {
         ShowMsg("設定が不完全です。リリース番号とエディションを適切に指定してください。\n指定してるにも関わらずエラーが出る場合は開発者に連絡してください。");
         return;
     }else{
-        const OsdnId = JsonData[ReleaseId][EditionName]
-        if (OsdnId){
+        const OsdnId = JsonData[ReleaseId].Editions[EditionName]
+        if (OsdnId != undefined){
             AccessToOSDN(OsdnId);
         }else{
             ShowMsg(`不明なエラーが発生しました。\nリリースIDの取得に失敗しました。`)
