@@ -13,7 +13,7 @@ publishDir = "./"
 resourcedir = "src/resources"
 hasCJKLanguage = true
 
-paginate = "5" # Number of posts per page
+paginate = "20" # Number of posts per page
 
 summaryLength = 160
 
