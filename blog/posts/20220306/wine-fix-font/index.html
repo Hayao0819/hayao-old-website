@@ -8,7 +8,7 @@
 <meta name=description content>
 <meta name=twitter:card content="summary">
 <meta name=twitter:title content="Wineでフォントの文字化けを直すメモ">
-<meta name=twitter:description content="Wine にOffice 2010を入れたけどフォントがバグったのでメモ 先に結論だけ言うと、下の2つのサイトの方法で完全に修正できた。 http://battleformac.blog.jp/archives/52366709.html https://linux.just4fun.biz/?Ubuntu/Wine64%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%A8%E3%83%95%E3%82%A9%E3%83%B3%E3%83%88%E8%A8%AD%E5%AE%9A フォント変更、Wineで長年の疑問だったのでようやくこれで好きにいじれるようになった">
+<meta name=twitter:description content="Wine にOffice 2010を入れたけどフォントがバグったのでメモ 先に結論だけ言うと、下の2つのサイトの方法で完全に修正できた。 http://battleformac.blog.jp/archives/52366709.html https://linux.just4fun.biz/?Ubuntu/Wine64%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%A8%E3%83%95%E3%82%A9%E3%83%B3%E3%83%88%E8%A8%AD%E5%AE%9A フォント変更、Wineで長年の疑問だったのでようやくこれで好きにいじれるようになった レジストリパッチ フォントをヒラギノ W5に置き換えるレジストリパッチ Windows Registry Editor Version 5.00 [HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\FontLink\SystemLink] &#34;MS P明朝&#34;=&qu">
 <link rel=preconnect href=https://fonts.gstatic.com crossorigin>
 <link rel=dns-prefetch href=//fonts.googleapis.com>
 <link rel=dns-prefetch href=//fonts.gstatic.com>
@@ -91,6 +91,40 @@
 <li><a href=https://linux.just4fun.biz/?Ubuntu/Wine64%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%A8%E3%83%95%E3%82%A9%E3%83%B3%E3%83%88%E8%A8%AD%E5%AE%9A>https://linux.just4fun.biz/?Ubuntu/Wine64%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%A8%E3%83%95%E3%82%A9%E3%83%B3%E3%83%88%E8%A8%AD%E5%AE%9A</a></li>
 </ul>
 <p>フォント変更、Wineで長年の疑問だったのでようやくこれで好きにいじれるようになった</p>
+<h2 id=レジストリパッチ>レジストリパッチ</h2>
+<p>フォントをヒラギノ W5に置き換えるレジストリパッチ</p>
+<pre tabindex=0><code>Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\FontLink\SystemLink]
+&quot;MS P明朝&quot;=&quot;ヒラギノ角ゴシック W5&quot;
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\FontSubstitutes]
+&quot;MS Shell Dlg&quot;=&quot;ヒラギノ角ゴシック W5&quot;
+&quot;MS Shell Dlg 2&quot;=&quot;ヒラギノ角ゴシック W5&quot;
+&quot;Times&quot;=&quot;ヒラギノ角ゴシック W5&quot;
+
+[HKEY_USERS\.Default\Control Panel\Desktop\WindowMetrics]
+&quot;CaptionFont&quot;=hex:06,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,90,01,00,00,\
+  00,00,00,80,00,00,00,22,d2,30,e9,30,ae,30,ce,30,d2,89,b4,30,b7,30,c3,30,af,\
+  30,20,00,57,00,30,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00
+&quot;MenuFont&quot;=hex:09,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,90,01,00,00,00,\
+  00,00,00,00,00,00,22,d2,30,e9,30,ae,30,ce,30,d2,89,b4,30,b7,30,c3,30,af,30,\
+  20,00,57,00,35,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00
+&quot;MessageFont&quot;=hex:06,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,90,01,00,00,\
+  00,00,00,00,00,00,00,22,d2,30,e9,30,ae,30,ce,30,d2,89,b4,30,b7,30,c3,30,af,\
+  30,20,00,57,00,30,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00
+&quot;SmCaptionFont&quot;=hex:fe,ff,ff,ff,00,00,00,00,00,00,00,00,00,00,00,00,90,01,00,\
+  00,00,00,00,80,00,00,00,22,d2,30,e9,30,ae,30,ce,30,d2,89,b4,30,b7,30,c3,30,\
+  af,30,20,00,57,00,30,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00
+&quot;StatusFont&quot;=hex:06,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,90,01,00,00,\
+  00,00,00,00,00,00,00,22,d2,30,e9,30,ae,30,ce,30,d2,89,b4,30,b7,30,c3,30,af,\
+  30,20,00,57,00,30,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00
+</code></pre>
 </div>
 <footer class=post__footer>
 <div class="post__tags tags clearfix"><svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5.0 11V3C0 1.5.8.8.8.8S1.5.0 3 0h8c1.5.0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 100-6 3 3 0 000 6z"/></svg>
