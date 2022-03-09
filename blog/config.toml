@@ -12,6 +12,7 @@ themesDir = "src/themes"
 publishDir = "./"
 resourcedir = "src/resources"
 hasCJKLanguage = true
+googleAnalytics= "G-Y8YWBTHCPW"
 
 paginate = "20" # Number of posts per page
 
