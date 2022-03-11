@@ -2,7 +2,8 @@
 
 set -eu
 
-script_path="$( cd -P "$( dirname "$(readlink -f "${0}")" )" && pwd )"
+#script_path="$( cd -P "$( dirname "$(readlink -f "${0}")" )" && pwd )"
+script_path="$(cd "$(dirname "${0}")" || exit 1 ; pwd)"
 
 [[ -z "${1-""}" ]] && echo "Set English short title for argument" >&2 && exit 1
 
