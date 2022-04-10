@@ -30,4 +30,4 @@ ReplaceImg(){
 }
 
 ReplaceALink
-ReplaceImg
+#ReplaceImg
