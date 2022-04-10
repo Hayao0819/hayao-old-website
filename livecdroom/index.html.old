@@ -48,13 +48,13 @@ isoファイルのサイズはCDサイズをゆうに超えてDVDでないと収
 <tr><td>
 <b>ダウンロードの制限事項(重要)</b><br>
 １人当たり最大５接続とします.<br>
-→<a href="http://simosnet.com/livecdroom//downloadmethod.html#limits">詳しくはこちら...</a><br>
+→<a href="downloadmethod.html#limits">詳しくはこちら...</a><br>
 注意)現在bittorrentは使用できません.<br>
 <br>
 <br>
-<a href="http://simosnet.com/livecdroom//downloadmethod.html">ダウンロードの方法</a><br>
+<a href="downloadmethod.html">ダウンロードの方法</a><br>
 <a href="#livecdlist">ライブCDLinux一覧</a><br>
-<a href="http://simosnet.com/livecdroom//pastnews.html">過去のニュース</a><br>
+<a href="pastnews.html">過去のニュース</a><br>
 <a href="http://simosnet.com/livecdroom/source/">ソースライブラリー</a><br>
 <!--</td></tr>-->
 <br>
@@ -531,7 +531,7 @@ natureOS 5.0はUbuntu 20.04ベースです.<br>
 1.優れた操作性<br>
 &ensp;natureOSは使いやすい操作性とはなにかということから開発を始めたディストリビューションです.<br>
 作者（管理人）のUIに対する考えが凝縮されています.<br>
-→詳しくは<a href="http://simosnet.com/livecdroom//pastnews.html#natureos">[開発の動機と方針]</a>を参照.<br>
+→詳しくは<a href="pastnews.html#natureos">[開発の動機と方針]</a>を参照.<br>
 すなわちデスクトップの右側上部に操作ボタンを集中させています.<br>
 それによって疲れない操作性と素早い操作性を実現しています.<br>
 <br>
@@ -565,7 +565,7 @@ Myディストロの作成は作成用スクリプトで簡単に作成できま
 isoファイルは/home/PinguyBuilder/PinguyBuilderの下に作成されます.<br>
 （注意）Basixは最新のバージョンを使用してください.<br>
 <br>
-→<a href="http://simosnet.com/livecdroom//myhint.html">マイディストリ作成のヒント</a><br>
+→<a href="myhint.html">マイディストリ作成のヒント</a><br>
 <br>
 <b><a href="http://simosnet.com/livecd/basix/5.0/">Basix 5.0 HiFi(高音質)バージョン</a></b><br>
 &ensp;HiFiバージョンはnatureOSの高音質部分をBasixへ移植したものです.<br>
