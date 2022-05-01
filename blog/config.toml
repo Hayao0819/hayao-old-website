@@ -62,8 +62,10 @@ summaryLength = 160
   tags_counter = false # Enable counter for each tag in "Tags" widget
 
 # HTML直書きを許可する
-[markup.goldmark.renderer]
-  unsafe = true
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
 
 [menu]
 [[menu.right]]
