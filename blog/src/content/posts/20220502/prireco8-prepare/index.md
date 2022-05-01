@@ -50,21 +50,21 @@ share: true
 
 ### 太田駅から熊谷駅
 
-<img src="./ota-kumagaya.jpeg" title="" alt="" width="413">
+<img src="./ota-kumagaya.jpeg" title="" alt="" width="420">
 
 ### 熊谷駅から川口駅
 
 #### 時間表
 
-![](./kumagaya-kawaguchi-time.png)
+<img src="./kumagaya-kawaguchi-time.png" title="" alt="" width="420">
 
 #### メインの移動経路
 
-![](./kumagaya-kawaguchi-main.png)
+<img src="./kumagaya-kawaguchi-main.png" title="" alt="" width="420">
 
 #### 予備の移動経路
 
-![](./kumagaya-kawaguchi-sub.png)
+<img src="./kumagaya-kawaguchi-sub.png" title="" alt="" width="420">
 
 ### 
 
