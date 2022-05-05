@@ -32,11 +32,14 @@ XmlReq.onreadystatechange = function() {
             // セレクトボックス
             let ReleaseIdOption = document.createElement("option");
             ReleaseIdOption.value = ReleaseId;
-            if (JsonData[ReleaseId].description){
-                ReleaseIdOption.innerText = `${ReleaseId} - ${JsonData[ReleaseId].description}`;
-            }else{
-                ReleaseIdOption.innerText = ReleaseId;
-            }
+
+            // 選択肢の文字
+            ReleaseIdOption.innerText = ReleaseId;
+            //if (JsonData[ReleaseId].description){
+                //ReleaseIdOption.innerText = `${ReleaseId} - ${JsonData[ReleaseId].description}`;
+                //ShowMsg(JsonData[ReleaseId].description)
+            //}
+            
             ReleaseIdForm.insertAdjacentElement("afterbegin", ReleaseIdOption);
         });
 
@@ -90,6 +93,13 @@ const Update_Edition = () => {
     }else{
         console.log("エディション一覧を" + SelectedReleaseId + "に更新しました");
         document.getElementById("editionform_div").classList.remove("hidden");
+
+        if (JsonData[SelectedReleaseId].description){
+            //ReleaseIdOption.innerText = `${ReleaseId} - ${JsonData[ReleaseId].description}`;
+            ShowMsg(JsonData[SelectedReleaseId].description);
+        }else{
+            ShowMsg();
+        }
     }
 
     // 選択肢を作成
@@ -152,8 +162,9 @@ const ShowMsg = (message) => {
     const messageElement = document.getElementById("message");
     if (message){
         messageElement.innerText = message;
-        console.log(message);
+        console.log(`ShowMsg: ${message}`);
     }else{
+        console.log("Reset Msg");
         messageElement.innerText = "";
     }
     
@@ -164,7 +175,7 @@ const ShowEditionInfo = () => {
     const ReleaseId = ReleaseIdForm.value;
     const EditionName = EditionForm.value;
     if (ReleaseId == "None" || EditionName == "None"){
-        ShowMsg()
+        //ShowMsg()
         DownloadButton.classList.add("hidden")
         return;
     }
