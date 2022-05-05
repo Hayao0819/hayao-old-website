@@ -326,5 +326,19 @@
             "Source Code"
         ],
         "description": ""
+    },
+    "20220504 - 64Bit": {
+        "Editions": {
+            "i3wm": 77235,
+            "i3wm-JP": 77236,
+            "Plasma": 77231,
+            "Plasma-JP": 77232,
+            "Xfce": 77233,
+            "xfce-JP": 77234,
+            "Source Code": null
+        },
+        "disable": false,
+        "description": "開発者の時間がないので、CinnamonとGnomeの更新はありません。また、32bitの更新もありません。"
     }
+
 }
