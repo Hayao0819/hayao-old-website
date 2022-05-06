@@ -338,7 +338,18 @@
             "Source Code": null
         },
         "disable": false,
-        "description": "開発者の時間がないので、CinnamonとGnomeの更新はありません。また、32bitの更新もありません。"
+        "description": "開発者の時間がないので、CinnamonとGnomeの更新はありません。32Bitは20220506です。"
+    },
+    "20220506 - 32Bit": {
+        "Editions": {
+            "Xfce": 77246,
+            "xfce-JP": 77245,
+            "Lxde": 77243,
+            "Lxde-JP":77244,
+            "Source Code": null
+        },
+        "disable": false,
+        "description": "20220504で間に合わなかった32Bitの更新です。"
     }
 
 }
