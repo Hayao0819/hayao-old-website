@@ -9,7 +9,7 @@ categories:
 tags:
   - "Windows"
   - "Linux"
-draft: true
+draft: false
 pager: true
 share: true
 ---

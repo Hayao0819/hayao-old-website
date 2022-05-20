@@ -8,7 +8,7 @@ categories:
   - "技術系"
 tags:
   - "Linux"
-draft: true
+draft: false
 pager: true
 share: true
 ---

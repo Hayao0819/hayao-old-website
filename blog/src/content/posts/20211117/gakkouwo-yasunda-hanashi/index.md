@@ -9,7 +9,7 @@ tags:
   - "学校"
   - "Linux"
   - "Fascode"
-draft: true
+draft: false
 pager: true
 share: true
 ---

@@ -7,7 +7,7 @@ categories:
   - "プライベート"
 tags:
   - "学校"
-draft: true
+draft: false
 pager: true
 share: true
 ---

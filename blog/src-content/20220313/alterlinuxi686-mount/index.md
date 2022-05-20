@@ -8,7 +8,7 @@ categories:
 tags:
   - "Linux"
   - "Fascode"
-draft: true
+draft: false
 pager: true
 share: true
 ---
