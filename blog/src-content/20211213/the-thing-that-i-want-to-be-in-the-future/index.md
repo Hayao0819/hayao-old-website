@@ -6,7 +6,7 @@ categories:
   - "ブログ"
   - "プライベート"
 tags:
-draft: true
+draft: false
 pager: true
 share: false
 ---
