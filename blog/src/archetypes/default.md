@@ -15,6 +15,7 @@ tags:
   - "Linux"
   - "原神"
   - "Fascode"
+  - "Android"
 draft: true
 pager: true
 share: true
