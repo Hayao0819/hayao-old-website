@@ -350,6 +350,19 @@
         },
         "disable": false,
         "description": "20220504で間に合わなかった32Bitの更新です。"
-    }
+    },
 
+    "20220718": {
+        "Editions"{
+            "i3wm": 77543,
+            "i3wm-JP": 77544,
+            "Lxde": 77549,
+            "Lxde-JP": 77550,
+            "Plasma": 77545,
+            "Plasma-JP": 77546,
+            "Xfce": 77547,
+            "Xfce-JP": 77548,
+            "Source Code": null
+        }
+    }
 }
