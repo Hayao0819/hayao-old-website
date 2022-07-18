@@ -20,6 +20,7 @@ AddClassToElements(Main.getElementsByTagName("p"), "p-2", "pl-5", "font-medium")
 AddClassToElements(Menu.getElementsByTagName("li"), "block", `hover:bg-${Color3}`, `text-${TextColor2}` ,  `hover:text-${TextColor3}`, "hover:underline");
 AddClassToElements(Menu.getElementsByTagName("li"), "px-3", "py-2");
 AddClassToElements(menu.getElementsByTagName("a"), "block")
+AddClassToElements(document.getElementsByTagName("select"), `bg-${Color1}`, `text-${TextColor2}`);
 AddClassToElements(document.body, `text-${TextColor1}`);
 
 document.getElementById("header_container").classList.add(`bg-${Color1}`);

@@ -71,9 +71,9 @@ XmlReq.onreadystatechange = function() {
         
 
         // ダウンロードリンクのClassを設定
-        Array.from(ReleaseIdForm.getElementsByTagName("option")).forEach((element) => {
-            element.classList.add("p-2", "cursor-pointer", "mt-1")
-        })
+        //Array.from(ReleaseIdForm.getElementsByTagName("option")).forEach((element) => {
+        //    element.classList.add("p-2", "cursor-pointer", "mt-1", `bg-${Color1}`)
+        //})
 
     }
 }
@@ -112,6 +112,7 @@ const Update_Edition = () => {
         Option.value = value;
         Option.innerText = text;
         Option.selected = selected;
+        //Option.classList.add("p-2", "cursor-pointer", "mt-1", `bg-${Color1}`)
         return Option;
     }
 
