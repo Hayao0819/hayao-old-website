@@ -353,7 +353,7 @@
     },
 
     "20220718": {
-        "Editions"{
+        "Editions": {
             "i3wm": 77543,
             "i3wm-JP": 77544,
             "Lxde": 77549,
@@ -363,6 +363,11 @@
             "Xfce": 77547,
             "Xfce-JP": 77548,
             "Source Code": null
-        }
+        },
+        "disabled": false,
+        "disabled-edition": [
+            "Source Code"
+        ],
+        "description": "GnomeとCinnamonの更新はありません。"
     }
 }
