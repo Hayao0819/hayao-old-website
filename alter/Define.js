@@ -25,9 +25,25 @@ const MetaTitle = document.getElementById("meta_title");
 const HeaderTitle = document.getElementById("header_title");
 
 // 色
-const CommonColor = "green";
+
+
+
+/*
+    Color1: ヘッダー、タイトルの背景色 
+    Color2: bodyの背景色
+    Color3: ホバー時の背景色
+    TextColor1: 本文の文字色
+    TextColor2: ヘッダー、タイトルの文字色
+    TextColor3: ホバー時の文字色
+*/
 
 //const Color1 = "black", Color2 = "white" , Color3 = "green-300"
-const Color1 = `${CommonColor}-900`
-const Color2 = `${CommonColor}-700`
-const Color3 = `${CommonColor}-200`
+
+const CommonColor = "red";
+const Color1 = `${CommonColor}-400`
+const Color2 = `white`
+const Color3 = `${CommonColor}-500` 
+
+const TextColor1="black";
+const TextColor2="white";
+const TextColor3="white";
