@@ -37,7 +37,7 @@
         
         <h2>終わり</h2>
         <p>Ubutnu 18.04で特別に必要なものはこれだけです。</p>
-        <p>それ以外に必要な物はすべて<a href="http://localhost/buildmydist-2/pages/common">はじめに</a>で紹介しているのでそちらを参照してください。</p>
+        <p>それ以外に必要な物はすべて<a href="/buildmydist-2/pages/common">はじめに</a>で紹介しているのでそちらを参照してください。</p>
         <p>次はカスタマイズ編です。</p>
 
         
