@@ -15,7 +15,7 @@
     
     <div class="container-fluid">
         <div class="row vh-100">
-            <div class="col-sm-3 px-0 vh-100 bg-dark position-fixed" id="sidebar">
+            <div class="col-sm-3 px-0 vh-100 bg-dark affix" id="sidebar">
 
                 <div class="text-center p-5" id="branding">
                     <img src="./assets/icon.jpeg" class="rounded w-100">
@@ -105,13 +105,14 @@
                     })
 
                     // サイドバーの幅を確保
-                    const SetSidebarWidth = () => {
-                        document.getElementById("maincontant").style.marginLeft = document.getElementById("sidebar").offsetWidth + "px";
-                    }
-                    window.addEventListener("load", SetSidebarWidth);
-                    window.addEventListener("resize", SetSidebarWidth);
+                    //const SetSidebarWidth = () => {
+                    //    document.getElementById("maincontant").style.marginLeft = document.getElementById("sidebar").offsetWidth + "px";
+                    //}
+                    //window.addEventListener("load", SetSidebarWidth);
+                    //window.addEventListener("resize", SetSidebarWidth);
                     
                 </script>
+                <!-- h2の下線 たぶんこれBootstrapだけじゃできない -->
                 <style>
                     #maincontant h2::after{
                         background-color: #000;
