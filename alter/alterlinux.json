@@ -369,5 +369,14 @@
             "Source Code"
         ],
         "description": "GnomeとCinnamonの更新はありません。"
+    },
+
+    "20220722 - Gnome+Cinnamon": {
+        "Editions": {
+            "Cinnamon": 77563,
+            "Cinnamon-JP": 77564,
+            "Gnome": 77565,
+            "Gnome-JP": 77566
+        }
     }
 }
