@@ -13,7 +13,7 @@
     
     <div class="container-fluid h-100">
         <div class="row">
-            <div class="col-sm-3 px-0 h-100 bg-dark affix" id="sidebar">
+            <div class="col-sm-3 px-0 h-100 bg-dark affix sticky-top" id="sidebar">
 
                 <div class="text-center p-5 d-none d-sm-block" id="branding">
                     <img src="./assets/icon.jpeg" class="rounded w-50" id="icon">
@@ -30,7 +30,7 @@
                 </nav>
             </div>
 
-            <div class="col-sm-9 py-3 h-100" id="maincontant" style="background-color: #FAFAFA;">
+            <div class="col py-3 h-100 ml-30" id="maincontant" style="background-color: #FAFAFA;">
 
                 <div id="Home">
                     <p>自分のサイトって何を書けばいいかやっぱりわからないですね...</p>
@@ -93,7 +93,7 @@
                             let sectionHeader = document.createElement("h2");
                             sectionHeader.textContent = e.id;
                             sectionHeader.classList.add("fw-bold");
-                            //sectionHeader.classList.add("vh-100"); //いい感じにスクロールできるようにする
+                            //e.style.marginBottom = window.innerHeight -  e.clientHeight + "px";
                             e.prepend(sectionHeader);
                         }
 
@@ -110,12 +110,18 @@
                         if (window.innerWidth < 576) {
                             document.getElementById("sidebar").classList.remove("vh-100");
                             document.getElementById("navbar").classList.add("ml-auto", "flex-row", "gap-3");
+                            Array.from(document.getElementById("maincontant").children).forEach(e=>{
+                                e.style.marginBottom = 0;
+                            })
 
                         } else {
                             document.getElementById("sidebar").classList.add("vh-100");
                             document.getElementById("navbar").classList.remove("ml-auto", "flex-row" , "gap-3");
+
+                            Array.from(document.getElementById("maincontant").children).forEach(e=>{
+                                e.style.marginBottom = window.innerHeight -  e.clientHeight + "px";
+                            })
                         }
-                        
                     }
                     window.addEventListener("load", SetSidebarHeight);
                     window.addEventListener("resize", SetSidebarHeight);
