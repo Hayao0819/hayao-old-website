@@ -107,7 +107,8 @@
                     })
 
                     const SetSidebarHeight = () => {
-                        if (window.innerWidth < 576) {
+                        const smWidth = parseFloat(window.getComputedStyle(document.body).getPropertyValue("--breakpoint-sm").slice(0, -2));
+                        if (window.innerWidth < smWidth) {
                             document.getElementById("sidebar").classList.remove("vh-100");
                             document.getElementById("navbar").classList.add("ml-auto", "flex-row", "gap-3");
                             Array.from(document.getElementById("maincontant").children).forEach(e=>{
