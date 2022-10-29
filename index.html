@@ -17,30 +17,18 @@
         <div class="row vh-100">
             <div class="col-sm-3 px-0 vh-100 bg-dark affix" id="sidebar">
 
-                <div class="text-center p-5" id="branding">
-                    <img src="./assets/icon.jpeg" class="rounded w-100">
+                <div class="text-center p-5 d-none d-sm-block" id="branding">
+                    <img src="./assets/icon.jpeg" class="rounded w-100" id="icon">
                     <a href="index-new.html" class="navbar-brand text-white">はやおのぺーじ</a>
                 </div>
-                
-                <nav class="navbar navbar-dark flex-column">
+
+                <nav class="navbar navbar-dark flex-column" id="navbar_container">
                     <ul class="navbar-nav" id="navbar">
-
-                        <!-- 
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="#About">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#Contact">Contact</a>
-                        </li> 
-                        
-                        こんな感じのやつをJSで追加します-->
-                    </ul>
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
+                        <li class="nav-item" id="navlastitem">
                             <a class="nav-link" href="./index-r2.html">旧トップページ</a>
                         </li>
                     </ul>
+
                 </nav>
             </div>
 
@@ -84,7 +72,7 @@
                             navLink.href = "#" + e.id;
                             navLink.textContent = e.id;
                             navItem.appendChild(navLink);
-                            document.getElementById("navbar").appendChild(navItem);
+                            document.getElementById("navlastitem").insertAdjacentElement("beforebegin", navItem);
                         }
 
                         // セクションにh2を追加
@@ -92,24 +80,32 @@
                             let sectionHeader = document.createElement("h2");
                             sectionHeader.textContent = e.id;
                             sectionHeader.classList.add("fw-bold");
+                            //sectionHeader.classList.add("vh-100"); //いい感じにスクロールできるようにする
                             e.prepend(sectionHeader);
                         }
 
                         // メニューバーの文字を白にする
                         {
                             Array.from(document.getElementsByClassName("nav-link")).forEach(e=>{
-                                e.classList.add("text-white");
+                                e.classList.add("text-white", "m-2");
                             })
                         }
-                        //e.classList.add("vh-100"); //いい感じにスクロールできるようにする
+                        
                     })
 
-                    // サイドバーの幅を確保
-                    //const SetSidebarWidth = () => {
-                    //    document.getElementById("maincontant").style.marginLeft = document.getElementById("sidebar").offsetWidth + "px";
-                    //}
-                    //window.addEventListener("load", SetSidebarWidth);
-                    //window.addEventListener("resize", SetSidebarWidth);
+                    const SetSidebarHeight = () => {
+                        if (window.innerWidth < 576) {
+                            document.getElementById("sidebar").classList.remove("vh-100");
+                            document.getElementById("navbar").classList.add("ml-auto", "flex-row", "gap-3");
+
+                        } else {
+                            document.getElementById("sidebar").classList.add("vh-100");
+                            document.getElementById("navbar").classList.remove("ml-auto", "flex-row" , "gap-3");
+                        }
+                        
+                    }
+                    window.addEventListener("load", SetSidebarHeight);
+                    window.addEventListener("resize", SetSidebarHeight);
                     
                 </script>
                 <!-- h2の下線 たぶんこれBootstrapだけじゃできない -->
