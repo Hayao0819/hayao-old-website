@@ -1,6 +1,0 @@
-{{ define "main" }}
-  <main id="categories">
-    {{ with .Title }}<h1>{{ "Category: " }}{{ . }}</h1>{{ end }}
-    {{ partial "postsByDate.html" . }}
-  </main>
-{{ end }}
