@@ -31,51 +31,70 @@
             </div>
 
             <div class="col py-3 h-100 ml-30" id="maincontant" style="background-color: #FAFAFA;">
-
-                <div id="Home">
-                    <p>自分のサイトって何を書けばいいかやっぱりわからないですね...</p>
-                    <p>勉強中のぷろぐらま見習い。最近やっと自分のホームページをモダンな感じに更新した。</p>
-                    <p>もっぱらコンパイル言語全般が使えない情弱なので、基本はすべてシェルスクリプトでゴリゴリ...</p>
-                    <p>シェルと言ってもゆとり世代なのでBash 5。たまにどうしようもないときにPythonを使う。</p>
-                    <p>受験が終わって一段落したらC言語とGo言語を触りたいと思っていたりいなかったり....</p>
-                </div>
-
-                <div id="Todo">
-                    <p class="fs-3"><s><a href="https://sunset0916.net/">サンセットのサイト</a>よりはまともだと信じたい</s></p>
-                    <p>対抗しようとBootstrapを初めて使ってみてモダンな感じにしようとしたけどうまくいかなかった</p>
-                    <p>結局使う技術というより作る人なんだなって実感しましたまる</p>
-                    <ul>
-                        <li>もう少しマシにする</li>
-                        <li>せっかくBootstrap使ってるのに下手すぎてJSでゴニョゴニョしてるのを無くす</li>
-                    </ul>
-
-                </div>
-
-                <div id="Game">
-                    <p>ハヤオがプレイしているソシャゲです。マジョリティなオタクなのでソシャゲにはまってます。</p>
-                    <h3>マギレコ</h3>
-                    <p>あとでここにスクショを貼る</p>
-                    <h3>ブルーアーカイブ</h3>
-                    <p>あとでここにスクショを貼る</p>
-                    <h3>プリコネ</h3>
-                    <p>あとでここにスクショを貼る</p>
-                    <h3>プロセカ</h3>
-                    <p>あとでここにスクショを貼る</p>
-                </div>
-        
-                <div id="Contact">
-                    Twitter: @Hayao0819
-                </div>
-
-                <div id="Test">
-                    <div style="padding: 20px; background-color: white;">
-                        <p>ちゃんと背景色変わってる？？</p>
+                <main>
+                    <div id="Home" class="section">
+                        <p>自分のサイトって何を書けばいいかやっぱりわからないですね...</p>
+                        <p>勉強中のぷろぐらま見習い。最近やっと自分のホームページをモダンな感じに更新した。</p>
+                        <p>もっぱらコンパイル言語全般が使えない情弱なので、基本はすべてシェルスクリプトでゴリゴリ...</p>
+                        <p>シェルと言ってもゆとり世代なのでBash 5。たまにどうしようもないときにPythonを使う。</p>
+                        <p>受験が終わって一段落したらC言語とGo言語を触りたいと思っていたりいなかったり....</p>
                     </div>
-                </div>
 
+                    <div id="Todo" class="section">
+                        <p class="fs-3"><s><a href="https://sunset0916.net/">サンセットのサイト</a>よりはまともだと信じたい</s></p>
+                        <p>対抗しようとBootstrapを初めて使ってみてモダンな感じにしようとしたけどうまくいかなかった</p>
+                        <p>結局使う技術というより作る人なんだなって実感しましたまる</p>
+                        <ul>
+                            <li>もう少しマシにする</li>
+                            <li>せっかくBootstrap使ってるのに下手すぎてJSでゴニョゴニョしてるのを無くす</li>
+                        </ul>
+
+                    </div>
+
+                    <div id="Game" class="section">
+                        <p>ハヤオがプレイしているソシャゲです。マジョリティなオタクなのでソシャゲにはまってます。</p>
+                        <h3>マギレコ</h3>
+                        <p>あとでここにスクショを貼る</p>
+                        <h3>ブルーアーカイブ</h3>
+                        <p>あとでここにスクショを貼る</p>
+                        <h3>プリコネ</h3>
+                        <p>あとでここにスクショを貼る</p>
+                        <h3>プロセカ</h3>
+                        <p>あとでここにスクショを貼る</p>
+                    </div>
+            
+                    <div id="Contact" class="section">
+                        Twitter: @Hayao0819
+                    </div>
+
+                    <div id="Test" class="section">
+                        <div style="padding: 20px; background-color: white;">
+                            <p>ちゃんと背景色変わってる？？</p>
+                        </div>
+                    </div>
+
+                    <div id="Gyagu" data-header="ギャグ" class="section">
+                        <ul>
+                            <li>シンクに向かって<code>rsync</code></li>
+                            <li>会場！</li>
+                            <li>apt install アデノシン三リン酸</li>
+                            
+                            <p><b>これより下に内容はないようです。</b></p>
+                        </ul>
+                    </div>
+                </main>
+
+                <footer class="row">
+                    <div class="col-12 text-center">
+                        <p>© 2020-2022 山田ハヤオ</p>
+                    </div>
+
+                </footer>
 
                 <script>
-                    Array.from(document.getElementById("maincontant").children).forEach(e=>{
+                    const sectionList = Array.from(document.getElementsByClassName("section"));
+
+                    sectionList.forEach(e=>{
                         // サイドバーを作成
                         {
                             let navItem = document.createElement("li");
@@ -83,7 +102,7 @@
                             navItem.classList.add("nav-item");
                             navLink.classList.add("nav-link");
                             navLink.href = "#" + e.id;
-                            navLink.textContent = e.id;
+                            navLink.textContent = e.dataset.header || e.id;
                             navItem.appendChild(navLink);
                             document.getElementById("navlastitem").insertAdjacentElement("beforebegin", navItem);
                         }
@@ -91,7 +110,7 @@
                         // セクションにh2を追加
                         {
                             let sectionHeader = document.createElement("h2");
-                            sectionHeader.textContent = e.id;
+                            sectionHeader.textContent = e.dataset.header || e.id;
                             sectionHeader.classList.add("fw-bold");
                             //e.style.marginBottom = window.innerHeight -  e.clientHeight + "px";
                             e.prepend(sectionHeader);
@@ -111,7 +130,7 @@
                         if (window.innerWidth < smWidth) {
                             document.getElementById("sidebar").classList.remove("vh-100");
                             document.getElementById("navbar").classList.add("ml-auto", "flex-row", "gap-3");
-                            Array.from(document.getElementById("maincontant").children).forEach(e=>{
+                            sectionList.forEach(e=>{
                                 e.style.marginBottom = 0;
                             })
 
@@ -119,7 +138,7 @@
                             document.getElementById("sidebar").classList.add("vh-100");
                             document.getElementById("navbar").classList.remove("ml-auto", "flex-row" , "gap-3");
 
-                            Array.from(document.getElementById("maincontant").children).forEach(e=>{
+                            sectionList.forEach(e=>{
                                 let marginSize = window.innerHeight -  e.clientHeight;
                                 if (marginSize < 0) {
                                     marginSize = 0;
