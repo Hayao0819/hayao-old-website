@@ -60,13 +60,34 @@
                     <div id="Game" class="section">
                         <p>ハヤオがプレイしているソシャゲです。マジョリティなオタクなのでソシャゲにはまってます。</p>
                         <h3>マギレコ</h3>
-                        <p>あとでここにスクショを貼る</p>
+                        <p><img src="./assets/magireco.jpeg" alt="マギアレコード"></p>
                         <h3>ブルーアーカイブ</h3>
+                        <p><img src="./assets/bluearchive.png" alt="ブルーアーカイブ"></p>
+                        <h3>原神 Genshin Impact</h3>
                         <p>あとでここにスクショを貼る</p>
                         <h3>プリコネ</h3>
-                        <p>あとでここにスクショを貼る</p>
+                        <p><img src="./assets/pricone.png" alt="プリンセスコネクト"></p>
                         <h3>プロセカ</h3>
-                        <p>あとでここにスクショを貼る</p>
+                        <p><img src="./assets/pjsekai.png" alt="プロセカ"></p>
+
+                        <script>
+                            Array.from(document.getElementById("Game").getElementsByTagName("h3")).forEach(e=>{
+                                e.classList.add("h4");
+                            })
+                            /*Array.from(document.getElementById("Game").getElementsByTagName("img")).forEach(e=>{
+                                e.classList.add("img-fluid");
+                            })*/
+                        </script>
+                        <style>
+                            #Game h3::before{
+                                content: "▶";
+                                margin-right: 5px;
+                            }
+
+                            #Game img{
+                                width: 25%;
+                            }
+                        </style>
                     </div>
             
                     <div id="Contact" class="section">
