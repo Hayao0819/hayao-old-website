@@ -60,13 +60,31 @@
                     <div id="Game" class="section">
                         <p>ハヤオがプレイしているソシャゲです。マジョリティなオタクなのでソシャゲにはまってます。</p>
                         <h3>マギレコ</h3>
-                        <p>あとでここにスクショを貼る</p>
+                        <p><img src="./assets/magireco.jpeg" alt="マギアレコード"></p>
                         <h3>ブルーアーカイブ</h3>
+                        <p><img src="./assets/bluearchive.png" alt="ブルーアーカイブ"></p>
+                        <h3>原神 Genshin Impact</h3>
                         <p>あとでここにスクショを貼る</p>
                         <h3>プリコネ</h3>
-                        <p>あとでここにスクショを貼る</p>
+                        <p><img src="./assets/pricone.png" alt="プリンセスコネクト"></p>
                         <h3>プロセカ</h3>
-                        <p>あとでここにスクショを貼る</p>
+                        <p><img src="./assets/pjsekai.png" alt="プロセカ"></p>
+
+                        <script>
+                            Array.from(document.getElementById("Game").getElementsByTagName("h3")).forEach(e=>{
+                                e.classList.add("h4");
+                            })
+                            Array.from(document.getElementById("Game").getElementsByTagName("img")).forEach(e=>{
+                                //e.classList.add("img-fluid");
+                                e.dataset.toggle = "lightbox";
+                            })
+                        </script>
+                        <style>
+                            #Game h3::before{
+                                content: "▶";
+                                margin-right: 5px;
+                            }
+                        </style>
                     </div>
             
                     <div id="Contact" class="section">
@@ -88,6 +106,26 @@
                             <li>ガスがあるマダガスカル</li>
                             <p onclick="linkToSunset()"><b>これより下に内容はないようです。</b></p>
                         </ul>
+                    </div>
+
+                    <!-- コピペ: https://www.tohoho-web.com/bootstrap/modal.html -->
+                    <div class="modal fade" id="lightbox" tabindex="-1" role="dialog" aria-labelledby="lightbox-label" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="lightbox-title"></h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <img id="lightbox-img" class="img-fluid">
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="lightbox">Close</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </main>
 
@@ -132,7 +170,7 @@
                         
                     })
 
-                    const SetSidebarHeight = () => {
+                    const CalculateStyle = () => {
                         const smWidth = parseFloat(window.getComputedStyle(document.body).getPropertyValue("--breakpoint-sm").slice(0, -2));
                         if (window.innerWidth < smWidth) {
                             document.getElementById("sidebar").classList.remove("vh-100");
@@ -163,8 +201,8 @@
 
                         lastSection.style.marginBottom = (lastSectionMargin - footerHeight - 20 ) + "px";
                     }
-                    window.addEventListener("load", SetSidebarHeight);
-                    window.addEventListener("resize", SetSidebarHeight);
+                    window.addEventListener("load", CalculateStyle);
+                    window.addEventListener("resize", CalculateStyle);
                     
                 </script>
                 <!-- h2の下線 たぶんこれBootstrapだけじゃできない -->
@@ -178,6 +216,39 @@
                         
                     }
                 </style>
+
+                <!-- 画像モーダルの作成 -->
+                <script>
+                    const imgList = Array.from(document.getElementsByTagName("img"));
+                    const modal = document.getElementById("lightbox-img");
+                    const modalTitle = document.getElementById("lightbox-title");
+                    imgList.forEach(e=>{
+                        e.dataset.toggle = "modal";
+                        e.dataset.target = "#lightbox";
+                        e.classList.add("btn");
+                        e.addEventListener("click", ()=>{
+                            modal.src = e.src;
+                            modal.alt = e.alt;
+                            modalTitle.textContent = e.alt;
+                        })
+                    })
+
+                    const setImgSize = () =>{
+                        const smWidth = parseFloat(window.getComputedStyle(document.body).getPropertyValue("--breakpoint-sm").slice(0, -2));
+                        imgList.forEach(e=>{
+                            if (e == modal){
+                                return;
+                            }
+                            if (window.innerWidth < smWidth) {
+                                e.style.width = "100%";
+                            } else {
+                                e.style.width = "60%";
+                            }
+                        })
+                    }
+                    window.addEventListener("load", setImgSize);
+                    window.addEventListener("resize", setImgSize);
+                </script>
             </div>
         </div>
 
