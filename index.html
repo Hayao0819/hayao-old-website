@@ -199,8 +199,14 @@
                         let footerHeight = document.getElementsByTagName("footer")[0].clientHeight;
                         let lastSection = sectionList[sectionList.length - 1];
                         let lastSectionMargin = parseFloat(window.getComputedStyle(lastSection).getPropertyValue("margin-bottom").slice(0, -2));
+                        let calculatedMargin = lastSectionMargin - footerHeight - 20;
 
-                        lastSection.style.marginBottom = (lastSectionMargin - footerHeight - 20 ) + "px";
+                        //lastSection.style.marginBottom = (lastSectionMargin - footerHeight - 20 ) + "px";
+                        if (calculatedMargin < 0) {
+                            lastSection.style.marginBottom = 0;
+                        } else {
+                            lastSection.style.marginBottom = calculatedMargin + "px";
+                        }
                     }
                     window.addEventListener("load", CalculateStyle);
                     window.addEventListener("resize", CalculateStyle);
