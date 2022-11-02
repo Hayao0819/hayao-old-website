@@ -21,15 +21,15 @@
         <div class="row">
             <div class="col-sm-3 px-0 h-100 bg-dark affix sticky-top" id="sidebar">
 
-                <div class="text-center p-5 d-none d-sm-block" id="branding">
-                    <img src="./assets/icon.jpeg" class="rounded w-50" id="icon">
+                <div class="text-center m-5 d-none d-sm-block" id="branding">
+                    <img src="./assets/icon.jpeg" class="rounded w-50" id="icon" style="min-width: 85px;">
                     <a href="index-new.html" class="navbar-brand text-white">はやおのぺーじ</a>
                 </div>
 
                 <nav class="navbar navbar-dark flex-column" id="navbar_container">
-                    <ul class="navbar-nav" id="navbar">
+                    <ul class="navbar-nav flex-wrap" id="navbar">
                         <li class="nav-item" id="navlastitem">
-                            <a class="nav-link" href="./index-r2.html">旧トップページ</a>
+                            <a class="nav-link" href="./index-r2.html">旧ページ</a>
                         </li>
                     </ul>
 
@@ -182,7 +182,7 @@
 
                         } else {
                             document.getElementById("sidebar").classList.add("vh-100");
-                            document.getElementById("navbar").classList.remove("ml-auto", "flex-row" , "gap-3");
+                            document.getElementById("navbar").classList.remove("flex-row" , "gap-3");
 
                             sectionList.forEach(e=>{
                                 let marginSize = window.innerHeight -  e.clientHeight;
