@@ -40,7 +40,7 @@
             <div class="col-sm-3 px-0 h-100 bg-dark affix sticky-top" id="sidebar">
 
                 <div class="text-center m-5 d-none d-sm-block" id="branding">
-                    <img src="./assets/icon.jpeg" class="rounded w-50" id="icon" style="min-width: 85px;">
+                    <img src="./assets/icon.jpeg" alt="チルノ（ハヤオのアイコン）" class="rounded w-50" id="icon" style="min-width: 85px;" data-description='アイコン作者は<a href="https://twitter.com/unknown9san">9さん</a>です。ありがとうございます。'>
                     <a href="index-new.html" class="navbar-brand text-white">はやおのぺーじ</a>
                 </div>
 
@@ -139,6 +139,7 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
+                                    <p id="lightbox-description" class="d-none"></p>
                                     <img id="lightbox-img" class="img-fluid">
                                 </div>
                                 <div class="modal-footer">
@@ -250,15 +251,29 @@
                     const modal = document.getElementById("lightbox-img");
                     const modalTitle = document.getElementById("lightbox-title");
                     const modalDlLink = document.getElementById("lightbox-dl-link");
+                    const modalDescription = document.getElementById("lightbox-description");
                     imgList.forEach(e=>{
                         e.dataset.toggle = "modal";
                         e.dataset.target = "#lightbox";
                         e.classList.add("btn");
                         e.addEventListener("click", ()=>{
+                            // imgタグ
                             modal.src = e.src;
                             modal.alt = e.alt;
+
+                            // タイトル
                             modalTitle.textContent = e.alt;
+
+                            // ダウンロードリンク
                             modalDlLink.href = e.src;
+
+                            //説明
+                            if (e.dataset.description) {
+                                modalDescription.innerHTML = e.dataset.description;
+                                modalDescription.classList.remove("d-none");
+                            } else {
+                                modalDescription.classList.add("d-none");
+                            }
                         })
                     })
 
