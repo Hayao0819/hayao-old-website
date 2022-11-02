@@ -62,6 +62,47 @@
                         <p>もっぱらコンパイル言語全般が使えない情弱なので、基本はすべてシェルスクリプトでゴリゴリ...</p>
                         <p>シェルと言ってもゆとり世代なのでBash 5。たまにどうしようもないときにPythonを使う。</p>
                         <p>受験が終わって一段落したらC言語とGo言語を触りたいと思っていたりいなかったり....</p>
+
+                        <h3>自己紹介</h3>
+                        <p>学生です。 <a href="https://fascode.net/">Fascode Network</a>という集団に参加しながらLinuxを勉強中です。</p>
+                        <p>最近はGentoo Linuxに手を出してebuildを四苦八苦しながら書いています。</p>
+                        <p>使える言語が非常に少なくて実用性がないのが欠点です。これといった専門分野も無いです。</p>
+                        <p>知らないところに行ったり、空の写真を撮るのが趣味です。</p>
+                        <p>他にもジャンクPC漁りや自作PC、ガジェット、カスタムROM、Root化など色々やりますがどれも中途半端です。</p>
+
+                        <h3>年齢</h3>
+                        <div class="mb-3">
+                            <input type="number" class="form-control w-25 d-inline" placeholder="" id="year-inputbox">
+                            <p class="d-inline">年において<span id="age"></span></p>
+                        </div>
+                        <script>
+                            const yearInputBox = document.getElementById("year-inputbox")
+                            const ageText = document.getElementById("age")
+                            const currentYear = new Date().getFullYear()
+                            yearInputBox.placeholder = currentYear;
+                            yearInputBox.value = currentYear;
+
+                            // 年齢を計算
+                            const calcAge = (year)=>{
+                                
+                                if(year == ""){
+                                    return "まだ生まれていません。";
+                                }
+                                let age = year - 2004
+                                if(age < 0){
+                                    return "まだ生まれていません。";
+                                }
+                                
+                                return `${age}歳です。`;
+                            }
+                            // 年齢を表示
+                            ageText.textContent = calcAge(yearInputBox.value);
+                            yearInputBox.addEventListener("change", e=>{
+                                ageText.textContent = calcAge(e.target.value);
+                            })
+
+                        </script>
+
                     </div>
 
                     <div id="Todo" class="section">
@@ -74,6 +115,80 @@
                         </ul>
 
                     </div>
+
+                    <div id="Skills" class="section" data-header="スキル">
+                        <h3>最低限だけど書けるかもしれない言語</h3>
+                        <table class="table">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">言語</th>
+                                    <th scope="col">一言</th>
+                                    <th scope="col">過去の実装</th>
+                                    <th scope="col">実装について一言</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Bash 5</th>
+                                    <td>人並みには書けると思う</td>
+                                    <td><a href="https://github.com/Hayao0819/nm-vpngate" target="_blank">Hayao0819/nm-vpngate</a></td>
+                                    <td>Network ManagerでVPN Gateに接続するためのスクリプト</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">POSIX Shell</th>
+                                    <td>ローカル変数と配列が無いので嫌い</td>
+                                    <td><a href="https://gist.github.com/Hayao0819/53807f4649382e90bc93038c5d18f5e5" target="_blank">Dump android partition</a></td>
+                                    <td>Root取得済みのAndroidのシェルでパーティションをバックアップするスクリプト</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Python 3</th>
+                                    <td>大規模なコードは一度も読み書きしたことない</td>
+                                    <td><a href="https://gist.github.com/Hayao0819/ed70edac37ccff58c4a3bd8221deb6a0" target="_blank">ArchNews.py</a></td>
+                                    <td>Arch Linuxの公式ニュースをRSSから取得するGUI</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">HTML/CSS</th>
+                                    <td>フレームワークとかは何もできない。純粋な基礎なら少しだけ</td>
+                                    <td>このサイト</td>
+                                    <td>TailWind CSSとBootstrapを使いこなせるようになりたい</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Java Script</th>
+                                    <td>フレームワークとかTSは使ったこと無い。NodeJSもない。サイト作りでちょっと触っただけ。</td>
+                                    <td>このサイト</td>
+                                    <td>Reactを勉強したい</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+
+                        <h3>全く未経験だけどこれからやりたい言語</h3>
+
+                        <table class="table">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">言語</th>
+                                    <th scope="col">一言</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">C</th>
+                                    <td>カーネルとか触るうえで必須っぽそう...</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Go</th>
+                                    <td>シェルスクリプトの代替としてCLIツール書くのに使いたい</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Flutter</th>
+                                    <td>LinuxとかAndroidのGUIアプリ開発に使いたい。けどGoogleが急に廃止したりしそうで怖い。</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+
 
                     <div id="Game" class="section">
                         <p>ハヤオがプレイしているソシャゲです。マジョリティなオタクなのでソシャゲにはまってます。</p>
@@ -97,12 +212,6 @@
                                 e.dataset.toggle = "lightbox";
                             })
                         </script>
-                        <style>
-                            #Game h3::before{
-                                content: "▶";
-                                margin-right: 5px;
-                            }
-                        </style>
                     </div>
             
                     <div id="Contact" class="section">
@@ -117,6 +226,7 @@
 
                     <div id="Gyagu" data-header="ギャグ" class="section">
                         <ol reversed>
+                            <li>灰原哀のシェルスクリプト講座</li>
                             <li>以下活かしたイカ</li>
                             <li>慶應をKO</li>
                             <li>apt install アデノシン三リン酸</li>
@@ -295,6 +405,17 @@
                     window.addEventListener("load", setImgSize);
                     window.addEventListener("resize", setImgSize);
                 </script>
+
+                <!-- h3のサイズ調整 -->
+                <style>
+                    #maincontant h3{
+                        font-size: 1.25em;
+                    }
+                    #maincontant h3::before{
+                        content: "▶";
+                        margin-right: 5px;
+                    }
+                </style>
             </div>
         </div>
 
