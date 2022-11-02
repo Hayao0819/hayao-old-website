@@ -123,6 +123,7 @@
                                     <img id="lightbox-img" class="img-fluid">
                                 </div>
                                 <div class="modal-footer">
+                                    <a class="btn btn-primary" id="lightbox-dl-link" download>ダウンロード</a>
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                 </div>
                             </div>
@@ -229,6 +230,7 @@
                     const imgList = Array.from(document.getElementsByTagName("img"));
                     const modal = document.getElementById("lightbox-img");
                     const modalTitle = document.getElementById("lightbox-title");
+                    const modalDlLink = document.getElementById("lightbox-dl-link");
                     imgList.forEach(e=>{
                         e.dataset.toggle = "modal";
                         e.dataset.target = "#lightbox";
@@ -237,6 +239,7 @@
                             modal.src = e.src;
                             modal.alt = e.alt;
                             modalTitle.textContent = e.alt;
+                            modalDlLink.href = e.src;
                         })
                     })
 
