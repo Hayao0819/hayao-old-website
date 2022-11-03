@@ -34,12 +34,12 @@
 </head>
 
 <body>
-    
+
     <div class="container-fluid h-100">
         <div class="row">
-            <div class="col-sm-3 px-0 h-100 bg-dark affix sticky-top" id="sidebar">
+            <div class="col-md-3 px-0 h-100 bg-dark affix sticky-top" id="sidebar">
 
-                <div class="text-center m-5 d-none d-sm-block" id="branding">
+                <div class="text-center m-5 d-none d-md-block" id="branding">
                     <img src="./assets/icon.jpeg" alt="チルノ（ハヤオのアイコン）" class="rounded w-50" id="icon" style="min-width: 85px;" data-description='アイコン作者は<a href="https://twitter.com/unknown9san">9さん</a>です。ありがとうございます。'>
                     <a href="index-new.html" class="navbar-brand text-white">はやおのぺーじ</a>
                 </div>
@@ -54,14 +54,15 @@
                 </nav>
             </div>
 
-            <div class="col py-3 h-100 ml-30" id="maincontant" style="background-color: #FAFAFA;">
-                <main>
+            <div class="col-md-9 py-3 h-100 ml-30" id="maincontant" style="background-color: #FAFAFA;">
+                <main class="overflow-hidden">
                     <div id="Home" class="section">
+                        <p><a href="https://sunset0916.net/">サンセット</a>がいい感じにシンプルなサイトを作ってたので真似してみました。</p>
                         <p>自分のサイトって何を書けばいいかやっぱりわからないですね...</p>
                         <p>勉強中のぷろぐらま見習い。最近やっと自分のホームページをモダンな感じに更新した。</p>
                         <p>もっぱらコンパイル言語全般が使えない情弱なので、基本はすべてシェルスクリプトでゴリゴリ...</p>
                         <p>シェルと言ってもゆとり世代なのでBash 5。たまにどうしようもないときにPythonを使う。</p>
-                        <p>受験が終わって一段落したらC言語とGo言語を触りたいと思っていたりいなかったり....</p>
+                        <p>受験が終わって一段落したらC言語とGo言語を触りたいと思っていたりいなかったり。</p>
 
                         <h3>自己紹介</h3>
                         <p>学生です。 <a href="https://fascode.net/">Fascode Network</a>という集団に参加しながらLinuxを勉強中です。</p>
@@ -106,19 +107,8 @@
                         <p>気管支喘息と不整脈をを患っています。気管支喘息は、気管支が狭くなって息が苦しくなる病気(?)です。</p>
                         <p>ハヤオとリアルで会ってるときに倒れたら救急車を呼んでください。</p>
                         <p>他にもアトピー性皮膚炎とか遠視（視力0.2）とか色々と...みんなも健康には気をつけてようね。</p>
-
                     </div>
 
-                    <div id="Todo" class="section">
-                        <p class="fs-3"><s><a href="https://sunset0916.net/">サンセットのサイト</a>よりはまともだと信じたい</s></p>
-                        <p>対抗しようとBootstrapを初めて使ってみてモダンな感じにしようとしたけどうまくいかなかった</p>
-                        <p>結局使う技術というより作る人なんだなって実感しましたまる</p>
-                        <ul>
-                            <li>もう少しマシにする</li>
-                            <li>せっかくBootstrap使ってるのに下手すぎてJSでゴニョゴニョしてるのを無くす</li>
-                        </ul>
-
-                    </div>
 
                     <div id="Skills" class="section" data-header="スキル">
                         <h3>最低限だけど書けるかもしれない言語</h3>
@@ -219,7 +209,61 @@
                     </div>
             
                     <div id="Contact" class="section">
-                        Twitter: @Hayao0819
+                        <div class="row mx-0">
+                            <div class="card text-center col-md-4 px-0">
+                                <div class="card-title" style="background-color: #1C9BEF;">
+                                    <h6 class="bg-dark text-light lh-lg py-1">Twitter</h6>
+                                    <img src="./assets/logos/twitter.svg" alt="Twitterロゴ" class="card-img-top d-none d-md-inline" data-lightbox="false">
+                                </div>
+                                <div class="card-body">
+                                    <p>メインアカウントです。最近はログアウトしています。</p>
+                                    <a href="https://twitter.com/Hayao0819" class="btn btn-outline-primary">Hayao0819</a>
+                                </div>
+                            </div>
+
+                            <div class="card text-center col-md-4 px-0">
+                                <div class="card-title" style="background-color: #1C9BEF;">
+                                    <h6 class="bg-dark text-light lh-lg py-1">Twitter</h6>
+                                    <img src="./assets/logos/twitter.svg" alt="Twitterロゴ" class="card-img-top d-none d-md-inline" data-lightbox="false">
+                                </div>
+                                <div class="card-body">
+                                    <p>ソシャゲ用のアカウントです。色々アレなものを垂れ流します。</p>
+                                    <a href="https://twitter.com/YamadaHayao" class="btn btn-outline-primary">@YamadaHayao</a>
+                                </div>
+                            </div>
+
+                            <div class="card text-center col-md-4 px-0">
+                                <div class="card-title" id="instagram">
+                                    <h6 class="bg-dark text-light lh-lg py-1">Instagram</h6>
+                                    <img src="./assets/logos/instagram-mono.png" alt="Instagramロゴ" class="card-img-top d-none d-md-inline" data-lightbox="false" style="filter: invert(100%);">
+                                </div>
+                                <div class="card-body">
+                                    <p>インスタグラムです。空の写真と飯テロ。たまに作業状況の報告も。</p>
+                                    <a href="https://instagram.com/Hayao0819" class="btn btn-outline-primary">@Hayao0819</a>
+                                </div>
+                                <style>
+                                    /* インスタのグラデーション */
+                                    #instagram{
+                                        background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+                                    }
+                                </style>
+                            </div>
+
+                            <div class="card text-center col-md-4 px-0">
+                                <div class="card-title" style="background-color: #171515;">
+                                    <h6 class="bg-dark text-light lh-lg py-1">GitHub</h6>
+                                    <img src="./assets/logos/github.png" alt="GitHubロゴ" class="card-img-top d-none d-md-inline" data-lightbox="false" style="filter: invert(100%);">
+                                </div>
+                                <div class="card-body">
+                                    <p>個人的な成果物があります。Fascodeのものはありません。</p>
+                                    <a href="https://github.com/Hayao0819" class="btn btn-outline-primary">@Hayao0819</a>
+                                </div>
+                            </div>
+
+                        </div>
+                        <style>
+
+                        </style>
                     </div>
 
                     <div id="Test" class="section">
@@ -307,8 +351,8 @@
                     })
 
                     const CalculateStyle = () => {
-                        const smWidth = parseFloat(window.getComputedStyle(document.body).getPropertyValue("--breakpoint-sm").slice(0, -2));
-                        if (window.innerWidth < smWidth) {
+                        const widthBreakPoint = parseFloat(window.getComputedStyle(document.body).getPropertyValue("--breakpoint-md").slice(0, -2));
+                        if (window.innerWidth < widthBreakPoint) {
                             document.getElementById("sidebar").classList.remove("vh-100");
                             document.getElementById("navbar").classList.add("flex-row", "gap-3");
                             sectionList.forEach(e=>{
@@ -367,6 +411,9 @@
                     const modalDlLink = document.getElementById("lightbox-dl-link");
                     const modalDescription = document.getElementById("lightbox-description");
                     imgList.forEach(e=>{
+                        if (e.dataset.lightbox == "false"){
+                            return;
+                        }
                         e.dataset.toggle = "modal";
                         e.dataset.target = "#lightbox";
                         e.classList.add("btn");
@@ -392,12 +439,12 @@
                     })
 
                     const setImgSize = () =>{
-                        const smWidth = parseFloat(window.getComputedStyle(document.body).getPropertyValue("--breakpoint-sm").slice(0, -2));
+                        const widthBreakPoint = parseFloat(window.getComputedStyle(document.body).getPropertyValue("--breakpoint-md").slice(0, -2));
                         imgList.forEach(e=>{
                             if (e == modal){
                                 return;
                             }
-                            if (window.innerWidth < smWidth) {
+                            if (window.innerWidth < widthBreakPoint) {
                                 e.style.width = "100%";
                             } else {
                                 e.style.width = "60%";
