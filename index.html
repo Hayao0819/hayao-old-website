@@ -112,6 +112,28 @@
                         <p>他にもアトピー性皮膚炎とか遠視（視力0.2）とか色々と...みんなも健康には気をつけてようね。</p>
                     </div>
 
+                    <div id="Belong" class="section" data-header="所属と関連リンク">
+                        <div>
+                            <p>Fascode Networkというところに所属しています。</p>
+                            <p>Serene LinuxとAlter Linuxの開発が主な目的です。</p>
+                            <p>ただ最近はリアルのほうが忙しくてあまり活動できていません。</p>
+                        </div>
+                        <div class="d-flex flex-wrap" id="belong-linklist">
+                            <a href="https://fascode.net">Fascode 公式サイト</a>
+                            <a href="https://blog.fascode.net">Fascode 公式ブログ</a>
+                            <a href="https://line.me/ti/g2/U34PFiriGZzVqSpNaY73Gg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default">Fascode 公式LINE OpenChat</a>
+                            <a href="https://twitter.com/Fascode_SPT">Fascode 公式Twitter</a>
+                            <a href="https://discord.gg/t4bUFFT">Fascode 公式Discord Server</a>
+                        </div>
+                        <script>
+                            Array.from(document.getElementById("belong-linklist").getElementsByTagName("a")).forEach(e=>{
+                                e.classList.add("btn", "btn-outline-primary", "m-1");
+                            })
+                        </script>
+
+                        
+
+                    </div>
 
                     <div id="Skills" class="section" data-header="スキル">
                         <h3>最低限だけど書けるかもしれない言語</h3>
@@ -212,6 +234,7 @@
                     </div>
             
                     <div id="Contact" class="section">
+                        <p>Linuxに関する問い合わせは個人アカウントではなくFascodeサポートアカウントまでお願いします。</p>
                         <div class="row mx-0">
                             <div class="card text-center col-md-4 px-0">
                                 <div class="card-title" style="background-color: #1C9BEF;">
@@ -291,7 +314,7 @@
 
                     <!-- コピペ: https://www.tohoho-web.com/bootstrap/modal.html -->
                     <div class="modal fade" id="lightbox" tabindex="-1" role="dialog" aria-labelledby="lightbox-label" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                        <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="lightbox-title"></h5>
@@ -305,7 +328,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <a class="btn btn-primary" id="lightbox-dl-link" download>ダウンロード</a>
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
                                 </div>
                             </div>
                         </div>
@@ -450,7 +473,7 @@
                             if (window.innerWidth < widthBreakPoint) {
                                 e.style.width = "100%";
                             } else {
-                                e.style.width = "60%";
+                                e.style.width = "40%";
                             }
                         })
                     }
