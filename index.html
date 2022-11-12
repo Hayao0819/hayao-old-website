@@ -309,6 +309,28 @@
                         </div>
                     </div>
 
+                    <div id="Log" class="section" data-header="変更履歴">
+                        <p>JavaScriptのFetchやDateの練習を兼ねてかんたんなものを作ってみました。</p>
+                        <ol id="loglist"></ol>
+                        <script>
+                            fetch("https://api.github.com/repos/Hayao0819/hayao.fascode.net/commits").then((responce)=>{
+                                return responce.json();
+                            }).then(function(commitList){
+                                commitList.slice(1, 11).forEach(commit=>{
+                                    console.log(`${commit.commit.message} ${commit.commit.committer.date}`);
+
+                                    //console.log(commit.commit);
+                                    let commitDate = new Date(commit.commit.committer.date)
+                                    let li = document.createElement("li");
+                                    li.innerHTML = `<a href="${commit.html_url}">${commit.commit.message}</a> ${commitDate.toLocaleString()}`;
+                                    document.getElementById("loglist").insertAdjacentElement("beforeend", li);
+
+                                })
+                            })
+                        </script>
+
+                    </div>
+
                     <div id="Gyagu" data-header="ギャグ" class="section">
                         <ol reversed>
                             <li>インコの淫行<img alt="インコの淫行" src="./assets/partyparrot.gif" class="gif-emoji"></li>
