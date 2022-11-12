@@ -45,7 +45,7 @@
     <div class="container-fluid h-100">
         <div class="row">
             <!-- メニューの幅を確保するための偽要素 -->
-            <div class="col-md-3 px-0 h-100 bg-dark affix"></div>
+            <div class="col-md-3 px-0 bg-dark affix" id="fakebar"></div>
 
             <div class="col-md-3 bg-dark affix fixed-top overflow-auto" id="sidebar">
 
@@ -64,7 +64,7 @@
                 </nav>
             </div>
 
-            <div class="col-md-9 py-3 h-100 ml-30" id="maincontant" style="background-color: #FAFAFA;">
+            <div class="col-md-9 py-3 h-100 ml-30" id="maincontent" style="background-color: #FAFAFA;">
                 <main class="overflow-hidden">
                     <div id="Home" class="section">
                         <p><a href="https://sunset0916.net/">サンセット</a>がいい感じにシンプルなサイトを作ってたので真似してみました。</p>
@@ -180,7 +180,7 @@
                                 </tr>
                                 <tr>
                                     <th scope="row">Java Script</th>
-                                    <td>フレームワークとかTSは使ったこと無い。NodeJSもない。サイト作りでちょっと触っただけ。</td>
+                                    <td>フレームワークとかTSは使ったこと無い。NodeJSはわずかに。サイト作りでちょっと触っただけ。</td>
                                     <td>このサイト</td>
                                     <td>Reactを勉強したい</td>
                                 </tr>
@@ -188,7 +188,7 @@
                             </tbody>
                         </table>
 
-                        <h3>全く未経験だけどこれからやりたい言語</h3>
+                        <h3>全く未経験だけどこれからやりたい言語/フレームワーク</h3>
 
                         <table class="table">
                             <thead class="thead-dark">
@@ -209,6 +209,10 @@
                                 <tr>
                                     <th scope="row">Flutter</th>
                                     <td>LinuxとかAndroidのGUIアプリ開発に使いたい。けどGoogleが急に廃止したりしそうで怖い。</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Deno</th>
+                                    <td>最近知った。npmが嫌いなので個人的に大好きかもしれない。</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -352,6 +356,7 @@
 
                 <script>
                     const sectionList = Array.from(document.getElementsByClassName("section"));
+                    const sideBar = document.getElementById("sidebar");
 
                     sectionList.forEach(e=>{
                         // サイドバーを作成
@@ -360,6 +365,7 @@
                             let navLink = document.createElement("a");
                             navItem.classList.add("nav-item");
                             navLink.classList.add("nav-link");
+                            //navLink.style.setProperty ("scroll-margin-top", sideBar.clientHeight + "px", "important");
                             navLink.href = "#" + e.id;
                             navLink.textContent = e.dataset.header || e.id;
                             navItem.appendChild(navLink);
@@ -386,16 +392,28 @@
 
                     const CalculateStyle = () => {
                         const widthBreakPoint = parseFloat(window.getComputedStyle(document.body).getPropertyValue("--breakpoint-md").slice(0, -2));
+                        const sideBar = document.getElementById("sidebar");
+                        const navBar = document.getElementById("navbar");
+                        const mainContent = document.getElementById("maincontent");
+                        const fakeBar = document.getElementById("fakebar");
                         if (window.innerWidth < widthBreakPoint) {
-                            document.getElementById("sidebar").classList.remove("vh-100");
-                            document.getElementById("navbar").classList.add("flex-row", "gap-3");
+                            // スマホ
+                            sideBar.classList.remove("vh-100");
+                            navBar.classList.add("flex-row", "gap-3");
+                            
                             sectionList.forEach(e=>{
                                 e.style.marginBottom = 0;
                             })
 
+                            //fakeBar.style.height = sideBar.clientHeight + "px" + " !important";
+                            //fakeBar.style.cssText = "heght: ${sideBar.clientHeight}px !important;";
+                            fakeBar.style.setProperty ("height", sideBar.clientHeight + "px", "important");
+                            document.documentElement.style.setProperty ("scroll-padding-top", sideBar.clientHeight + "px", "important");
+
                         } else {
-                            document.getElementById("sidebar").classList.add("vh-100");
-                            document.getElementById("navbar").classList.remove("flex-row" , "gap-3");
+                            // PC
+                            sideBar.classList.add("vh-100");
+                            navBar.classList.remove("flex-row" , "gap-3");
 
                             sectionList.forEach(e=>{
                                 let marginSize = window.innerHeight -  e.clientHeight;
@@ -404,6 +422,9 @@
                                 }
                                 e.style.marginBottom = marginSize + "px";
                             })
+
+                            fakeBar.style.removeProperty("height");
+                            document.documentElement.style.removeProperty("scroll-padding-top");
                         }
 
                         // 最後のセクションだけフッター幅を確保
@@ -427,7 +448,7 @@
                 </script>
                 <!-- h2の下線 たぶんこれBootstrapだけじゃできない -->
                 <style>
-                    #maincontant h2::after{
+                    #maincontent h2::after{
                         background-color: #000;
                         content: "";
                         display: block;
@@ -493,10 +514,10 @@
 
                 <!-- h3のサイズ調整 -->
                 <style>
-                    #maincontant h3{
+                    #maincontent h3{
                         font-size: 1.25em;
                     }
-                    #maincontant h3::before{
+                    #maincontent h3::before{
                         content: "▶";
                         margin-right: 5px;
                     }
