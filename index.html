@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+
+    <!-- 
+        <TODO>
+            ・いい感じにJSを分割する
+            ・グローバル変数を整理する
+            ・Bootstrap5に移行する
+    -->
+
     <meta charset="UTF-8">
     <title>はやおのページ</title>
 
@@ -44,24 +52,36 @@
 
     <div class="container-fluid h-100">
         <div class="row">
+
             <!-- メニューの幅を確保するための偽要素 -->
             <div class="col-md-3 px-0 bg-dark affix" id="fakebar"></div>
-
+            
+            
             <div class="col-md-3 bg-dark affix fixed-top overflow-auto" id="sidebar">
 
-                <div class="text-center m-5 d-none d-md-block" id="branding">
-                    <img src="./assets/icon.jpeg" alt="チルノ（ハヤオのアイコン）" class="rounded w-50" id="icon" style="min-width: 85px;" data-description='アイコン作者は<a href="https://twitter.com/unknown9san">9さん</a>です。ありがとうございます。'>
+                <!-- スマホでのみ表示されるハンバーガーメニュー  表示切り替えはclassで実装-->
+                <div class="navbar navbar-dark d-none d-sm-block d-md-none mx-1" style="z-index: 1200;">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidebar-collapse" aria-controls="sidebar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    </button>
                     <a href="index-new.html" class="navbar-brand text-white">はやおのぺーじ</a>
                 </div>
 
-                <nav class="navbar navbar-dark flex-column text-center" id="navbar_container">
-                    <ul class="navbar-nav flex-wrap w-100" id="navbar">
-                        <li class="nav-item" id="navlastitem">
-                            <a class="nav-link" href="./index-r2.html">旧ページ</a>
-                        </li>
-                    </ul>
+                <!-- メニュー本体 デフォルトの表示/非表示の切り替えは CalculateStyleでclassをつけたり消したり -->
+                <div class="collapse" id="sidebar-collapse">
 
-                </nav>
+                    <!-- ブランディングはPCでのみ表示 -->
+                    <div class="text-center m-5 d-none d-md-block" id="branding">
+                        <img src="./assets/icon.jpeg" alt="チルノ（ハヤオのアイコン）" class="rounded w-50" id="icon" style="min-width: 85px;" data-description='アイコン作者は<a href="https://twitter.com/unknown9san">9さん</a>です。ありがとうございます。'>
+                        <a href="index-new.html" class="navbar-brand text-white">はやおのぺーじ</a>
+                    </div>
+
+                    <nav class="navbar navbar-dark flex-column text-center" id="navbar_container">
+                        <ul class="navbar-nav flex-wrap w-100" id="navbar">
+                            <li class="nav-item" id="navlastitem"><a class="nav-link" href="./index-r2.html">旧ページ</a></li>
+                        </ul>
+                    </nav>
+                </div>
             </div>
 
             <div class="col-md-9 py-3 h-100 ml-30" id="maincontent" style="background-color: #FAFAFA;">
@@ -317,9 +337,7 @@
                                 return responce.json();
                             }).then(function(commitList){
                                 commitList.slice(1, 11).forEach(commit=>{
-                                    console.log(`${commit.commit.message} ${commit.commit.committer.date}`);
-
-                                    //console.log(commit.commit);
+                                    //console.log(`${commit.commit.message} ${commit.commit.committer.date}`);
                                     let commitDate = new Date(commit.commit.committer.date)
                                     let li = document.createElement("li");
                                     li.innerHTML = `<a href="${commit.html_url}">${commit.commit.message}</a> ${commitDate.toLocaleString()}`;
@@ -379,6 +397,11 @@
                 <script>
                     const sectionList = Array.from(document.getElementsByClassName("section"));
                     const sideBar = document.getElementById("sidebar");
+                    const sidebarCollapse = document.getElementById("sidebar-collapse");
+                    const widthBreakPoint = parseFloat(window.getComputedStyle(document.body).getPropertyValue("--breakpoint-md").slice(0, -2));
+                    const navBar = document.getElementById("navbar");
+                    const mainContent = document.getElementById("maincontent");
+                    const fakeBar = document.getElementById("fakebar");
 
                     sectionList.forEach(e=>{
                         // サイドバーを作成
@@ -387,9 +410,14 @@
                             let navLink = document.createElement("a");
                             navItem.classList.add("nav-item");
                             navLink.classList.add("nav-link");
-                            //navLink.style.setProperty ("scroll-margin-top", sideBar.clientHeight + "px", "important");
-                            navLink.href = "#" + e.id;
-                            navLink.textContent = e.dataset.header || e.id;
+                            // スマホのハンバーガーメニューで項目をクリック時に閉じる
+                            navItem.addEventListener("click", ()=>{
+                                sidebarCollapse.classList.remove("show")
+                                sidebarCollapse.classList.add("close")
+                            });
+
+                            navLink.href = "#" + e.id; // 内部リンク
+                            navLink.textContent = e.dataset.header || e.id; // ヘッダーがなければidを表示
                             navItem.appendChild(navLink);
                             document.getElementById("navlastitem").insertAdjacentElement("beforebegin", navItem);
                         }
@@ -397,10 +425,9 @@
                         // セクションにh2を追加
                         {
                             let sectionHeader = document.createElement("h2");
-                            sectionHeader.textContent = e.dataset.header || e.id;
-                            sectionHeader.classList.add("fw-bold", "py-3");
-                            //e.style.marginBottom = window.innerHeight -  e.clientHeight + "px";
-                            e.prepend(sectionHeader);
+                            sectionHeader.textContent = e.dataset.header || e.id; // ヘッダーがなければidを表示
+                            sectionHeader.classList.add("fw-bold", "py-3"); //太字にして縦方向の余白を確保
+                            e.prepend(sectionHeader); // セクションの先頭に追加
                         }
 
                         // メニューバーの文字を白にする
@@ -412,41 +439,54 @@
                         
                     })
 
+                    // BootstrapでどうしようもないレスポンシブデザインをJSでゴリ押し実装
                     const CalculateStyle = () => {
-                        const widthBreakPoint = parseFloat(window.getComputedStyle(document.body).getPropertyValue("--breakpoint-md").slice(0, -2));
-                        const sideBar = document.getElementById("sidebar");
-                        const navBar = document.getElementById("navbar");
-                        const mainContent = document.getElementById("maincontent");
-                        const fakeBar = document.getElementById("fakebar");
                         if (window.innerWidth < widthBreakPoint) {
                             // スマホ
                             sideBar.classList.remove("vh-100");
-                            navBar.classList.add("flex-row", "gap-3");
-                            
-                            sectionList.forEach(e=>{
-                                e.style.marginBottom = 0;
-                            })
+                            //navBar.classList.add("flex-row", "gap-3");
 
-                            //fakeBar.style.height = sideBar.clientHeight + "px" + " !important";
-                            //fakeBar.style.cssText = "heght: ${sideBar.clientHeight}px !important;";
-                            fakeBar.style.setProperty ("height", sideBar.clientHeight + "px", "important");
-                            document.documentElement.style.setProperty ("scroll-padding-top", sideBar.clientHeight + "px", "important");
+                            {   // メニューをデフォルトで閉じる
+                                sidebarCollapse.classList.remove("show");
+                                sidebarCollapse.classList.add("close");
+                            }
+                            
+                            {   // 各セクションの末尾のマージンを消す
+                                sectionList.forEach(e=>{
+                                    e.style.marginBottom = 0;
+                                })
+                            }
+
+                            
+                            {   // スクロールしたときにメニューバーと重ならないようにいい感じに調整する
+                                fakeBar.style.setProperty ("height", sideBar.clientHeight + "px", "important");
+                                document.documentElement.style.setProperty ("scroll-padding-top", sideBar.clientHeight + "px", "important");
+                            }
 
                         } else {
                             // PC
                             sideBar.classList.add("vh-100");
-                            navBar.classList.remove("flex-row" , "gap-3");
+                            //navBar.classList.remove("flex-row" , "gap-3");
+    
+                            {   // メニューをデフォルトで表示
+                                sidebarCollapse.classList.add("show");
+                                sidebarCollapse.classList.remove("close");
+                            }
+                            
+                            {   // 各セクションの末尾にディスプレイいっぱいの余白を追加
+                                sectionList.forEach(e=>{
+                                    let marginSize = window.innerHeight -  e.clientHeight;
+                                    if (marginSize < 0) {
+                                        marginSize = 0;
+                                    }
+                                    e.style.marginBottom = marginSize + "px";
+                                })
+                            }
 
-                            sectionList.forEach(e=>{
-                                let marginSize = window.innerHeight -  e.clientHeight;
-                                if (marginSize < 0) {
-                                    marginSize = 0;
-                                }
-                                e.style.marginBottom = marginSize + "px";
-                            })
-
-                            fakeBar.style.removeProperty("height");
-                            document.documentElement.style.removeProperty("scroll-padding-top");
+                            {   // スマホ用の調整を解除
+                                fakeBar.style.removeProperty("height");
+                                document.documentElement.style.removeProperty("scroll-padding-top");
+                            }
                         }
 
                         // 最後のセクションだけフッター幅を確保
@@ -455,7 +495,6 @@
                         let lastSectionMargin = parseFloat(window.getComputedStyle(lastSection).getPropertyValue("margin-bottom").slice(0, -2));
                         let calculatedMargin = lastSectionMargin - footerHeight - 20;
 
-                        //lastSection.style.marginBottom = (lastSectionMargin - footerHeight - 20 ) + "px";
                         if (calculatedMargin < 0) {
                             lastSection.style.marginBottom = 0;
                         } else {
