@@ -412,8 +412,12 @@
                             navLink.classList.add("nav-link");
                             // スマホのハンバーガーメニューで項目をクリック時に閉じる
                             navItem.addEventListener("click", ()=>{
-                                sidebarCollapse.classList.remove("show")
-                                //sidebarCollapse.classList.add("close")
+                                if (window.innerWidth < widthBreakPoint) {
+                                    sidebarCollapse.classList.remove("show")
+                                    //sidebarCollapse.classList.add("close")
+                                }
+                                
+                                
                             });
 
                             navLink.href = "#" + e.id; // 内部リンク
