@@ -398,7 +398,7 @@
                             <p onclick="linkToSunset()"><b>これより下に内容はないようです。</b></p>
                         </ol>
                         <script>
-                            Array.from(document.getElementsByTagName("li")).forEach(e=>{
+                            Array.from(document.getElementById("Gyagu").getElementsByTagName("li")).forEach(e=>{
                                 e.addEventListener("click", e=>{
                                     //window.open("https://twitter.com/intent/tweet?text=ハヤオのサイトからギャグ↓" + encodeURIComponent("\n\n" + e.path[0].innerText), "_blank");
                                     //console.log(e.path[0].innerText)
