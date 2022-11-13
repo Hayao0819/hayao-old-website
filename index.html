@@ -259,7 +259,8 @@
                                 e.setAttribute("role", "button");
                                 Array.from(e.getElementsByTagName("a")).forEach(link=>{
                                     link.classList.add("text-decoration-none"); //リンクの装飾を消す
-                                    link.target = "_blank"; //リンクを別タブで開く
+                                    //link.target = "_blank"; //リンクを別タブで開く
+                                    link.style.pointerEvents = "none"; //リンクを無効化
 
                                     // li全体にリンクを作成する
                                     e.addEventListener("click", ()=>{
