@@ -382,6 +382,7 @@
                     </div>
 
                     <div id="Gyagu" data-header="ギャグ" class="section">
+                        <p>ギャグをクリックするとTwitterに投稿できます。</p>
                         <ol reversed>
                             <li>「伊藤何等？」「1等」</li>
                             <li>みっかでみかん見っかった🍊</li>
@@ -396,6 +397,16 @@
                             <p>ギャグ不足の方は<a href="https://midra.me/">Midraのサイト</a>へ</p>
                             <p onclick="linkToSunset()"><b>これより下に内容はないようです。</b></p>
                         </ol>
+                        <script>
+                            Array.from(document.getElementsByTagName("li")).forEach(e=>{
+                                e.addEventListener("click", e=>{
+                                    //window.open("https://twitter.com/intent/tweet?text=ハヤオのサイトからギャグ↓" + encodeURIComponent("\n\n" + e.path[0].innerText), "_blank");
+                                    //console.log(e.path[0].innerText)
+                                    window.open("https://twitter.com/intent/tweet?text=ハヤオのサイトからギャグ↓" + encodeURIComponent("\n\n" + e.composedPath()[0].innerText), "_blank");
+                                    //console.log(e.composedPath()[0].innerText)
+                                })
+                            })
+                        </script>
                     </div>
 
                     <!-- コピペ: https://www.tohoho-web.com/bootstrap/modal.html -->
