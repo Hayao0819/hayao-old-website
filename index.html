@@ -239,6 +239,34 @@
 
                     </div>
 
+                    <div id="Link" class="section" data-header="ハヤオのサイト">
+                        <ul class="list-group" id="hayao-link">
+                            <li><a href="/alter/index.html">Alter Linux Alpha Release</a></li>
+                            <li><a href="/blog/">ハヤオの物置き 個人ブログ</a></li>
+                            <li><a href="/buildmydist/">オリジナルUbuntu派生ディストリを自作しよう</a></li>
+                            <li><a href="/buildmydist-2/">オリジナルLinuxディストリを自作しよう2</a></li>
+                            <li><a href="/alteriso-options-generator/">AlterISO3のビルド設定ジェネレータ</a></li>
+                            <li><a href="https://hayao0819.github.io/web-notepad/index.html">Web NotePad いつか作り直す</a></li>
+                            <li><a href="/sanmoku/">学校の探究活動で作ったもの</a></li>
+                        </ul>
+                        <script>
+                            Array.from(document.getElementById("hayao-link").getElementsByTagName("li")).forEach(e=>{
+                                e.classList.add("list-group-item", "list-group-item-action");
+                                e.setAttribute("role", "button");
+                                Array.from(e.getElementsByTagName("a")).forEach(link=>{
+                                    link.classList.add("text-decoration-none"); //リンクの装飾を消す
+                                    link.target = "_blank"; //リンクを別タブで開く
+
+                                    // li全体にリンクを作成する
+                                    e.addEventListener("click", ()=>{
+                                        //location.href = link.href;
+                                        window.open(link.href, "_blank");
+                                    })
+                                });
+                            });
+                        </script>
+
+                    </div>
 
                     <div id="Game" class="section">
                         <p>ハヤオがプレイしているソシャゲです。マジョリティなオタクなのでソシャゲにはまってます。</p>
