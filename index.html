@@ -77,14 +77,16 @@
                 </div>
 
                 <!-- メニュー本体 デフォルトの表示/非表示の切り替えは CalculateStyleでclassをつけたり消したり -->
-                <div class="collapse" id="sidebar-collapse">
+                <div class="collapse show" id="sidebar-collapse">
+                    <noscript>
+                        <p class="h1 text-white">このサイトはJavaScriptを無効化していると正常に表示できません。</p>
+                    </noscript> 
 
                     <!-- ブランディングはPCでのみ表示 -->
                     <div class="text-center m-5 d-none d-md-block" id="branding">
                         <img src="./assets/icon.jpeg" alt="チルノ（ハヤオのアイコン）" class="rounded w-50" id="icon" style="min-width: 85px;" data-description='アイコン作者は<a href="https://twitter.com/unknown9san">9さん</a>です。ありがとうございます。'>
                         <a href="index-new.html" class="navbar-brand text-white">はやおのぺーじ</a>
                     </div>
-
                     <nav class="navbar navbar-dark flex-column text-center" id="navbar_container">
                         <ul class="navbar-nav flex-wrap w-100" id="navbar">
                             <li class="nav-item" id="navlastitem"><a class="nav-link" href="./index-r2.html">旧ページ</a></li>
