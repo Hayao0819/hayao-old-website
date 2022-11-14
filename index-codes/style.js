@@ -3,7 +3,7 @@
 const sectionList = Array.from(document.getElementsByClassName("section"));
 const sideBar = document.getElementById("sidebar");
 const sidebarCollapse = document.getElementById("sidebar-collapse");
-const sidebarCollapseBs = new bootstrap.Collapse(sidebarCollapse, {toggle: false})
+//const sidebarCollapseBs = new bootstrap.Collapse(sidebarCollapse, {toggle: false})
 //const widthBreakPoint = parseFloat(window.getComputedStyle(document.body).getPropertyValue("--breakpoint-md").slice(0, -2));
 // https://getbootstrap.com/docs/5.2/layout/breakpoints/
 

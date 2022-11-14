@@ -2,7 +2,7 @@
 
 const imgList = Array.from(document.getElementsByTagName("img"));
 const modal = document.getElementById("lightbox");
-const modalBs = new bootstrap.Modal(modal);
+//const modalBs = new bootstrap.Modal(modal);
 const modalImg = document.getElementById("lightbox-img");
 const modalTitle = document.getElementById("lightbox-title");
 const modalDlLink = document.getElementById("lightbox-dl-link");
