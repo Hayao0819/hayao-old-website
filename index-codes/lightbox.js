@@ -1,7 +1,9 @@
 // bodyの最後（モーダルの定義直後）に読み込まれます
 
 const imgList = Array.from(document.getElementsByTagName("img"));
-const modal = document.getElementById("lightbox-img");
+const modal = document.getElementById("lightbox");
+const modalBs = new bootstrap.Modal(modal);
+const modalImg = document.getElementById("lightbox-img");
 const modalTitle = document.getElementById("lightbox-title");
 const modalDlLink = document.getElementById("lightbox-dl-link");
 const modalDescription = document.getElementById("lightbox-description");
@@ -15,8 +17,8 @@ imgList.forEach(e=>{
     e.classList.add("btn");
     e.addEventListener("click", ()=>{
         // imgタグ
-        modal.src = e.src;
-        modal.alt = e.alt;
+        modalImgsrc = e.src;
+        modalImgalt = e.alt;
 
         // タイトル
         modalTitle.textContent = e.alt;
@@ -37,7 +39,7 @@ imgList.forEach(e=>{
 const setImgSize = () =>{
     //const widthBreakPoint = parseFloat(window.getComputedStyle(document.body).getPropertyValue("--breakpoint-md").slice(0, -2));
     imgList.forEach(e=>{
-        if (e == modal){
+        if (e == modalImg){
             return;
         }
         if (window.innerWidth < widthBreakPoint) {

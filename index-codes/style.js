@@ -3,6 +3,7 @@
 const sectionList = Array.from(document.getElementsByClassName("section"));
 const sideBar = document.getElementById("sidebar");
 const sidebarCollapse = document.getElementById("sidebar-collapse");
+const sidebarCollapseBs = new bootstrap.Collapse(sidebarCollapse, {toggle: false})
 //const widthBreakPoint = parseFloat(window.getComputedStyle(document.body).getPropertyValue("--breakpoint-md").slice(0, -2));
 // https://getbootstrap.com/docs/5.2/layout/breakpoints/
 
@@ -61,7 +62,8 @@ const CalculateStyle = () => {
 
         {   // メニューをデフォルトで閉じる
             sidebarCollapse.classList.remove("show");
-           //sidebarCollapse.classList.add("close");
+            //sidebarCollapse.classList.add("close");
+            //sidebarCollapseBs.hide();
         }
         
         {   // 各セクションの末尾のマージンを消す
@@ -84,6 +86,7 @@ const CalculateStyle = () => {
         {   // メニューをデフォルトで表示
             sidebarCollapse.classList.add("show");
             //sidebarCollapse.classList.remove("close");
+            //sidebarCollapseBs.show();
         }
         
         {   // 各セクションの末尾にディスプレイいっぱいの余白を追加
