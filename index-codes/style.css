@@ -1,0 +1,30 @@
+/* インスタのグラデーション */
+#instagram{
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+}
+
+/* h3のスタイル調整 */
+#maincontent h3{
+    font-size: 1.25em;
+}
+#maincontent h3::before{
+    content: "▶";
+    margin-right: 5px;
+}
+
+/* h2に下線を引く */
+#maincontent h2::after{
+    background-color: #000;
+    content: "";
+    display: block;
+    width: 2em;
+    height: 5px;
+    
+}
+
+/* インコ */
+.gif-emoji{
+    width: 1.5rem !important;
+    padding: 0;
+}
+

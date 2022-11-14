@@ -3,15 +3,23 @@
 <head>
 
     <!-- 
-        <TODO>
-            ・いい感じにJSを分割する
+        <Todo>
             ・グローバル変数を整理する
+            ・モーダルやCollapseのオンオフをclassではなくJSのオブジェクトで制御する
+
+        <Done>
             ・Bootstrap5に移行する
+            ・いい感じにJSを分割する
 
         <Issue>
             ・モバイルで極端に高さが小さいときにメニューが見切れる. overflow: scroll;効かない？？
             ・スマホでどうも画像サイズが小さい
+
+        <Note>
+            ・ページ全体のスクリプトは分割して記述する
+            ・各セクションだけのスクリプトはそのまま記述する
     -->
+
 
     <meta charset="UTF-8">
     <title>はやおのページ</title>
@@ -34,24 +42,20 @@
     <meta property="twitter:description" content="はやおのサイトのトップページです。自己紹介とギャグとリンクがあります。">
     <meta property="twitter:image" content="">
 
-    <!-- Bootstrap CSS -->
+    <!-- Viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous"> -->
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
-    <script>
-        const linkToSunset = ()=>{
-            location.href = "https://sunset0916.net/gyagu/";
-        }
-    </script>
+    <!-- Global JavaScript -->
+    <script src="/index-codes/global.js"></script>
 
-    <style>
-        .gif-emoji{
-            width: 1.5rem !important;
-            padding: 0;
-        }
-    </style>
+    <!-- CSS -->
+    <link rel="stylesheet" href="/index-codes/style.css">
+
 </head>
 
 <body>
@@ -61,7 +65,6 @@
 
             <!-- メニューの幅を確保するための偽要素 -->
             <div class="col-md-3 px-0 bg-dark affix" id="fakebar"></div>
-            
             
             <div class="col-md-3 bg-dark affix fixed-top overflow-auto" id="sidebar">
 
@@ -163,8 +166,6 @@
                                 e.classList.add("btn", "btn-outline-primary", "m-1");
                             })
                         </script>
-
-                        
 
                     </div>
 
@@ -289,12 +290,9 @@
                         <p><img src="./assets/pjsekai.png" alt="プロセカ" data-description="メインストーリー未視聴。苦手な音ゲーを少しは克服できたと思う。"></p>
 
                         <script>
+                            // 文字サイズを設定
                             Array.from(document.getElementById("Game").getElementsByTagName("h3")).forEach(e=>{
                                 e.classList.add("h4");
-                            })
-                            Array.from(document.getElementById("Game").getElementsByTagName("img")).forEach(e=>{
-                                //e.classList.add("img-fluid");
-                                e.dataset.toggle = "lightbox";
                             })
                         </script>
                     </div>
@@ -333,12 +331,6 @@
                                     <p>インスタグラムです。空の写真と飯テロ。たまに作業状況の報告も。</p>
                                     <a href="https://instagram.com/Hayao0819" class="btn btn-outline-primary">@Hayao0819</a>
                                 </div>
-                                <style>
-                                    /* インスタのグラデーション */
-                                    #instagram{
-                                        background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
-                                    }
-                                </style>
                             </div>
 
                             <div class="card text-center col-md-4 px-0">
@@ -377,7 +369,6 @@
                                     let li = document.createElement("li");
                                     li.innerHTML = `<a href="${commit.html_url}">${commit.commit.message}</a> ${commitDate.toLocaleString()}`;
                                     document.getElementById("loglist").insertAdjacentElement("beforeend", li);
-
                                 })
                             })
                         </script>
@@ -398,9 +389,15 @@
                             <li>シンクに向かって<code>rsync</code></li>
                             
                             <p>ギャグ不足の方は<a href="https://midra.me/">Midraのサイト</a>へ</p>
+                            <script>
+                                const linkToSunset = ()=>{
+                                    location.href = "https://sunset0916.net/gyagu/";
+                                }
+                            </script>
                             <p onclick="linkToSunset()"><b>これより下に内容はないようです。</b></p>
                         </ol>
                         <script>
+                            // ツイート用リンクを作成
                             Array.from(document.getElementById("Gyagu").getElementsByTagName("li")).forEach(e=>{
                                 e.addEventListener("click", e=>{
                                     //window.open("https://twitter.com/intent/tweet?text=ハヤオのサイトからギャグ↓" + encodeURIComponent("\n\n" + e.path[0].innerText), "_blank");
@@ -413,14 +410,13 @@
                     </div>
 
                     <!-- コピペ: https://www.tohoho-web.com/bootstrap/modal.html -->
+                    <!-- index-codes/lightbox.jsで色々操作しています -->
                     <div class="modal fade" id="lightbox" tabindex="-1" role="dialog" aria-labelledby="lightbox-label" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="lightbox-title"></h5>
-                                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
                                     <p id="lightbox-description" class="d-none"></p>
@@ -432,216 +428,18 @@
                                 </div>
                             </div>
                         </div>
+                        <script src="/index-codes/lightbox.js"></script>
                     </div>
+
                 </main>
 
                 <footer class="row">
                     <div class="col-12 text-center">
                         <p>© 2020-2022 山田ハヤオ このサイトはBootstrap 4を用いています。</p>
                     </div>
-
                 </footer>
-
-                <script>
-                    const sectionList = Array.from(document.getElementsByClassName("section"));
-                    const sideBar = document.getElementById("sidebar");
-                    const sidebarCollapse = document.getElementById("sidebar-collapse");
-                    //const widthBreakPoint = parseFloat(window.getComputedStyle(document.body).getPropertyValue("--breakpoint-md").slice(0, -2));
-                    // https://getbootstrap.com/docs/5.2/layout/breakpoints/
-                    const widthBreakPoint = 768;
-                    const navBar = document.getElementById("navbar");
-                    const mainContent = document.getElementById("maincontent");
-                    const fakeBar = document.getElementById("fakebar");
-
-                    sectionList.forEach(e=>{
-                        // サイドバーを作成
-                        {
-                            let navItem = document.createElement("li");
-                            let navLink = document.createElement("a");
-                            navItem.classList.add("nav-item");
-                            navLink.classList.add("nav-link");
-                            // スマホのハンバーガーメニューで項目をクリック時に閉じる
-                            navItem.addEventListener("click", ()=>{
-                                if (window.innerWidth < widthBreakPoint) {
-                                    sidebarCollapse.classList.remove("show")
-                                    //sidebarCollapse.classList.add("close")
-                                }
-                                
-                                
-                            });
-
-                            navLink.href = "#" + e.id; // 内部リンク
-                            navLink.textContent = e.dataset.header || e.id; // ヘッダーがなければidを表示
-                            navItem.appendChild(navLink);
-                            document.getElementById("navlastitem").insertAdjacentElement("beforebegin", navItem);
-                        }
-
-                        // セクションにh2を追加
-                        {
-                            let sectionHeader = document.createElement("h2");
-                            sectionHeader.textContent = e.dataset.header || e.id; // ヘッダーがなければidを表示
-                            sectionHeader.classList.add("fw-bold", "py-3"); //太字にして縦方向の余白を確保
-                            e.prepend(sectionHeader); // セクションの先頭に追加
-                        }
-
-                        // メニューバーの文字を白にする
-                        {
-                            Array.from(document.getElementsByClassName("nav-link")).forEach(e=>{
-                                e.classList.add("text-white", "m-2");
-                            })
-                        }
-                        
-                    })
-
-                    // BootstrapでどうしようもないレスポンシブデザインをJSでゴリ押し実装
-                    const CalculateStyle = () => {
-                        //console.log("widthBreakPoint="+widthBreakPoint);
-                        if (window.innerWidth < widthBreakPoint) {
-                            // スマホ
-                            sideBar.classList.remove("vh-100");
-                            //navBar.classList.add("flex-row", "gap-3");
-
-                            {   // メニューをデフォルトで閉じる
-                                sidebarCollapse.classList.remove("show");
-                               //sidebarCollapse.classList.add("close");
-                            }
-                            
-                            {   // 各セクションの末尾のマージンを消す
-                                sectionList.forEach(e=>{
-                                    e.style.marginBottom = 0;
-                                })
-                            }
-
-                            
-                            {   // スクロールしたときにメニューバーと重ならないようにいい感じに調整する
-                                fakeBar.style.setProperty ("height", sideBar.clientHeight + "px", "important");
-                                document.documentElement.style.setProperty ("scroll-padding-top", sideBar.clientHeight + "px", "important");
-                            }
-
-                        } else {
-                            // PC
-                            sideBar.classList.add("vh-100");
-                            //navBar.classList.remove("flex-row" , "gap-3");
-    
-                            {   // メニューをデフォルトで表示
-                                sidebarCollapse.classList.add("show");
-                                //sidebarCollapse.classList.remove("close");
-                            }
-                            
-                            {   // 各セクションの末尾にディスプレイいっぱいの余白を追加
-                                sectionList.forEach(e=>{
-                                    let marginSize = window.innerHeight -  e.clientHeight;
-                                    if (marginSize < 0) {
-                                        marginSize = 0;
-                                    }
-                                    e.style.marginBottom = marginSize + "px";
-                                })
-                            }
-
-                            {   // スマホ用の調整を解除
-                                fakeBar.style.removeProperty("height");
-                                document.documentElement.style.removeProperty("scroll-padding-top");
-                            }
-                        }
-
-                        // 最後のセクションだけフッター幅を確保
-                        let footerHeight = document.getElementsByTagName("footer")[0].clientHeight;
-                        let lastSection = sectionList[sectionList.length - 1];
-                        let lastSectionMargin = parseFloat(window.getComputedStyle(lastSection).getPropertyValue("margin-bottom").slice(0, -2));
-                        let calculatedMargin = lastSectionMargin - footerHeight - 20;
-
-                        if (calculatedMargin < 0) {
-                            lastSection.style.marginBottom = 0;
-                        } else {
-                            lastSection.style.marginBottom = calculatedMargin + "px";
-                        }
-                    }
-                    
-                    CalculateStyle();
-                    window.addEventListener("load", CalculateStyle);
-                    window.addEventListener("resize", CalculateStyle);
-                    
-                </script>
-                <!-- h2の下線 たぶんこれBootstrapだけじゃできない -->
-                <style>
-                    #maincontent h2::after{
-                        background-color: #000;
-                        content: "";
-                        display: block;
-                        width: 2em;
-                        height: 5px;
-                        
-                    }
-                </style>
-
-                <!-- 画像モーダルの作成 -->
-                <script>
-                    const imgList = Array.from(document.getElementsByTagName("img"));
-                    const modal = document.getElementById("lightbox-img");
-                    const modalTitle = document.getElementById("lightbox-title");
-                    const modalDlLink = document.getElementById("lightbox-dl-link");
-                    const modalDescription = document.getElementById("lightbox-description");
-                    imgList.forEach(e=>{
-                        if (e.dataset.lightbox == "false"){
-                            return;
-                        }
-                        e.dataset.bsToggle = "modal";
-                        e.dataset.bsTarget = "#lightbox";
-                        e.classList.add("btn");
-                        e.addEventListener("click", ()=>{
-                            // imgタグ
-                            modal.src = e.src;
-                            modal.alt = e.alt;
-
-                            // タイトル
-                            modalTitle.textContent = e.alt;
-
-                            // ダウンロードリンク
-                            modalDlLink.href = e.src;
-
-                            //説明
-                            if (e.dataset.description) {
-                                modalDescription.innerHTML = e.dataset.description;
-                                modalDescription.classList.remove("d-none");
-                            } else {
-                                modalDescription.classList.add("d-none");
-                            }
-                        })
-                    })
-
-                    const setImgSize = () =>{
-                        const widthBreakPoint = parseFloat(window.getComputedStyle(document.body).getPropertyValue("--breakpoint-md").slice(0, -2));
-                        imgList.forEach(e=>{
-                            if (e == modal){
-                                return;
-                            }
-                            if (window.innerWidth < widthBreakPoint) {
-                                e.style.width = "100%";
-                            } else {
-                                e.style.width = "40%";
-                            }
-                        })
-                    }
-                    
-                    setImgSize();
-                    window.addEventListener("load", setImgSize);
-                    window.addEventListener("resize", setImgSize);
-                </script>
-
-                <!-- h3のサイズ調整 -->
-                <style>
-                    #maincontent h3{
-                        font-size: 1.25em;
-                    }
-                    #maincontent h3::before{
-                        content: "▶";
-                        margin-right: 5px;
-                    }
-                </style>
             </div>
         </div>
-
-
     </div>
 
     <!-- JQuery and Bootstrap -->
@@ -652,5 +450,8 @@
 
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+
+    <!-- スタイル調整用JS -->
+    <script src="/index-codes/style.js"></script>
 </body>
 </html>
