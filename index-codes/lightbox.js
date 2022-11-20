@@ -17,8 +17,8 @@ imgList.forEach(e=>{
     e.classList.add("btn");
     e.addEventListener("click", ()=>{
         // imgタグ
-        modalImgsrc = e.src;
-        modalImgalt = e.alt;
+        modalImg.src = e.src;
+        modalImg.alt = e.alt;
 
         // タイトル
         modalTitle.textContent = e.alt;
