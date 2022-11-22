@@ -8,6 +8,14 @@ Msg(){
     echo -e "$@" >&2
 }
 
+sedi(){
+    if sed -h 2>&1 | grep -q GNU; then
+        sed -i "$@"
+    else
+        sed -i "" "$@"
+    fi
+}
+
 ReplaceALink(){
     Msg "Downloading index.html ..."
     readarray -t LinkSrcList < <(curl -sL "$SiteURL"  | grep "href" | tr " " "\n" | grep "^href=" | sed -e 's|href="||g' | cut -d '"' -f 1 | grep -v "^img" | grep -v "^http" | grep -v "^$" | grep -v "^#" | cut -d "#" -f 1 | sort | uniq)
@@ -16,7 +24,7 @@ ReplaceALink(){
 
     for Link in "${LinkSrcList[@]}"; do
         Msg "Replace $Link -> ${SiteURL}/${Link}"
-        sed -i "s|${Link}|${SiteURL}/${Link}|g" "$(pwd)/index.html"
+        sedi "s|${Link}|${SiteURL}/${Link}|g" "$(pwd)/index.html"
     done
 }
 
@@ -25,7 +33,7 @@ ReplaceImg(){
 
     for Img in "${ImgSrcList[@]}"; do
         Msg "Replace ${Img} to ${SiteURL}/${Img}"
-        sed -i "s|${Img}|${SiteURL}/${Img}|g" "$(pwd)/index.html"
+        sedi "s|${Img}|${SiteURL}/${Img}|g" "$(pwd)/index.html"
     done
 }
 
