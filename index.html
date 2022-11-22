@@ -3,15 +3,23 @@
 <head>
 
     <!-- 
-        <TODO>
-            ・いい感じにJSを分割する
+        <Todo>
             ・グローバル変数を整理する
+            ・モーダルやCollapseのオンオフをclassではなくJSのオブジェクトで制御する
+
+        <Done>
             ・Bootstrap5に移行する
+            ・いい感じにJSを分割する
 
         <Issue>
             ・モバイルで極端に高さが小さいときにメニューが見切れる. overflow: scroll;効かない？？
             ・スマホでどうも画像サイズが小さい
+
+        <Note>
+            ・ページ全体のスクリプトは分割して記述する
+            ・各セクションだけのスクリプトはそのまま記述する
     -->
+
 
     <meta charset="UTF-8">
     <title>はやおのページ</title>
@@ -34,22 +42,20 @@
     <meta property="twitter:description" content="はやおのサイトのトップページです。自己紹介とギャグとリンクがあります。">
     <meta property="twitter:image" content="">
 
-    <!-- Bootstrap CSS -->
+    <!-- Viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 
-    <script>
-        const linkToSunset = ()=>{
-            location.href = "https://sunset0916.net/gyagu/";
-        }
-    </script>
+    <!-- Bootstrap CSS -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous"> -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
-    <style>
-        .gif-emoji{
-            width: 1.5rem !important;
-            padding: 0;
-        }
-    </style>
+    <!-- Global JavaScript -->
+    <script src="/index-codes/global.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/index-codes/style.css">
+
 </head>
 
 <body>
@@ -60,26 +66,27 @@
             <!-- メニューの幅を確保するための偽要素 -->
             <div class="col-md-3 px-0 bg-dark affix" id="fakebar"></div>
             
-            
             <div class="col-md-3 bg-dark affix fixed-top overflow-auto" id="sidebar">
 
                 <!-- スマホでのみ表示されるハンバーガーメニュー  表示切り替えはclassで実装-->
-                <div class="navbar navbar-dark d-xs-block d-sm-block d-md-none mx-1" style="z-index: 1200;">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidebar-collapse" aria-controls="sidebar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                <div class="navbar navbar-dark d-xs-block d-sm-block d-md-none mx-1">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar-collapse" aria-controls="sidebar-collapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                     </button>
                     <a href="index-new.html" class="navbar-brand text-white">はやおのぺーじ</a>
                 </div>
 
                 <!-- メニュー本体 デフォルトの表示/非表示の切り替えは CalculateStyleでclassをつけたり消したり -->
-                <div class="collapse" id="sidebar-collapse">
+                <div class="collapse show" id="sidebar-collapse">
+                    <noscript>
+                        <p class="h1 text-white">このサイトはJavaScriptを無効化していると正常に表示できません。</p>
+                    </noscript> 
 
                     <!-- ブランディングはPCでのみ表示 -->
                     <div class="text-center m-5 d-none d-md-block" id="branding">
                         <img src="./assets/icon.jpeg" alt="チルノ（ハヤオのアイコン）" class="rounded w-50" id="icon" style="min-width: 85px;" data-description='アイコン作者は<a href="https://twitter.com/unknown9san">9さん</a>です。ありがとうございます。'>
                         <a href="index-new.html" class="navbar-brand text-white">はやおのぺーじ</a>
                     </div>
-
                     <nav class="navbar navbar-dark flex-column text-center" id="navbar_container">
                         <ul class="navbar-nav flex-wrap w-100" id="navbar">
                             <li class="nav-item" id="navlastitem"><a class="nav-link" href="./index-r2.html">旧ページ</a></li>
@@ -88,7 +95,7 @@
                 </div>
             </div>
 
-            <div class="col-md-9 py-3 h-100 ml-30" id="maincontent" style="background-color: #FAFAFA;">
+            <div class="col-md-9 py-3 h-100 ms-30" id="maincontent" style="background-color: #FAFAFA;">
                 <main class="overflow-hidden">
                     <div id="Home" class="section">
                         <p><a href="https://sunset0916.net/">サンセット</a>がいい感じにシンプルなサイトを作ってたので真似してみました。</p>
@@ -162,14 +169,12 @@
                             })
                         </script>
 
-                        
-
                     </div>
 
                     <div id="Skills" class="section" data-header="スキル">
                         <h3>最低限だけど書けるかもしれない言語</h3>
                         <table class="table">
-                            <thead class="thead-dark">
+                            <thead class="table-dark">
                                 <tr>
                                     <th scope="col">言語</th>
                                     <th scope="col">一言</th>
@@ -215,7 +220,7 @@
                         <h3>全く未経験だけどこれからやりたい言語/フレームワーク</h3>
 
                         <table class="table">
-                            <thead class="thead-dark">
+                            <thead class="table-dark">
                                 <tr>
                                     <th scope="col">言語</th>
                                     <th scope="col">一言</th>
@@ -287,12 +292,9 @@
                         <p><img src="./assets/pjsekai.png" alt="プロセカ" data-description="メインストーリー未視聴。苦手な音ゲーを少しは克服できたと思う。"></p>
 
                         <script>
+                            // 文字サイズを設定
                             Array.from(document.getElementById("Game").getElementsByTagName("h3")).forEach(e=>{
                                 e.classList.add("h4");
-                            })
-                            Array.from(document.getElementById("Game").getElementsByTagName("img")).forEach(e=>{
-                                //e.classList.add("img-fluid");
-                                e.dataset.toggle = "lightbox";
                             })
                         </script>
                     </div>
@@ -331,12 +333,6 @@
                                     <p>インスタグラムです。空の写真と飯テロ。たまに作業状況の報告も。</p>
                                     <a href="https://instagram.com/Hayao0819" class="btn btn-outline-primary">@Hayao0819</a>
                                 </div>
-                                <style>
-                                    /* インスタのグラデーション */
-                                    #instagram{
-                                        background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
-                                    }
-                                </style>
                             </div>
 
                             <div class="card text-center col-md-4 px-0">
@@ -364,20 +360,56 @@
 
                     <div id="Log" class="section" data-header="変更履歴">
                         <p>JavaScriptのFetchやDateの練習を兼ねてかんたんなものを作ってみました。</p>
-                        <ol id="loglist"></ol>
+                        <input type="number" class="form-control w-25 d-inline" placeholder="" id="log-inputbox" value="5">
+                        <!-- <ol id="loglist"></ol> -->
+                        <table class="table">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th scope="col"></th>
+                                    <th scope="col">日付</th>
+                                    <th scope="col">変更内容</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="loglist">
+                                <!-- <tr>
+                                    <td></td>
+                                    <td></td>
+                                </tr> -->
+                            </tbody>
+
+                        </table>
                         <script>
+                            // 表示する履歴の個数
+                            const logInputBox = document.getElementById("log-inputbox");
+                            const defaultLogNum = 15;
+                            logInputBox.value = defaultLogNum;
+
+                            // updateLogList (コミットの履歴の配列, 表示するログの量Int)
+                            const updateLogList = (commitList, lognum) =>{
+                                loglist.innerHTML = "";
+                                if ( typeof lognum !== "number" || lognum <= 0 || lognum > commitList.length -1) {
+                                    lognum = defaultLogNum;
+                                    logInputBox.value = defaultLogNum;
+                                }
+                                commitList.slice(1, lognum+1).forEach((commit,index)=>{
+                                    let commitDate = new Date(commit.commit.committer.date)
+                                    const loglist = document.getElementById("loglist");
+                                    let tr = document.createElement("tr");
+                                    tr.innerHTML = `<td>${index+1}</td><td>${commitDate.toLocaleString()}</td><td><a href="${commit.html_url}">${commit.commit.message}</a></td>`;
+                                    loglist.insertAdjacentElement("beforeend", tr);
+                                });
+                            }
+
                             fetch("https://api.github.com/repos/Hayao0819/hayao.fascode.net/commits").then((responce)=>{
                                 return responce.json();
                             }).then(function(commitList){
-                                commitList.slice(1, 11).forEach(commit=>{
-                                    //console.log(`${commit.commit.message} ${commit.commit.committer.date}`);
-                                    let commitDate = new Date(commit.commit.committer.date)
-                                    let li = document.createElement("li");
-                                    li.innerHTML = `<a href="${commit.html_url}">${commit.commit.message}</a> ${commitDate.toLocaleString()}`;
-                                    document.getElementById("loglist").insertAdjacentElement("beforeend", li);
+                                logInputBox.addEventListener("change", ()=>{
+                                    updateLogList(commitList, parseInt(logInputBox.value));
+                                });
+                                updateLogList(commitList, parseInt(logInputBox.value));
+                            });
 
-                                })
-                            })
                         </script>
 
                     </div>
@@ -385,6 +417,7 @@
                     <div id="Gyagu" data-header="ギャグ" class="section">
                         <p>ギャグをクリックするとTwitterに投稿できます。</p>
                         <ol reversed>
+                            <li>エーゲ海のええ外科医</li>
                             <li>「伊藤何等？」「1等」</li>
                             <li>みっかでみかん見っかった🍊</li>
                             <li>インコの淫行<img alt="インコの淫行" src="./assets/partyparrot.gif" class="gif-emoji"></li>
@@ -396,9 +429,15 @@
                             <li>シンクに向かって<code>rsync</code></li>
                             
                             <p>ギャグ不足の方は<a href="https://midra.me/">Midraのサイト</a>へ</p>
+                            <script>
+                                const linkToSunset = ()=>{
+                                    location.href = "https://sunset0916.net/gyagu/";
+                                }
+                            </script>
                             <p onclick="linkToSunset()"><b>これより下に内容はないようです。</b></p>
                         </ol>
                         <script>
+                            // ツイート用リンクを作成
                             Array.from(document.getElementById("Gyagu").getElementsByTagName("li")).forEach(e=>{
                                 e.addEventListener("click", e=>{
                                     //window.open("https://twitter.com/intent/tweet?text=ハヤオのサイトからギャグ↓" + encodeURIComponent("\n\n" + e.path[0].innerText), "_blank");
@@ -411,14 +450,13 @@
                     </div>
 
                     <!-- コピペ: https://www.tohoho-web.com/bootstrap/modal.html -->
+                    <!-- index-codes/lightbox.jsで色々操作しています -->
                     <div class="modal fade" id="lightbox" tabindex="-1" role="dialog" aria-labelledby="lightbox-label" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+                        <div class="modal-dialog modal-dialog-centered modal-xl modal-fullscreen-md-down" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="lightbox-title"></h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
                                     <p id="lightbox-description" class="d-none"></p>
@@ -426,221 +464,34 @@
                                 </div>
                                 <div class="modal-footer">
                                     <a class="btn btn-primary" id="lightbox-dl-link" download>ダウンロード</a>
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
                                 </div>
                             </div>
                         </div>
+                        <script src="/index-codes/lightbox.js"></script>
                     </div>
+
                 </main>
 
                 <footer class="row">
                     <div class="col-12 text-center">
-                        <p>© 2020-2022 山田ハヤオ このサイトはBootstrap 4を用いています。</p>
+                        <p>© 2020-2022 山田ハヤオ このサイトはBootstrap 5を用いています。</p>
                     </div>
-
                 </footer>
-
-                <script>
-                    const sectionList = Array.from(document.getElementsByClassName("section"));
-                    const sideBar = document.getElementById("sidebar");
-                    const sidebarCollapse = document.getElementById("sidebar-collapse");
-                    const widthBreakPoint = parseFloat(window.getComputedStyle(document.body).getPropertyValue("--breakpoint-md").slice(0, -2));
-                    const navBar = document.getElementById("navbar");
-                    const mainContent = document.getElementById("maincontent");
-                    const fakeBar = document.getElementById("fakebar");
-
-                    sectionList.forEach(e=>{
-                        // サイドバーを作成
-                        {
-                            let navItem = document.createElement("li");
-                            let navLink = document.createElement("a");
-                            navItem.classList.add("nav-item");
-                            navLink.classList.add("nav-link");
-                            // スマホのハンバーガーメニューで項目をクリック時に閉じる
-                            navItem.addEventListener("click", ()=>{
-                                if (window.innerWidth < widthBreakPoint) {
-                                    sidebarCollapse.classList.remove("show")
-                                    //sidebarCollapse.classList.add("close")
-                                }
-                                
-                                
-                            });
-
-                            navLink.href = "#" + e.id; // 内部リンク
-                            navLink.textContent = e.dataset.header || e.id; // ヘッダーがなければidを表示
-                            navItem.appendChild(navLink);
-                            document.getElementById("navlastitem").insertAdjacentElement("beforebegin", navItem);
-                        }
-
-                        // セクションにh2を追加
-                        {
-                            let sectionHeader = document.createElement("h2");
-                            sectionHeader.textContent = e.dataset.header || e.id; // ヘッダーがなければidを表示
-                            sectionHeader.classList.add("fw-bold", "py-3"); //太字にして縦方向の余白を確保
-                            e.prepend(sectionHeader); // セクションの先頭に追加
-                        }
-
-                        // メニューバーの文字を白にする
-                        {
-                            Array.from(document.getElementsByClassName("nav-link")).forEach(e=>{
-                                e.classList.add("text-white", "m-2");
-                            })
-                        }
-                        
-                    })
-
-                    // BootstrapでどうしようもないレスポンシブデザインをJSでゴリ押し実装
-                    const CalculateStyle = () => {
-                        if (window.innerWidth < widthBreakPoint) {
-                            // スマホ
-                            sideBar.classList.remove("vh-100");
-                            //navBar.classList.add("flex-row", "gap-3");
-
-                            {   // メニューをデフォルトで閉じる
-                                sidebarCollapse.classList.remove("show");
-                               //sidebarCollapse.classList.add("close");
-                            }
-                            
-                            {   // 各セクションの末尾のマージンを消す
-                                sectionList.forEach(e=>{
-                                    e.style.marginBottom = 0;
-                                })
-                            }
-
-                            
-                            {   // スクロールしたときにメニューバーと重ならないようにいい感じに調整する
-                                fakeBar.style.setProperty ("height", sideBar.clientHeight + "px", "important");
-                                document.documentElement.style.setProperty ("scroll-padding-top", sideBar.clientHeight + "px", "important");
-                            }
-
-                        } else {
-                            // PC
-                            sideBar.classList.add("vh-100");
-                            //navBar.classList.remove("flex-row" , "gap-3");
-    
-                            {   // メニューをデフォルトで表示
-                                sidebarCollapse.classList.add("show");
-                                //sidebarCollapse.classList.remove("close");
-                            }
-                            
-                            {   // 各セクションの末尾にディスプレイいっぱいの余白を追加
-                                sectionList.forEach(e=>{
-                                    let marginSize = window.innerHeight -  e.clientHeight;
-                                    if (marginSize < 0) {
-                                        marginSize = 0;
-                                    }
-                                    e.style.marginBottom = marginSize + "px";
-                                })
-                            }
-
-                            {   // スマホ用の調整を解除
-                                fakeBar.style.removeProperty("height");
-                                document.documentElement.style.removeProperty("scroll-padding-top");
-                            }
-                        }
-
-                        // 最後のセクションだけフッター幅を確保
-                        let footerHeight = document.getElementsByTagName("footer")[0].clientHeight;
-                        let lastSection = sectionList[sectionList.length - 1];
-                        let lastSectionMargin = parseFloat(window.getComputedStyle(lastSection).getPropertyValue("margin-bottom").slice(0, -2));
-                        let calculatedMargin = lastSectionMargin - footerHeight - 20;
-
-                        if (calculatedMargin < 0) {
-                            lastSection.style.marginBottom = 0;
-                        } else {
-                            lastSection.style.marginBottom = calculatedMargin + "px";
-                        }
-                    }
-                    
-                    CalculateStyle();
-                    window.addEventListener("load", CalculateStyle);
-                    window.addEventListener("resize", CalculateStyle);
-                    
-                </script>
-                <!-- h2の下線 たぶんこれBootstrapだけじゃできない -->
-                <style>
-                    #maincontent h2::after{
-                        background-color: #000;
-                        content: "";
-                        display: block;
-                        width: 2em;
-                        height: 5px;
-                        
-                    }
-                </style>
-
-                <!-- 画像モーダルの作成 -->
-                <script>
-                    const imgList = Array.from(document.getElementsByTagName("img"));
-                    const modal = document.getElementById("lightbox-img");
-                    const modalTitle = document.getElementById("lightbox-title");
-                    const modalDlLink = document.getElementById("lightbox-dl-link");
-                    const modalDescription = document.getElementById("lightbox-description");
-                    imgList.forEach(e=>{
-                        if (e.dataset.lightbox == "false"){
-                            return;
-                        }
-                        e.dataset.toggle = "modal";
-                        e.dataset.target = "#lightbox";
-                        e.classList.add("btn");
-                        e.addEventListener("click", ()=>{
-                            // imgタグ
-                            modal.src = e.src;
-                            modal.alt = e.alt;
-
-                            // タイトル
-                            modalTitle.textContent = e.alt;
-
-                            // ダウンロードリンク
-                            modalDlLink.href = e.src;
-
-                            //説明
-                            if (e.dataset.description) {
-                                modalDescription.innerHTML = e.dataset.description;
-                                modalDescription.classList.remove("d-none");
-                            } else {
-                                modalDescription.classList.add("d-none");
-                            }
-                        })
-                    })
-
-                    const setImgSize = () =>{
-                        const widthBreakPoint = parseFloat(window.getComputedStyle(document.body).getPropertyValue("--breakpoint-md").slice(0, -2));
-                        imgList.forEach(e=>{
-                            if (e == modal){
-                                return;
-                            }
-                            if (window.innerWidth < widthBreakPoint) {
-                                e.style.width = "100%";
-                            } else {
-                                e.style.width = "40%";
-                            }
-                        })
-                    }
-                    
-                    setImgSize();
-                    window.addEventListener("load", setImgSize);
-                    window.addEventListener("resize", setImgSize);
-                </script>
-
-                <!-- h3のサイズ調整 -->
-                <style>
-                    #maincontent h3{
-                        font-size: 1.25em;
-                    }
-                    #maincontent h3::before{
-                        content: "▶";
-                        margin-right: 5px;
-                    }
-                </style>
             </div>
         </div>
-
-
     </div>
 
     <!-- JQuery and Bootstrap -->
+    <!--
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+    -->
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+
+    <!-- スタイル調整用JS -->
+    <script src="/index-codes/style.js"></script>
 </body>
 </html>
