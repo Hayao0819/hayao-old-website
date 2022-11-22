@@ -360,11 +360,12 @@
 
                     <div id="Log" class="section" data-header="変更履歴">
                         <p>JavaScriptのFetchやDateの練習を兼ねてかんたんなものを作ってみました。</p>
-                        <input type="number" class="form-control w-25 d-inline d-none" placeholder="" id="log-inputbox">
+                        <input type="number" class="form-control w-25 d-inline" placeholder="" id="log-inputbox" value="5">
                         <!-- <ol id="loglist"></ol> -->
                         <table class="table">
                             <thead class="table-dark">
                                 <tr>
+                                    <th scope="col"></th>
                                     <th scope="col">日付</th>
                                     <th scope="col">変更内容</th>
                                 </tr>
@@ -384,31 +385,31 @@
                             const defaultLogNum = 15;
                             logInputBox.value = defaultLogNum;
 
-                            const updateLogTable = lognum => {
-                                if ( typeof lognum !== "number" || lognum < 0 || lognum > 100 ) {
+                            // updateLogList (コミットの履歴の配列, 表示するログの量Int)
+                            const updateLogList = (commitList, lognum) =>{
+                                loglist.innerHTML = "";
+                                if ( typeof lognum !== "number" || lognum <= 0 || lognum > commitList.length -1) {
                                     lognum = defaultLogNum;
+                                    logInputBox.value = defaultLogNum;
                                 }
-                                fetch("https://api.github.com/repos/Hayao0819/hayao.fascode.net/commits").then((responce)=>{
-                                    return responce.json();
-                                }).then(function(commitList){
-                                    loglist.innerHTML = "";
-                                    
-                                    commitList.slice(1, lognum+1).forEach(commit=>{
-                                        //console.log(`${commit.commit.message} ${commit.commit.committer.date}`);
-                                        let commitDate = new Date(commit.commit.committer.date)
-
-                                        const loglist = document.getElementById("loglist");
-                                        let tr = document.createElement("tr");
-                                        tr.innerHTML = `<td>${commitDate.toLocaleString()}</td><td><a href="${commit.html_url}">${commit.commit.message}</a></td>`;
-                                        loglist.insertAdjacentElement("beforeend", tr);
-                                    });
+                                commitList.slice(1, lognum+1).forEach((commit,index)=>{
+                                    let commitDate = new Date(commit.commit.committer.date)
+                                    const loglist = document.getElementById("loglist");
+                                    let tr = document.createElement("tr");
+                                    tr.innerHTML = `<td>${index+1}</td><td>${commitDate.toLocaleString()}</td><td><a href="${commit.html_url}">${commit.commit.message}</a></td>`;
+                                    loglist.insertAdjacentElement("beforeend", tr);
                                 });
                             }
 
-                            updateLogTable(parseInt(logInputBox.value));
-                            logInputBox.addEventListener("change", ()=>{
-                                updateLogTable(parseInt(logInputBox.value));
+                            fetch("https://api.github.com/repos/Hayao0819/hayao.fascode.net/commits").then((responce)=>{
+                                return responce.json();
+                            }).then(function(commitList){
+                                logInputBox.addEventListener("change", ()=>{
+                                    updateLogList(commitList, parseInt(logInputBox.value));
+                                });
+                                updateLogList(commitList, parseInt(logInputBox.value));
                             });
+
                         </script>
 
                     </div>
@@ -416,6 +417,7 @@
                     <div id="Gyagu" data-header="ギャグ" class="section">
                         <p>ギャグをクリックするとTwitterに投稿できます。</p>
                         <ol reversed>
+                            <li>エーゲ海のええ外科医</li>
                             <li>「伊藤何等？」「1等」</li>
                             <li>みっかでみかん見っかった🍊</li>
                             <li>インコの淫行<img alt="インコの淫行" src="./assets/partyparrot.gif" class="gif-emoji"></li>
