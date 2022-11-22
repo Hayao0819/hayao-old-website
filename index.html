@@ -83,9 +83,9 @@
                     </noscript> 
 
                     <!-- ブランディングはPCでのみ表示 -->
-                    <div class="text-center m-5 d-none d-md-block" id="branding">
-                        <img src="./assets/icon.jpeg" alt="チルノ（ハヤオのアイコン）" class="rounded w-50" id="icon" style="min-width: 85px;" data-description='アイコン作者は<a href="https://twitter.com/unknown9san">9さん</a>です。ありがとうございます。'>
-                        <a href="index-new.html" class="navbar-brand text-white">はやおのぺーじ</a>
+                    <div class="text-center m-1 d-none d-md-block" id="branding">
+                        <p><img src="./assets/icon.jpeg" alt="チルノ（ハヤオのアイコン）" class="rounded w-75" id="icon" data-description='アイコン作者は<a href="https://twitter.com/unknown9san">9さん</a>です。ありがとうございます。'></p>
+                        <p><a href="/index.html" class="navbar-brand text-white fw-bold">はやおのぺーじ</a></p>
                     </div>
                     <nav class="navbar navbar-dark flex-column text-center" id="navbar_container">
                         <ul class="navbar-nav flex-wrap w-100" id="navbar">
@@ -439,6 +439,10 @@
                         <script>
                             // ツイート用リンクを作成
                             Array.from(document.getElementById("Gyagu").getElementsByTagName("li")).forEach(e=>{
+                                // カーソルをポインターに設定
+                                e.setAttribute("role", "button");
+
+                                // クリック時のイベントを設定
                                 e.addEventListener("click", e=>{
                                     //window.open("https://twitter.com/intent/tweet?text=ハヤオのサイトからギャグ↓" + encodeURIComponent("\n\n" + e.path[0].innerText), "_blank");
                                     //console.log(e.path[0].innerText)
