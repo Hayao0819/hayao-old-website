@@ -28,3 +28,8 @@
     padding: 0;
 }
 
+
+#icon{
+    min-width: 85px;
+    max-width: 200px;
+}
