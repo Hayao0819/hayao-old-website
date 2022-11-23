@@ -36,7 +36,7 @@
             <!-- 余白 -->
             <div class="col-md-3"></div>
 
-            <div class="col-md-6 vh-100">
+            <div class="col-md-6">
 
                 <main>
                     <div class="py-5">
@@ -50,20 +50,23 @@
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <input class="btn btn-primary" type="button" value="作成" onclick="run()">
+
+                                <input class="btn btn-primary" type="button" value="作成" id="runBtn">
                             </div>
 
                             <div class="mb-3">
                                 <label for="output" class="form-label">Result</label>
                                 <input class="form-control w-100" type="text" name="output" id="output" readonly style="width: 50%;"></p>
+                                
                             </div>
                         </form>
 
-                        <div style="display: none;" id="div_test">
+                        <div id="div_test">
                             <form>
-                                <div class="form-text">上のリンクを貼りました。ここでテストできます。</div>
+                                <div class="form-text">上のリンクをここでテストできます。</div>
                                 <div class="mb-3">
-                                    <input class="btn btn-outline-primary" type="button" value="テストする" onclick="test()">
+                                    <input class="btn btn-outline-primary" type="button" value="コピーする" id="copyBtn">
+                                    <input class="btn btn-outline-primary" type="button" value="テストする" id="testBtn">
                                 </div>
                             </form>
                         </div>
@@ -78,47 +81,71 @@
     </div>
 
     <script>
-        var result = null;
-        function run(){
-            // データを取得
-            let url=document.getElementById("url").value;
-            let output=document.getElementById("output");
-
-            if (! url){
-                output.value="";
-                return 0;
-            }else if(url.indexOf("http") !== 0 ){
-                url="https://" + url;
-                document.getElementById("url").value=url;
+        class App{
+            constructor(){
+                this.url = document.getElementById("url");
+                this.output = document.getElementById("output");
             }
-
-            let xhr = new XMLHttpRequest();
-            xhr.open("POST",`https://1lil.li/p/`, true);
-            send_text=`l=${url}`
-            xhr.onreadystatechange = function() {
-                console.log(xhr.status)
-                if(xhr.readyState === 4 && xhr.status === 201) {
-                    result=xhr.responseText;
-                    output.value=result;
-
-                    // テストを表示
-                    let div_test = document.getElementById("div_test");
-                    div_test.style.display = "inline";
-                    return;
+            checkurl(){
+                if (! this.url.value) {
+                    alert("URLを入力してください。");
+                    this.output.value="";
+                    return false;
+                }
+                if (this.url.value.indexOf("http") != 0) {
+                    this.url.value = "http://" + this.url.value;
+                }
+                return true;
+            }
+            checkresult(){
+                if (! this.output.value) {
+                    alert("まずは短縮URLを作成してください。");
+                    return false;
+                }
+                return true;
+            }
+            run(){
+                // URLのチェック
+                if (! this.checkurl() ) {
+                    return
                 }
 
-                if(xhr.readyState === 4 && xhr.status === 400){
-                    alert("正しいURLを入力してください");
-                    return;
+                const url = this.url.value;
+                const output = this.output;
+
+                let xhr = new XMLHttpRequest();
+                xhr.open("POST",`https://1lil.li/p/`, true);
+                const send_text=`l=${url}`
+                xhr.onreadystatechange = function() {
+                    //console.log(xhr.status)
+                    if(xhr.readyState === 4 && xhr.status === 201) {
+                        output.value=xhr.responseText;
+                        return;
+                    }
+    
+                    if(xhr.readyState === 4 && xhr.status === 400){
+                        alert("正しいURLを入力してください");
+                        return;
+                    }
                 }
+                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                xhr.send(send_text);
             }
-            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-            xhr.send(send_text);
+            test(){
+                if (! this.checkresult()) return;
+                window.open(this.output.value, '_blank');
+            }
+            copy(){
+                if (! this.checkresult()) return;
+                this.output.select();
+                document.execCommand("copy");
+            }
         }
 
-        function test(){
-            window.open(result, "_blank");
-        }
+        const app = new App();
+        document.getElementById("runBtn").addEventListener("click", () => app.run() );
+        document.getElementById("testBtn").addEventListener("click", () => app.test() );
+        document.getElementById("copyBtn").addEventListener("click", () => app.copy() );
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
