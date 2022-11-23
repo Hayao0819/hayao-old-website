@@ -28,8 +28,21 @@
     padding: 0;
 }
 
-
+/* PCで左上に表示されるアイコン　*/
 #icon{
     min-width: 85px;
     max-width: 200px;
+}
+
+/* Contactのカード */
+#Contact .bi{
+    font-size: 5rem;
+    color: white;
+}
+.card-title{
+    height: 10rem;
+}
+
+.card-title img{
+    width: 5rem;
 }
