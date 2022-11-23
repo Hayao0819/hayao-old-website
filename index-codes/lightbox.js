@@ -39,6 +39,10 @@ imgList.forEach(e=>{
 const setImgSize = () =>{
     //const widthBreakPoint = parseFloat(window.getComputedStyle(document.body).getPropertyValue("--breakpoint-md").slice(0, -2));
     imgList.forEach(e=>{
+        if (e.dataset.lightbox == "false"){
+            return;
+        }
+        
         if (e == modalImg){
             return;
         }
