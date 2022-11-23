@@ -5,24 +5,70 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>迫真縦棒ドメインのウェブUI</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
-<body style="width: 100vw;">
-    <div>
-        <h1>迫真縦棒ドメインのウェブUI</h1>
-        <p>迫真縦棒ドメインの短縮URLの作成をするためのインターフェースです。</p>
-        <form autocomplete="off">
-            <h2>URLを入力</h2>
-            <p><input type="text" name="url" id="url" style="width: 50%;"><input type="button" value="作成" onclick="run()"></p>
 
-            <h2>結果</h2>
-            <p><input type="text" name="output" id="output" readonly style="width: 50%;"></p>
-        </form>
-    </div>
+<body>
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-md navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">迫真縦棒ドメイン</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-    <div style="display: none;" id="div_test">
-        <h2>テスト</h2>
-        <p>上のリンクを貼りました。ここでテストできます。</p>
-        <p><input type="button" value="テストする" onclick="test()"></p>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="../index.html">このサイトの作者</a></li>
+                        <li class="nav-item"><a class="nav-link" href="https://1lil.li/">本家縦棒ドメイン</a></li>
+                        <li class="nav-item"><a class="nav-link" href="https://yamad.me/">ドメイン所有者</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="row">
+            <!-- 余白 -->
+            <div class="col-md-3"></div>
+
+            <div class="col-md-6 vh-100">
+                <main>
+                    <div class="py-5">
+                        <div>迫真縦棒ドメインの短縮URLの作成をするためのインターフェースです。</div>
+
+                        <form autocomplete="off">
+                            <div class="mb-3">
+                                <input class="form-control w-100" type="text" name="url" id="url" style="width: 50%;">
+                                <div class="form-text">
+                                    <code>http</code>から始まるURLを入力してください。
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <input class="btn btn-primary" type="button" value="作成" onclick="run()">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="output" class="form-label">Result</label>
+                                <input class="form-control w-100" type="text" name="output" id="output" readonly style="width: 50%;"></p>
+                            </div>
+                        </form>
+
+                        <div style="display: none;" id="div_test">
+                            <form>
+                                <div class="form-text">上のリンクを貼りました。ここでテストできます。</div>
+                                <div class="mb-3">
+                                    <input class="btn btn-outline-primary" type="button" value="テストする" onclick="test()">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </main>
+            </div>
+
+
+
+            <div class="col-md-3"></div>
+        </div>
     </div>
 
     <script>
@@ -68,5 +114,7 @@
             window.open(result, "_blank");
         }
     </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>
