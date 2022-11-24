@@ -113,6 +113,10 @@
 <p><code>hidden.bs.tooltip</code>イベントをハンドルして、Tooltipが隠れたときに再び<code>disable</code>します。</p>
 <p>個人的なポイントは、このJSを<code>bootstrap.bundle.min.js</code>を読み込んだあとに実行することですね。</p>
 <p>Bootstrap読み込み前に<code>&lt;script></code>で埋め込んでいるせいで<code>bootstrap is not defined</code>で30分ほど困ってました。</p>
+<p>他には<code>data-bs-trigger="manual"</code>や<code>data-bs-trigger="click"</code>を設定してはいけません。</p>
+<p>これを設定してしてしまうと、閉じる動作が面倒になります。<code>manual</code>を設定すると自分で閉じるタイミングも実装する必要があり、<code>click</code>にするとツールチップがボタンを再びクリックするまで閉じなくなってしまいます。</p>
+<p>デフォルト動作のままで追加処理を行ってあげることがいい感じになるコツです。</p>
+<p>「<code>manual</code>に設定した上でホバーが外れたときに自動で閉じる」なんて実装でもいいと思いますが気が向いたら。</p>
 <h2 id=終わり>終わり</h2>
 <p>Bootstrap、JSやSCSSのほうまで弄りたいですね。</p>
 </div>
