@@ -35,7 +35,7 @@ tooltip.disable()
 
 tooltipElement.addEventListener("click", function() {
     tooltip.enable()
-    navigator.clipboard.writeText("Hayao0819#2661");
+    navigator.clipboard.writeText("クリップビードにコピーしたいテキストをほげほげ");
     tooltip.show()
 });
 
