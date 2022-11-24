@@ -56,6 +56,14 @@ tooltipElement.addEventListener("hidden.bs.tooltip", ()=>{
 
 Bootstrap読み込み前に`<script>`で埋め込んでいるせいで`bootstrap is not defined`で30分ほど困ってました。
 
+他には`data-bs-trigger="manual"`や`data-bs-trigger="click"`を設定してはいけません。
+
+これを設定してしてしまうと、閉じる動作が面倒になります。`manual`を設定すると自分で閉じるタイミングも実装する必要があり、`click`にするとツールチップがボタンを再びクリックするまで閉じなくなってしまいます。
+
+デフォルト動作のままで追加処理を行ってあげることがいい感じになるコツです。
+
+「`manual`に設定した上でホバーが外れたときに自動で閉じる」なんて実装でもいいと思いますが気が向いたら。
+
 ## 終わり
 
 Bootstrap、JSやSCSSのほうまで弄りたいですね。
