@@ -78,6 +78,27 @@
 <article class="list__item post">
 <header class=list__header>
 <h2 class="list__title post__title">
+<a href=/blog/posts/20221124/bootstrap-tooltip-onclick/ rel=bookmark>
+BootstrapのTooltipをクリックされたときのみ表示する
+</a>
+</h2>
+<div class="list__meta meta"><div class="meta__item-author meta__item">
+<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2.0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class=meta__text>山田ハヤオ</span>
+</div>
+<div class="meta__item-datetime meta__item">
+<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class=meta__text datetime=2022-11-24T22:16:46+09:00>November 24, 2022</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class=meta__text><a class=meta__link href=/blog/categories/%E3%83%96%E3%83%AD%E3%82%B0/ rel=category>ブログ</a>, <a class=meta__link href=/blog/categories/%E3%83%97%E3%83%A9%E3%82%A4%E3%83%99%E3%83%BC%E3%83%88/ rel=category>プライベート</a>, <a class=meta__link href=/blog/categories/%E6%8A%80%E8%A1%93%E7%B3%BB/ rel=category>技術系</a>
+</span>
+</div></div>
+</header>
+<div class="content list__excerpt post__content clearfix">
+クリップボードにコピーしたときにのみメッセージを表示したいと思い、BootstrapのTooltipで実装したのでそのメモです。 環境 Bootstrap 5のbootstrap.bundle.min.jsをCDNで読み込んでいます。 HTML &lt;button type="button" class="btn btn-outline-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="コピーしました" id="discord-copy"> ボタン &lt;/button> JavaScript const tooltipElement = document.getElementById("discord-copy") const tooltip = new bootstrap.Tooltip(tooltipElement) tooltip.disable() tooltipElement.addEventListener("click", function() { tooltip.enable() navi
+</div>
+<div class="list__footer clearfix">
+<a class="list__footer-readmore btn" href=/blog/posts/20221124/bootstrap-tooltip-onclick/>Read more…</a>
+</div>
+</article><article class="list__item post">
+<header class=list__header>
+<h2 class="list__title post__title">
 <a href=/blog/posts/20221123/tatebou/ rel=bookmark>
 Tatebou
 </a>
@@ -468,27 +489,6 @@ Alter Linux i686のテスト中にmkinitcpioで失敗したのでログ。 な�
 <div class="list__footer clearfix">
 <a class="list__footer-readmore btn" href=/blog/posts/20220309/number-is-important/>Read more…</a>
 </div>
-</article><article class="list__item post">
-<header class=list__header>
-<h2 class="list__title post__title">
-<a href=/blog/posts/20220306/wine-fix-font/ rel=bookmark>
-Wineでフォントの文字化けを直すメモ
-</a>
-</h2>
-<div class="list__meta meta"><div class="meta__item-author meta__item">
-<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2.0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class=meta__text>山田ハヤオ</span>
-</div>
-<div class="meta__item-datetime meta__item">
-<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class=meta__text datetime=2022-03-06T15:38:36+09:00>March 06, 2022</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class=meta__text><a class=meta__link href=/blog/categories/%E3%83%96%E3%83%AD%E3%82%B0/ rel=category>ブログ</a>, <a class=meta__link href=/blog/categories/%E6%8A%80%E8%A1%93%E7%B3%BB/ rel=category>技術系</a>
-</span>
-</div></div>
-</header>
-<div class="content list__excerpt post__content clearfix">
-Wine にOffice 2010を入れたけどフォントがバグったのでメモ 先に結論だけ言うと、下の2つのサイトの方法で完全に修正できた。 http://battleformac.blog.jp/archives/52366709.html https://linux.just4fun.biz/?Ubuntu/Wine64%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%A8%E3%83%95%E3%82%A9%E3%83%B3%E3%83%88%E8%A8%AD%E5%AE%9A フォント変更、Wineで長年の疑問だったのでようやくこれで好きにいじれるようになった レジストリパッチ フォントをヒラギノ W5に置き換えるレジストリパッチ Windows Registry Editor Version 5.00 [HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\FontLink\SystemLink] "MS P明朝"=&qu
-	</div>
-<div class="list__footer clearfix">
-<a class="list__footer-readmore btn" href=/blog/posts/20220306/wine-fix-font/>Read more…</a>
-</div>
 </article>
 </main>
 <div class=pagination>
@@ -501,11 +501,11 @@ Wine にOffice 2010を入れたけどフォントがバグったのでメモ 先
 <h4 class=widget__title>Recent Posts</h4>
 <div class=widget__content>
 <ul class=widget__list>
+<li class=widget__item><a class=widget__link href=/blog/posts/20221124/bootstrap-tooltip-onclick/>BootstrapのTooltipをクリックされたときのみ表示する</a></li>
 <li class=widget__item><a class=widget__link href=/blog/posts/20221123/tatebou/>Tatebou</a></li>
 <li class=widget__item><a class=widget__link href=/blog/posts/20221123/livecd-room/>ライブCDの部屋の陰謀論の影響と対策</a></li>
 <li class=widget__item><a class=widget__link href=/blog/posts/20221114/twitter-adblock/>Twitterの広告ブロックをする方法</a></li>
 <li class=widget__item><a class=widget__link href=/blog/posts/20221113/new-top-page/>新しいトップページを作った報告</a></li>
-<li class=widget__item><a class=widget__link href=/blog/posts/20221029/get-css-variable/>CSSのカスタムプロパティをJavaScriptで取得する</a></li>
 </ul>
 </div>
 </div>
