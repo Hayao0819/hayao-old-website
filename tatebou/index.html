@@ -8,6 +8,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 
+<!--
+    Todo 
+    ・ローカルストレージで履歴保存を実装する
+    ・現状モーダルとボタンだけ実装してボタンを非表示にしてある
+-->
 <body>
     <div class="container-fluid">
 
@@ -25,6 +30,7 @@
                             <li class="nav-item"><a class="nav-link" href="../index.html">このサイトの作者</a></li>
                             <li class="nav-item"><a class="nav-link" href="https://1lil.li/">本家縦棒ドメイン</a></li>
                             <li class="nav-item"><a class="nav-link" href="https://yamad.me/">ドメイン所有者</a></li>
+                            <li class="nav-item"><a class="nav-link" href="https://github.com/Hayao0819/hayao.fascode.net/tree/master/tatebou">ソースコード</a></li>
                         </ul>
                     </div>
                 </div>
@@ -51,13 +57,13 @@
                             </div>
 
                             <div class="mb-3">
-                                <input class="btn btn-primary" type="button" value="作成" id="runBtn">
+                                <input class="btn btn-primary"   type="button" value="作成" id="runBtn">
+                                <input class="btn btn-secondary d-none" type="button" value="履歴" id="historyBtn" data-bs-toggle="modal" data-bs-target="#historyModal">
                             </div>
 
                             <div class="mb-3">
                                 <label for="output" class="form-label">Result</label>
                                 <input class="form-control w-100" type="text" name="output" id="output" readonly style="width: 50%;"></p>
-                                
                             </div>
                         </form>
 
@@ -87,6 +93,43 @@
             </div>
 
             <div class="col-md-3"></div>
+        </div>
+
+        <!-- 履歴モーダル -->
+        <div class="modal fade" id="historyModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="historyModalLavel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="historyModalLavel">履歴</h5>
+                        
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>ローカルに保存されている短縮URLの作成履歴です。</p>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">作成日時</th>
+                                    <th scope="col">短縮URL</th>
+                                    <th scope="col">元URL</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>https://1lil.li/l/IIII1I11iI1</td>
+                                    <td>https://google.com</td>
+                                    <td>
+                                        <input class="btn btn-outline-primary" type="button" value="コピーする" class="copyBtn">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer"><button type="button" class="btn btn-primary" data-bs-dismiss="modal">閉じる</button></div>
+                </div>
+            </div>
         </div>
     </div>
 
