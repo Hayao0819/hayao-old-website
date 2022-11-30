@@ -32,27 +32,29 @@
     ・現状モーダルとボタンだけ実装してボタンを非表示にしてある
 -->
 <body>
-    <div class="container-fluid">
+    <div class="container-fluid position-relative vh-100">
 
         <!-- ヘッダー -->
         <div class="row">
-            <nav class="navbar navbar-expand-md navbar-light bg-light">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="#">迫真縦棒短縮URL</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
+            <header>
+                <nav class="navbar navbar-expand-md navbar-light bg-light">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="#">迫真縦棒短縮URL</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
 
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item"><a class="nav-link" href="../index.html">このサイトの作者</a></li>
-                            <li class="nav-item"><a class="nav-link" href="https://1lil.li/">本家縦棒ドメイン</a></li>
-                            <li class="nav-item"><a class="nav-link" href="https://yamad.me/">ドメイン所有者</a></li>
-                            <li class="nav-item"><a class="nav-link" href="https://github.com/Hayao0819/hayao.fascode.net/tree/master/tatebou">ソースコード</a></li>
-                        </ul>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item"><a class="nav-link" href="../index.html">このサイトの作者</a></li>
+                                <li class="nav-item"><a class="nav-link" href="https://1lil.li/">本家縦棒ドメイン</a></li>
+                                <li class="nav-item"><a class="nav-link" href="https://yamad.me/">ドメイン所有者</a></li>
+                                <li class="nav-item"><a class="nav-link" href="https://github.com/Hayao0819/hayao.fascode.net/tree/master/tatebou">ソースコード</a></li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-            </nav>
+                </nav>
+            </header>
         </div>
 
         
@@ -111,6 +113,13 @@
             </div>
 
             <div class="col-md-3"></div>
+        </div>
+
+        <div class="row position-absolute bottom-0 w-100">
+            <footer class="d-flex justify-content-between h6 fw-lighter">
+                <p class="text-muted">(c)2022 Yamada Hayao</p>
+                <p class="text-muted">Special thanks to yamaD</p>
+            </footer>
         </div>
 
         <!-- 履歴モーダル -->
