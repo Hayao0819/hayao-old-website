@@ -137,7 +137,43 @@
                             <tbody id="hitoryTableBody"></tbody>
                         </table>
                     </div>
-                    <div class="modal-footer"><button type="button" class="btn btn-primary" data-bs-dismiss="modal">閉じる</button></div>
+                    <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-secondary" data-bs-target="#historyRemoveConfirmModal" data-bs-toggle="modal">削除</button>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">閉じる</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 履歴削除 -->
+        <div class="modal fade" id="historyRemoveConfirmModal" data-bs-keyboard="false" tabindex="-1" aria-labelledby="historyModalLavel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="historyModalLavel">履歴の削除</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>作成履歴を削除してもよろしいですか？</p>
+                        <div class="d-flex flex-row-reverse">
+                            <button type="button" class="btn btn-danger m-2" data-bs-target="#historyRemovedModal" data-bs-toggle="modal" id="historyRemoveBtn">削除する</button>
+                            <button type="button" class="btn btn-secondary m-2" data-bs-target="#historyModal" data-bs-toggle="modal">削除しない</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="historyRemovedModal" data-bs-keyboard="false" tabindex="-1" aria-labelledby="historyModalLavel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="historyModalLavel">履歴を削除しました</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">閉じる</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -197,9 +233,12 @@
                 localStorage.setItem(this.keyName, JSON.stringify(this.history));
             }
             loadFromLocal(){
-                this.history = JSON.parse(localStorage.getItem(this.keyName));
+                this.history = JSON.parse(localStorage.getItem(this.keyName)) || [];
                 this.history.forEach(i=>{
-                    let item = new HistoryItem(i.date, i.origURL, i.shortURL);
+                    //console.log(...Object.values(i))
+                    //let item = new HistoryItem(i.date, i.origURL, i.shortURL); // HistoryItem.arrayで定義されている配列
+                    let item = new HistoryItem(...Object.values(i));
+
                     this.table.appendChild(item.makeTable());
                 })
             }
@@ -207,6 +246,11 @@
                 let item = new HistoryItem(date, origURL, shortURL);
                 this.history.push(item.array());
                 this.table.insertAdjacentElement("beforeend", item.makeTable());
+                this.saveToLocal();
+            }
+            remove(){
+                this.history = [];
+                this.table.innerHTML = "";
                 this.saveToLocal();
             }
         }
@@ -292,6 +336,7 @@
         document.getElementById("runBtn").addEventListener("click", () => app.run() );
         document.getElementById("testBtn").addEventListener("click", () => app.test() );
         document.getElementById("copyBtn").addEventListener("click", () => app.copy() );
+        document.getElementById("historyRemoveBtn").addEventListener("click", () => app.history.remove() );
     </script>
 
 </body>
