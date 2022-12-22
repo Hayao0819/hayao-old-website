@@ -471,7 +471,7 @@
                     <div id="Gyagu" data-header="ギャグ" class="section">
                         <p>俺のサイト、うるさいとwwww</p>
                         <p>ギャグをクリックするとTwitterに投稿できます。</p>
-                        <ol reversed>
+                        <ol reversed id="gyagu-list">
                             <li>エーゲ海のええ外科医</li>
                             <li>「伊藤何等？」「1等」</li>
                             <li>みっかでみかん見っかった🍊</li>
@@ -482,18 +482,21 @@
                             <li>apt install アデノシン三リン酸</li>
                             <li>会場！</li>
                             <li>シンクに向かって<code>rsync</code></li>
-                            
-                            <p>ギャグ不足の方は<a href="https://midra.me/">Midraのサイト</a>/<a href="https://lutica.net/gyagu.html">海老瀬 るちかのサイト</a>へ</p>
-                            <script>
-                                const linkToSunset = ()=>{
-                                    location.href = "https://sunset0916.net/gyagu/";
-                                }
-                            </script>
-                            <p onclick="linkToSunset()"><b>これより下に内容はないようです。</b></p>
                         </ol>
+
+                        <h3>ギャグ不足の方へ</h3>
+                        <p>友達のサイトもうるさいとwww</p>
+                        <ul>
+                            <li><a href="https://sunset0916.net/gyagu/">サンセットのウェブサイト</a></li>
+                            <li><a href="https://midra.me/">Midraのサイト</a></li>
+                            <li><a href="https://lutica.net/gyagu.html">海老瀬 るちか</a></li>
+                            <li><a href="https://lunachi.me/gyagu/index.html">るなち</a></li>
+                        </ul>
+
+                        <p><b>これより下に内容はないようです。</b></p>
                         <script>
                             // ツイート用リンクを作成
-                            Array.from(document.getElementById("Gyagu").getElementsByTagName("li")).forEach(e=>{
+                            Array.from(document.getElementById("gyagu-list").children).forEach(e=>{
                                 // カーソルをポインターに設定
                                 e.setAttribute("role", "button");
 
