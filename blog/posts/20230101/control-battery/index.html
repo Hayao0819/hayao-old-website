@@ -3,12 +3,12 @@
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
 <meta http-equiv=x-ua-compatible content="IE=edge">
-<title>Youtube Revancedを最も簡単に導入する方法 - ハヤオの物置き</title>
+<title>Magiskを使ってAndroidの充電状態を管理する - ハヤオの物置き</title>
 <script>(function(a,b){a[b]=a[b].replace("no-js","js")})(document.documentElement,"className")</script>
 <meta name=description content>
 <meta name=twitter:card content="summary">
-<meta name=twitter:title content="Youtube Revancedを最も簡単に導入する方法">
-<meta name=twitter:description content="警告 こんなツールを見つけたよというだけです。すべて自己責任でお願いします。 依存関係をインストールする adbは言わずもがな。 更に追加でAzul JDK17をインストールする。 スクリプトをダウンロードして実行 ここから自分のOSに合ったバイナリをダウンロードする。 あとはコマンドラインから実行権限を付与して実行する。 あとは全部自">
+<meta name=twitter:title content="Magiskを使ってAndroidの充電状態を管理する">
+<meta name=twitter:description content="あけましておめでとうございます。今年もよろしくお願い致します。 新年早々暇すぎてAndroiのいい感じのモジュールを見かけたのでメモ。 Advanced Charging Controller 名前の通り充電をコントロールするためのツール。Magisk上でCLIツールとして動くらしい。 色々ネットのフォーラムとか漁ってると配布場所が複数あるけど、素直に公式のGitHubから持">
 <link rel=preconnect href=https://fonts.gstatic.com crossorigin>
 <link rel=dns-prefetch href=//fonts.googleapis.com>
 <link rel=dns-prefetch href=//fonts.gstatic.com>
@@ -76,25 +76,34 @@
 <article class=post>
 <header class=post__header>
 <style>.post__title{width:70%}</style>
-<h1 class=post__title>Youtube Revancedを最も簡単に導入する方法</h1>
+<h1 class=post__title>Magiskを使ってAndroidの充電状態を管理する</h1>
 <div class="post__meta meta"><div class="meta__item-author meta__item">
 <svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2.0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class=meta__text>山田ハヤオ</span>
 </div>
 <div class="meta__item-datetime meta__item">
-<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class=meta__text datetime=2022-07-13T18:24:21+09:00>July 13, 2022</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class=meta__text><a class=meta__link href=/blog/categories/%E3%83%96%E3%83%AD%E3%82%B0/ rel=category>ブログ</a>, <a class=meta__link href=/blog/categories/%E6%8A%80%E8%A1%93%E7%B3%BB/ rel=category>技術系</a>
+<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class=meta__text datetime=2023-01-01T20:22:57+09:00>January 01, 2023</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class=meta__text><a class=meta__link href=/blog/categories/%E3%83%96%E3%83%AD%E3%82%B0/ rel=category>ブログ</a>, <a class=meta__link href=/blog/categories/%E6%8A%80%E8%A1%93%E7%B3%BB/ rel=category>技術系</a>
 </span>
 </div></div>
 </header>
 <div class="content post__content clearfix">
-<h2 id=警告>警告</h2>
-<p>こんなツールを見つけたよというだけです。すべて自己責任でお願いします。</p>
-<h2 id=依存関係をインストールする>依存関係をインストールする</h2>
-<p><code>adb</code>は言わずもがな。</p>
-<p>更に追加で<a href="https://www.azul.com/downloads/?version=java-17-lts&package=jdk">Azul JDK17</a>をインストールする。</p>
-<h2 id=スクリプトをダウンロードして実行>スクリプトをダウンロードして実行</h2>
-<p><a href=https://github.com/reisxd/revanced-builder/releases>ここ</a>から自分のOSに合ったバイナリをダウンロードする。</p>
-<p>あとはコマンドラインから実行権限を付与して実行する。</p>
-<p>あとは全部自動でできるらしい。</p>
+<p>あけましておめでとうございます。今年もよろしくお願い致します。</p>
+<p>新年早々暇すぎてAndroiのいい感じのモジュールを見かけたのでメモ。</p>
+<h2 id=advanced-charging-controller>Advanced Charging Controller</h2>
+<p>名前の通り充電をコントロールするためのツール。Magisk上でCLIツールとして動くらしい。</p>
+<p>色々ネットのフォーラムとか漁ってると配布場所が複数あるけど、素直に公式のGitHubから持ってくるべき。</p>
+<p><a href=https://github.com/VR-25/acc/releases/latest>https://github.com/VR-25/acc/releases/latest</a></p>
+<p>拡張子がzipのやつを導入して終わり。</p>
+<h2 id=acca>AccA</h2>
+<p>Advanced Charging Controller はCLIで使いにくいので、GUIフロントエンドを導入。</p>
+<p>GitHubにもApkがあるけど、無難にF-Droidから引っ張ってくればいいと思う。</p>
+<p><a href=https://github.com/MatteCarra/AccA>https://github.com/MatteCarra/AccA</a></p>
+<p><a href=https://f-droid.org/packages/mattecarra.accapp/>https://f-droid.org/packages/mattecarra.accapp/</a></p>
+<p>みんなF-Droid好きでしょどうせしらんけど。</p>
+<h2 id=設定>設定</h2>
+<p>とりあえず充電を85%で停止させるようにしておく。</p>
+<p>果たしてこれがいい影響を与えるかどうかは非常に未知数ではあるけれども。</p>
+<h2 id=おまけ>おまけ</h2>
+<p>あんまりMagiskモジュールを知らないので、面白いやつ知ってたら教えて下さい。</p>
 </div>
 <footer class=post__footer>
 <div class="post__tags tags clearfix"><svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5.0 11V3C0 1.5.8.8.8.8S1.5.0 3 0h8c1.5.0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 100-6 3 3 0 000 6z"/></svg>
@@ -123,15 +132,9 @@
 </a>
 <nav class="pager flex">
 <div class="pager__item pager__item--prev">
-<a class=pager__link href=/blog/posts/20220520/linux-unnecessary/ rel=prev>
+<a class=pager__link href=/blog/posts/20221224/buy-new-pc/ rel=prev>
 <span class=pager__subtitle>«&#8201;前の記事</span>
-<p class=pager__title>Linuxは不要論を唱えてみる</p>
-</a>
-</div>
-<div class="pager__item pager__item--next">
-<a class=pager__link href=/blog/posts/20220713/the-future-of-alterlinux/ rel=next>
-<span class=pager__subtitle>次の記事&#8201;»</span>
-<p class=pager__title>Alter Linuxの今後について</p>
+<p class=pager__title>大学生向けのノートPCの選び方</p>
 </a>
 </div>
 </nav>
@@ -139,19 +142,19 @@
 <section class="section sns_parent">
 <div class=sns_section style=display:inline>
 <div class="sns_button twitter">
-<a href="http://twitter.com/intent/tweet?url=http%3a%2f%2fhayao.fascode.net%2fblog%2fposts%2f20220713%2fyoutube-revanced-easiest%2f&text=Youtube%20Revanced%e3%82%92%e6%9c%80%e3%82%82%e7%b0%a1%e5%8d%98%e3%81%ab%e5%b0%8e%e5%85%a5%e3%81%99%e3%82%8b%e6%96%b9%e6%b3%95" target=_blank title=Tweet><i class="fab fa-twitter"></i></a>
+<a href="http://twitter.com/intent/tweet?url=http%3a%2f%2fhayao.fascode.net%2fblog%2fposts%2f20230101%2fcontrol-battery%2f&text=Magisk%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6Android%e3%81%ae%e5%85%85%e9%9b%bb%e7%8a%b6%e6%85%8b%e3%82%92%e7%ae%a1%e7%90%86%e3%81%99%e3%82%8b" target=_blank title=Tweet><i class="fab fa-twitter"></i></a>
 </div>
 <div class="sns_button hatena">
-<a href="http://b.hatena.ne.jp/add?mode=confirm&url=http%3a%2f%2fhayao.fascode.net%2fblog%2fposts%2f20220713%2fyoutube-revanced-easiest%2f&title=Youtube%20Revanced%e3%82%92%e6%9c%80%e3%82%82%e7%b0%a1%e5%8d%98%e3%81%ab%e5%b0%8e%e5%85%a5%e3%81%99%e3%82%8b%e6%96%b9%e6%b3%95" target=_blank title=hatena><i class="fa fa-hatena"></i></i></a>
+<a href="http://b.hatena.ne.jp/add?mode=confirm&url=http%3a%2f%2fhayao.fascode.net%2fblog%2fposts%2f20230101%2fcontrol-battery%2f&title=Magisk%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6Android%e3%81%ae%e5%85%85%e9%9b%bb%e7%8a%b6%e6%85%8b%e3%82%92%e7%ae%a1%e7%90%86%e3%81%99%e3%82%8b" target=_blank title=hatena><i class="fa fa-hatena"></i></i></a>
 </div>
 <div class="sns_button facebook">
-<a href="http://www.facebook.com/sharer.php?u=http%3a%2f%2fhayao.fascode.net%2fblog%2fposts%2f20220713%2fyoutube-revanced-easiest%2f&t=Youtube%20Revanced%e3%82%92%e6%9c%80%e3%82%82%e7%b0%a1%e5%8d%98%e3%81%ab%e5%b0%8e%e5%85%a5%e3%81%99%e3%82%8b%e6%96%b9%e6%b3%95" target=_blank title=Facebook><i class="fab fa-facebook"></i></a>
+<a href="http://www.facebook.com/sharer.php?u=http%3a%2f%2fhayao.fascode.net%2fblog%2fposts%2f20230101%2fcontrol-battery%2f&t=Magisk%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6Android%e3%81%ae%e5%85%85%e9%9b%bb%e7%8a%b6%e6%85%8b%e3%82%92%e7%ae%a1%e7%90%86%e3%81%99%e3%82%8b" target=_blank title=Facebook><i class="fab fa-facebook"></i></a>
 </div>
 <div class="sns_button google">
-<a href="https://plus.google.com/share?url=http%3a%2f%2fhayao.fascode.net%2fblog%2fposts%2f20220713%2fyoutube-revanced-easiest%2f" target=_blank title=google+><i class="fab fa-google-plus"></i></a>
+<a href="https://plus.google.com/share?url=http%3a%2f%2fhayao.fascode.net%2fblog%2fposts%2f20230101%2fcontrol-battery%2f" target=_blank title=google+><i class="fab fa-google-plus"></i></a>
 </div>
 <div class="sns_button pocket">
-<a href="http://getpocket.com/edit?url=http%3a%2f%2fhayao.fascode.net%2fblog%2fposts%2f20220713%2fyoutube-revanced-easiest%2f&title=Youtube%20Revanced%e3%82%92%e6%9c%80%e3%82%82%e7%b0%a1%e5%8d%98%e3%81%ab%e5%b0%8e%e5%85%a5%e3%81%99%e3%82%8b%e6%96%b9%e6%b3%95" target=_blank title=pocket><i class="fab fa-get-pocket"></i></a>
+<a href="http://getpocket.com/edit?url=http%3a%2f%2fhayao.fascode.net%2fblog%2fposts%2f20230101%2fcontrol-battery%2f&title=Magisk%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6Android%e3%81%ae%e5%85%85%e9%9b%bb%e7%8a%b6%e6%85%8b%e3%82%92%e7%ae%a1%e7%90%86%e3%81%99%e3%82%8b" target=_blank title=pocket><i class="fab fa-get-pocket"></i></a>
 </div>
 </div>
 </section>
