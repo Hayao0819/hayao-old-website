@@ -15,6 +15,9 @@ const fakeBar = document.getElementById("fakebar");
 sectionList.forEach(e=>{
     // サイドバーを作成
     {
+        if (window.getComputedStyle(e).display == "none") {
+            return;
+        }
         let navItem = document.createElement("li");
         let navLink = document.createElement("a");
         navItem.classList.add("nav-item");
