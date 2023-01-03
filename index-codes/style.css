@@ -46,3 +46,12 @@
 .card-title img{
     width: 5rem;
 }
+
+/* メニューのスクロールバーを隠す */
+#sidebar{
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+#sidebar::-webkit-scrollbar{
+    display: none;
+}
