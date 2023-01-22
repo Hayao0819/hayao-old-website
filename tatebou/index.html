@@ -30,6 +30,7 @@
     Todo 
     ・ローカルストレージで履歴保存を実装する
     ・現状モーダルとボタンだけ実装してボタンを非表示にしてある
+
 -->
 <body>
     <div class="container-fluid position-relative vh-100">
@@ -79,6 +80,7 @@
                             <div class="mb-3">
                                 <input class="btn btn-primary"   type="button" value="作成" id="runBtn">
                                 <input class="btn btn-secondary d-none" type="button" value="履歴" id="historyBtn" data-bs-toggle="modal" data-bs-target="#historyModal">
+                                <input class="btn btn-danger" type="button" value="クリア" id="clrBtn">
                             </div>
 
                             <div class="mb-3">
@@ -343,12 +345,17 @@
                 this.output.select();
                 document.execCommand("copy");
             }
+            clear(){
+                this.url.value = "";
+                this.output.value = "";
+            }
         }
 
         const app = new App();
         document.getElementById("runBtn").addEventListener("click", () => app.run() );
         document.getElementById("testBtn").addEventListener("click", () => app.test() );
         document.getElementById("copyBtn").addEventListener("click", () => app.copy() );
+        document.getElementById("clrBtn").addEventListener("click", () => app.clear() );
         document.getElementById("historyRemoveBtn").addEventListener("click", () => app.history.remove() );
     </script>
 
