@@ -78,7 +78,7 @@
 
                             <div class="mb-3">
                                 <input class="btn btn-primary"   type="button" value="作成" id="runBtn">
-                                <input class="btn btn-dark" type="button" value="履歴" id="historyBtn" data-bs-toggle="modal" data-bs-target="#historyModal">
+                                <input class="btn btn-dark d-none" type="button" value="履歴" id="historyBtn" data-bs-toggle="modal" data-bs-target="#historyModal">
                                 <input class="btn btn-danger" type="button" value="クリア" id="clrBtn">
                             </div>
 
@@ -236,8 +236,13 @@
             constructor(){
                 this.keyName = "history";
                 this.history = [];
+                this.btn = document.getElementById("historyBtn");
                 this.table = document.getElementById("hitoryTableBody")
                 this.loadFromLocal()
+
+                if (this.history.length != 0){
+                    this.showHistoryBtn();
+                }
 
             }
             get(){
@@ -245,6 +250,7 @@
             }
             saveToLocal(){
                 localStorage.setItem(this.keyName, JSON.stringify(this.history));
+                this.showHistoryBtn();
             }
             loadFromLocal(){
                 this.history = JSON.parse(localStorage.getItem(this.keyName)) || [];
@@ -266,7 +272,15 @@
                 this.history = [];
                 this.table.innerHTML = "";
                 this.saveToLocal();
+                this.hideHistoryBtn();
             }
+            showHistoryBtn(){
+                this.btn.classList.remove("d-none");
+            }
+            hideHistoryBtn(){
+                this.btn.classList.add("d-none");
+            }
+            
         }
 
 
