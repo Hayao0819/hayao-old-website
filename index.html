@@ -137,6 +137,8 @@
                                 let age = year - 2004
                                 if(age < 0){
                                     return "まだ生まれていません。";
+                                }else if (age > 100){
+                                    return `${age}歳ですが、たぶん死んでます。30歳くらいまで生きれればいいかな。`;
                                 }
                                 
                                 return `${age}歳です。`;
