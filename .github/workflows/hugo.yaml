@@ -36,7 +36,7 @@ jobs:
           publish_dir: ./
 
       - name: Build for GitHub Pages
-        run: bash ./update-blog.sh --baseURL https://hayao0819.github.io/hayao.fascode.net/blog/
+        run: bash ./update-blog.sh --baseURL https://old.hayao0819.com/blog/
 
       - name: Deploy for GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
@@ -45,37 +45,4 @@ jobs:
           publish_branch: gh-pages
           publish_dir: ./
 
-  # このjobはhayao0819/hayao0819.github.ioにリポジトリをミラーします
-  mirror-repo:
-    runs-on: ubuntu-latest
-    if: github.repository == 'hayao0819/hayao.fascode.net'
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          submodules: true
-          fetch-depth: 0 
-
-      - name: Install SSH key
-        uses: shimataro/ssh-key-action@v2
-        with:
-          key: ${{ secrets.GH_PAGES_REPO_DEPLOY_KEY }}
-          name: id_rsa # optional
-          known_hosts: unnecessary
-
-      - name: Commit files to hayao0819.github.io
-        env: 
-          GH_PAGES_REPO_DEPLOY_KEY: ${{ secrets.GH_PAGES_REPO_DEPLOY_KEY }}
-        run: |
-          echo "$GH_PAGES_REPO_DEPLOY_KEY" > ~/deploy_key.pem
-          chmod 600 ~/deploy_key.pem
-          git config --local user.email "hayao@fascode.net"
-          git config --local user.name "hayao[bot]"
-          git config pull.rebase false
-          git config remote.origin.url "git@github.com:hayao0819/hayao0819.github.io.git"
-          echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
-          git add -A
-          git checkout -b mirror
-          git pull --allow-unrelated-histories origin mirror
-          git push --force origin mirror
     
