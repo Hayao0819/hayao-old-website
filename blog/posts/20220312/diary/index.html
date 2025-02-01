@@ -69,6 +69,9 @@
 </ul>
 </nav>
 </div>
+<div style=text-align:center;padding-top:4px;padding-bottom:4px>
+<span>このサイトは更新を停止しました。<a href=https://www.hayao0819.com/blog style=text-decoration:underline>新しいブログ</a>をご覧ください。</span>
+</div>
 </header>
 <div class="wrapper flex">
 <div class=primary>
@@ -99,57 +102,6 @@
 <p>今までお葬式とかって数回出てるけど、関わりのない人だったりそこまで好きじゃない人だったり幼少期だったりしてどれも参考にならない。</p>
 <p>何か良い対象方法でもあったら教えてくれ。マジでそろそろ復帰しないとマジで引きこもりになる。</p>
 <p>シンタローもこんな気持ちだったのかなって思うとマジで親近感が湧いてくる。このまま高校辞めよっかな。</p>
-<h2 id=twitterの話>Twitterの話</h2>
-<p>ずっとあれからTwitterとか何かソシャゲとかやる気になれなくて、ずっと何もしていない。</p>
-<p>いや、それは訂正。プロセカはめちゃくちゃやった。多分40回くらいやった。マジで。</p>
-<p>スタミナみたいなやつ200回復して1ライブ5消費でずっとやってた。楽曲ランダムでひたすら無限に。</p>
-<p>このままだったらTwitterいらねぇんじゃねぇかってなってる。</p>
-<p>ただツイ廃の血はDNAレベルなのでいまだにこうして無意味な文を書いてるけど。</p>
-<p>Twitterやめてこういう一方方向のブログでも良いのかななんて思い始めてる。</p>
-<h2 id=帰宅>帰宅</h2>
-<p>なんかかんやで帰宅。相変わらず何もやる気になれん。のばまんの動画でも見るか。</p>
-<h2 id=メガネ>メガネ</h2>
-<p>目が見えなくなってきた。視力を測ったら、メガネしてる状態で0.2しかなかった。</p>
-<p>んで新しく処方箋を出してもらったので、新しくレンズを買うことにした。</p>
-<p>どうせちょうどまだレンズを買ってないまどマギコラボのさやかちゃんのメガネがあったのでそれにつけることにした。</p>
-<h2 id=gnuとbsd>GNUとBSD</h2>
-<p>最近はPCはずっとMacでしか作業してないので書くシェルスクリプトも必然的にBSD系の実装になっている気がする。</p>
-<p>Macで書いたコードをGitHub ActionのUbuntuで走らせたら<code>sed -i ""</code>ってコードが動かなかった。</p>
-<p>ゆとりのワイにはPOSIX互換なんてコードは書けないので、</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#66d9ef>if</span> sed -h 2&gt;&amp;<span style=color:#ae81ff>1</span> | grep -q <span style=color:#e6db74>&#34;GNU&#34;</span>; <span style=color:#66d9ef>then</span>
-  sed -i
-<span style=color:#66d9ef>else</span>
-  sed -i <span style=color:#e6db74>&#34;&#34;</span>
-<span style=color:#66d9ef>fi</span>
-</code></pre></div><p>というヘルプ文書を悪用した脳死コードでGNUかどうかを判別してる。</p>
-<p>GNU系のツールの謎の文化なのかライセンスに厳しいからなのか、coreutils系のコマンドはすべてヘルプ文書にGNUという文字が入っているので、これを活用すれば環境ごとに別で分岐できる。</p>
-<p>ぶっちゃけディストリをシェルスクリプトで判別するのは非常に難しいので、これが一番合理的。</p>
-<p>いやneofetchのコードとか見てみ。ディストリとかOS判定でとんでもない量のコード書かれてるから。</p>
-<p>各ディストリが<code>/etc/arch-release</code>みたいなファイルを好き勝手配置して、互換性のために<code>/etc/os-release</code>はベースOSのまま、みたいなのが行われてるせいで詳細なディストリ判定が不可能に近いことになってる。</p>
-<p>これを簡単に行うライブラリとかあったら助かるんだけどな。</p>
-<p>ちなみにデスクトップ環境とかウィンドウマネージャの判別はもっと難しくて、環境変数とか設定ファイルとかを地道に判断していくしかない。</p>
-<p>XDGあたりが<code>XDG_DE</code>とか<code>XDG_WM</code>みたいな環境変数を標準で制定してくれれば多少は楽になる。</p>
-<p>Windows、Linux、Mac、BSD、Android、iPhoneの判別はそれなりに簡単だから、あとはそれぞれの環境変数なり設定ファイルなりを参照すれば良いだけになる。</p>
-<p>そのためのFreeDesktop.orgじゃないのかと思うけど、あいつらは性質上あまりにも保守的なのでだめ。</p>
-<p>というか今更そんな環境変数を設定してもどうせ過去バージョンの対応とかで結局ダメになる。</p>
-<p>この現象どこまで見たなって考えてたらこれブラウザのユーザーエージェントだわ。</p>
-<p>ああやって文字列だけで共通のインターフェースを目指すとカオスになるっていうオチね。</p>
-<p>レガシーコードは悪。</p>
-<p>でも上のgrep使った<a href=https://github.com/Hayao0819/FasBashLib/runs/5522077963>脳死ゴリ押し判定でビルド通った</a>のでよし。</p>
-<h2 id=alter-linuxの話>Alter Linuxの話</h2>
-<p>レガシーコードで思い出したんだけど、Alter Linuxの二大レガシーコードの話多分誰にもしてないよね。</p>
-<p>あの中に<code>medit</code>と<code>qt5-styleplugin</code>っていうパッケージが入ってるんだけど、あの2つがめちゃくちゃ古い。</p>
-<p>Meditは記述言語と使用技術がGTK2にPython２だからね？あれのためだけにAlter LinuxにはPython2のPyGObjectがインストールされているくらい。</p>
-<p>んでビルドの上でPyGObjectは流石に重すぎるのでMeditを削除することにしたんだけど代替案がなくていまだに模索中。</p>
-<p>MousePadかLeafPadあたりでいいかなと思ってるんだけどね。</p>
-<p>んでもう一つは<code>qt5-styleplugin</code>、こいつはQtアプリ上でGTKテーマを使うために入れてるプラグイン。</p>
-<p>でも公式のソース上だと開発が10年前に止まってて、それをAURのメンテナがパッチをなんとか作って今でも動かしてる状態。</p>
-<p>んでQtのライブラリがアップデートされると動かなくなっちゃうから、自分で際ビルドしないといけない。</p>
-<p>そのせいでQt系のアプリが全て死んでしまうというあまりにも迷惑なおち。</p>
-<p>まぁMeditは削除が決まったんだけどQtの方はいまだにインストールリストにあるからね。</p>
-<p>こいつをどうすればいいかなってのはずっと考えてるんだけど対象方法がわからん。</p>
-<h2 id=今思ったこと>今思ったこと</h2>
-<p>正直Twitterよりもこうして一人で日記にした方がいいのでは？？運営とかいう面倒な輩もいないし。</p>
 </div>
 </article>
 </main>
@@ -175,9 +127,9 @@
 </a>
 </div>
 <div class="pager__item pager__item--next">
-<a class=pager__link href=/blog/posts/20220312/memo/ rel=next>
+<a class=pager__link href=/blog/posts/20220502/prireco8-prepare/ rel=next>
 <span class=pager__subtitle>次の記事&#8201;»</span>
-<p class=pager__title>Memo</p>
+<p class=pager__title>プリレコ8の参加準備と当日日程</p>
 </a>
 </div>
 </nav>
@@ -207,7 +159,7 @@
 <footer class=footer>
 <div class="container footer__container flex">
 <div class=footer__copyright>
-&copy; 2023 Yamada Hayao.
+&copy; 2025 Yamada Hayao.
 ソースコードは<a href=https://github.com/Hayao0819/hayao.fascode.net>こちら</a>で公開されています。
 </div>
 </div>
